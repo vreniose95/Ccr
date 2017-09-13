@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Threading;
 using JetBrains.Annotations;
 using static JetBrains.Annotations.AssertionConditionType;
 
@@ -21,7 +24,7 @@ namespace Ccr.Core.Extensions
 		/// </param>
 		[ContractAnnotation("this:null => halt"), AssertionMethod]
 		public static void IsNotNull(
-			[AssertionCondition(IS_NOT_NULL)] this object @this,
+			[AssertionCondition(IS_NOT_NULL), NotNull] this object @this,
 			[InvokerParameterName] string elementName,
 			[CallerMemberName] string callerMemberName = "")
 		{

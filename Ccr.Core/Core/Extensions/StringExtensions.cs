@@ -125,21 +125,21 @@ namespace Ccr.Core.Extensions
 					normalizedIdentifier.Substring(1));
 		}
 
-		public static string ToCommaSeparatedList(
-				this object[] series,
-				CoordinatingConjunction coordinatingConjunction = CoordinatingConjunction.None)
-		{
-			var stringBuilder = new StringBuilder();
+		//public static string ToCommaSeparatedList(
+		//		this object[] series,
+		//		CoordinatingConjunction coordinatingConjunction = CoordinatingConjunction.None)
+		//{
+		//	var stringBuilder = new StringBuilder();
 
-			var seriesLength = series.Length;
-			for (var i = 0; i < seriesLength - 2; i++)
-			{
-				stringBuilder.Append(series[i]);
-				stringBuilder.Append(", ");
-			}
-			stringBuilder.Append(series[seriesLength - 1]);
-			return stringBuilder.ToString();
-		}
+		//	var seriesLength = series.Length;
+		//	for (var i = 0; i < seriesLength - 2; i++)
+		//	{
+		//		stringBuilder.Append(series[i]);
+		//		stringBuilder.Append(", ");
+		//	}
+		//	stringBuilder.Append(series[seriesLength - 1]);
+		//	return stringBuilder.ToString();
+		//}
 
 	}
 }

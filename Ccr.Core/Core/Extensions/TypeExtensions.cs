@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Ccr.Core.TypeSystemInfo;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
@@ -21,7 +22,7 @@ namespace Ccr.Core.Extensions
 		/// <returns>
 		/// The object that has been typecasted to the specified type.
 		/// </returns>
-		public static TValue As<TValue>(
+		public static TValue IsOfType<TValue>(
 			this object @this)
 		{
 			if (@this is TValue)
@@ -31,6 +32,23 @@ namespace Ccr.Core.Extensions
 				$"Cannot cast object of type \'{@this.GetType().Name}\' " +
 				$"to the type \'{typeof(TValue).Name}\'");
 		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <typeparam name="TValue"></typeparam>
+		/// <param name="this"></param>
+		/// <returns></returns>
+		public static TValue As<TValue>(
+			this object @this)
+		{
+			if (@this == null)
+				return default(TValue);
+
+			return @this.As<TValue>();
+		}
+
 
 		/// <summary>
 		/// 
@@ -46,6 +64,7 @@ namespace Ccr.Core.Extensions
 
 			return @this.As<TValue>();
 		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -124,6 +143,14 @@ namespace Ccr.Core.Extensions
 
 			return instance;
 		}
+
+
+		public static bool IsIntegralType(
+			this Type @this)
+		{
+			return IntegralTypeReference.IsIntegralType(@this);
+		}
+
 
 		/// <summary>
 		/// a mapping of the account C#'s built in type table defined at 

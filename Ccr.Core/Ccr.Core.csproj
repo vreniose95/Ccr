@@ -45,9 +45,19 @@
   <ItemGroup>
     <Compile Include="Core\Extensions\AssertionExtensions.cs" />
     <Compile Include="Core\Extensions\CharExtensions.cs" />
+    <Compile Include="Core\Extensions\EnumExtensions.cs" />
     <Compile Include="Core\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Core\Extensions\StringExtensions.cs" />
     <Compile Include="Core\Extensions\TypeExtensions.cs" />
+    <Compile Include="Core\TypeSystemInfo\FluentConfiguration\IntegralRangeConfiguredContext.cs" />
+    <Compile Include="Core\TypeSystemInfo\FluentConfiguration\IntegralTypeExtensions.cs" />
+    <Compile Include="Core\TypeSystemInfo\FluentConfiguration\SystemTypeConfiguredContext.cs" />
+    <Compile Include="Core\TypeSystemInfo\IntegralTypeInfo.cs" />
+    <Compile Include="Core\TypeSystemInfo\IntegralTypeBuilder.cs" />
+    <Compile Include="Core\TypeSystemInfo\IntegralTypeReference.cs" />
+    <Compile Include="Core\TypeSystemInfo\IntegralTypeSize.cs" />
+    <Compile Include="Core\TypeSystemInfo\IntegralTypeValueRange.cs" />
+    <Compile Include="Core\TypeSystemInfo\Signedness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
