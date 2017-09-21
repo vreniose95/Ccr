@@ -8,53 +8,93 @@ namespace Ccr.Core.Extensions
 {
 	public static class StringExtensions
 	{
-		public static bool IsNullOrWhiteSpace(this string @this) => string.IsNullOrWhiteSpace(@this);
+	  public static bool IsNullOrWhiteSpace(
+	    this string @this)
+	  {
+	    return string.IsNullOrWhiteSpace(@this);
+	  }
 
-		public static bool IsNullOrEmpty(this string @this) => string.IsNullOrEmpty(@this);
+	  public static bool IsNullOrEmpty(
+	    this string @this)
+	  {
+      return string.IsNullOrEmpty(@this);
+	   }
 
+	  public static string Surround(
+	    this string @this,
+	    char c)
+	  {
+	   return $"{c}{@this}{c}";
+    }
 
+    public static string SQuote(
+      this string @this)
+	  {
+	    return @this.Surround('\''); 
+	  }
 
-		public static string SQuote(this string @this) => @this.Surround('\'');
+	  public static string Quote(
+	    this string @this)
+	  {
+      return @this.Surround('\"');
+    }
 
-		public static string Quote(this string @this) => @this.Surround('\"');
+		
 
-		public static string Surround(this string @this, char c) => $"{c}{@this}{c}";
-
-
-		public static string Limit(this string @this, int length)
+		public static string Limit(
+      this string @this, 
+      int length)
 		{
-			if (@this.Length > length)
-				return @this.Substring(0, length);
-			return @this;
+		  return @this.Length > length 
+        ? @this.Substring(0, length) 
+        : @this;
 		}
 
-		public static string ToTitleCase(this string i)
+	  private static TextInfo _textInfo;
+	  internal static TextInfo TextInfo
+	  {
+	    get => _textInfo
+	           ?? (_textInfo = new CultureInfo("en-US", false).TextInfo);
+	  }
+
+	  public static string ToTitleCase(
+      this string @this)
+	  {
+	    return TextInfo.ToTitleCase(@this);
+
+	  }
+
+		public static bool ContainsCaseInsensitive(
+      this string @this, 
+      string toCheck)
 		{
-			var textInfo = new CultureInfo("en-US", false).TextInfo;
-			return textInfo.ToTitleCase(i.ToLower());
+			return @this
+        .IndexOf(toCheck, StringComparison.OrdinalIgnoreCase) >= 0;
 		}
 
-		public static bool ContainsCaseInsensitive(this string source, string toCheck)
+		public static bool IsExclusivelyHex(
+      this string source)
 		{
-			return source.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase) >= 0;
+			return Regex.IsMatch(
+        source, 
+        @"\A\b[0-9a-fA-F]+\b\Z");
 		}
-
-		public static bool IsExclusivelyHex(this string source)
+		public static bool IsCStyleCompilerHexLiteral(
+      this string source)
 		{
-			return Regex.IsMatch(source, @"\A\b[0-9a-fA-F]+\b\Z");
-		}
-		public static bool IsCStyleCompilerHexLiteral(this string source)
-		{
-			return Regex.IsMatch(source, @"\A\b(0[xX])?[0-9a-fA-F]+\b\Z");
-		}//
+			return Regex.IsMatch(
+        source, 
+        @"\A\b(0[xX])?[0-9a-fA-F]+\b\Z");
+		}//                                  
 
 		// definition of a valid C# identifier: http://msdn.microsoft.com/en-us/library/aa664670(v=vs.71).aspx
 		/// <summary>
 		/// Information on the standards of how the language specificiation 
-		/// consitutes a valid C# meember identifier.
+		/// consitutes a valid C# member identifier.
 		/// </summary>
 		// ReSharper disable once RedundantArrayCreationExpression
-		private static readonly List<string> _csharpLanguageKeywords = new List<string>
+		private static readonly List<string> _csharpLanguageKeywords 
+      = new List<string>
 		{
 			"abstract",  "event",      "new",        "struct",
 			"as",        "explicit",   "null",       "switch",

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,6 +12,8 @@
     <AssemblyName>Ccr.Core</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +38,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +52,20 @@
     <Compile Include="Core\Extensions\CharExtensions.cs" />
     <Compile Include="Core\Extensions\EnumExtensions.cs" />
     <Compile Include="Core\Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions.cs" />
     <Compile Include="Core\Extensions\StringExtensions.cs" />
     <Compile Include="Core\Extensions\TypeExtensions.cs" />
+    <Compile Include="Core\Numerics\Ranges\ByteRange.cs" />
+    <Compile Include="Core\Numerics\EndpointExclusivity.cs" />
+    <Compile Include="Core\Numerics\IIntegralRange.cs" />
+    <Compile Include="Core\Numerics\Ranges\Int16Range.cs" />
+    <Compile Include="Core\Numerics\Ranges\Int32Range.cs" />
+    <Compile Include="Core\Numerics\Ranges\Int64Range.cs" />
+    <Compile Include="Core\Numerics\IntegralRangeBase.cs" />
+    <Compile Include="Core\Numerics\Ranges\SByteRange.cs" />
+    <Compile Include="Core\Numerics\Ranges\UInt16Range.cs" />
+    <Compile Include="Core\Numerics\Ranges\UInt32Range.cs" />
+    <Compile Include="Core\Numerics\Ranges\UInt64Range.cs" />
     <Compile Include="Core\TypeSystemInfo\FluentConfiguration\IntegralRangeConfiguredContext.cs" />
     <Compile Include="Core\TypeSystemInfo\FluentConfiguration\IntegralTypeExtensions.cs" />
     <Compile Include="Core\TypeSystemInfo\FluentConfiguration\SystemTypeConfiguredContext.cs" />
@@ -67,4 +84,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.8.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
 </Project>

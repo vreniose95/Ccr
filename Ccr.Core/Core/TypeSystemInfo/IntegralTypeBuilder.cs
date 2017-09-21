@@ -18,12 +18,12 @@ namespace Ccr.Core.TypeSystemInfo
 			var minValue = systemType
 				.GetField(minValueFieldName)
 				.GetValue(null)
-				.IsOfType<long>();
+				.To<long>();
 
 			var maxValue = systemType
 				.GetField(maxValueFieldName)
 				.GetValue(null)
-				.IsOfType<ulong>();
+				.To<ulong>();
 
 			var valueRange = new IntegralTypeValueRange(
 				minValue,
@@ -38,7 +38,7 @@ namespace Ccr.Core.TypeSystemInfo
 			var minValue = systemType
 				.GetField(minValueFieldName)
 				.GetValue(null)
-				.IsOfType<long>();
+				.To<long>();
 
 			var signedness = minValue == 0
 				? Signedness.Unsigned

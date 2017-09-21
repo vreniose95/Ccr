@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D706091C-958D-43CC-96B2-229829EA325B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ccr</RootNamespace>
+    <AssemblyName>Ccr.PresentationCore</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Extensions\ControlExtensions.cs" />
+    <Compile Include="Core\Extensions\InvocationExtensions.cs" />
+    <Compile Include="Core\Extensions\MediaExtensions.cs" />
+    <Compile Include="PresentationCore\Collections\ValueEnum.cs" />
+    <Compile Include="PresentationCore\Controls\Designer.cs" />
+    <Compile Include="PresentationCore\Controls\MobileViewport.cs" />
+    <Compile Include="PresentationCore\Controls\ObservableObject.cs" />
+    <Compile Include="PresentationCore\Controls\PageOrientation.cs" />
+    <Compile Include="PresentationCore\Controls\Viewport.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\Callbacks.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DependencyProperty.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DP.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPChangedEventArgs.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\Meta.cs" />
+    <Compile Include="PresentationCore\Helpers\EventHelpers\EM.cs" />
+    <Compile Include="PresentationCore\Layout\Percentage.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseExtensionBase.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInExtension.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInOutExtension.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseOutExtension.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingFunctionFactory.cs" />
+    <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingType.cs" />
+    <Compile Include="PresentationCore\Markup\TypeConverters\PercentageConverter.cs" />
+    <Compile Include="PresentationCore\Media\HslColor.cs" />
+    <Compile Include="PresentationCore\Media\HsvColor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
+      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
+      <Name>Ccr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj">
+      <Project>{e2007a7d-451a-4ac5-874f-638669a45c95}</Project>
+      <Name>Ccr.WinCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

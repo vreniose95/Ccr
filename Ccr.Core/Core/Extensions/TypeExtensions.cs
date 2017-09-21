@@ -46,7 +46,7 @@ namespace Ccr.Core.Extensions
 			if (@this == null)
 				return default(TValue);
 
-			return @this.As<TValue>();
+			return @this.IsOfType<TValue>();
 		}
 
 
