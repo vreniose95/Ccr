@@ -1,6 +1,6 @@
 ﻿using System;
-
-namespace Ccr.Core.Numerics
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace Ccr.Core.Numerics.Ranges
 {
   public class ByteRange
     : IntegralRangeBase<byte>
@@ -12,6 +12,7 @@ namespace Ccr.Core.Numerics
       maximum)
     {
     }
+
     public static implicit operator ByteRange(
       Tuple<Byte, Byte> value)
     {

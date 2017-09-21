@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A61F3ED9-9C1E-4612-BA97-54BE78A1A146}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ccr</RootNamespace>
+    <AssemblyName>Ccr.Xaml</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xaml\Collections\INotifyCollectionChanged.cs" />
+    <Compile Include="Xaml\Collections\IReactiveCollection.cs" />
+    <Compile Include="Xaml\Collections\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="Xaml\Collections\NotifyCollectionChangedEventHandler.cs" />
+    <Compile Include="Xaml\Collections\ReactiveCollection.cs" />
+    <Compile Include="Xaml\Collections\ReactiveDependencyObjectCollection.cs" />
+    <Compile Include="Xaml\Infrastructure\AbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\Infrastructure\IAbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\ConverterParam.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\NullParam.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%271.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%272.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%273.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%274.cs" />
+    <Compile Include="Xaml\Markup\Extensions\MarkupExtensionAbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\Markup\TypeConverterInjection\InjectTypeConverterAttribute.cs" />
+    <Compile Include="Xaml\Markup\TypeConverterInjection\TypeConverterInjectionCore.cs" />
+    <Compile Include="Xaml\XamlUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
+      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
+      <Name>Ccr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
+      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
+      <Name>Ccr.Introspective</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Xaml\Markup\Core\" />
+    <Folder Include="Xaml\Markup\Formatters\" />
+    <Folder Include="Xaml\Markup\TypeConverters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

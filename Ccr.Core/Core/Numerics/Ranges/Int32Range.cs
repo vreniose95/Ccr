@@ -1,6 +1,6 @@
 ﻿using System;
 // ReSharper disable BuiltInTypeReferenceStyle
-namespace Ccr.Core.Numerics
+namespace Ccr.Core.Numerics.Ranges
 {
   //SByte, Byte,
   public class Int32Range
@@ -13,6 +13,7 @@ namespace Ccr.Core.Numerics
 				maximum)
 		{
 		}
+
 		public static implicit operator Int32Range(
 			Tuple<Int32, Int32> value)
 		{

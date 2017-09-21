@@ -1,8 +1,9 @@
-﻿using System;  
-namespace Ccr.Core.Numerics
+﻿using System;
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace Ccr.Core.Numerics.Ranges
 {
   public class Int64Range
-    : IntegralRangeBase<long>
+    : IntegralRangeBase<Int64>
   {
     public Int64Range(
       Int64 minimum,
@@ -11,6 +12,7 @@ namespace Ccr.Core.Numerics
       maximum)
     {
     }
+
     public static implicit operator Int64Range(
       Tuple<Int64, Int64> value)
     {

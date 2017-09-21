@@ -83,6 +83,10 @@
       <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
       <Name>Ccr.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
+      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
+      <Name>Ccr.Introspective</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj">
       <Project>{e2007a7d-451a-4ac5-874f-638669a45c95}</Project>
       <Name>Ccr.WinCore</Name>

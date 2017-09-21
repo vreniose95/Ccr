@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="MDHybrid.Buttons.Flat.xaml"/>
+		<ResourceDictionary Source="MDHybrid.Buttons.FloatingAction.xaml"/>
+		<ResourceDictionary Source="MDHybrid.Buttons.Path.xaml"/>
+		<ResourceDictionary Source="MDHybrid.Buttons.Raised.xaml"/>
+		<ResourceDictionary Source="MDHybrid.Buttons.Toggle.xaml"/>
+		<!--<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Flat.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.FloatingAction.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Path.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Raised.xaml"/>
+		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Toggle.xaml"/>-->
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

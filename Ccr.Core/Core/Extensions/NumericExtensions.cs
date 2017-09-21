@@ -1,5 +1,6 @@
 ﻿using System.Net.NetworkInformation;
 using Ccr.Core.Numerics;
+using Ccr.Core.Numerics.Ranges;
 
 namespace Ccr.Core.Extensions
 {

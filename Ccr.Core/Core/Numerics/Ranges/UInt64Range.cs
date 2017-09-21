@@ -1,9 +1,9 @@
 ﻿using System;
-
-namespace Ccr.Core.Numerics
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace Ccr.Core.Numerics.Ranges
 {
   public class UInt64Range
-    : IntegralRangeBase<ulong>
+    : IntegralRangeBase<UInt64>
   {
     public UInt64Range(
       UInt64 minimum,
@@ -12,6 +12,7 @@ namespace Ccr.Core.Numerics
         maximum)
     {
     }
+
     public static implicit operator UInt64Range(
       Tuple<UInt64, UInt64> value)
     {

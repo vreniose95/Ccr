@@ -21,6 +21,11 @@ namespace Ccr.Core.Extensions
 					t => Enum.GetName(_type, t));
 		}
 
+		public static IEnumerable<T> GetValues<T>()
+		{
+			return Enum.GetValues(typeof(T)).Cast<T>();
+		}
+
 		public static TUnderlyingType Add<TUnderlyingType>(
 			this Enum @this,
 			TUnderlyingType newItem)

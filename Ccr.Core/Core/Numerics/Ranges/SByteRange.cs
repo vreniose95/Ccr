@@ -1,17 +1,18 @@
 ﻿using System;
-
-namespace Ccr.Core.Numerics
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace Ccr.Core.Numerics.Ranges
 {
   public class SByteRange
-    : IntegralRangeBase<int>
+    : IntegralRangeBase<SByte>
   {
     public SByteRange(
-      Int32 minimum,
-      Int32 maximum) : base(
+      SByte minimum,
+      SByte maximum) : base(
         minimum,
         maximum)
     {
     }
+
     public static implicit operator SByteRange(
       Tuple<SByte, SByte> value)
     {

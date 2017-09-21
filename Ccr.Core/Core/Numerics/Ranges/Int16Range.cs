@@ -1,6 +1,6 @@
 ﻿using System;
 // ReSharper disable BuiltInTypeReferenceStyle
-namespace Ccr.Core.Numerics
+namespace Ccr.Core.Numerics.Ranges
 {
   public class Int16Range
     : IntegralRangeBase<short>

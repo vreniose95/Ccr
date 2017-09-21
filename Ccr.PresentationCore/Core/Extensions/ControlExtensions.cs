@@ -1,11 +1,12 @@
-﻿using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
+using Ccr.Introspective.Extensions;
+using Ccr.Introspective.Infrastructure;
 
 namespace Ccr.Core.Extensions
 {
 	public static class ControlExtensions
 	{
-		/*public static void OverrideStyleKey<TOwner>()
+		public static void OverrideStyleKey<TOwner>()
 		{
 			var defaultStyleKeyDependencyProperty = 
 				typeof(FrameworkElement)
@@ -19,7 +20,7 @@ namespace Ccr.Core.Extensions
 					typeof(TOwner), 
 					new FrameworkPropertyMetadata(
 						typeof(TOwner)));
-		}*/
+		}
 	}
 }
 /*	var defaultStyleKey = @this.GetValue(defaultStyleKeyDependencyProperty);

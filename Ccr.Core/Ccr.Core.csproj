@@ -55,6 +55,9 @@
     <Compile Include="Core\Extensions\NumericExtensions.cs" />
     <Compile Include="Core\Extensions\StringExtensions.cs" />
     <Compile Include="Core\Extensions\TypeExtensions.cs" />
+    <Compile Include="Core\Helpers\ComparisonType.cs" />
+    <Compile Include="Core\Helpers\StringComparisonSet.cs" />
+    <Compile Include="Core\Helpers\StringHelpers.cs" />
     <Compile Include="Core\Numerics\Ranges\ByteRange.cs" />
     <Compile Include="Core\Numerics\EndpointExclusivity.cs" />
     <Compile Include="Core\Numerics\IIntegralRange.cs" />

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0070F92F-E637-40AE-85FA-11AFF36DA105}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ccr</RootNamespace>
+    <AssemblyName>Ccr.MaterialDesign</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialIdentityConverter.cs" />
+    <Compile Include="MaterialDesign\Markup\ValueConverters\RangeLengthConverter.cs" />
+    <Compile Include="MaterialDesign\Markup\ValueConverters\RippleDiameterConverter.cs" />
+    <Compile Include="MaterialDesign\Markup\ValueConverters\RipplePlacementConverter.cs" />
+    <Compile Include="MaterialDesign\MaterialBrush.cs" />
+    <Compile Include="MaterialDesign\MaterialIdentity.cs" />
+    <Compile Include="MaterialDesign\Palette.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Ripple.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\RippleSurface.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\ButtonProgressAssist.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\HostedElement.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleAssist.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleInputTrackingService.cs" />
+    <Compile Include="MaterialDesign\Primitives\MaterialHybrid.cs" />
+    <Compile Include="MaterialDesign\Swatch.cs" />
+    <Compile Include="MaterialDesign\SwatchClassifier.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
+      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
+      <Name>Ccr.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
+      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
+      <Name>Ccr.Introspective</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.PresentationCore\Ccr.PresentationCore.csproj">
+      <Project>{d706091c-958d-43cc-96b2-229829ea325b}</Project>
+      <Name>Ccr.PresentationCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj">
+      <Project>{a61f3ed9-9c1e-4612-ba97-54be78a1a146}</Project>
+      <Name>Ccr.Xaml</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

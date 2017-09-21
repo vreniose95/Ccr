@@ -1,9 +1,9 @@
 using System;
-// ReSharper disable BuiltInTypeReferenceStyle// ReSharper disable BuiltInTypeReferenceStyle// ReSharper disable BuiltInTypeReferenceStyle
-namespace Ccr.Core.Numerics
+// ReSharper disable BuiltInTypeReferenceStyle
+namespace Ccr.Core.Numerics.Ranges
 {
   public class UInt16Range
-    : IntegralRangeBase<ushort>
+    : IntegralRangeBase<UInt16>
   {
     public UInt16Range(
       UInt16 minimum,

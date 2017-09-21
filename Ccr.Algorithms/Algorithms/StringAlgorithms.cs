@@ -41,5 +41,96 @@ namespace Ccr.Algorithms
 
       return d[d.GetUpperBound(0), d.GetUpperBound(1)];
     }
-  }
+
+
+	  public static int LevenshteinDistanceVersion2(
+			string source,
+			string target)
+	  {
+		  var bounds = new
+		  {
+			  Height = source.Length + 1,
+				Width = target.Length + 1
+		  };
+
+		  var matrix = new int[bounds.Height, bounds.Width];
+
+		  for (var height = 0; height < bounds.Height; height++)
+		  {
+			  matrix[height, 0] = height;
+		  }
+		  for (var width = 0; width < bounds.Width; width++)
+		  {
+			  matrix[0, width] = width;
+		  }
+
+		  for (var height = 1; height < bounds.Height; height++)
+		  {
+			  for (var width = 1; width < bounds.Width; width++)
+			  {
+				  var cost = source[height - 1] == target[width - 1] ? 0 : 1;
+				  var insertion = matrix[height, width - 1] + 1;
+				  var deletion = matrix[height - 1, width] + 1;
+				  var substitution = matrix[height - 1, width - 1] + cost;
+
+				  var distance = Math.Min(insertion, Math.Min(deletion, substitution));
+
+				  matrix[height, width] = distance;
+			  }
+		  }
+
+		  return matrix[bounds.Height - 1, bounds.Width - 1];
+	  }
+
+	  public static int DamerauLevenshteinDistance(
+			string source,
+			string target)
+	  {
+		  var bounds = new
+		  {
+			  Height = source.Length + 1,
+				Width = target.Length + 1
+		  };
+
+		  var matrix = new int[bounds.Height, bounds.Width];
+
+		  for (var height = 0; height < bounds.Height; height++)
+		  {
+			  matrix[height, 0] = height;
+		  }
+		  for (var width = 0; width < bounds.Width; width++)
+		  {
+			  matrix[0, width] = width;
+		  }
+
+		  for (var height = 1; height < bounds.Height; height++)
+		  {
+			  for (var width = 1; width < bounds.Width; width++)
+			  {
+				  var cost = source[height - 1] == target[width - 1] ? 0 : 1;
+				  var insertion = matrix[height, width - 1] + 1;
+				  var deletion = matrix[height - 1, width] + 1;
+				  var substitution = matrix[height - 1, width - 1] + cost;
+
+				  var distance = Math.Min(insertion, Math.Min(deletion, substitution));
+
+				  if (height > 1 
+						&& width > 1 
+						&& source[height - 1]
+						== target[width - 2] 
+						&& source[height - 2] 
+						== target[width - 1])
+				  {
+					  distance = Math.Min(
+							distance, 
+							matrix[height - 2, width - 2] + cost);
+				  }
+
+				  matrix[height, width] = distance;
+			  }
+		  }
+
+		  return matrix[bounds.Height - 1, bounds.Width - 1];
+	  }
+	}
 }
