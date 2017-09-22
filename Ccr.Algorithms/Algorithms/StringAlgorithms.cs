@@ -8,11 +8,11 @@ namespace Ccr.Algorithms
     public static int LevenshteinDistance(
       string a, string b)
     {
-      if (a.IsNullOrEmpty())
-        return !b.IsNullOrEmpty() ? a.Length : 0;
+      if (a.IsNullOrEmptyEx())
+        return !b.IsNullOrEmptyEx() ? a.Length : 0;
 
-      if (b.IsNullOrEmpty())
-        return !a.IsNullOrEmpty() ? b.Length : 0;
+      if (b.IsNullOrEmptyEx())
+        return !a.IsNullOrEmptyEx() ? b.Length : 0;
 
       var d = new int[a.Length - 1, b.Length - 1];
 

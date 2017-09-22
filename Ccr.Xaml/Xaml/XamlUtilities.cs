@@ -92,7 +92,8 @@ namespace Ccr.Xaml
 					throw new InvalidCastException(
 						$"{callingClass.GetType().Name}." +
 						$"{callerMemberName} : Invalid cast from " +
-						$"{value.GetType()} to {destinationValueType.GetType()}.");
+						$"{value.GetType().FormatName().SQuote()} " +
+						$"to {destinationValueType.FormatName().SQuote()}.");
 				}
 			}
 			if (value == DependencyProperty.UnsetValue &&

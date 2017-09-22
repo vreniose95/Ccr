@@ -11,7 +11,7 @@
 		<Setter Property="ClipToBounds">
 			<Setter.Value>
 				<Binding RelativeSource="{RelativeSource Self}" 
-													Path="(RippleAssist.ClipToBounds)" />
+								 Path="(RippleAssist.ClipToBounds)" />
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Feedback">
@@ -69,7 +69,7 @@
 							</Ellipse>
 						</Canvas>
 						<ContentPresenter Content="{TemplateBinding Content}"
-																								ContentStringFormat="{TemplateBinding ContentStringFormat}"
+															ContentStringFormat="{TemplateBinding ContentStringFormat}"
 						                  ContentTemplate="{TemplateBinding ContentTemplate}"
 						                  ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
 						                  Margin="{TemplateBinding Padding}"

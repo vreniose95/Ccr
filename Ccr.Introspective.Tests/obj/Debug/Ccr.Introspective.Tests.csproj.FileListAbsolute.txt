@@ -1,0 +1,1 @@
+C:\Repositories\Ccr\Ccr.Introspective.Tests\obj\Debug\Ccr.Introspective.Tests.csprojResolveAssemblyReference.cache

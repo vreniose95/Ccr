@@ -1,0 +1,1 @@
+C:\Repositories\Ccr\Ccr.Data.Common.Tests\obj\Debug\Ccr.Data.Common.Tests.csprojResolveAssemblyReference.cache

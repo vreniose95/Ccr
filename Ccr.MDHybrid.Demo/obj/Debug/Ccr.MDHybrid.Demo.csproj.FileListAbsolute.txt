@@ -1,0 +1,14 @@
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MDHybrid.Demo.exe.config
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MDHybrid.Demo.exe
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MDHybrid.Demo.pdb
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.csprojResolveAssemblyReference.cache
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\MainWindow.g.cs
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\App.g.cs
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo_MarkupCompile.cache
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo_MarkupCompile.lref
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\MainWindow.baml
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.g.resources
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.Properties.Resources.resources
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.csproj.GenerateResource.Cache
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.exe
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Ccr.MDHybrid.Demo.pdb
