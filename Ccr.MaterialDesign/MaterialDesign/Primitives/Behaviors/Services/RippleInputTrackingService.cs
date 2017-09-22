@@ -13,7 +13,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 	{
 		private static readonly Type type = typeof(RippleMouseTracker);
 
-
+		
 		public static readonly DependencyProperty SourceObjectProperty = DP.Register(
 			new Meta<RippleMouseTracker, object>(null, onSourceObjectChanged));
 
@@ -64,8 +64,8 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 			[NotNull] object sourceObject,
 			[NotNull] string eventName)
 		{
-			sourceObject.IsNotNull("sourceObject");
-			eventName.IsNotNull("eventName");
+			sourceObject.IsNotNull(nameof(sourceObject));
+			eventName.IsNotNull(nameof(eventName));
 
 			var eventInfo = sourceObject.GetType()
 				.GetEvent(eventName);
