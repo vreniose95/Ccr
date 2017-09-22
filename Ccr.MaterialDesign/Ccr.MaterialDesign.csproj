@@ -47,10 +47,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MaterialDesign\Interactivity\UserInputNuanceDescriptor.cs" />
+    <Compile Include="MaterialDesign\Interactivity\UserInputSourceDeviceContext.cs" />
     <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialIdentityConverter.cs" />
     <Compile Include="MaterialDesign\Markup\ValueConverters\RangeLengthConverter.cs" />
     <Compile Include="MaterialDesign\Markup\ValueConverters\RippleDiameterConverter.cs" />
     <Compile Include="MaterialDesign\Markup\ValueConverters\RipplePlacementConverter.cs" />
+    <Compile Include="MaterialDesign\Markup\ValueConverters\DynamicInterpreters\UserInputNuanceToAnimationInterpreter.cs" />
     <Compile Include="MaterialDesign\MaterialBrush.cs" />
     <Compile Include="MaterialDesign\MaterialIdentity.cs" />
     <Compile Include="MaterialDesign\Palette.cs" />
@@ -60,6 +63,8 @@
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\HostedElement.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleAssist.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleInputTrackingService.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\UserInputNuanceProviderService.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\UserInputNuanceInjector.cs" />
     <Compile Include="MaterialDesign\Primitives\MaterialHybrid.cs" />
     <Compile Include="MaterialDesign\Swatch.cs" />
     <Compile Include="MaterialDesign\SwatchClassifier.cs" />

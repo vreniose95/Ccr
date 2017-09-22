@@ -68,7 +68,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			if (frameworkElement == null)
 				throw new NotSupportedException(
 					$"The \'RippleAssist.InputTrackingService\' property cannot be set on the " +
-					$"element type \'{@this.GetType().Name}\' because \'HostedElement<TElement>\'-based" +
+					$"element type \'{@this.GetType().Name}\' because \'HostedElement<TElement>\'-based " +
 					$"services require the host element to derive from \'FrameworkElement\'.");
 
 			var newTrackingService = args.NewValue;
@@ -77,6 +77,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			oldTrackingService?.DetachHost();
 			newTrackingService?.AttachHost(frameworkElement);
 		}
+
 		private static void onPlacementChanged(
 			DependencyObject @this, 
 			DPChangedEventArgs<Point> args)
