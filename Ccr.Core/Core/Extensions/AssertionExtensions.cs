@@ -34,5 +34,20 @@ namespace Ccr.Core.Extensions
 					$"Parameter {elementName.SQuote()} passed to the " +
 					$"method {callerMemberName.SQuote()} cannot be null.");
 		}
+
+
+		[ContractAnnotation("this:null => halt"), AssertionMethod]
+		public static void IsNotNullOrWhiteSpace(
+			[AssertionCondition(IS_NOT_NULL)] this string @this,
+			[InvokerParameterName] string elementName,
+			[CallerMemberName] string callerMemberName = null)
+		{
+			if (@this.IsNullOrWhiteSpace())
+				throw new ArgumentException(
+					elementName,
+					$"Parameter {elementName.SQuote()} passed to the " +
+					$"method {callerMemberName.SQuote()} cannot be null or whitespace.");
+		}
+
 	}
 }

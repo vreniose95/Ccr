@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
+using JetBrains.Annotations;
+using static JetBrains.Annotations.AssertionConditionType;
 
 namespace Ccr.Core.Extensions
 {
@@ -14,13 +17,20 @@ namespace Ccr.Core.Extensions
 	    return string.IsNullOrWhiteSpace(@this);
 	  }
 
-	  public static bool IsNullOrEmpty(
-	    this string @this)
-	  {
-      return string.IsNullOrEmpty(@this);
-	   }
+		/// <summary>
+		/// Assertion method that ensures that <paramref name="this"/> is not null
+		/// </summary>
+		/// <param name="this">
+		/// The object in which to ensure non-nullability upon
+		/// </param>
+		[ContractAnnotation("this:null => true"), AssertionMethod]
+		public static bool IsNullOrEmptyEx(
+			[AssertionCondition(IS_NULL)] this string @this)
+		{
+			return string.IsNullOrEmpty(@this);
+		}
 
-	  public static string Surround(
+		public static string Surround(
 	    this string @this,
 	    char c)
 	  {
@@ -147,7 +157,7 @@ namespace Ccr.Core.Extensions
 		public static bool IsValidCSharpIdentifier(
 			this string @this)
 		{
-			if (@this.IsNullOrEmpty())
+			if (@this.IsNullOrEmptyEx())
 				return false;
 
 			var validIdentifierRegex = new Regex(
