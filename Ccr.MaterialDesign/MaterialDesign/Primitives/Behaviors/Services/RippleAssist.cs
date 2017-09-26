@@ -1,24 +1,24 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media;
+using Ccr.PresentationCore.Helpers.DependencyHelpers;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
 	public static class RippleAssist
 	{
 		#region ClipToBound
+		private static readonly Type _type = typeof(RippleAssist);
 
-		public static readonly DependencyProperty ClipToBoundsProperty = DependencyProperty.RegisterAttached(
-			"ClipToBounds", typeof(bool), typeof(RippleAssist), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.Inherits));
+		public static readonly DependencyProperty ClipToBoundsProperty = DP.Attach(
+			_type, new MetaBase<bool>(true, FrameworkPropertyMetadataOptions.Inherits));
 
-		public static void SetClipToBounds(DependencyObject element, bool value)
-		{
-			element.SetValue(ClipToBoundsProperty, value);
-		}
+		public static bool GetClipToBounds(DependencyObject i) => i.Get<bool>(ClipToBoundsProperty);
+		public static void SetClipToBounds(DependencyObject i, bool v) => i.Set(ClipToBoundsProperty, v);
 
-		public static bool GetClipToBounds(DependencyObject element)
-		{
-			return (bool)element.GetValue(ClipToBoundsProperty);
-		}
+
+		//public static readonly DependencyProperty ClipToBoundsProperty = DependencyProperty.RegisterAttached(
+		//	"ClipToBounds", typeof(bool), typeof(RippleAssist), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.Inherits));
 
 		#endregion
 
@@ -119,4 +119,5 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
 
 	}
+
 }

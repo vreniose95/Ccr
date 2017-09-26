@@ -2,8 +2,9 @@
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters.DynamicInterpreters
 {
-	public class UserInputNuanceToAnimationInterpreter
-		: XamlConverter<>
-	{
-	}
+	//public class UserInputNuanceToAnimationInterpreter
+	//	: XamlConverter<>
+	//{
+
+	//}
 }

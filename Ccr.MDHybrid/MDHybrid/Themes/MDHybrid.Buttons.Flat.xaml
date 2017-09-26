@@ -12,9 +12,9 @@
 			<Grid x:Name="PART_Root" 
 						ClipToBounds="{TemplateBinding ClipToBounds}">
 				<Ripple.TrackingService>
-					<services1:RippleMouseTracker EventName="Click"
-																				SourceObject="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Button}}">
-					</services1:RippleMouseTracker>
+					<RippleMouseTracker EventName="Click"
+															SourceObject="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Button}}">
+					</RippleMouseTracker>
 				</Ripple.TrackingService>
 				<Grid.Background>
 					<SolidColorBrush Opacity="0" 

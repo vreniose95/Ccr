@@ -1,22 +1,21 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-using Ccr.Xaml.Markup.Extensions;
+﻿using Ccr.Core.Extensions;
+using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
 	public class RippleDiameterConverter
-		: MarkupExtensionAbstractSingletonFactory,
-			IMultiValueConverter
+		: XamlConverter<
+			double, 
+			double, 
+			NullParam, 
+			double>
 	{
-		public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+		public override double Convert(
+			double containerHeight, 
+			double containerWidth, 
+			NullParam param)
 		{
-			throw new NotImplementedException();
-		}
-
-		public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-		{
-			throw new NotImplementedException();
+			return containerHeight.Smallest(containerWidth) / 2d;
 		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 
 namespace Ccr.Introspective.Tests.Mock
 {
@@ -64,7 +65,7 @@ namespace Ccr.Introspective.Tests.Mock
 		protected static PersonFixture Parse(
 			string personStr)
 		{
-			
+			throw new Exception();
 		}
 	}
 }

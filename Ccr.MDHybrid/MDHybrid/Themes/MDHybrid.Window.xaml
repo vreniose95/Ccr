@@ -4,8 +4,7 @@
 		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml"/>
 		<!--<ResourceDictionary Source="MDHybrid.Drawables.xaml"/>-->
 	</ResourceDictionary.MergedDictionaries>
-	<Style x:Key="MDH.Window.Button.Style"
-								TargetType="Button">
+	<Style x:Key="MDH.Window.Button.Style" TargetType="Button">
 		<Setter Property="Foreground" Value="{StaticResource Grey900}"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -22,12 +21,12 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
 					<Border x:Name="PART_root" 
-													Background="{TemplateBinding Background}"
-													BorderBrush="{TemplateBinding BorderBrush}"
-													BorderThickness="{TemplateBinding BorderThickness}">
+									Background="{TemplateBinding Background}"
+									BorderBrush="{TemplateBinding BorderBrush}"
+									BorderThickness="{TemplateBinding BorderThickness}">
 						<Grid x:Name="PART_contentFrame"
-												Margin="{TemplateBinding Padding}">
-							<!--<Ellipse>
+									Margin="{TemplateBinding Padding}">
+							<Ellipse x:Name="PART_ripple">
 								<Ellipse.Width>
 									<MultiBinding>
 										<Binding RelativeSource="{RelativeSource TemplatedParent}"
@@ -38,17 +37,17 @@
 									</MultiBinding>
 								</Ellipse.Width>
 								<Ellipse.Height>
-									<MultiBinding Converter="">
+									<MultiBinding Converter="{RippleDiameterConverter}">
 										<Binding ElementName="PART_contentFrame" Path="ActualWidth"/>
 										<Binding ElementName="PART_contentFrame" Path="ActualHeight"/>
 									</MultiBinding>
 								</Ellipse.Height>
-							</Ellipse>-->
+							</Ellipse>
 							<ContentPresenter x:Name="PART_contentPresenter"
-																									HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-																									VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-																									SnapsToDevicePixels="True"
-																									RecognizesAccessKey="True"/>
+																HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+																VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+																SnapsToDevicePixels="True"
+																RecognizesAccessKey="True"/>
 						</Grid>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -57,10 +56,10 @@
 								<BeginStoryboard>
 									<Storyboard>
 										<DoubleAnimation Storyboard.TargetName="PART_contentFrame"
-																											Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
-																											To="{Binding Source={StaticResource TealA700}, Path=Color}"
-																											Duration="0:0:0.5"
-																											EasingFunction="{EaseOut Back}"/>
+																		 Storyboard.TargetProperty="(Grid.Background).(SolidColorBrush.Color)"
+																		 To="{Binding Source={StaticResource TealA700}, Path=Color}"
+																		 Duration="0:0:0.5"
+																		 EasingFunction="{EaseOut Back}"/>
 									</Storyboard>
 								</BeginStoryboard>
 							</Trigger.EnterActions>

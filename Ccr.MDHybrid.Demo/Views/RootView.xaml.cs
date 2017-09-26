@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ccr.MDHybrid.Demo
+namespace Ccr.MDHybrid.Demo.Views
 {
 	/// <summary>
-	/// Interaction logic for MainWindow.xaml
+	/// Interaction logic for RootView.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class RootView : UserControl
 	{
-		public MainWindow()
+		public RootView()
 		{
 			InitializeComponent();
 		}

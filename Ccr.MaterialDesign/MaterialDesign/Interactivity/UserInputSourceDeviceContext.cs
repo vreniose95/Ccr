@@ -26,7 +26,7 @@ namespace Ccr.MaterialDesign.Interactivity
 
 		private SourceDeviceKind _determineDeviceKind()
 		{
-			
+			return SourceDeviceKind.MouseClick;
 		}
 
 	}

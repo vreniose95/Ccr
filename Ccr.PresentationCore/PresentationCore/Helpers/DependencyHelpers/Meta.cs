@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using Ccr.Core.Extensions;
 // ReSharper disable ConvertToAutoPropertyWhenPossible
@@ -43,7 +44,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// Backing value holding the <see cref="FrameworkPropertyMetadataOptions"/> options
 		/// for the dependency property.
 		/// </summary>
-		private readonly FrameworkPropertyMetadataOptions _optionFlags = FrameworkPropertyMetadataOptions.None;
+		private FrameworkPropertyMetadataOptions _optionFlags = FrameworkPropertyMetadataOptions.None;
 
 		#endregion
 
@@ -86,10 +87,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// </summary>
 		public FrameworkPropertyMetadataOptions OptionFlags
 		{
-			get
-			{
-				return _optionFlags;
-			}
+			get => _optionFlags;
+			protected set => _optionFlags = value;
 		}
 
 		#endregion
@@ -116,6 +115,24 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			TValue defaultValue)
 		{
 			_defaultValue = defaultValue;
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with a specified 
+		/// default value for the dependency property that the resulting produced framework metadata 
+		/// will be applied to.
+		/// </summary>
+		/// <param name="defaultValue">
+		/// The default value to specify for dependency property of the type <typeparamref name="TValue"/>
+		/// </param>
+		/// <param name="optionFlags"></param>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public Meta(
+			TValue defaultValue,
+			FrameworkPropertyMetadataOptions optionFlags) : this(
+				defaultValue)
+		{
+			_optionFlags = optionFlags;
 		}
 
 		/// <summary>
@@ -302,6 +319,24 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			TValue defaultValue) : base (
 				defaultValue)
 		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with a specified 
+		/// default value for the dependency property that the resulting produced framework metadata 
+		/// will be applied to.
+		/// </summary>
+		/// <param name="defaultValue">
+		/// The default value to specify for dependency property of the type <typeparamref name="TValue"/>
+		/// </param>
+		/// <param name="optionFlags"></param>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public MetaBase(
+			TValue defaultValue,
+			FrameworkPropertyMetadataOptions optionFlags) : base(
+				defaultValue)
+		{
+			OptionFlags = optionFlags;
 		}
 
 		/// <summary>
