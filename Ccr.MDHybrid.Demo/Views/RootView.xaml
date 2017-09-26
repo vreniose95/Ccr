@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Ccr.MDHybrid.Demo.Views.RootView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						 Designer.Viewport="HD720"
+						 Designer.Orientation="Portrait"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
+             cal:Bind.AtDesignTime="True">
+	<Grid Background="{StaticResource Red200}">
+		<ListView>
+			<ListView.ItemsSource>
+				<Binding Source="{StaticResource MaterialDesignPalette}" Path="Swatches"/>
+			</ListView.ItemsSource>
+			<ListView.ItemTemplate>
+				<DataTemplate DataType="Swatch">
+					
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+
+</UserControl>

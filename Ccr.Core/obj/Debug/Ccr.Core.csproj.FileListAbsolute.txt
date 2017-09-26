@@ -12,4 +12,3 @@ C:\Repositories\Ccr\Ccr.Core\bin\Debug\JetBrains.Annotations.xml
 C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.csprojResolveAssemblyReference.cache
 C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.dll
 C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.pdb
-C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.csproj.CoreCompileInputs.cache

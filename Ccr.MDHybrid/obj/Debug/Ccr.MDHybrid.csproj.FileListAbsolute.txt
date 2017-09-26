@@ -41,3 +41,5 @@ C:\Repositories\Ccr\Ccr.MDHybrid\obj\Debug\MDHybrid\Themes\MDHybrid.Ripple.baml
 C:\Repositories\Ccr\Ccr.MDHybrid\obj\Debug\Ccr.MDHybrid.g.resources
 C:\Repositories\Ccr\Ccr.MDHybrid\obj\Debug\Ccr.MDHybrid.dll
 C:\Repositories\Ccr\Ccr.MDHybrid\obj\Debug\Ccr.MDHybrid.pdb
+C:\Repositories\Ccr\Ccr.MDHybrid\bin\Debug\Caliburn.Micro.dll
+C:\Repositories\Ccr\Ccr.MDHybrid\bin\Debug\Caliburn.Micro.xml

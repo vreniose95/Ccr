@@ -10,6 +10,15 @@
 //------------------------------------------------------------------------------
 
 using Ccr.MDHybrid.Demo;
+using Ccr.MaterialDesign;
+using Ccr.MaterialDesign.Markup.TypeConverters;
+using Ccr.MaterialDesign.Markup.ValueConverters;
+using Ccr.MaterialDesign.Primitives;
+using Ccr.MaterialDesign.Primitives.Behaviors;
+using Ccr.MaterialDesign.Primitives.Behaviors.Services;
+using Ccr.PresentationCore.Controls;
+using Ccr.PresentationCore.Markup.Extensions.Animation;
+using Ccr.PresentationCore.Markup.TypeConverters;
 using System;
 using System.Diagnostics;
 using System.Windows;

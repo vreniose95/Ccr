@@ -22,3 +22,10 @@ C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\JetBrains.Annotations.xml
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.WinCore.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\obj\Debug\Ccr.MaterialDesign.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\obj\Debug\Ccr.MaterialDesign.pdb
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.dll
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.Core.dll
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.dll
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\System.Windows.Interactivity.dll
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.xml
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.xml
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.Core.xml
