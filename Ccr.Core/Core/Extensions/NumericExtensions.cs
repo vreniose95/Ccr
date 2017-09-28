@@ -1,5 +1,8 @@
-﻿using System.Net.NetworkInformation;
+﻿using System;
+using System.Net.NetworkInformation;
+using Ccr.Core.Numerics;
 using Ccr.Core.Numerics.Ranges;
+// ReSharper disable BuiltInTypeReferenceStyle
 
 namespace Ccr.Core.Extensions
 {
@@ -9,8 +12,8 @@ namespace Ccr.Core.Extensions
 			this int @this,
 			int value)
 		{
-			return @this < value 
-				? value 
+			return @this < value
+				? value
 				: @this;
 		}
 		public static int Largest(
@@ -22,13 +25,146 @@ namespace Ccr.Core.Extensions
 				: @this;
 		}
 
-		public static int LinearMap(
-			this int @this,
+		public static Byte LinearMap(
+			this Byte @this,
+			ByteRange startRange,
+			ByteRange endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Byte>();
+		}
+		public static SByte LinearMap(
+			this SByte @this,
+			SByteRange startRange,
+			SByteRange endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<SByte>();
+		}
+		public static Int16 LinearMap(
+			this Int16 @this,
+			Int16Range startRange,
+			Int16Range endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Int16>();
+		}
+
+		public static Int32 LinearMap(
+			this Int32 @this,
 			Int32Range startRange,
 			Int32Range endRange)
 		{
-
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Int32>();
 		}
 
+		public static Int64 LinearMap(
+			this Int64 @this,
+			Int32Range startRange,
+			Int32Range endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Int64>();
+		}
+
+		public static UInt16 LinearMap(
+			this UInt16 @this,
+			UInt16Range startRange,
+			UInt16Range endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<UInt16>();
+		}
+
+		public static UInt32 LinearMap(
+			this UInt32 @this,
+			UInt32Range startRange,
+			UInt32Range endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<UInt32>();
+		}
+
+		public static UInt64 LinearMap(
+			this UInt64 @this,
+			UInt32Range startRange,
+			UInt32Range endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<UInt64>();
+		}
+
+
+		public static Single LinearMap(
+			this Single @this,
+			SingleRange startRange,
+			SingleRange endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Single>();
+		}
+
+		public static Double LinearMap(
+			this Double @this,
+			DoubleRange startRange,
+			DoubleRange endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Double>();
+		}
+
+		public static Decimal LinearMap(
+			this Decimal @this,
+			DecimalRange startRange,
+			DecimalRange endRange)
+		{
+			return (
+					(@this - startRange.Minimum) *
+					(endRange.Maximum - endRange.Minimum) /
+					(startRange.Maximum - startRange.Maximum) +
+					endRange.Minimum)
+				.To<Decimal>();
+		}
 	}
 }
