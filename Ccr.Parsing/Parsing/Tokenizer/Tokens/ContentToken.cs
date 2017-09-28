@@ -1,4 +1,5 @@
 ﻿using Ccr.Parsing.Tokenizer.Tokens.Range;
+using JetBrains.Annotations;
 
 namespace Ccr.Parsing.Tokenizer.Tokens
 {
@@ -6,18 +7,17 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		: TokenBase
 	{
 		protected ContentToken(
-			string text) : base(
-			new TextLiteralPointer(
-				text))
+			[RegexPattern] string regex) : base(
+				regex)
 		{
 		}
-		protected ContentToken(
-			int startIndex,
-			string text) : base(
-			new TextRangePointer(
-				startIndex,
-				text))
-		{
-		}
+		//protected ContentToken(
+		//	int startIndex,
+		//	string text) : base(
+		//	new TextRangePointer(
+		//		startIndex,
+		//		text))
+		//{
+		//}
 	}
 }

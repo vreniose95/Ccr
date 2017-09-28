@@ -6,10 +6,5 @@
 		<ResourceDictionary Source="MDHybrid.Buttons.Path.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Buttons.Raised.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Buttons.Toggle.xaml"/>
-		<!--<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Flat.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.FloatingAction.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Path.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Raised.xaml"/>
-		<ResourceDictionary Source="pack://application:,,,/FlexView.MaterialHybrid;component/MaterialHybrid/Themes/MaterialHybrid.Buttons.Toggle.xaml"/>-->
 	</ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

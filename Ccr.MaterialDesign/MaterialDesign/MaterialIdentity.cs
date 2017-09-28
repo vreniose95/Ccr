@@ -49,16 +49,6 @@ namespace Ccr.MaterialDesign
 		}
 
 
-		public void OnPromptClick(object sender, RoutedEventArgs e)
-		{
-			var dataGridCell = sender as DataGridCell;
-			if (dataGridCell == null)
-				throw new ArgumentException(
-					$"Arugment must be of type DataGridCell.",
-					nameof(sender));
-			Process.Start(dataGridCell.Tag.ToString());
-		}
-
 		protected override Freezable CreateInstanceCore()
 		{
 			return new MaterialIdentity(

@@ -5,7 +5,8 @@ using JetBrains.Annotations;
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.Introspective.Infrastructure.Context
 {
-	public class IntrospectiveInstanceContext : IntrospectiveContext
+	public class IntrospectiveInstanceContext
+		: IntrospectiveContext
 	{
 		private readonly object _targetObject;
 

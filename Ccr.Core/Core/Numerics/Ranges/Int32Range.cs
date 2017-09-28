@@ -2,7 +2,6 @@
 // ReSharper disable BuiltInTypeReferenceStyle
 namespace Ccr.Core.Numerics.Ranges
 {
-  //SByte, Byte,
   public class Int32Range
 		: IntegralRangeBase<Int32>
 	{

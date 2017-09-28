@@ -33,6 +33,12 @@
     <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -51,12 +57,19 @@
     <Compile Include="Core\Extensions\ControlExtensions.cs" />
     <Compile Include="Core\Extensions\InvocationExtensions.cs" />
     <Compile Include="Core\Extensions\MediaExtensions.cs" />
+    <Compile Include="PresentationCore\Animation\AnimationHelpers.cs" />
+    <Compile Include="PresentationCore\Animation\AnimationMode.cs" />
+    <Compile Include="PresentationCore\Animation\Timelines\BrushAnimation.cs" />
+    <Compile Include="PresentationCore\Animation\Timelines\CornerAnimation.cs" />
+    <Compile Include="PresentationCore\Animation\Timelines\CornerAnimationBase.cs" />
+    <Compile Include="PresentationCore\Animation\Timelines\SetterObjectAnimation.cs" />
     <Compile Include="PresentationCore\Collections\ValueEnum.cs" />
     <Compile Include="PresentationCore\Controls\Designer.cs" />
     <Compile Include="PresentationCore\Controls\MobileViewport.cs" />
     <Compile Include="PresentationCore\Controls\ObservableObject.cs" />
     <Compile Include="PresentationCore\Controls\PageOrientation.cs" />
     <Compile Include="PresentationCore\Controls\Viewport.cs" />
+    <Compile Include="PresentationCore\Helpers\BoolBoxes.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\Callbacks.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DependencyProperty.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DP.cs" />
@@ -71,12 +84,16 @@
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingFunctionFactory.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingType.cs" />
     <Compile Include="PresentationCore\Markup\TypeConverters\PercentageConverter.cs" />
+    <Compile Include="PresentationCore\Media\Metadata\AudioFileMetadata.cs" />
     <Compile Include="PresentationCore\Media\HslColor.cs" />
     <Compile Include="PresentationCore\Media\HsvColor.cs" />
+    <Compile Include="PresentationCore\Media\Metadata\ShellPropertyReference.cs" />
+    <Compile Include="PresentationCore\Media\Metadata\ShellRefObject.cs" />
+    <Compile Include="PresentationCore\Media\Metadata\VideoShellObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="PresentationCore\Media\packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">

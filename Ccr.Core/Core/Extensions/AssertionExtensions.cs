@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Threading;
+using Ccr.Core.Numerics;
+using Ccr.Core.Numerics.Ranges;
 using JetBrains.Annotations;
 using static JetBrains.Annotations.AssertionConditionType;
 
@@ -43,6 +42,34 @@ namespace Ccr.Core.Extensions
 			[CallerMemberName] string callerMemberName = null)
 		{
 			if (@this.IsNullOrWhiteSpace())
+				throw new ArgumentException(
+					elementName,
+					$"Parameter {elementName.SQuote()} passed to the " +
+					$"method {callerMemberName.SQuote()} cannot be null or whitespace.");
+		}
+
+
+		[ContractAnnotation("this:null => halt"), AssertionMethod]
+		public static void IsNotNullOrEmptyEx(
+			[AssertionCondition(IS_NOT_NULL)] this string @this,
+			[InvokerParameterName] string elementName,
+			[CallerMemberName] string callerMemberName = null)
+		{
+			if (@this.IsNullOrWhiteSpace())
+				throw new ArgumentException(
+					elementName,
+					$"Parameter {elementName.SQuote()} passed to the " +
+					$"method {callerMemberName.SQuote()} cannot be null or whitespace.");
+		}
+
+
+		public static void IsInRange(
+			this int @this,
+			Int32Range range,
+			[InvokerParameterName] string elementName,
+			[CallerMemberName] string callerMemberName = null)
+		{
+			if (range.IsWithin(@this, EndpointExclusivity.Inclusive))
 				throw new ArgumentException(
 					elementName,
 					$"Parameter {elementName.SQuote()} passed to the " +

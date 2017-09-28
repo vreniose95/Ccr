@@ -219,6 +219,7 @@ namespace Ccr.Parsing.Tokenizer
 								}
 								yield return new TokenUsage<NumberToken>(
 									currentIndex, c);
+
 								break;
 							}
 							var isLetter = char.IsLetter(c);

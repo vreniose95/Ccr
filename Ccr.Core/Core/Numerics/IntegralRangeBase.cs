@@ -1,12 +1,14 @@
-﻿using System;                  
+﻿using System;
+using System.ComponentModel;
 using Ccr.Core.Extensions;
 
 namespace Ccr.Core.Numerics
 {
 	public class IntegralRangeBase<TIntegralType>
 		: IIntegralRange
-			where TIntegralType 
-				:	struct
+			where TIntegralType
+				: struct,
+					IComparable
 	{
 		private long? _minimumAsLong;
 		private ulong? _maximumAsUlong;
@@ -16,7 +18,7 @@ namespace Ccr.Core.Numerics
 
 		long IIntegralRange.Minimum
 		{
-			get => _minimumAsLong ?? 
+			get => _minimumAsLong ??
 					(_minimumAsLong = Convert
 						.ChangeType(_minimum, typeof(long))
 						.IsOfType<long>())
@@ -25,11 +27,21 @@ namespace Ccr.Core.Numerics
 		ulong IIntegralRange.Maximum
 		{
 			get => _maximumAsUlong ??
-			       (_maximumAsUlong = Convert
-				       .ChangeType(_minimum, typeof(ulong))
-				       .IsOfType<ulong>())
-			       .Value;
+						 (_maximumAsUlong = Convert
+							 .ChangeType(_minimum, typeof(ulong))
+							 .IsOfType<ulong>())
+						 .Value;
 		}
+
+		object INumericRange.MinimumBase
+		{
+			get => Minimum;
+		}
+		object INumericRange.MaximumBase
+		{
+			get => Maximum;
+		}
+
 
 		public TIntegralType Minimum
 		{
@@ -40,7 +52,6 @@ namespace Ccr.Core.Numerics
 			get => _maximum;
 		}
 
-
 		protected IntegralRangeBase(
 			TIntegralType minimum,
 			TIntegralType maximum)
@@ -49,6 +60,145 @@ namespace Ccr.Core.Numerics
 			_maximum = maximum;
 		}
 
-		
+
+
+		bool INumericRange.IsWithinBase(
+			object value,
+			EndpointExclusivity exclusivity)
+		{
+			return IsWithin(
+				value.To<TIntegralType>(),
+				exclusivity);
+		}
+
+		bool INumericRange.IsNotWithinBase(
+			object value,
+			EndpointExclusivity exclusivity)
+		{
+			return IsNotWithin(
+				value.To<TIntegralType>(),
+				exclusivity);
+		}
+
+		object INumericRange.ConstrainBase(
+			object value)
+		{
+			return Constrain(
+				value.To<TIntegralType>());
+		}
+
+
+		public bool IsWithin(
+			TIntegralType value,
+			EndpointExclusivity exclusivity)
+		{
+			var lowResult = CheckLow(
+				value,
+				exclusivity,
+				RangeComparisonDirection.GreaterThan);
+
+			var highResult = CheckHigh(
+				value,
+				exclusivity,
+				RangeComparisonDirection.LessThan);
+
+			return lowResult && highResult;
+		}
+
+
+		public bool IsNotWithin(
+			TIntegralType value,
+			EndpointExclusivity exclusivity)
+		{
+			return !IsWithin(
+				value,
+				exclusivity);
+		}
+
+		public bool CheckLow(
+			TIntegralType value,
+			EndpointExclusivity exclusivity,
+			RangeComparisonDirection direction)
+		{
+			return checkConstraint(
+				value,
+				Minimum,
+				exclusivity,
+				direction);
+		}
+
+		public bool CheckHigh(
+			TIntegralType value,
+			EndpointExclusivity exclusivity,
+			RangeComparisonDirection direction)
+		{
+			return checkConstraint(
+				value,
+				Maximum,
+				exclusivity,
+				direction);
+		}
+
+		private static bool checkConstraint(
+				TIntegralType left,
+				TIntegralType right,
+				EndpointExclusivity exclusivity,
+				RangeComparisonDirection direction)
+		{
+			var compare =
+				(ComparableResult)left.CompareTo(right);
+
+			if (direction == RangeComparisonDirection.LessThan)
+			{
+				switch (exclusivity)
+				{
+					case EndpointExclusivity.Inclusive:
+						return compare == ComparableResult.LessThan
+						       || compare == ComparableResult.EqualTo;
+
+					case EndpointExclusivity.Exclusive:
+						return compare == ComparableResult.LessThan;
+
+					default:
+						throw new InvalidEnumArgumentException();
+				}
+			}
+			if (direction == RangeComparisonDirection.GreaterThan)
+			{
+				switch (exclusivity)
+				{
+					case EndpointExclusivity.Inclusive:
+						return compare == ComparableResult.GreaterThan
+						       || compare == ComparableResult.EqualTo;
+
+					case EndpointExclusivity.Exclusive:
+						return compare == ComparableResult.GreaterThan;
+
+					default:
+						throw new InvalidEnumArgumentException();
+				}
+			}
+			throw new InvalidEnumArgumentException();
+		}
+
+		public TIntegralType Constrain(
+			TIntegralType value)
+		{
+			var lowResult = CheckLow(
+				value,
+				EndpointExclusivity.Inclusive,
+				RangeComparisonDirection.GreaterThan);
+
+			var highResult = CheckHigh(
+				value,
+				EndpointExclusivity.Inclusive,
+				RangeComparisonDirection.LessThan);
+
+			if (!lowResult)
+				return Minimum;
+
+			return highResult ? value
+				: Maximum;
+		}
 	}
 }

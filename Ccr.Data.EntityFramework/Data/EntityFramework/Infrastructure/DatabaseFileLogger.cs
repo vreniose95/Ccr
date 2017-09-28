@@ -40,16 +40,16 @@ namespace Ccr.Data.EntityFramework.Infrastructure
 		private static string resolvePath(
 			string templatedPath)
 		{
-			var _parser = new DatabaseFileTemplateParser(
-				templatedPath);
+			throw new Exception();
+			//var _parser = new DatabaseFileTemplateParser(
+			//	templatedPath);
 
-			var _resolved = _parser.Parse();
+			//var _resolved = _parser.Parse();
 
-			return _resolved;
+			//return _resolved;
 		}
 
 	}
 
 
-}
 }

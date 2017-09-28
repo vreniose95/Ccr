@@ -8,12 +8,12 @@
 				text)
 		{
 		}
-		public StringLiteralToken(
-			int startIndex,
-			string text) : base(
-				startIndex,
-				text)
-		{
-		}
+		//public StringLiteralToken(
+		//	int startIndex,
+		//	string text) : base(
+		//		startIndex,
+		//		text)
+		//{
+		//}
 	}
 }

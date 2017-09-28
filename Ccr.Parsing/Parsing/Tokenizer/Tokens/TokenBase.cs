@@ -7,7 +7,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 {
 	public abstract class TokenBase
 	{
-		//public ITextLiteralPointer TextLiteralPointer { get; }
+		public ITextLiteralPointer TextLiteralPointer { get; }
 
 		public Regex Regex { get; }
 
@@ -34,13 +34,13 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 				throw new NotSupportedException();
 
 			return MatchPredicate(text);
-			
+
 		}
-		//protected TokenBase(
-		//	ITextLiteralPointer _textLiteralPointer)
-		//{
-		//	TextLiteralPointer = _textLiteralPointer;
-		//}
+		protected TokenBase(
+			ITextLiteralPointer _textLiteralPointer)
+		{
+			TextLiteralPointer = _textLiteralPointer;
+		}
 
 	}
 }

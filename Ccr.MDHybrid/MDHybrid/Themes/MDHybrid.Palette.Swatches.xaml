@@ -7,280 +7,280 @@
 
 	<Palette x:Key="MaterialDesignPalette">
 		<Swatch SwatchClassifier="Red">
-			<MaterialBrush Identity="Red050" Color="{StaticResource Red050}"/>
-			<MaterialBrush Identity="Red100" Color="{StaticResource Red100}"/>
-			<MaterialBrush Identity="Red200" Color="{StaticResource Red200}"/>
-			<MaterialBrush Identity="Red300" Color="{StaticResource Red300}"/>
-			<MaterialBrush Identity="Red400" Color="{StaticResource Red400}"/>
-			<MaterialBrush Identity="Red500" Color="{StaticResource Red500}"/>
-			<MaterialBrush Identity="Red600" Color="{StaticResource Red600}"/>
-			<MaterialBrush Identity="Red700" Color="{StaticResource Red700}"/>
-			<MaterialBrush Identity="Red800" Color="{StaticResource Red800}"/>
-			<MaterialBrush Identity="Red900" Color="{StaticResource Red900}"/>
-			<MaterialBrush Identity="RedA100" Color="{StaticResource RedA100}"/>
-			<MaterialBrush Identity="RedA200" Color="{StaticResource RedA200}"/>
-			<MaterialBrush Identity="RedA400" Color="{StaticResource RedA400}"/>
-			<MaterialBrush Identity="RedA700" Color="{StaticResource RedA700}"/>
+			<MaterialBrush Identity="Red050" Color="{Binding Source={StaticResource Red050}, Path=Color}"/>
+			<MaterialBrush Identity="Red100" Color="{Binding Source={StaticResource Red100}, Path=Color}"/>
+			<MaterialBrush Identity="Red200" Color="{Binding Source={StaticResource Red200}, Path=Color}"/>
+			<MaterialBrush Identity="Red300" Color="{Binding Source={StaticResource Red300}, Path=Color}"/>
+			<MaterialBrush Identity="Red400" Color="{Binding Source={StaticResource Red400}, Path=Color}"/>
+			<MaterialBrush Identity="Red500" Color="{Binding Source={StaticResource Red500}, Path=Color}"/>
+			<MaterialBrush Identity="Red600" Color="{Binding Source={StaticResource Red600}, Path=Color}"/>
+			<MaterialBrush Identity="Red700" Color="{Binding Source={StaticResource Red700}, Path=Color}"/>
+			<MaterialBrush Identity="Red800" Color="{Binding Source={StaticResource Red800}, Path=Color}"/>
+			<MaterialBrush Identity="Red900" Color="{Binding Source={StaticResource Red900}, Path=Color}"/>
+			<MaterialBrush Identity="RedA100" Color="{Binding Source={StaticResource RedA100}, Path=Color}"/>
+			<MaterialBrush Identity="RedA200" Color="{Binding Source={StaticResource RedA200}, Path=Color}"/>
+			<MaterialBrush Identity="RedA400" Color="{Binding Source={StaticResource RedA400}, Path=Color}"/>
+			<MaterialBrush Identity="RedA700" Color="{Binding Source={StaticResource RedA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Pink">
-			<MaterialBrush Identity="Pink050" Color="{StaticResource Pink050}"/>
-			<MaterialBrush Identity="Pink100" Color="{StaticResource Pink100}"/>
-			<MaterialBrush Identity="Pink200" Color="{StaticResource Pink200}"/>
-			<MaterialBrush Identity="Pink300" Color="{StaticResource Pink300}"/>
-			<MaterialBrush Identity="Pink400" Color="{StaticResource Pink400}"/>
-			<MaterialBrush Identity="Pink500" Color="{StaticResource Pink500}"/>
-			<MaterialBrush Identity="Pink600" Color="{StaticResource Pink600}"/>
-			<MaterialBrush Identity="Pink700" Color="{StaticResource Pink700}"/>
-			<MaterialBrush Identity="Pink800" Color="{StaticResource Pink800}"/>
-			<MaterialBrush Identity="Pink900" Color="{StaticResource Pink900}"/>
-			<MaterialBrush Identity="PinkA100" Color="{StaticResource PinkA100}"/>
-			<MaterialBrush Identity="PinkA200" Color="{StaticResource PinkA200}"/>
-			<MaterialBrush Identity="PinkA400" Color="{StaticResource PinkA400}"/>
-			<MaterialBrush Identity="PinkA700" Color="{StaticResource PinkA700}"/>
+			<MaterialBrush Identity="Pink050" Color="{Binding Source={StaticResource Pink050}, Path=Color}"/>
+			<MaterialBrush Identity="Pink100" Color="{Binding Source={StaticResource Pink100}, Path=Color}"/>
+			<MaterialBrush Identity="Pink200" Color="{Binding Source={StaticResource Pink200}, Path=Color}"/>
+			<MaterialBrush Identity="Pink300" Color="{Binding Source={StaticResource Pink300}, Path=Color}"/>
+			<MaterialBrush Identity="Pink400" Color="{Binding Source={StaticResource Pink400}, Path=Color}"/>
+			<MaterialBrush Identity="Pink500" Color="{Binding Source={StaticResource Pink500}, Path=Color}"/>
+			<MaterialBrush Identity="Pink600" Color="{Binding Source={StaticResource Pink600}, Path=Color}"/>
+			<MaterialBrush Identity="Pink700" Color="{Binding Source={StaticResource Pink700}, Path=Color}"/>
+			<MaterialBrush Identity="Pink800" Color="{Binding Source={StaticResource Pink800}, Path=Color}"/>
+			<MaterialBrush Identity="Pink900" Color="{Binding Source={StaticResource Pink900}, Path=Color}"/>
+			<MaterialBrush Identity="PinkA100" Color="{Binding Source={StaticResource PinkA100}, Path=Color}"/>
+			<MaterialBrush Identity="PinkA200" Color="{Binding Source={StaticResource PinkA200}, Path=Color}"/>
+			<MaterialBrush Identity="PinkA400" Color="{Binding Source={StaticResource PinkA400}, Path=Color}"/>
+			<MaterialBrush Identity="PinkA700" Color="{Binding Source={StaticResource PinkA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Purple">
-			<MaterialBrush Identity="Purple050" Color="{StaticResource Purple050}"/>
-			<MaterialBrush Identity="Purple100" Color="{StaticResource Purple100}"/>
-			<MaterialBrush Identity="Purple200" Color="{StaticResource Purple200}"/>
-			<MaterialBrush Identity="Purple300" Color="{StaticResource Purple300}"/>
-			<MaterialBrush Identity="Purple400" Color="{StaticResource Purple400}"/>
-			<MaterialBrush Identity="Purple500" Color="{StaticResource Purple500}"/>
-			<MaterialBrush Identity="Purple600" Color="{StaticResource Purple600}"/>
-			<MaterialBrush Identity="Purple700" Color="{StaticResource Purple700}"/>
-			<MaterialBrush Identity="Purple800" Color="{StaticResource Purple800}"/>
-			<MaterialBrush Identity="Purple900" Color="{StaticResource Purple900}"/>
-			<MaterialBrush Identity="PurpleA100" Color="{StaticResource PurpleA100}"/>
-			<MaterialBrush Identity="PurpleA200" Color="{StaticResource PurpleA200}"/>
-			<MaterialBrush Identity="PurpleA400" Color="{StaticResource PurpleA400}"/>
-			<MaterialBrush Identity="PurpleA700" Color="{StaticResource PurpleA700}"/>
+			<MaterialBrush Identity="Purple050" Color="{Binding Source={StaticResource Purple050}, Path=Color}"/>
+			<MaterialBrush Identity="Purple100" Color="{Binding Source={StaticResource Purple100}, Path=Color}"/>
+			<MaterialBrush Identity="Purple200" Color="{Binding Source={StaticResource Purple200}, Path=Color}"/>
+			<MaterialBrush Identity="Purple300" Color="{Binding Source={StaticResource Purple300}, Path=Color}"/>
+			<MaterialBrush Identity="Purple400" Color="{Binding Source={StaticResource Purple400}, Path=Color}"/>
+			<MaterialBrush Identity="Purple500" Color="{Binding Source={StaticResource Purple500}, Path=Color}"/>
+			<MaterialBrush Identity="Purple600" Color="{Binding Source={StaticResource Purple600}, Path=Color}"/>
+			<MaterialBrush Identity="Purple700" Color="{Binding Source={StaticResource Purple700}, Path=Color}"/>
+			<MaterialBrush Identity="Purple800" Color="{Binding Source={StaticResource Purple800}, Path=Color}"/>
+			<MaterialBrush Identity="Purple900" Color="{Binding Source={StaticResource Purple900}, Path=Color}"/>
+			<MaterialBrush Identity="PurpleA100" Color="{Binding Source={StaticResource PurpleA100}, Path=Color}"/>
+			<MaterialBrush Identity="PurpleA200" Color="{Binding Source={StaticResource PurpleA200}, Path=Color}"/>
+			<MaterialBrush Identity="PurpleA400" Color="{Binding Source={StaticResource PurpleA400}, Path=Color}"/>
+			<MaterialBrush Identity="PurpleA700" Color="{Binding Source={StaticResource PurpleA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="DeepPurple">
-			<MaterialBrush Identity="DeepPurple050" Color="{StaticResource DeepPurple050}"/>
-			<MaterialBrush Identity="DeepPurple100" Color="{StaticResource DeepPurple100}"/>
-			<MaterialBrush Identity="DeepPurple200" Color="{StaticResource DeepPurple200}"/>
-			<MaterialBrush Identity="DeepPurple300" Color="{StaticResource DeepPurple300}"/>
-			<MaterialBrush Identity="DeepPurple400" Color="{StaticResource DeepPurple400}"/>
-			<MaterialBrush Identity="DeepPurple500" Color="{StaticResource DeepPurple500}"/>
-			<MaterialBrush Identity="DeepPurple600" Color="{StaticResource DeepPurple600}"/>
-			<MaterialBrush Identity="DeepPurple700" Color="{StaticResource DeepPurple700}"/>
-			<MaterialBrush Identity="DeepPurple800" Color="{StaticResource DeepPurple800}"/>
-			<MaterialBrush Identity="DeepPurple900" Color="{StaticResource DeepPurple900}"/>
-			<MaterialBrush Identity="DeepPurpleA100" Color="{StaticResource DeepPurpleA100}"/>
-			<MaterialBrush Identity="DeepPurpleA200" Color="{StaticResource DeepPurpleA200}"/>
-			<MaterialBrush Identity="DeepPurpleA400" Color="{StaticResource DeepPurpleA400}"/>
-			<MaterialBrush Identity="DeepPurpleA700" Color="{StaticResource DeepPurpleA700}"/>
+			<MaterialBrush Identity="DeepPurple050" Color="{Binding Source={StaticResource DeepPurple050}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple100" Color="{Binding Source={StaticResource DeepPurple100}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple200" Color="{Binding Source={StaticResource DeepPurple200}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple300" Color="{Binding Source={StaticResource DeepPurple300}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple400" Color="{Binding Source={StaticResource DeepPurple400}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple500" Color="{Binding Source={StaticResource DeepPurple500}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple600" Color="{Binding Source={StaticResource DeepPurple600}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple700" Color="{Binding Source={StaticResource DeepPurple700}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple800" Color="{Binding Source={StaticResource DeepPurple800}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurple900" Color="{Binding Source={StaticResource DeepPurple900}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurpleA100" Color="{Binding Source={StaticResource DeepPurpleA100}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurpleA200" Color="{Binding Source={StaticResource DeepPurpleA200}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurpleA400" Color="{Binding Source={StaticResource DeepPurpleA400}, Path=Color}"/>
+			<MaterialBrush Identity="DeepPurpleA700" Color="{Binding Source={StaticResource DeepPurpleA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Indigo">
-			<MaterialBrush Identity="Indigo050" Color="{StaticResource Indigo050}"/>
-			<MaterialBrush Identity="Indigo100" Color="{StaticResource Indigo100}"/>
-			<MaterialBrush Identity="Indigo200" Color="{StaticResource Indigo200}"/>
-			<MaterialBrush Identity="Indigo300" Color="{StaticResource Indigo300}"/>
-			<MaterialBrush Identity="Indigo400" Color="{StaticResource Indigo400}"/>
-			<MaterialBrush Identity="Indigo500" Color="{StaticResource Indigo500}"/>
-			<MaterialBrush Identity="Indigo600" Color="{StaticResource Indigo600}"/>
-			<MaterialBrush Identity="Indigo700" Color="{StaticResource Indigo700}"/>
-			<MaterialBrush Identity="Indigo800" Color="{StaticResource Indigo800}"/>
-			<MaterialBrush Identity="Indigo900" Color="{StaticResource Indigo900}"/>
-			<MaterialBrush Identity="IndigoA100" Color="{StaticResource IndigoA100}"/>
-			<MaterialBrush Identity="IndigoA200" Color="{StaticResource IndigoA200}"/>
-			<MaterialBrush Identity="IndigoA400" Color="{StaticResource IndigoA400}"/>
-			<MaterialBrush Identity="IndigoA700" Color="{StaticResource IndigoA700}"/>
+			<MaterialBrush Identity="Indigo050" Color="{Binding Source={StaticResource Indigo050}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo100" Color="{Binding Source={StaticResource Indigo100}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo200" Color="{Binding Source={StaticResource Indigo200}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo300" Color="{Binding Source={StaticResource Indigo300}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo400" Color="{Binding Source={StaticResource Indigo400}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo500" Color="{Binding Source={StaticResource Indigo500}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo600" Color="{Binding Source={StaticResource Indigo600}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo700" Color="{Binding Source={StaticResource Indigo700}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo800" Color="{Binding Source={StaticResource Indigo800}, Path=Color}"/>
+			<MaterialBrush Identity="Indigo900" Color="{Binding Source={StaticResource Indigo900}, Path=Color}"/>
+			<MaterialBrush Identity="IndigoA100" Color="{Binding Source={StaticResource IndigoA100}, Path=Color}"/>
+			<MaterialBrush Identity="IndigoA200" Color="{Binding Source={StaticResource IndigoA200}, Path=Color}"/>
+			<MaterialBrush Identity="IndigoA400" Color="{Binding Source={StaticResource IndigoA400}, Path=Color}"/>
+			<MaterialBrush Identity="IndigoA700" Color="{Binding Source={StaticResource IndigoA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Blue">
-			<MaterialBrush Identity="Blue050" Color="{StaticResource Blue050}"/>
-			<MaterialBrush Identity="Blue100" Color="{StaticResource Blue100}"/>
-			<MaterialBrush Identity="Blue200" Color="{StaticResource Blue200}"/>
-			<MaterialBrush Identity="Blue300" Color="{StaticResource Blue300}"/>
-			<MaterialBrush Identity="Blue400" Color="{StaticResource Blue400}"/>
-			<MaterialBrush Identity="Blue500" Color="{StaticResource Blue500}"/>
-			<MaterialBrush Identity="Blue600" Color="{StaticResource Blue600}"/>
-			<MaterialBrush Identity="Blue700" Color="{StaticResource Blue700}"/>
-			<MaterialBrush Identity="Blue800" Color="{StaticResource Blue800}"/>
-			<MaterialBrush Identity="Blue900" Color="{StaticResource Blue900}"/>
-			<MaterialBrush Identity="BlueA100" Color="{StaticResource BlueA100}"/>
-			<MaterialBrush Identity="BlueA200" Color="{StaticResource BlueA200}"/>
-			<MaterialBrush Identity="BlueA400" Color="{StaticResource BlueA400}"/>
-			<MaterialBrush Identity="BlueA700" Color="{StaticResource BlueA700}"/>
+			<MaterialBrush Identity="Blue050" Color="{Binding Source={StaticResource Blue050}, Path=Color}"/>
+			<MaterialBrush Identity="Blue100" Color="{Binding Source={StaticResource Blue100}, Path=Color}"/>
+			<MaterialBrush Identity="Blue200" Color="{Binding Source={StaticResource Blue200}, Path=Color}"/>
+			<MaterialBrush Identity="Blue300" Color="{Binding Source={StaticResource Blue300}, Path=Color}"/>
+			<MaterialBrush Identity="Blue400" Color="{Binding Source={StaticResource Blue400}, Path=Color}"/>
+			<MaterialBrush Identity="Blue500" Color="{Binding Source={StaticResource Blue500}, Path=Color}"/>
+			<MaterialBrush Identity="Blue600" Color="{Binding Source={StaticResource Blue600}, Path=Color}"/>
+			<MaterialBrush Identity="Blue700" Color="{Binding Source={StaticResource Blue700}, Path=Color}"/>
+			<MaterialBrush Identity="Blue800" Color="{Binding Source={StaticResource Blue800}, Path=Color}"/>
+			<MaterialBrush Identity="Blue900" Color="{Binding Source={StaticResource Blue900}, Path=Color}"/>
+			<MaterialBrush Identity="BlueA100" Color="{Binding Source={StaticResource BlueA100}, Path=Color}"/>
+			<MaterialBrush Identity="BlueA200" Color="{Binding Source={StaticResource BlueA200}, Path=Color}"/>
+			<MaterialBrush Identity="BlueA400" Color="{Binding Source={StaticResource BlueA400}, Path=Color}"/>
+			<MaterialBrush Identity="BlueA700" Color="{Binding Source={StaticResource BlueA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="LightBlue">
-			<MaterialBrush Identity="LightBlue050" Color="{StaticResource LightBlue050}"/>
-			<MaterialBrush Identity="LightBlue100" Color="{StaticResource LightBlue100}"/>
-			<MaterialBrush Identity="LightBlue200" Color="{StaticResource LightBlue200}"/>
-			<MaterialBrush Identity="LightBlue300" Color="{StaticResource LightBlue300}"/>
-			<MaterialBrush Identity="LightBlue400" Color="{StaticResource LightBlue400}"/>
-			<MaterialBrush Identity="LightBlue500" Color="{StaticResource LightBlue500}"/>
-			<MaterialBrush Identity="LightBlue600" Color="{StaticResource LightBlue600}"/>
-			<MaterialBrush Identity="LightBlue700" Color="{StaticResource LightBlue700}"/>
-			<MaterialBrush Identity="LightBlue800" Color="{StaticResource LightBlue800}"/>
-			<MaterialBrush Identity="LightBlue900" Color="{StaticResource LightBlue900}"/>
-			<MaterialBrush Identity="LightBlueA100" Color="{StaticResource LightBlueA100}"/>
-			<MaterialBrush Identity="LightBlueA200" Color="{StaticResource LightBlueA200}"/>
-			<MaterialBrush Identity="LightBlueA400" Color="{StaticResource LightBlueA400}"/>
-			<MaterialBrush Identity="LightBlueA700" Color="{StaticResource LightBlueA700}"/>
+			<MaterialBrush Identity="LightBlue050" Color="{Binding Source={StaticResource LightBlue050}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue100" Color="{Binding Source={StaticResource LightBlue100}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue200" Color="{Binding Source={StaticResource LightBlue200}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue300" Color="{Binding Source={StaticResource LightBlue300}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue400" Color="{Binding Source={StaticResource LightBlue400}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue500" Color="{Binding Source={StaticResource LightBlue500}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue600" Color="{Binding Source={StaticResource LightBlue600}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue700" Color="{Binding Source={StaticResource LightBlue700}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue800" Color="{Binding Source={StaticResource LightBlue800}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlue900" Color="{Binding Source={StaticResource LightBlue900}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlueA100" Color="{Binding Source={StaticResource LightBlueA100}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlueA200" Color="{Binding Source={StaticResource LightBlueA200}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlueA400" Color="{Binding Source={StaticResource LightBlueA400}, Path=Color}"/>
+			<MaterialBrush Identity="LightBlueA700" Color="{Binding Source={StaticResource LightBlueA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Cyan">
-			<MaterialBrush Identity="Cyan050" Color="{StaticResource Cyan050}"/>
-			<MaterialBrush Identity="Cyan100" Color="{StaticResource Cyan100}"/>
-			<MaterialBrush Identity="Cyan200" Color="{StaticResource Cyan200}"/>
-			<MaterialBrush Identity="Cyan300" Color="{StaticResource Cyan300}"/>
-			<MaterialBrush Identity="Cyan400" Color="{StaticResource Cyan400}"/>
-			<MaterialBrush Identity="Cyan500" Color="{StaticResource Cyan500}"/>
-			<MaterialBrush Identity="Cyan600" Color="{StaticResource Cyan600}"/>
-			<MaterialBrush Identity="Cyan700" Color="{StaticResource Cyan700}"/>
-			<MaterialBrush Identity="Cyan800" Color="{StaticResource Cyan800}"/>
-			<MaterialBrush Identity="Cyan900" Color="{StaticResource Cyan900}"/>
-			<MaterialBrush Identity="CyanA100" Color="{StaticResource CyanA100}"/>
-			<MaterialBrush Identity="CyanA200" Color="{StaticResource CyanA200}"/>
-			<MaterialBrush Identity="CyanA400" Color="{StaticResource CyanA400}"/>
-			<MaterialBrush Identity="CyanA700" Color="{StaticResource CyanA700}"/>
+			<MaterialBrush Identity="Cyan050" Color="{Binding Source={StaticResource Cyan050}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan100" Color="{Binding Source={StaticResource Cyan100}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan200" Color="{Binding Source={StaticResource Cyan200}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan300" Color="{Binding Source={StaticResource Cyan300}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan400" Color="{Binding Source={StaticResource Cyan400}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan500" Color="{Binding Source={StaticResource Cyan500}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan600" Color="{Binding Source={StaticResource Cyan600}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan700" Color="{Binding Source={StaticResource Cyan700}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan800" Color="{Binding Source={StaticResource Cyan800}, Path=Color}"/>
+			<MaterialBrush Identity="Cyan900" Color="{Binding Source={StaticResource Cyan900}, Path=Color}"/>
+			<MaterialBrush Identity="CyanA100" Color="{Binding Source={StaticResource CyanA100}, Path=Color}"/>
+			<MaterialBrush Identity="CyanA200" Color="{Binding Source={StaticResource CyanA200}, Path=Color}"/>
+			<MaterialBrush Identity="CyanA400" Color="{Binding Source={StaticResource CyanA400}, Path=Color}"/>
+			<MaterialBrush Identity="CyanA700" Color="{Binding Source={StaticResource CyanA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Teal">
-			<MaterialBrush Identity="Teal050" Color="{StaticResource Teal050}"/>
-			<MaterialBrush Identity="Teal100" Color="{StaticResource Teal100}"/>
-			<MaterialBrush Identity="Teal200" Color="{StaticResource Teal200}"/>
-			<MaterialBrush Identity="Teal300" Color="{StaticResource Teal300}"/>
-			<MaterialBrush Identity="Teal400" Color="{StaticResource Teal400}"/>
-			<MaterialBrush Identity="Teal500" Color="{StaticResource Teal500}"/>
-			<MaterialBrush Identity="Teal600" Color="{StaticResource Teal600}"/>
-			<MaterialBrush Identity="Teal700" Color="{StaticResource Teal700}"/>
-			<MaterialBrush Identity="Teal800" Color="{StaticResource Teal800}"/>
-			<MaterialBrush Identity="Teal900" Color="{StaticResource Teal900}"/>
-			<MaterialBrush Identity="TealA100" Color="{StaticResource TealA100}"/>
-			<MaterialBrush Identity="TealA200" Color="{StaticResource TealA200}"/>
-			<MaterialBrush Identity="TealA400" Color="{StaticResource TealA400}"/>
-			<MaterialBrush Identity="TealA700" Color="{StaticResource TealA700}"/>
+			<MaterialBrush Identity="Teal050" Color="{Binding Source={StaticResource Teal050}, Path=Color}"/>
+			<MaterialBrush Identity="Teal100" Color="{Binding Source={StaticResource Teal100}, Path=Color}"/>
+			<MaterialBrush Identity="Teal200" Color="{Binding Source={StaticResource Teal200}, Path=Color}"/>
+			<MaterialBrush Identity="Teal300" Color="{Binding Source={StaticResource Teal300}, Path=Color}"/>
+			<MaterialBrush Identity="Teal400" Color="{Binding Source={StaticResource Teal400}, Path=Color}"/>
+			<MaterialBrush Identity="Teal500" Color="{Binding Source={StaticResource Teal500}, Path=Color}"/>
+			<MaterialBrush Identity="Teal600" Color="{Binding Source={StaticResource Teal600}, Path=Color}"/>
+			<MaterialBrush Identity="Teal700" Color="{Binding Source={StaticResource Teal700}, Path=Color}"/>
+			<MaterialBrush Identity="Teal800" Color="{Binding Source={StaticResource Teal800}, Path=Color}"/>
+			<MaterialBrush Identity="Teal900" Color="{Binding Source={StaticResource Teal900}, Path=Color}"/>
+			<MaterialBrush Identity="TealA100" Color="{Binding Source={StaticResource TealA100}, Path=Color}"/>
+			<MaterialBrush Identity="TealA200" Color="{Binding Source={StaticResource TealA200}, Path=Color}"/>
+			<MaterialBrush Identity="TealA400" Color="{Binding Source={StaticResource TealA400}, Path=Color}"/>
+			<MaterialBrush Identity="TealA700" Color="{Binding Source={StaticResource TealA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Green">
-			<MaterialBrush Identity="Green050" Color="{StaticResource Green050}"/>
-			<MaterialBrush Identity="Green100" Color="{StaticResource Green100}"/>
-			<MaterialBrush Identity="Green200" Color="{StaticResource Green200}"/>
-			<MaterialBrush Identity="Green300" Color="{StaticResource Green300}"/>
-			<MaterialBrush Identity="Green400" Color="{StaticResource Green400}"/>
-			<MaterialBrush Identity="Green500" Color="{StaticResource Green500}"/>
-			<MaterialBrush Identity="Green600" Color="{StaticResource Green600}"/>
-			<MaterialBrush Identity="Green700" Color="{StaticResource Green700}"/>
-			<MaterialBrush Identity="Green800" Color="{StaticResource Green800}"/>
-			<MaterialBrush Identity="Green900" Color="{StaticResource Green900}"/>
-			<MaterialBrush Identity="GreenA100" Color="{StaticResource GreenA100}"/>
-			<MaterialBrush Identity="GreenA200" Color="{StaticResource GreenA200}"/>
-			<MaterialBrush Identity="GreenA400" Color="{StaticResource GreenA400}"/>
-			<MaterialBrush Identity="GreenA700" Color="{StaticResource GreenA700}"/>
+			<MaterialBrush Identity="Green050" Color="{Binding Source={StaticResource Green050}, Path=Color}"/>
+			<MaterialBrush Identity="Green100" Color="{Binding Source={StaticResource Green100}, Path=Color}"/>
+			<MaterialBrush Identity="Green200" Color="{Binding Source={StaticResource Green200}, Path=Color}"/>
+			<MaterialBrush Identity="Green300" Color="{Binding Source={StaticResource Green300}, Path=Color}"/>
+			<MaterialBrush Identity="Green400" Color="{Binding Source={StaticResource Green400}, Path=Color}"/>
+			<MaterialBrush Identity="Green500" Color="{Binding Source={StaticResource Green500}, Path=Color}"/>
+			<MaterialBrush Identity="Green600" Color="{Binding Source={StaticResource Green600}, Path=Color}"/>
+			<MaterialBrush Identity="Green700" Color="{Binding Source={StaticResource Green700}, Path=Color}"/>
+			<MaterialBrush Identity="Green800" Color="{Binding Source={StaticResource Green800}, Path=Color}"/>
+			<MaterialBrush Identity="Green900" Color="{Binding Source={StaticResource Green900}, Path=Color}"/>
+			<MaterialBrush Identity="GreenA100" Color="{Binding Source={StaticResource GreenA100}, Path=Color}"/>
+			<MaterialBrush Identity="GreenA200" Color="{Binding Source={StaticResource GreenA200}, Path=Color}"/>
+			<MaterialBrush Identity="GreenA400" Color="{Binding Source={StaticResource GreenA400}, Path=Color}"/>
+			<MaterialBrush Identity="GreenA700" Color="{Binding Source={StaticResource GreenA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="LightGreen">
-			<MaterialBrush Identity="LightGreen050" Color="{StaticResource LightGreen050}"/>
-			<MaterialBrush Identity="LightGreen100" Color="{StaticResource LightGreen100}"/>
-			<MaterialBrush Identity="LightGreen200" Color="{StaticResource LightGreen200}"/>
-			<MaterialBrush Identity="LightGreen300" Color="{StaticResource LightGreen300}"/>
-			<MaterialBrush Identity="LightGreen400" Color="{StaticResource LightGreen400}"/>
-			<MaterialBrush Identity="LightGreen500" Color="{StaticResource LightGreen500}"/>
-			<MaterialBrush Identity="LightGreen600" Color="{StaticResource LightGreen600}"/>
-			<MaterialBrush Identity="LightGreen700" Color="{StaticResource LightGreen700}"/>
-			<MaterialBrush Identity="LightGreen800" Color="{StaticResource LightGreen800}"/>
-			<MaterialBrush Identity="LightGreen900" Color="{StaticResource LightGreen900}"/>
-			<MaterialBrush Identity="LightGreenA100" Color="{StaticResource LightGreenA100}"/>
-			<MaterialBrush Identity="LightGreenA200" Color="{StaticResource LightGreenA200}"/>
-			<MaterialBrush Identity="LightGreenA400" Color="{StaticResource LightGreenA400}"/>
-			<MaterialBrush Identity="LightGreenA700" Color="{StaticResource LightGreenA700}"/>
+			<MaterialBrush Identity="LightGreen050" Color="{Binding Source={StaticResource LightGreen050}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen100" Color="{Binding Source={StaticResource LightGreen100}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen200" Color="{Binding Source={StaticResource LightGreen200}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen300" Color="{Binding Source={StaticResource LightGreen300}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen400" Color="{Binding Source={StaticResource LightGreen400}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen500" Color="{Binding Source={StaticResource LightGreen500}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen600" Color="{Binding Source={StaticResource LightGreen600}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen700" Color="{Binding Source={StaticResource LightGreen700}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen800" Color="{Binding Source={StaticResource LightGreen800}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreen900" Color="{Binding Source={StaticResource LightGreen900}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreenA100" Color="{Binding Source={StaticResource LightGreenA100}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreenA200" Color="{Binding Source={StaticResource LightGreenA200}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreenA400" Color="{Binding Source={StaticResource LightGreenA400}, Path=Color}"/>
+			<MaterialBrush Identity="LightGreenA700" Color="{Binding Source={StaticResource LightGreenA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Lime">
-			<MaterialBrush Identity="Lime050" Color="{StaticResource Lime050}"/>
-			<MaterialBrush Identity="Lime100" Color="{StaticResource Lime100}"/>
-			<MaterialBrush Identity="Lime200" Color="{StaticResource Lime200}"/>
-			<MaterialBrush Identity="Lime300" Color="{StaticResource Lime300}"/>
-			<MaterialBrush Identity="Lime400" Color="{StaticResource Lime400}"/>
-			<MaterialBrush Identity="Lime500" Color="{StaticResource Lime500}"/>
-			<MaterialBrush Identity="Lime600" Color="{StaticResource Lime600}"/>
-			<MaterialBrush Identity="Lime700" Color="{StaticResource Lime700}"/>
-			<MaterialBrush Identity="Lime800" Color="{StaticResource Lime800}"/>
-			<MaterialBrush Identity="Lime900" Color="{StaticResource Lime900}"/>
-			<MaterialBrush Identity="LimeA100" Color="{StaticResource LimeA100}"/>
-			<MaterialBrush Identity="LimeA200" Color="{StaticResource LimeA200}"/>
-			<MaterialBrush Identity="LimeA400" Color="{StaticResource LimeA400}"/>
-			<MaterialBrush Identity="LimeA700" Color="{StaticResource LimeA700}"/>
+			<MaterialBrush Identity="Lime050" Color="{Binding Source={StaticResource Lime050}, Path=Color}"/>
+			<MaterialBrush Identity="Lime100" Color="{Binding Source={StaticResource Lime100}, Path=Color}"/>
+			<MaterialBrush Identity="Lime200" Color="{Binding Source={StaticResource Lime200}, Path=Color}"/>
+			<MaterialBrush Identity="Lime300" Color="{Binding Source={StaticResource Lime300}, Path=Color}"/>
+			<MaterialBrush Identity="Lime400" Color="{Binding Source={StaticResource Lime400}, Path=Color}"/>
+			<MaterialBrush Identity="Lime500" Color="{Binding Source={StaticResource Lime500}, Path=Color}"/>
+			<MaterialBrush Identity="Lime600" Color="{Binding Source={StaticResource Lime600}, Path=Color}"/>
+			<MaterialBrush Identity="Lime700" Color="{Binding Source={StaticResource Lime700}, Path=Color}"/>
+			<MaterialBrush Identity="Lime800" Color="{Binding Source={StaticResource Lime800}, Path=Color}"/>
+			<MaterialBrush Identity="Lime900" Color="{Binding Source={StaticResource Lime900}, Path=Color}"/>
+			<MaterialBrush Identity="LimeA100" Color="{Binding Source={StaticResource LimeA100}, Path=Color}"/>
+			<MaterialBrush Identity="LimeA200" Color="{Binding Source={StaticResource LimeA200}, Path=Color}"/>
+			<MaterialBrush Identity="LimeA400" Color="{Binding Source={StaticResource LimeA400}, Path=Color}"/>
+			<MaterialBrush Identity="LimeA700" Color="{Binding Source={StaticResource LimeA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Amber">
-			<MaterialBrush Identity="Amber050" Color="{StaticResource Amber050}"/>
-			<MaterialBrush Identity="Amber100" Color="{StaticResource Amber100}"/>
-			<MaterialBrush Identity="Amber200" Color="{StaticResource Amber200}"/>
-			<MaterialBrush Identity="Amber300" Color="{StaticResource Amber300}"/>
-			<MaterialBrush Identity="Amber400" Color="{StaticResource Amber400}"/>
-			<MaterialBrush Identity="Amber500" Color="{StaticResource Amber500}"/>
-			<MaterialBrush Identity="Amber600" Color="{StaticResource Amber600}"/>
-			<MaterialBrush Identity="Amber700" Color="{StaticResource Amber700}"/>
-			<MaterialBrush Identity="Amber800" Color="{StaticResource Amber800}"/>
-			<MaterialBrush Identity="Amber900" Color="{StaticResource Amber900}"/>
-			<MaterialBrush Identity="AmberA100" Color="{StaticResource AmberA100}"/>
-			<MaterialBrush Identity="AmberA200" Color="{StaticResource AmberA200}"/>
-			<MaterialBrush Identity="AmberA400" Color="{StaticResource AmberA400}"/>
-			<MaterialBrush Identity="AmberA700" Color="{StaticResource AmberA700}"/>
+			<MaterialBrush Identity="Amber050" Color="{Binding Source={StaticResource Amber050}, Path=Color}"/>
+			<MaterialBrush Identity="Amber100" Color="{Binding Source={StaticResource Amber100}, Path=Color}"/>
+			<MaterialBrush Identity="Amber200" Color="{Binding Source={StaticResource Amber200}, Path=Color}"/>
+			<MaterialBrush Identity="Amber300" Color="{Binding Source={StaticResource Amber300}, Path=Color}"/>
+			<MaterialBrush Identity="Amber400" Color="{Binding Source={StaticResource Amber400}, Path=Color}"/>
+			<MaterialBrush Identity="Amber500" Color="{Binding Source={StaticResource Amber500}, Path=Color}"/>
+			<MaterialBrush Identity="Amber600" Color="{Binding Source={StaticResource Amber600}, Path=Color}"/>
+			<MaterialBrush Identity="Amber700" Color="{Binding Source={StaticResource Amber700}, Path=Color}"/>
+			<MaterialBrush Identity="Amber800" Color="{Binding Source={StaticResource Amber800}, Path=Color}"/>
+			<MaterialBrush Identity="Amber900" Color="{Binding Source={StaticResource Amber900}, Path=Color}"/>
+			<MaterialBrush Identity="AmberA100" Color="{Binding Source={StaticResource AmberA100}, Path=Color}"/>
+			<MaterialBrush Identity="AmberA200" Color="{Binding Source={StaticResource AmberA200}, Path=Color}"/>
+			<MaterialBrush Identity="AmberA400" Color="{Binding Source={StaticResource AmberA400}, Path=Color}"/>
+			<MaterialBrush Identity="AmberA700" Color="{Binding Source={StaticResource AmberA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Orange">
-			<MaterialBrush Identity="Orange050" Color="{StaticResource Orange050}"/>
-			<MaterialBrush Identity="Orange100" Color="{StaticResource Orange100}"/>
-			<MaterialBrush Identity="Orange200" Color="{StaticResource Orange200}"/>
-			<MaterialBrush Identity="Orange300" Color="{StaticResource Orange300}"/>
-			<MaterialBrush Identity="Orange400" Color="{StaticResource Orange400}"/>
-			<MaterialBrush Identity="Orange500" Color="{StaticResource Orange500}"/>
-			<MaterialBrush Identity="Orange600" Color="{StaticResource Orange600}"/>
-			<MaterialBrush Identity="Orange700" Color="{StaticResource Orange700}"/>
-			<MaterialBrush Identity="Orange800" Color="{StaticResource Orange800}"/>
-			<MaterialBrush Identity="Orange900" Color="{StaticResource Orange900}"/>
-			<MaterialBrush Identity="OrangeA100" Color="{StaticResource OrangeA100}"/>
-			<MaterialBrush Identity="OrangeA200" Color="{StaticResource OrangeA200}"/>
-			<MaterialBrush Identity="OrangeA400" Color="{StaticResource OrangeA400}"/>
-			<MaterialBrush Identity="OrangeA700" Color="{StaticResource OrangeA700}"/>
+			<MaterialBrush Identity="Orange050" Color="{Binding Source={StaticResource Orange050}, Path=Color}"/>
+			<MaterialBrush Identity="Orange100" Color="{Binding Source={StaticResource Orange100}, Path=Color}"/>
+			<MaterialBrush Identity="Orange200" Color="{Binding Source={StaticResource Orange200}, Path=Color}"/>
+			<MaterialBrush Identity="Orange300" Color="{Binding Source={StaticResource Orange300}, Path=Color}"/>
+			<MaterialBrush Identity="Orange400" Color="{Binding Source={StaticResource Orange400}, Path=Color}"/>
+			<MaterialBrush Identity="Orange500" Color="{Binding Source={StaticResource Orange500}, Path=Color}"/>
+			<MaterialBrush Identity="Orange600" Color="{Binding Source={StaticResource Orange600}, Path=Color}"/>
+			<MaterialBrush Identity="Orange700" Color="{Binding Source={StaticResource Orange700}, Path=Color}"/>
+			<MaterialBrush Identity="Orange800" Color="{Binding Source={StaticResource Orange800}, Path=Color}"/>
+			<MaterialBrush Identity="Orange900" Color="{Binding Source={StaticResource Orange900}, Path=Color}"/>
+			<MaterialBrush Identity="OrangeA100" Color="{Binding Source={StaticResource OrangeA100}, Path=Color}"/>
+			<MaterialBrush Identity="OrangeA200" Color="{Binding Source={StaticResource OrangeA200}, Path=Color}"/>
+			<MaterialBrush Identity="OrangeA400" Color="{Binding Source={StaticResource OrangeA400}, Path=Color}"/>
+			<MaterialBrush Identity="OrangeA700" Color="{Binding Source={StaticResource OrangeA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="DeepOrange">
-			<MaterialBrush Identity="DeepOrange050" Color="{StaticResource DeepOrange050}"/>
-			<MaterialBrush Identity="DeepOrange100" Color="{StaticResource DeepOrange100}"/>
-			<MaterialBrush Identity="DeepOrange200" Color="{StaticResource DeepOrange200}"/>
-			<MaterialBrush Identity="DeepOrange300" Color="{StaticResource DeepOrange300}"/>
-			<MaterialBrush Identity="DeepOrange400" Color="{StaticResource DeepOrange400}"/>
-			<MaterialBrush Identity="DeepOrange500" Color="{StaticResource DeepOrange500}"/>
-			<MaterialBrush Identity="DeepOrange600" Color="{StaticResource DeepOrange600}"/>
-			<MaterialBrush Identity="DeepOrange700" Color="{StaticResource DeepOrange700}"/>
-			<MaterialBrush Identity="DeepOrange800" Color="{StaticResource DeepOrange800}"/>
-			<MaterialBrush Identity="DeepOrange900" Color="{StaticResource DeepOrange900}"/>
-			<MaterialBrush Identity="DeepOrangeA100" Color="{StaticResource DeepOrangeA100}"/>
-			<MaterialBrush Identity="DeepOrangeA200" Color="{StaticResource DeepOrangeA200}"/>
-			<MaterialBrush Identity="DeepOrangeA400" Color="{StaticResource DeepOrangeA400}"/>
-			<MaterialBrush Identity="DeepOrangeA700" Color="{StaticResource DeepOrangeA700}"/>
+			<MaterialBrush Identity="DeepOrange050" Color="{Binding Source={StaticResource DeepOrange050}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange100" Color="{Binding Source={StaticResource DeepOrange100}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange200" Color="{Binding Source={StaticResource DeepOrange200}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange300" Color="{Binding Source={StaticResource DeepOrange300}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange400" Color="{Binding Source={StaticResource DeepOrange400}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange500" Color="{Binding Source={StaticResource DeepOrange500}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange600" Color="{Binding Source={StaticResource DeepOrange600}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange700" Color="{Binding Source={StaticResource DeepOrange700}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange800" Color="{Binding Source={StaticResource DeepOrange800}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrange900" Color="{Binding Source={StaticResource DeepOrange900}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrangeA100" Color="{Binding Source={StaticResource DeepOrangeA100}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrangeA200" Color="{Binding Source={StaticResource DeepOrangeA200}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrangeA400" Color="{Binding Source={StaticResource DeepOrangeA400}, Path=Color}"/>
+			<MaterialBrush Identity="DeepOrangeA700" Color="{Binding Source={StaticResource DeepOrangeA700}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Brown">
-			<MaterialBrush Identity="Brown050" Color="{StaticResource Brown050}"/>
-			<MaterialBrush Identity="Brown100" Color="{StaticResource Brown100}"/>
-			<MaterialBrush Identity="Brown200" Color="{StaticResource Brown200}"/>
-			<MaterialBrush Identity="Brown300" Color="{StaticResource Brown300}"/>
-			<MaterialBrush Identity="Brown400" Color="{StaticResource Brown400}"/>
-			<MaterialBrush Identity="Brown500" Color="{StaticResource Brown500}"/>
-			<MaterialBrush Identity="Brown600" Color="{StaticResource Brown600}"/>
-			<MaterialBrush Identity="Brown700" Color="{StaticResource Brown700}"/>
-			<MaterialBrush Identity="Brown800" Color="{StaticResource Brown800}"/>
-			<MaterialBrush Identity="Brown900" Color="{StaticResource Brown900}"/>
+			<MaterialBrush Identity="Brown050" Color="{Binding Source={StaticResource Brown050}, Path=Color}"/>
+			<MaterialBrush Identity="Brown100" Color="{Binding Source={StaticResource Brown100}, Path=Color}"/>
+			<MaterialBrush Identity="Brown200" Color="{Binding Source={StaticResource Brown200}, Path=Color}"/>
+			<MaterialBrush Identity="Brown300" Color="{Binding Source={StaticResource Brown300}, Path=Color}"/>
+			<MaterialBrush Identity="Brown400" Color="{Binding Source={StaticResource Brown400}, Path=Color}"/>
+			<MaterialBrush Identity="Brown500" Color="{Binding Source={StaticResource Brown500}, Path=Color}"/>
+			<MaterialBrush Identity="Brown600" Color="{Binding Source={StaticResource Brown600}, Path=Color}"/>
+			<MaterialBrush Identity="Brown700" Color="{Binding Source={StaticResource Brown700}, Path=Color}"/>
+			<MaterialBrush Identity="Brown800" Color="{Binding Source={StaticResource Brown800}, Path=Color}"/>
+			<MaterialBrush Identity="Brown900" Color="{Binding Source={StaticResource Brown900}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="Grey">
-			<MaterialBrush Identity="Grey050" Color="{StaticResource Grey050}"/>
-			<MaterialBrush Identity="Grey100" Color="{StaticResource Grey100}"/>
-			<MaterialBrush Identity="Grey200" Color="{StaticResource Grey200}"/>
-			<MaterialBrush Identity="Grey300" Color="{StaticResource Grey300}"/>
-			<MaterialBrush Identity="Grey400" Color="{StaticResource Grey400}"/>
-			<MaterialBrush Identity="Grey500" Color="{StaticResource Grey500}"/>
-			<MaterialBrush Identity="Grey600" Color="{StaticResource Grey600}"/>
-			<MaterialBrush Identity="Grey700" Color="{StaticResource Grey700}"/>
-			<MaterialBrush Identity="Grey800" Color="{StaticResource Grey800}"/>
-			<MaterialBrush Identity="Grey900" Color="{StaticResource Grey900}"/>
+			<MaterialBrush Identity="Grey050" Color="{Binding Source={StaticResource Grey050}, Path=Color}"/>
+			<MaterialBrush Identity="Grey100" Color="{Binding Source={StaticResource Grey100}, Path=Color}"/>
+			<MaterialBrush Identity="Grey200" Color="{Binding Source={StaticResource Grey200}, Path=Color}"/>
+			<MaterialBrush Identity="Grey300" Color="{Binding Source={StaticResource Grey300}, Path=Color}"/>
+			<MaterialBrush Identity="Grey400" Color="{Binding Source={StaticResource Grey400}, Path=Color}"/>
+			<MaterialBrush Identity="Grey500" Color="{Binding Source={StaticResource Grey500}, Path=Color}"/>
+			<MaterialBrush Identity="Grey600" Color="{Binding Source={StaticResource Grey600}, Path=Color}"/>
+			<MaterialBrush Identity="Grey700" Color="{Binding Source={StaticResource Grey700}, Path=Color}"/>
+			<MaterialBrush Identity="Grey800" Color="{Binding Source={StaticResource Grey800}, Path=Color}"/>
+			<MaterialBrush Identity="Grey900" Color="{Binding Source={StaticResource Grey900}, Path=Color}"/>
 		</Swatch>
 		<Swatch SwatchClassifier="BlueGrey">
-			<MaterialBrush Identity="BlueGrey050" Color="{StaticResource BlueGrey050}"/>
-			<MaterialBrush Identity="BlueGrey100" Color="{StaticResource BlueGrey100}"/>
-			<MaterialBrush Identity="BlueGrey200" Color="{StaticResource BlueGrey200}"/>
-			<MaterialBrush Identity="BlueGrey300" Color="{StaticResource BlueGrey300}"/>
-			<MaterialBrush Identity="BlueGrey400" Color="{StaticResource BlueGrey400}"/>
-			<MaterialBrush Identity="BlueGrey500" Color="{StaticResource BlueGrey500}"/>
-			<MaterialBrush Identity="BlueGrey600" Color="{StaticResource BlueGrey600}"/>
-			<MaterialBrush Identity="BlueGrey700" Color="{StaticResource BlueGrey700}"/>
-			<MaterialBrush Identity="BlueGrey800" Color="{StaticResource BlueGrey800}"/>
-			<MaterialBrush Identity="BlueGrey900" Color="{StaticResource BlueGrey900}"/>
+			<MaterialBrush Identity="BlueGrey050" Color="{Binding Source={StaticResource BlueGrey050}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey100" Color="{Binding Source={StaticResource BlueGrey100}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey200" Color="{Binding Source={StaticResource BlueGrey200}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey300" Color="{Binding Source={StaticResource BlueGrey300}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey400" Color="{Binding Source={StaticResource BlueGrey400}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey500" Color="{Binding Source={StaticResource BlueGrey500}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey600" Color="{Binding Source={StaticResource BlueGrey600}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey700" Color="{Binding Source={StaticResource BlueGrey700}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey800" Color="{Binding Source={StaticResource BlueGrey800}, Path=Color}"/>
+			<MaterialBrush Identity="BlueGrey900" Color="{Binding Source={StaticResource BlueGrey900}, Path=Color}"/>
 		</Swatch>
 	</Palette>
 </ResourceDictionary>

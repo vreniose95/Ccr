@@ -9,6 +9,28 @@ namespace Ccr.Introspective.Extensions
 {
 	public static class IntrospectiveContextMethodExtensions
 	{
+		public static void InvokeMethod(
+			[NotNull] this IntrospectiveContext @this,
+			[NotNull] MemberDescriptor memberDescriptor,
+			[NotNull] string methodName,
+			params object[] methodArgs)
+		{
+			@this.IsNotNull(nameof(@this));
+			memberDescriptor.IsNotNull(nameof(memberDescriptor));
+			methodName.IsNotNull(nameof(methodName));
+
+			var ownerType = @this.TargetType;
+			var methodInfo = ownerType.GetMethod(methodName, memberDescriptor);
+
+			if (methodInfo == null)
+				throw new MissingMethodException(
+					ownerType.Name,
+					methodName);
+
+			methodInfo.Invoke(
+				@this.TargetObject,
+				methodArgs);
+		}
 		public static TReturns InvokeMethod<TReturns>(
 			[NotNull] this IntrospectiveContext @this,
 			[NotNull] MemberDescriptor memberDescriptor,

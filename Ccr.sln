@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Ccr", "Ccr\Ccr.shproj", "{D671FFA9-1153-4254-B081-91CD71DE1A89}"
 EndProject
@@ -48,10 +48,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Performance1.psess = Performance1.psess
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.PresentationCore.Tests", "Ccr.PresentationCore.Tests\Ccr.PresentationCore.Tests.csproj", "{F18274D5-F086-444C-9680-D810BA76719C}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Ccr\Ccr.projitems*{d671ffa9-1153-4254-b081-91cd71de1a89}*SharedItemsImports = 13
 	EndGlobalSection
@@ -128,6 +127,10 @@ Global
 		{41B1D9B2-10CB-46B5-A861-1EBFD1016A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41B1D9B2-10CB-46B5-A861-1EBFD1016A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41B1D9B2-10CB-46B5-A861-1EBFD1016A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18274D5-F086-444C-9680-D810BA76719C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18274D5-F086-444C-9680-D810BA76719C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18274D5-F086-444C-9680-D810BA76719C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18274D5-F086-444C-9680-D810BA76719C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,8 +141,12 @@ Global
 		{854BB1A7-C4C0-44DE-9C1D-6962CBEB4D01} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 		{9B7FFFF5-A5E3-4AE1-AAC2-E96875F0CAD1} = {76BA4E78-33EC-428D-8618-7E9E0F92735C}
 		{8F965014-E25C-4D66-B3D6-1153CBB4BA65} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
+		{F18274D5-F086-444C-9680-D810BA76719C} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CBA47B9-9AA1-4FEC-9C93-66F058F6B28E}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal

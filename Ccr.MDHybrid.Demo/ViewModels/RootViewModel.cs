@@ -19,7 +19,21 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 				NotifyOfPropertyChange(() => TestProperty);
 			}
 		}
-	
+		//private NavigationViewModel navigationView;
+		//public NavigationViewModel NavigationView
+		//{
+		//	get => navigationView;
+		//	set
+		//	{
+		//		navigationView = value;
+		//		NotifyOfPropertyChange(() => NavigationView);
+		//	}
+		//}
+
+		//public RootViewModel()
+		//{
+		//	NavigationView = new NavigationViewModel();
+		//}
 
 		//private Palette materialPalette;
 		//public Palette MaterialPalette

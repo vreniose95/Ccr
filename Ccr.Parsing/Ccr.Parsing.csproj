@@ -47,6 +47,7 @@
     <Compile Include="Parsing\Tokenizer\TokenizerBase.cs" />
     <Compile Include="Parsing\Tokenizer\TokenizerFrame.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\ContentToken.cs" />
+    <Compile Include="Parsing\Tokenizer\Tokens\ExclamationMarkToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\IdentifierToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\NumberToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\Range\ITextLiteralPointer.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Parsing\Tokenizer\Tokens\SymbolToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\SymbolTokens.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\TokenBase.cs" />
+    <Compile Include="Parsing\Tokenizer\Tokens\TokenQualifierAttribute.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\TokenUsage.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\WhitespaceLiteralToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

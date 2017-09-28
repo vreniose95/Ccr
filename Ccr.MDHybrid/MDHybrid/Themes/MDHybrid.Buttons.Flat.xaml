@@ -1,10 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:valueConverters1="clr-namespace:Ccr.MaterialDesign.Markup.ValueConverters;assembly=Ccr.MaterialDesign"
-                    xmlns:services1="clr-namespace:Ccr.MaterialDesign.Primitives.Behaviors.Services;assembly=Ccr.MaterialDesign">
-	<!--<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="MHDybrid.Palette.Brushes.xaml" />
-	</ResourceDictionary.MergedDictionaries>-->
+                    xmlns:valueConverters1="clr-namespace:Ccr.MaterialDesign.Markup.ValueConverters;assembly=Ccr.MaterialDesign">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
 	
 	<ControlTemplate x:Key="ControlTemplate_FlatButton"
 									 TargetType="Button">
@@ -64,7 +63,7 @@
 				                  Margin="{TemplateBinding Padding}"/>
 			</Grid>
 		</Border>
-		<ControlTemplate.Triggers>
+		<!--<ControlTemplate.Triggers>
 			<EventTrigger RoutedEvent="Click">
 				<BeginStoryboard>
 					<Storyboard SpeedRatio="2">
@@ -90,7 +89,7 @@
 					</Storyboard>
 				</BeginStoryboard>
 			</EventTrigger>
-		</ControlTemplate.Triggers>
+		</ControlTemplate.Triggers>-->
 		<!--<ControlTemplate.Triggers>
 						<Trigger Property="IsEnabled" Value="False">
 							-->

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq.Expressions;
-using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 
 namespace Ccr.Parsing.Tokenizer.Tokens
@@ -9,8 +7,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		: TokenBase
 	{
 		protected SymbolToken(
-			[RegexPattern] string regexPattern,
-			Expression<Func<GroupCollection, string>> symbolValueRouter) : base(
+			[RegexPattern] string regexPattern) : base(
 				regexPattern)
 		{
 		}
@@ -21,7 +18,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		}
 		protected SymbolToken(
 			string matchLiteral,
-			StringComparison stringComparison = StringComparison.CurrentCulture) : this(
+			StringComparison stringComparison) : this(
 				t => t.Equals(matchLiteral, stringComparison))
 		{
 		}
