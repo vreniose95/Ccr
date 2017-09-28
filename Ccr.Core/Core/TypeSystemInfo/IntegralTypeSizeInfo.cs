@@ -1,21 +1,20 @@
 ﻿using System.Diagnostics;
+using Ccr.Core.TypeSystemInfo.ReferenceTypes;
 
 namespace Ccr.Core.TypeSystemInfo
 {
-	[DebuggerDisplay("ToString()")]
-	public struct IntegralTypeSize
+	[DebuggerDisplay("ToString")]
+	public class IntegralTypeSizeInfo
+		: ReferenceTypeSize
 	{
 		public Signedness Signedness { get; }
 
-		public int Bits { get; }
-
-
-		public IntegralTypeSize(
+		public IntegralTypeSizeInfo(
 			Signedness signedness,
-			int bits)
+			int bits) : base(
+				bits)
 		{
 			Signedness = signedness;
-			Bits = bits;
 		}
 
 

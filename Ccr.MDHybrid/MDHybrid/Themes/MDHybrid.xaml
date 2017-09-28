@@ -4,7 +4,7 @@
 		<ResourceDictionary Source="MDHybrid.Global.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Palette.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Text.xaml"/>
-		<!--<ResourceDictionary Source="MaterialHybrid.Buttons.xaml"/>-->
+		<ResourceDictionary Source="MDHybrid.Buttons.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Window.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

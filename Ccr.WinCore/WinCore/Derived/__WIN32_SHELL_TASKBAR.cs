@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using Ccr.WinCore.Common;
+using Ccr.WinCore.WinAPIs;
 using Ccr.WinCore.WinCore.Common;
 using Ccr.WinCore.WinCore.WinAPIs;
 

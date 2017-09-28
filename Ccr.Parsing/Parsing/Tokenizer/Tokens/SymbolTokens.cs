@@ -1,13 +1,6 @@
 ﻿namespace Ccr.Parsing.Tokenizer.Tokens
 {
-	public class ExclamationMarkToken
-		: SymbolToken
-	{
-		public ExclamationMarkToken() : base(
-			"!")
-		{
-		}
-	}
+	[TokenQualifier(@"(\@)")]
 	public class AtSignToken
 		: SymbolToken
 	{
@@ -16,6 +9,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\#)")]
 	public class PoundSignToken
 		: SymbolToken
 	{
@@ -24,6 +18,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\$)")]
 	public class DollarSignToken
 		: SymbolToken
 	{
@@ -32,6 +27,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\%)")]
 	public class PercentSignToken
 		: SymbolToken
 	{
@@ -40,6 +36,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\^)")]
 	public class CaretToken
 		: SymbolToken
 	{
@@ -48,6 +45,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\&)")]
 	public class AmpresandToken
 		: SymbolToken
 	{
@@ -56,6 +54,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\*)")]
 	public class AsteriskToken
 		: SymbolToken
 	{
@@ -64,6 +63,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\()")]
 	public class OpenParenthesisToken
 		: SymbolToken
 	{
@@ -72,6 +72,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\))")]
 	public class CloseParenthesisToken
 		: SymbolToken
 	{
@@ -80,6 +81,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(_)")]
 	public class UserscoreToken
 		: SymbolToken
 	{
@@ -88,6 +90,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\+)")]
 	public class AddToken
 		: SymbolToken
 	{
@@ -96,6 +99,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\-)")]
 	public class SubtractToken
 		: SymbolToken
 	{
@@ -104,6 +108,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\=)")]
 	public class EqualsToken
 		: SymbolToken
 	{
@@ -112,6 +117,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\[)")]
 	public class OpenSquareBraceToken
 		: SymbolToken
 	{
@@ -120,6 +126,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\[)")]
 	public class CloseSquareBraceToken
 		: SymbolToken
 	{
@@ -128,6 +135,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\{)")]
 	public class OpenCurlyBraceToken
 		: SymbolToken
 	{
@@ -136,6 +144,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\})")]
 	public class CloseCurlyBraceToken
 		: SymbolToken
 	{
@@ -144,6 +153,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\|)")]
 	public class VerticalPipeToken
 		: SymbolToken
 	{
@@ -152,6 +162,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\\)")]
 	public class BlackSlashToken
 		: SymbolToken
 	{
@@ -160,6 +171,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(;)")]
 	public class SemicolonToken
 		: SymbolToken
 	{
@@ -168,6 +180,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(:)")]
 	public class ColonToken
 		: SymbolToken
 	{
@@ -176,6 +189,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\')")]
 	public class SingleQuoteToken
 		: SymbolToken
 	{
@@ -184,6 +198,7 @@
 		{
 		}
 	}
+	[TokenQualifier("(\")")]
 	public class DoubleQuoteToken
 		: SymbolToken
 	{
@@ -192,6 +207,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\<)")]
 	public class LessThanToken
 		: SymbolToken
 	{
@@ -200,6 +216,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(,)")]
 	public class CommaToken
 		: SymbolToken
 	{
@@ -208,6 +225,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\>)")]
 	public class GreaterThanToken
 		: SymbolToken
 	{
@@ -216,6 +234,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(.)")]
 	public class PeriodToken
 		: SymbolToken
 	{
@@ -224,6 +243,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(/)")]
 	public class ForwardSlashToken
 		: SymbolToken
 	{
@@ -232,6 +252,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(\?)")]
 	public class QuestionMarkToken
 		: SymbolToken
 	{
@@ -240,6 +261,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(~)")]
 	public class TildeToken
 		: SymbolToken
 	{
@@ -248,6 +270,7 @@
 		{
 		}
 	}
+	[TokenQualifier(@"(`)")]
 	public class BacktickToken
 		: SymbolToken
 	{

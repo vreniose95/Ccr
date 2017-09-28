@@ -1,20 +1,20 @@
 ﻿using System;
 
-namespace Ccr.Core.TypeSystemInfo
+namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
-	public struct IntegralTypeInfo
+	public class IntegralTypeInfo
 	{
 		public Type SystemType { get; }
 
 		public IntegralTypeValueRange ValueRange { get; }
 
-		public IntegralTypeSize Size { get; }
+		public IntegralTypeSizeInfo Size { get; }
 
 
 		public IntegralTypeInfo(
 			Type systemType,
 			IntegralTypeValueRange valueRange,
-			IntegralTypeSize size)
+			IntegralTypeSizeInfo size)
 		{
 			SystemType = systemType;
 			ValueRange = valueRange;

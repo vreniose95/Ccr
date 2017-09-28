@@ -39,7 +39,7 @@ namespace Ccr.Geocoding.Google
 				else
 					throw new ArgumentException(
 						$"\"{channel}\" is not a valid ASCII alphanumeric string. Can include a " +
-						$"period, underscore, and hyphen character. ", 
+						$"period, underscore, and hyphen character.", 
 						nameof(channel));
 			}
 		}
@@ -63,7 +63,7 @@ namespace Ccr.Geocoding.Google
 			string value, 
 			[NotNull, UsedImplicitly] string name)
 		{
-			value.IsNotNullOrEmpty(nameof(name));
+			value.IsNotNullOrEmptyEx(nameof(name));
 			return value.Trim();
 		}
 

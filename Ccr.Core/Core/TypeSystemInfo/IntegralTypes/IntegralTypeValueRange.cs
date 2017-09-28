@@ -1,9 +1,9 @@
 using System.Diagnostics;
 
-namespace Ccr.Core.TypeSystemInfo
+namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
-	[DebuggerDisplay("ToString()")]
-	public struct IntegralTypeValueRange
+	[DebuggerDisplay("ToString")]
+	public class IntegralTypeValueRange
 	{
 		public long Minimum { get; }
 

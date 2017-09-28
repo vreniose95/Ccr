@@ -50,7 +50,7 @@ namespace Ccr.Data.Common.Constructs
 							break;
 						}
 
-					case PersonNameTokenType.FirstNameFull:
+					case PersonNameTokenType.453Full:
 					case PersonNameTokenType.FirstNameInitialWithPeriod:
 					case PersonNameTokenType.FirstNameInitialWithoutPeriod:
 						{

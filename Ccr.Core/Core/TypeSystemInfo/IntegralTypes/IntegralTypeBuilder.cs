@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Ccr.Core.Extensions;
 
-namespace Ccr.Core.TypeSystemInfo
+namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	internal static class IntegralTypeBuilder
 	{
@@ -32,7 +32,7 @@ namespace Ccr.Core.TypeSystemInfo
 			return valueRange;
 		}
 
-		private static IntegralTypeSize buildTypeSize(
+		private static IntegralTypeSizeInfo buildTypeSize(
 			Type systemType)
 		{
 			var minValue = systemType
@@ -47,7 +47,7 @@ namespace Ccr.Core.TypeSystemInfo
 			var byteSize = Marshal.SizeOf(systemType);
 			var bits = byteSize * 8;
 
-			var integralTypeSize = new IntegralTypeSize(
+			var integralTypeSize = new IntegralTypeSizeInfo(
 				signedness,
 				bits);
 

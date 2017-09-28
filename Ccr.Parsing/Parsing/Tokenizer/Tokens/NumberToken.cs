@@ -2,21 +2,13 @@
 
 namespace Ccr.Parsing.Tokenizer.Tokens
 {
+	[TokenQualifier("([[0-9]*]?[.]?[0-9]*)")]
 	public class NumberToken
 		: TokenBase
 	{
 		public NumberToken(
-			string text) : base(
-			new TextLiteralPointer(
-				text))
-		{
-		}
-		public NumberToken(
-			int startIndex,
-			string text) : base(
-			new TextRangePointer(
-				startIndex,
-				text))
+			ITextLiteralPointer pointer) : base(
+				pointer)
 		{
 		}
 	}

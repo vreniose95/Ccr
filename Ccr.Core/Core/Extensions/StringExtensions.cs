@@ -30,6 +30,20 @@ namespace Ccr.Core.Extensions
 			return string.IsNullOrEmpty(@this);
 		}
 
+		/// <summary>
+		/// Assertion method that ensures that <paramref name="this"/> is not null
+		/// </summary>
+		/// <param name="this">
+		/// The object in which to ensure non-nullability upon
+		/// </param>
+		[ContractAnnotation("this:null => false"), AssertionMethod]
+		public static bool IsNotNullOrEmptyEx(
+			[AssertionCondition(IS_NOT_NULL)] this string @this)
+		{
+			return !string.IsNullOrEmpty(@this);
+		}
+
+		//IsNotNullOrEmptyEx
 		public static string Surround(
 	    this string @this,
 	    char c)

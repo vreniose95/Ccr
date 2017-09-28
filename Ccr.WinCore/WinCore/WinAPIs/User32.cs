@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Ccr.WinCore.WinCore.WinAPIs
+namespace Ccr.WinCore.WinAPIs
 {
 	internal static class User32
 	{

@@ -4,7 +4,8 @@ using JetBrains.Annotations;
 
 namespace Ccr.Geocoding.Google
 {
-	public class GoogleAddress : Address
+	public class GoogleAddress
+		: Address
 	{
 		public GoogleAddressType Type { get; }
 

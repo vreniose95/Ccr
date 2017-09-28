@@ -44,3 +44,7 @@ C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Views\RootView.g.cs
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\App.baml
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\obj\Debug\Views\RootView.baml
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml

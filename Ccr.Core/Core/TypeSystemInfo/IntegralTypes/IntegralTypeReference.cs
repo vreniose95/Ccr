@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Ccr.Core.TypeSystemInfo.ReferenceTypes;
 
-namespace Ccr.Core.TypeSystemInfo
+namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	public class IntegralTypeReference
 	{
-		private static readonly Type[] _integralTypesArray = {
+		internal static readonly Type[] _integralTypesArray = {
 			typeof(sbyte),
 			typeof(byte),
 #if IS_CHAR_INTEGRAL_TYPE
@@ -49,14 +50,5 @@ namespace Ccr.Core.TypeSystemInfo
 			return IntegralTypes
 				.Contains(systemType);
 		}
-
-
-		//public static IntegralType[] IntegralTypeArray = {
-		//		new IntegralType(typeof(sbyte), new IntegralTypeValueRange(-128, 127), new IntegralTypeSize(Signedness.Signed, 8)),
-		//		IntegralTypeBuilder.Build<sbyte>(),
-
-
-		//	};
-
 	}
 }

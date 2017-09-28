@@ -50,7 +50,7 @@ namespace Ccr.Data.Common.Context
 		{
 			//Database.CommandTimeout = 300;
 			//SetCommandTimeOut(310);
-			Database.SetInitializer(new DatabaseInitializer());
+			//Database.SetInitializer(new DatabaseInitializer());
 
 			Database.Initialize(true);
 		}

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IntrospectiveTests.cs" />
+    <Compile Include="Mock\AddressFixture.cs" />
     <Compile Include="Mock\PersonFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

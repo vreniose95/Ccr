@@ -9,7 +9,7 @@ namespace Ccr.Xaml.Collections
 	public class ReactiveDependencyObjectCollection<TValue>
 		: DependencyObject,
 			IReactiveCollection<TValue>
-		where TValue : DependencyObject
+				where TValue : DependencyObject
 	{
 		private readonly ReactiveCollection<TValue> _reactiveCollection 
 			= new ReactiveCollection<TValue>();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Ccr.Core.TypeSystemInfo;
+using Ccr.Core.TypeSystemInfo.IntegralTypes;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions

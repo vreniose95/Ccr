@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Markup;
 using Ccr.Core.Extensions;
@@ -75,19 +76,13 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 			//if (eventArgs.MarkupExtension is )
 		}
 
-		
-
-	}
-}
-/*
- * 
- * 		public static void HandlePropertySet(
+		public static void HandlePropertySet(
 			[NotNull] object targetObject,
 			[NotNull] XamlSetTypeConverterEventArgs eventArgs)
 		{
 			targetObject.IsNotNull("targetObject");
 			eventArgs.IsNotNull("eventArgs");
-			
+
 
 			var injectedTypeConverterAttributes = eventArgs.Member.UnderlyingMember
 				.GetCustomAttributes(typeof(InjectTypeConverterAttribute), true)
@@ -97,7 +92,8 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 			if (injectedTypeConverterAttributes.Any())
 			{
 				if (injectedTypeConverterAttributes.Length > 1)
-					throw new NotSupportedException("Multiple \'InjectTypeConverterAttribute\' attributes discovered.");
+					throw new NotSupportedException(
+						"Multiple \'InjectTypeConverterAttribute\' attributes discovered.");
 
 				var injectedTypeConverterAttribute = injectedTypeConverterAttributes.Single();
 
@@ -107,25 +103,33 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 
 				var constructor = converterType.GetConstructor(new Type[] { });
 				if (constructor == null)
-					throw new NotSupportedException("Injected type converter constructor must have a parameterless constructor.");
+					throw new NotSupportedException(
+						"Injected type converter constructor must have a parameterless constructor.");
 
 				var converterTypeInstance = constructor.Invoke(new object[] { });
 
 				var converter = converterTypeInstance as TypeConverter;
 				if (converter == null)
-					throw new Exception($"Type \'{converterTypeInstance.GetType().Name}\' not valid. Must be of type \'TypeConverter\'.");
+					throw new Exception(
+						$"Type \'{converterTypeInstance.GetType().Name}\' not valid. Must be of type \'TypeConverter\'.");
 
 				var convertedValue = converter.ConvertFrom(eventArgs.Value);
-
-				if (convertedValue == null)
-					throw new NullReferenceException(nameof(convertedValue));
-
-				var inv = eventArgs.Member.Invoker;
-				inv.SetValue(targetObject, convertedValue);
+				if(convertedValue == null)
+					throw new NullReferenceException();
+				
+				var invoker = eventArgs.Member.Invoker;
+				invoker.SetValue(targetObject, convertedValue);
 
 				eventArgs.Handled = true;
 			}
 		}
+
+
+	}
+}
+/*
+ * 
+ * 		
 
 
 		public static void HandlePropertySetFromMarkupExtension(

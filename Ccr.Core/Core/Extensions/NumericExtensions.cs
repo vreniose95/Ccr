@@ -1,5 +1,4 @@
 ﻿using System.Net.NetworkInformation;
-using Ccr.Core.Numerics;
 using Ccr.Core.Numerics.Ranges;
 
 namespace Ccr.Core.Extensions
@@ -23,12 +22,12 @@ namespace Ccr.Core.Extensions
 				: @this;
 		}
 
-		public static int Map(
+		public static int LinearMap(
 			this int @this,
 			Int32Range startRange,
 			Int32Range endRange)
 		{
-			throw new NetworkInformationException();
+
 		}
 
 	}
