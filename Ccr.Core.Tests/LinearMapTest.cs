@@ -42,7 +42,7 @@ namespace Ccr.Core.Tests
 		public void LinearMap_Int64()
 		{
 			const Int64 value = 50L;
-			var mappedValue = value.LinearMap((0, 100), (1000, 2000));
+			var mappedValue = value.LinearMap((0L, 100L), (1000L, 2000L));
 			Assert.AreEqual(mappedValue, 1500L);
 		}
 
@@ -64,10 +64,18 @@ namespace Ccr.Core.Tests
 		}
 
 		[Test]
+		public void LinearMap_UInt64()
+		{
+			const UInt64 value = 50UL;
+			var mappedValue = value.LinearMap((0UL, 100UL), (1000UL, 2000UL));
+			Assert.AreEqual(mappedValue, 1500UL);
+		}
+
+		[Test]
 		public void LinearMap_Single()
 		{
 			const Single value = 50.0F;
-			var mappedValue = value.LinearMap((0, 100), (10.00, 20.00));
+			var mappedValue = value.LinearMap((0F, 100F), (10.00F, 20.00F));
 			Assert.AreEqual(mappedValue, 15.00F);
 		}
 
@@ -75,14 +83,14 @@ namespace Ccr.Core.Tests
 		public void LinearMap_Double()
 		{
 			const Double value = 50.00D;
-			var mappedValue = value.LinearMap((0, 100), (1000, 2000));
+			var mappedValue = value.LinearMap((0D, 100D), (10.00D, 20.00D));
 			Assert.AreEqual(mappedValue, 15.00D);
 		}
 		[Test]
 		public void LinearMap_Decimal()
 		{
 			const Decimal value = 50.00M;
-			var mappedValue = value.LinearMap((0, 100), (10.00M, 20.00M));
+			var mappedValue = value.LinearMap((0M, 100M), (10.00M, 20.00M));
 			Assert.AreEqual(mappedValue, 15.00M);
 		}
 	}

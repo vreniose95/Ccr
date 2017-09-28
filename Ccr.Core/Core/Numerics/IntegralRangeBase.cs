@@ -45,7 +45,7 @@ namespace Ccr.Core.Numerics
 
 		public TIntegralType Minimum
 		{
-			get => _maximum;
+			get => _minimum;
 		}
 		public TIntegralType Maximum
 		{

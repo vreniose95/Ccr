@@ -47,7 +47,7 @@ namespace Ccr.Core.Numerics
 
 		public TNonIntegralType Minimum
 		{
-			get => _maximum;
+			get => _minimum;
 		}
 		public TNonIntegralType Maximum
 		{

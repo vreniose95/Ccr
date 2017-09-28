@@ -33,7 +33,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Byte>();
 		}
@@ -45,7 +45,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<SByte>();
 		}
@@ -57,7 +57,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Int16>();
 		}
@@ -70,20 +70,20 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Int32>();
 		}
 
 		public static Int64 LinearMap(
 			this Int64 @this,
-			Int32Range startRange,
-			Int32Range endRange)
+			Int64Range startRange,
+			Int64Range endRange)
 		{
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Int64>();
 		}
@@ -96,7 +96,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<UInt16>();
 		}
@@ -109,20 +109,20 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<UInt32>();
 		}
 
 		public static UInt64 LinearMap(
 			this UInt64 @this,
-			UInt32Range startRange,
-			UInt32Range endRange)
+			UInt64Range startRange,
+			UInt64Range endRange)
 		{
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<UInt64>();
 		}
@@ -136,7 +136,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Single>();
 		}
@@ -149,7 +149,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Double>();
 		}
@@ -162,7 +162,7 @@ namespace Ccr.Core.Extensions
 			return (
 					(@this - startRange.Minimum) *
 					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Maximum) +
+					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
 				.To<Decimal>();
 		}

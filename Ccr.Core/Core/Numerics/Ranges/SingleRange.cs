@@ -14,14 +14,14 @@ namespace Ccr.Core.Numerics.Ranges
 		}
 
 		public static implicit operator SingleRange(
-			Tuple<Double, Double> value)
+			Tuple<Single, Single> value)
 		{
 			return new SingleRange(
 				value.Item1,
 				value.Item2);
 		}
 		public static implicit operator SingleRange(
-			(Double, Double) value)
+			(Single, Single) value)
 		{
 			return new SingleRange(
 				value.Item1,
