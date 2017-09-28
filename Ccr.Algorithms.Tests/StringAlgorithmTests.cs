@@ -8,7 +8,7 @@ namespace Ccr.Algorithms.Tests
 		[Test]
 		[TestCase("Appended Characters", "Appended Characte.r.s", 2)]
 		[TestCase("Differing", "Information", 7)]
-		[TestCase("The Same", "The Same", 6)]
+		[TestCase("The Same", "The Same", 0)]
 		[TestCase("CASING test", "casing test", 6)]
 		[TestCase("abcd efgh", "bcde fghi", 4)]
 		[TestCase("swapped characters", "sawpped chraacters", 4)]
@@ -26,8 +26,8 @@ namespace Ccr.Algorithms.Tests
 
 		[Test]
 		[TestCase("Appended Characters", "Appended Characte.r.s", 2)]
-		[TestCase("Differing", "Information", 7)]
-		[TestCase("The Same", "The Same", 6)]
+		[TestCase("Differing", "Information", 9)]
+		[TestCase("The Same", "The Same", 0)]
 		[TestCase("CASING test", "casing test", 6)]
 		[TestCase("abcd efgh", "bcde fghi", 4)]
 		[TestCase("swapped characters", "sawpped chraacters", 4)]
@@ -46,11 +46,11 @@ namespace Ccr.Algorithms.Tests
 
 		[Test]
 		[TestCase("Appended Characters", "Appended Characte.r.s", 2)]
-		[TestCase("Differing", "Information", 7)]
-		[TestCase("The Same", "The Same", 6)]
+		[TestCase("Differing", "Information", 9)]
+		[TestCase("The Same", "The Same", 0)]
 		[TestCase("CASING test", "casing test", 6)]
-		[TestCase("abcd efgh", "bcde fghi", 4)]
-		[TestCase("swapped characters", "sawpped chraacters", 4)]
+		[TestCase("abcd efgh", "bcde fghi", 3)]
+		[TestCase("swapped characters", "sawpped chraacters", 2)]
 		public void DamerauLevenshteinDistanceTests(
 			string string1,
 			string string2,

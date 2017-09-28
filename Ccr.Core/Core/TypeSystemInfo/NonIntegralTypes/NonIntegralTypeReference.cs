@@ -3,7 +3,6 @@
 namespace Ccr.Core.TypeSystemInfo.NonIntegralTypes
 {
 	public class NonIntegralTypeReference
-		: ReferenceTypeReference
 	{
 
 	}
