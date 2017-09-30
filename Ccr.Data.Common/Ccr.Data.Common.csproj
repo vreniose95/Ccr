@@ -107,6 +107,8 @@
     <Compile Include="Data\Common\EntityMaps\StateMap.cs" />
     <Compile Include="Data\Common\EntityMaps\StreetSuffixMap.cs" />
     <Compile Include="Data\Common\EntityMaps\StreetSuffixVariantMap.cs" />
+    <Compile Include="Data\Common\Repositories\CityRepository.cs" />
+    <Compile Include="Data\Common\Repositories\StateRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

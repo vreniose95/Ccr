@@ -2,7 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using Ccr.Core.Extensions;
+using Ccr.Data.Common.Context;
 using Ccr.Data.Common.EntityMaps;
+using Ccr.Data.Common.Repositories;
 using Ccr.Data.EntityFramework.Core;
 using Ccr.Geocoding.Google;
 using Core.Data.EntityFramework.Attributes;
@@ -139,7 +141,7 @@ namespace Ccr.Data.Common.Domain
 				GoogleAddressType.Political);
 
 
-			using (var UoW = new UnitOfWork<USTContext>())
+			using (var UoW = new UnitOfWork<CommonContext>())
 			{
 				UoW.BeginTransaction();
 
