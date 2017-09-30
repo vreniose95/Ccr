@@ -1,0 +1,10 @@
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    Caliburn.Micro (3.2) - restriction: >= net47
+      Caliburn.Micro.Core (3.2)
+    Caliburn.Micro.Core (3.2) - restriction: >= net47
+    EntityFramework (6.1.3) - restriction: >= net47
+    JetBrains.Annotations (11.0) - restriction: >= net47
+    Newtonsoft.Json (10.0.3) - restriction: >= net47
+    NUnit (3.8.1) - restriction: >= net47
+    NUnit3TestAdapter (3.8) - restriction: >= net47
