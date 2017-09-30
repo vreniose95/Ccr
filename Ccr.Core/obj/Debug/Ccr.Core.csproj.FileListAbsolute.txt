@@ -5,10 +5,10 @@ C:\Repositories\Ccr\Ccr.Core\bin\Debug\Mono.Cecil.dll
 C:\Repositories\Ccr\Ccr.Core\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Repositories\Ccr\Ccr.Core\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Repositories\Ccr\Ccr.Core\bin\Debug\Mono.Cecil.Rocks.dll
-C:\Repositories\Ccr\Ccr.Core\bin\Debug\Ccr.Core.dll
-C:\Repositories\Ccr\Ccr.Core\bin\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.Core\bin\Debug\JetBrains.Annotations.dll
 C:\Repositories\Ccr\Ccr.Core\bin\Debug\JetBrains.Annotations.xml
-C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.dll
-C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.Core.csprojResolveAssemblyReference.cache
+C:\Repositories\Ccr\Ccr.Core\bin\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.Core\bin\Debug\Ccr.pdb
+C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.Core\obj\Debug\Ccr.pdb

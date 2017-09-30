@@ -10,7 +10,6 @@ C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.MaterialDesign.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.Core.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Caliburn.Micro.Platform.dll
-C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Core.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Introspective.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.PresentationCore.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Xaml.dll
@@ -19,7 +18,6 @@ C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\System.Windows.Interactivity.dl
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.WinCore.dll
-C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Introspective.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.PresentationCore.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.Xaml.pdb
@@ -33,3 +31,5 @@ C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.WinCore.pdb
 C:\Repositories\Ccr\Ccr.MaterialDesign\obj\Debug\Ccr.MaterialDesign.csprojResolveAssemblyReference.cache
 C:\Repositories\Ccr\Ccr.MaterialDesign\obj\Debug\Ccr.MaterialDesign.dll
 C:\Repositories\Ccr\Ccr.MaterialDesign\obj\Debug\Ccr.MaterialDesign.pdb
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.MaterialDesign\bin\Debug\Ccr.pdb

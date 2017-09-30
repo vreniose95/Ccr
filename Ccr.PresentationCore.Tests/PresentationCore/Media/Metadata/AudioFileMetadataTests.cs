@@ -27,6 +27,7 @@ namespace Ccr.PresentationCore.Media.Metadata
 				.Select(t => new AudioShellObject(t))
 				.ToArray();
 
+
 			foreach (var audioShellObject in library)
 			{
 				Debug.WriteLine($"Duration: {audioShellObject.Duration}");

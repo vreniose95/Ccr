@@ -7,10 +7,10 @@ C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Mono.Cecil.Rocks.dll
 C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.Introspective.dll
 C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.Introspective.pdb
-C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.Core.dll
 C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\JetBrains.Annotations.dll
-C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\JetBrains.Annotations.xml
 C:\Repositories\Ccr\Ccr.Introspective\obj\Debug\Ccr.Introspective.csprojResolveAssemblyReference.cache
 C:\Repositories\Ccr\Ccr.Introspective\obj\Debug\Ccr.Introspective.dll
 C:\Repositories\Ccr\Ccr.Introspective\obj\Debug\Ccr.Introspective.pdb
+C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.Introspective\bin\Debug\Ccr.pdb

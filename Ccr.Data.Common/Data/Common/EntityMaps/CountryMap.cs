@@ -25,7 +25,6 @@ namespace Ccr.Data.Common.EntityMaps
 					new IndexAnnotation(
 						new UniqueNonClusteredIndexAttribute(
 							"UX_Country_CountryID")));
-
 		}
 	}
 }

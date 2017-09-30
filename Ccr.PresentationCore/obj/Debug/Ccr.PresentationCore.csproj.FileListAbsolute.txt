@@ -7,13 +7,11 @@ C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Mono.Cecil.Rocks.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.PresentationCore.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.PresentationCore.pdb
-C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.Core.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.Introspective.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.WinCore.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\JetBrains.Annotations.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
-C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.Introspective.pdb
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.WinCore.pdb
 C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\JetBrains.Annotations.xml
@@ -22,3 +20,5 @@ C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Microsoft.WindowsAPICodePack.
 C:\Repositories\Ccr\Ccr.PresentationCore\obj\Debug\Ccr.PresentationCore.csprojResolveAssemblyReference.cache
 C:\Repositories\Ccr\Ccr.PresentationCore\obj\Debug\Ccr.PresentationCore.dll
 C:\Repositories\Ccr\Ccr.PresentationCore\obj\Debug\Ccr.PresentationCore.pdb
+C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.PresentationCore\bin\Debug\Ccr.pdb

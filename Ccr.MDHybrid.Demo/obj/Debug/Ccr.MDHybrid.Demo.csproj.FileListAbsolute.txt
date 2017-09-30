@@ -20,7 +20,6 @@ C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Mono.Cecil.Rocks.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Caliburn.Micro.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Caliburn.Micro.Platform.Core.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Caliburn.Micro.Platform.dll
-C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.Core.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MaterialDesign.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MDHybrid.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.PresentationCore.dll
@@ -29,7 +28,6 @@ C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\JetBrains.Annotations.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\System.Windows.Interactivity.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.WinCore.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.Introspective.dll
-C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.Core.pdb
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MaterialDesign.pdb
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.MDHybrid.pdb
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.PresentationCore.pdb
@@ -48,3 +46,5 @@ C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.dll
+C:\Repositories\Ccr\Ccr.MDHybrid.Demo\bin\Debug\Ccr.pdb

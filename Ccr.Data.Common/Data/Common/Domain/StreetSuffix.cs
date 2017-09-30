@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using Ccr.Data.Common.EntityMaps;
 using Core.Data.EntityFramework.Attributes;
-
+// ReSharper disable VirtualMemberCallInConstructor
 namespace Ccr.Data.Common.Domain
 {
 	[EntityConfigurationMap(typeof(StreetSuffixMap))]

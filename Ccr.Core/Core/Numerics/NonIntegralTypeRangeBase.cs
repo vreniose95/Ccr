@@ -2,7 +2,8 @@
 using System.ComponentModel;
 using Ccr.Core.Extensions;
 // ReSharper disable ArrangeAccessorOwnerBody
-
+// ReSharper disable ConvertToAutoProperty
+// ReSharper disable ConvertToAutoPropertyWhenPossible
 namespace Ccr.Core.Numerics
 {
 	public class NonIntegralTypeRangeBase<TNonIntegralType>
@@ -90,6 +91,7 @@ namespace Ccr.Core.Numerics
 			return Constrain(
 				value.To<TNonIntegralType>());
 		}
+
 		public bool IsWithin(
 			TNonIntegralType value,
 			EndpointExclusivity exclusivity)

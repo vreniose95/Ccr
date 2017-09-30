@@ -4,7 +4,6 @@ using Ccr.Core.Extensions;
 using Ccr.Data.Common.EntityMaps;
 using Core.Data.EntityFramework.Attributes;
 using JetBrains.Annotations;
-
 // ReSharper disable VirtualMemberCallInConstructor
 namespace Ccr.Data.Common.Domain
 {
@@ -29,7 +28,7 @@ namespace Ccr.Data.Common.Domain
 			streetSuffix.IsNotNull(nameof(streetSuffix));
 			variantName.IsNotNull(nameof(variantName));
 
-			StreetSuffix = streetSuffix;//.StreetSuffixID;
+			StreetSuffix = streetSuffix;
 			VariantName = variantName;
 		}
 
