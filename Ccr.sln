@@ -1,8 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{0BDC6FE4-E2E9-4FD0-B681-FE3CA357B42A}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+		.paket\Readme.paket.md = .paket\Readme.paket.md
+	EndProjectSection
+EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Ccr", "Ccr\Ccr.shproj", "{D671FFA9-1153-4254-B081-91CD71DE1A89}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.Core", "Ccr.Core\Ccr.Core.csproj", "{4D333AFD-4CAC-464A-B99E-2F7ED4C4199A}"
