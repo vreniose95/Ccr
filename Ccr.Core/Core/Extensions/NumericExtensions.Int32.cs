@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ccr.Core.TypeSystemInfo.FluentConfiguration
+namespace Ccr.Core.Extensions
 {
-	public class IntegralRangeConfiguredContext
+	class NumericExtensions
 	{
-
 	}
 }

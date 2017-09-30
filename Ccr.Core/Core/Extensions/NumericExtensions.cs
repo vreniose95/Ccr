@@ -3,10 +3,9 @@ using System.Net.NetworkInformation;
 using Ccr.Core.Numerics;
 using Ccr.Core.Numerics.Ranges;
 // ReSharper disable BuiltInTypeReferenceStyle
-
 namespace Ccr.Core.Extensions
 {
-	public static class NumericExtensions
+	public static partial class NumericExtensions
 	{
 		public static int Smallest(
 			this int @this,

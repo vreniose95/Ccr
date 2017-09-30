@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Ccr.Core.TypeSystemInfo.ReferenceTypes;
-
+// ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	public class IntegralTypeReference
