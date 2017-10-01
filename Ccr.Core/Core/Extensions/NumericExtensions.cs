@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.NetworkInformation;
 using Ccr.Core.Numerics;
 using Ccr.Core.Numerics.Ranges;
 // ReSharper disable BuiltInTypeReferenceStyle
@@ -24,18 +23,7 @@ namespace Ccr.Core.Extensions
 				: @this;
 		}
 
-		public static Byte LinearMap(
-			this Byte @this,
-			ByteRange startRange,
-			ByteRange endRange)
-		{
-			return (
-					(@this - startRange.Minimum) *
-					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Minimum) +
-					endRange.Minimum)
-				.To<Byte>();
-		}
+		
 		public static SByte LinearMap(
 			this SByte @this,
 			SByteRange startRange,
@@ -165,5 +153,6 @@ namespace Ccr.Core.Extensions
 					endRange.Minimum)
 				.To<Decimal>();
 		}
+
 	}
 }

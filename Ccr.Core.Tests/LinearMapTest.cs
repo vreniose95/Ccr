@@ -1,5 +1,6 @@
 ﻿using System;
 using Ccr.Core.Extensions;
+using Ccr.Core.Extensions.Templates;
 using NUnit.Framework;
 // ReSharper disable BuiltInTypeReferenceStyle
 
@@ -8,6 +9,7 @@ namespace Ccr.Core.Tests
 	[TestFixture]
 	public class LinearMapTest
 	{
+
 		[Test]
 		public void LinearMap_Byte()
 		{
