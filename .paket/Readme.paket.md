@@ -17,3 +17,5 @@
 4. Packages are in the publish folder.
 
 Docs: https://fsprojects.github.io/Paket/getting-started.html
+
+[![Build status](https://ci.appveyor.com/api/projects/status/2t900cbaw5xcve5t/branch/master?svg=true)](https://ci.appveyor.com/project/vreniose95/ccr/branch/master)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using Ccr.Core.Extensions;
+// ReSharper disable ArrangeAccessorOwnerBody
 
 namespace Ccr.Core.Numerics
 {
