@@ -17,7 +17,7 @@ namespace Ccr.PresentationCore.Animation.Timelines
 			}
 		}
 
-		public CornerAnimationBase Clone()
+		public new CornerAnimationBase Clone()
 		{
 			return (CornerAnimationBase)base.Clone();
 		}
