@@ -4,29 +4,29 @@ using Ccr.Core.Numerics;
 using Ccr.Core.Numerics.Ranges;
 using JetBrains.Annotations;
 // ReSharper disable BuiltInTypeReferenceStyle
-namespace Ccr.Core.Extensions.Templates
+namespace Ccr.Core.Extensions.NumericExtensions
 {
-	public static class ByteExtensions
+	public static class Int32Extensions
 	{
 		/// <summary>
 		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare the 
-		///		<see cref="byte"/> subject with the provided <paramref name="value"/> parameter, and returns 
-		///		the largest numeric <see cref="byte"/> value of the two.
+		///		<see cref="Int32"/> subject with the provided <paramref name="value"/> parameter, and returns 
+		///		the largest numeric <see cref="Int32"/> value of the two.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> to perform the comparison upon.
+		///		The subject <see cref="Int32"/> to perform the comparison upon.
 		/// </param>
 		/// <param name="value">
-		///		The value of type <see cref="byte"/> in which to perform the comparison against the extension 
+		///		The value of type <see cref="Int32"/> in which to perform the comparison against the extension 
 		///		method's subject, the <paramref name="this"/> parameter.
 		/// </param>
 		/// <returns>
-		///		Compares the extention method's <see cref="byte"/> subject and the <paramref name="value"/> 
-		///		parameter, and returns the largest numeric <see cref="byte"/> value of the two. 
+		///		Compares the extention method's <see cref="Int32"/> subject and the <paramref name="value"/> 
+		///		parameter, and returns the largest numeric <see cref="Int32"/> value of the two. 
 		/// </returns>
-		public static Byte Smallest(
-			this Byte @this,
-			Byte value)
+		public static Int32 Smallest(
+			this Int32 @this,
+			Int32 value)
 		{
 			return @this < value
 				? value
@@ -35,23 +35,23 @@ namespace Ccr.Core.Extensions.Templates
 
 		/// <summary>
 		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare the 
-		///		<see cref="byte"/> subject with the provided <paramref name="value"/> parameter, and returns 
-		///		the largest numeric <see cref="byte"/> value of the two.
+		///		<see cref="Int32"/> subject with the provided <paramref name="value"/> parameter, and returns 
+		///		the largest numeric <see cref="Int32"/> value of the two.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> to perform the comparison upon.
+		///		The subject <see cref="Int32"/> to perform the comparison upon.
 		/// </param>
 		/// <param name="value">
-		///		The value of type <see cref="byte"/> in which to perform the comparison against the extension 
+		///		The value of type <see cref="Int32"/> in which to perform the comparison against the extension 
 		///		method's subject, the <paramref name="this"/> parameter.
 		/// </param>
 		/// <returns>
-		///		Compares the extention method's <see cref="byte"/> subject and the <paramref name="value"/> 
-		///		parameter, and returns the largest numeric <see cref="byte"/> value of the two. 
+		///		Compares the extention method's <see cref="Int32"/> subject and the <paramref name="value"/> 
+		///		parameter, and returns the largest numeric <see cref="Int32"/> value of the two. 
 		/// </returns>
-		public static Byte Largest(
-			this Byte @this,
-			Byte value)
+		public static Int32 Largest(
+			this Int32 @this,
+			Int32 value)
 		{
 			return @this > value
 				? value
@@ -59,19 +59,19 @@ namespace Ccr.Core.Extensions.Templates
 		}
 
 		/// <summary>
-		///		Extension method that performs a transformation on the <see cref="byte"/> subject using
+		///		Extension method that performs a transformation on the <see cref="Int32"/> subject using
 		///		linear mapping to re-map from the provided initial range <paramref name="startRange"/> 
 		///		to the target range <paramref name="endRange"/>.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> to perform the linear map range re-mapping upon.
+		///		The subject <see cref="Int32"/> to perform the linear map range re-mapping upon.
 		/// </param>
 		/// <param name="startRange">
-		///		An instance of the type <see cref="ByteRange"/>, describing a range of numeric values in 
+		///		An instance of the type <see cref="Int32Range"/>, describing a range of numeric values in 
 		///		which the linear re-mapping uses as the inital range of the subject.
 		/// </param>
 		/// <param name="endRange">
-		///		An instance of the type <see cref="ByteRange"/>, describing a range of numeric values in
+		///		An instance of the type <see cref="Int32Range"/>, describing a range of numeric values in
 		///		which the linear re-mapping uses as the target range of the return value.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -79,13 +79,13 @@ namespace Ccr.Core.Extensions.Templates
 		///		parameters are equal to <see langword="null"/>.
 		///	</exception>
 		/// <returns>
-		///		A <see cref="byte"/> value that has been linearly mapped to the <paramref name="startRange"/>
-		///		parameter and remapped to the <paramref name="endRange"/> parameter.
+		///		A <see cref="Int32"/> value that has been linearly mapped to the <paramref name="startRange"/>
+		///		parameter and re-mapped to the <paramref name="endRange"/> parameter.
 		/// </returns>
-		public static Byte LinearMap(
-			this Byte @this,
-			[NotNull] ByteRange startRange,
-			[NotNull] ByteRange endRange)
+		public static Int32 LinearMap(
+			this Int32 @this,
+			[NotNull] Int32Range startRange,
+			[NotNull] Int32Range endRange)
 		{
 			startRange.IsNotNull(nameof(startRange));
 			endRange.IsNotNull(nameof(endRange));
@@ -95,21 +95,21 @@ namespace Ccr.Core.Extensions.Templates
 					(endRange.Maximum - endRange.Minimum) /
 					(startRange.Maximum - startRange.Minimum) +
 					endRange.Minimum)
-				.To<Byte>();
+				.To<Int32>();
 		}
 
 		/// <summary>
 		///		Extension method that allows for <see cref="IntegralRangeBase{TIntegralType}.IsWithin"/> 
-		///		to be called on a <see cref="byte"/> subject with the range and exclusivity passed as a 
+		///		to be called on a <see cref="Int32"/> subject with the range and exclusivity passed as a 
 		///		parameter, rather than on the <see cref="IntegralRangeBase{TIntegralType}"/> object 
-		///		with a <see cref="byte"/> parameter.
+		///		with a <see cref="Int32"/> parameter.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> value in which to check against the <paramref name="range"/>
+		///		The subject <see cref="Int32"/> value in which to check against the <paramref name="range"/>
 		///		parameter to determine whether it is within the range, taking into account the exclusivity.
 		/// </param>
 		/// <param name="range">
-		///		An instance of the type <see cref="ByteRange"/>, describing a range of numeric values in 
+		///		An instance of the type <see cref="Int32Range"/>, describing a range of numeric values in 
 		///		which the <paramref name="this"/> subject is to be compared against.
 		/// </param>
 		/// <param name="exclusivity">
@@ -126,8 +126,8 @@ namespace Ccr.Core.Extensions.Templates
 		///		<see cref="EndpointExclusivity"/> mode via the <paramref name="exclusivity"/> parameter.
 		/// </returns>
 		public static bool IsWithin(
-			this Byte @this,
-			[NotNull] ByteRange range,
+			this Int32 @this,
+			[NotNull] Int32Range range,
 			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
 		{
 			range.IsNotNull(nameof(range));
@@ -140,16 +140,16 @@ namespace Ccr.Core.Extensions.Templates
 
 		/// <summary>
 		///		Extension method that allows for <see cref="IntegralRangeBase{TIntegralType}.IsNotWithin"/> 
-		///		to be called on a <see cref="byte"/> subject with the range and exclusivity passed as a
+		///		to be called on a <see cref="Int32"/> subject with the range and exclusivity passed as a
 		///		parameter, rather than on the <see cref="IntegralRangeBase{TIntegralType}"/> object 
-		///		with a <see cref="byte"/> parameter.
+		///		with a <see cref="Int32"/> parameter.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> value in which to check against the <paramref name="range"/>
+		///		The subject <see cref="Int32"/> value in which to check against the <paramref name="range"/>
 		///		parameter to determine whether it is within the range, taking into account the exclusivity.
 		/// </param>
 		/// <param name="range">
-		///		An instance of the type <see cref="ByteRange"/>, describing a range of numeric values in 
+		///		An instance of the type <see cref="Int32Range"/>, describing a range of numeric values in 
 		///		which the <paramref name="this"/> subject is to be compared against.
 		/// </param>
 		/// <param name="exclusivity">
@@ -161,14 +161,14 @@ namespace Ccr.Core.Extensions.Templates
 		///		Thrown when the specified <paramref name="range"/> is <see langword="null"/>.
 		///	</exception>
 		/// <returns>
-		///		A <see cref="bool"/> value indicating whether or not the <paramref name="this"/> subject
+		///		A <see cref="Int32"/> value indicating whether or not the <paramref name="this"/> subject
 		///		is within the provided <paramref cref="range"/> parameter, taking into account the 
 		///		<see cref="EndpointExclusivity"/> mode via the <paramref name="exclusivity"/> parameter.
 		///		This comparison is the logical inverse of the <see cref="IsNotWithin"/> extension method.
 		/// </returns>
 		public static bool IsNotWithin(
-			this Byte @this,
-			[NotNull] ByteRange range,
+			this Int32 @this,
+			[NotNull] Int32Range range,
 			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
 		{
 			range.IsNotNull(nameof(range));
@@ -181,30 +181,29 @@ namespace Ccr.Core.Extensions.Templates
 
 		/// <summary>
 		///		Extension method that allows for <see cref="IntegralRangeBase{TIntegralType}.Constrain"/> 
-		///		to be called on a <see cref="byte"/> subject with the range and exclusivity passed as a
+		///		to be called on a <see cref="Int32"/> subject with the range and exclusivity passed as a
 		///		parameter, rather than on the <see cref="IntegralRangeBase{TIntegralType}"/> object 
-		///		with a <see cref="byte"/> parameter.
+		///		with a <see cref="Int32"/> parameter.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="byte"/> value in which to check against the <paramref name="range"/>
+		///		The subject <see cref="Int32"/> value in which to check against the <paramref name="range"/>
 		///		parameter to constrain a value within a range with an implicit inclusive comparison mode.
 		/// </param>
 		/// <param name="range">
-		///		An instance of the type <see cref="ByteRange"/>, describing a range of numeric values in 
+		///		An instance of the type <see cref="Int32Range"/>, describing a range of numeric values in 
 		///		which the <paramref name="this"/> subject is to be compared against.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		///		Thrown when the specified <paramref name="range"/> is <see langword="null"/>.
 		///	</exception>
 		/// <returns>
-		///		A <see cref="byte"/> value that is the re <paramref name="this"/> subject
-		///		is within the provided <paramref cref="range"/> parameter, taking into account the 
-		///		<see cref="EndpointExclusivity"/> mode via the <paramref name="exclusivity"/> parameter.
-		///		This comparison is the logical inverse of the <see cref="IsNotWithin"/> extension method.
+		///		A <see cref="Int32"/> value that is the <paramref name="this"/> subject value adjusted to
+		///		force the range of possible values to be within the provided <paramref cref="range"/> 
+		///		parameter, using <see cref="EndpointExclusivity.Inclusive"/> as the comparison mode.
 		/// </returns>
-		public static Byte Constrain(
-			this Byte @this,
-			[NotNull] ByteRange range)
+		public static Int32 Constrain(
+			this Int32 @this,
+			[NotNull] Int32Range range)
 		{
 			range.IsNotNull(nameof(range));
 
@@ -212,7 +211,5 @@ namespace Ccr.Core.Extensions.Templates
 				.Constrain(
 					@this);
 		}
-
-
 	}
 }

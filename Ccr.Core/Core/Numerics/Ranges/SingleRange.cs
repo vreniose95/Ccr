@@ -3,7 +3,7 @@
 namespace Ccr.Core.Numerics.Ranges
 {
 	public class SingleRange
-		: NonIntegralTypeRangeBase<float>
+		: NonIntegralRangeBase<float>
 	{
 		public SingleRange(
 			Single minimum,

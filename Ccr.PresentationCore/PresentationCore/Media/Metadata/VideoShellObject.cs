@@ -180,7 +180,7 @@ namespace Ccr.PresentationCore.Media.Metadata
 				}
 				return true;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return false;
 			}
@@ -199,7 +199,7 @@ namespace Ccr.PresentationCore.Media.Metadata
 				}
 				return true;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return false;
 			}
@@ -218,7 +218,7 @@ namespace Ccr.PresentationCore.Media.Metadata
 				}
 				return true;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return false;
 			}
@@ -234,7 +234,7 @@ namespace Ccr.PresentationCore.Media.Metadata
 				}
 				return true;
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return false;
 			}

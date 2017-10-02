@@ -1,6 +1,6 @@
 ﻿using System;
 using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.Templates;
+using Ccr.Core.Extensions.NumericExtensions;
 using NUnit.Framework;
 // ReSharper disable BuiltInTypeReferenceStyle
 

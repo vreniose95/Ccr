@@ -180,7 +180,7 @@ namespace Ccr.PresentationCore.Animation.Timelines
 		/// <returns>
 		/// A modifiable clone of the current object. The cloned object's <see cref="P:System.Windows.Freezable.IsFrozen"/> property will be false even if the source's <see cref="P:System.Windows.Freezable.IsFrozen"/> property was true.
 		/// </returns>
-		public CornerAnimation Clone()
+		public new CornerAnimation Clone()
 		{
 			return (CornerAnimation)base.Clone();
 		}

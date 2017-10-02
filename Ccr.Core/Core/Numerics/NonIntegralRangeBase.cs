@@ -6,7 +6,7 @@ using Ccr.Core.Extensions;
 // ReSharper disable ConvertToAutoPropertyWhenPossible
 namespace Ccr.Core.Numerics
 {
-	public class NonIntegralTypeRangeBase<TNonIntegralType>
+	public class NonIntegralRangeBase<TNonIntegralType>
 		: INonIntegralRange
 			where TNonIntegralType
 				: struct,
@@ -56,7 +56,7 @@ namespace Ccr.Core.Numerics
 		}
 
 
-		protected NonIntegralTypeRangeBase(
+		protected NonIntegralRangeBase(
 			TNonIntegralType minimum,
 			TNonIntegralType maximum)
 		{

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ccr.Core.Extensions
+namespace Ccr.Data.EntityFramework.Functions.Attributes
 {
-	class NumericExtensions
+	public enum CcrPrimitiveTypeKind
 	{
 	}
 }

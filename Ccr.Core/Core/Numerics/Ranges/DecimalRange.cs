@@ -3,7 +3,7 @@
 namespace Ccr.Core.Numerics.Ranges
 {
 	public class DecimalRange
-		: IntegralRangeBase<decimal>
+		: NonIntegralRangeBase<decimal>
 	{
 		public DecimalRange(
 			Decimal minimum,

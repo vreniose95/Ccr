@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.Templates;
+using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.Core.TypeSystemInfo;
 using Ccr.Core.TypeSystemInfo.IntegralTypes;
 using NUnit.Framework;
@@ -24,6 +24,7 @@ namespace Ccr.Core.Tests
 	    byte value = 123;
 
 	    var g= value.IsNotWithin((12, 16));
+			Console.WriteLine();
     }	
 
 	}

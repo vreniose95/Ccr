@@ -51,16 +51,25 @@
     <Compile Include="Core\Extensions\DoubleExtensions.cs" />
     <Compile Include="Core\Extensions\EnumExtensions.cs" />
     <Compile Include="Core\Extensions\ExpressionExtensions.cs" />
-    <Compile Include="Core\Extensions\NumericExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\DecimalExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\DoubleExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\Int16Extensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\Int32Extensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\Int64Extensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\SByteExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\SingleExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\UInt16Extensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\UInt32Extensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\UInt64Extensions.cs" />
     <Compile Include="Core\Extensions\StringExtensions.cs" />
-    <Compile Include="Core\Extensions\Templates\ByteExtensions.cs" />
+    <Compile Include="Core\Extensions\NumericExtensions\ByteExtensions.cs" />
     <Compile Include="Core\Extensions\TypeExtensions.cs" />
     <Compile Include="Core\Helpers\ComparisonType.cs" />
     <Compile Include="Core\Helpers\StringComparisonSet.cs" />
     <Compile Include="Core\Helpers\StringHelpers.cs" />
     <Compile Include="Core\Numerics\ComparableResult.cs" />
     <Compile Include="Core\Numerics\INonIntegralRange.cs" />
-    <Compile Include="Core\Numerics\NonIntegralTypeRangeBase.cs" />
+    <Compile Include="Core\Numerics\NonIntegralRangeBase.cs" />
     <Compile Include="Core\Numerics\INumericRange.cs" />
     <Compile Include="Core\Numerics\RangeComparisonDirection.cs" />
     <Compile Include="Core\Numerics\Ranges\ByteRange.cs" />
@@ -96,10 +105,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Extensions\NumericExtensions\" />
+    <Folder Include="Core\Extensions\Templates\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Extensions\NumericExtensions.Int16.cs" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

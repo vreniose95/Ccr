@@ -3,7 +3,7 @@ using Ccr.Core.Extensions;
 
 namespace Ccr.Algorithms
 {
-  public static class StringAlgorithms
+	public static class StringAlgorithms
   {
     public static int LevenshteinDistance(
       string a, string b)

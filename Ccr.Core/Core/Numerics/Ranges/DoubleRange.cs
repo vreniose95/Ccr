@@ -3,7 +3,7 @@
 namespace Ccr.Core.Numerics.Ranges
 {
 	public class DoubleRange
-		: NonIntegralTypeRangeBase<double>
+		: NonIntegralRangeBase<double>
 	{
 		public DoubleRange(
 			Double minimum,

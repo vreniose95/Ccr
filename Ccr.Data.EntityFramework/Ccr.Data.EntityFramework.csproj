@@ -34,6 +34,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +63,9 @@
     <Compile Include="Data\EntityFramework\Core\StaticEntityStorageCache.cs" />
     <Compile Include="Data\EntityFramework\Core\StaticEntityStore.cs" />
     <Compile Include="Data\EntityFramework\Core\UnitOfWork.cs" />
+    <Compile Include="Data\EntityFramework\Functions\Attributes\CcrFunction.cs" />
+    <Compile Include="Data\EntityFramework\Functions\Attributes\CcrFunctionParameterAttribute.cs" />
+    <Compile Include="Data\EntityFramework\Functions\Attributes\CcrPrimitiveTypeKind.cs" />
     <Compile Include="Data\EntityFramework\Infrastructure\DatabaseFileLogger.cs" />
     <Compile Include="Data\EntityFramework\SqlServer\FlexSqlServer2014Service.cs" />
     <Compile Include="Data\EntityFramework\SqlServer\PrimitivePropertyConfigurationExtensions.cs" />
@@ -67,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +86,7 @@
       <Name>Ccr.Introspective</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\.paket\paket.targets" />
   <Choose>

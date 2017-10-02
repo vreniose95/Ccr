@@ -63,18 +63,18 @@ namespace Ccr.Core.Extensions
 		}
 
 
-		public static void IsInRange(
-			this int @this,
-			Int32Range range,
-			[InvokerParameterName] string elementName,
-			[CallerMemberName] string callerMemberName = null)
-		{
-			if (range.IsWithin(@this, EndpointExclusivity.Inclusive))
-				throw new ArgumentException(
-					elementName,
-					$"Parameter {elementName.SQuote()} passed to the " +
-					$"method {callerMemberName.SQuote()} cannot be null or whitespace.");
-		}
+		//public static void IsInRange(
+		//	this int @this,
+		//	Int32Range range,
+		//	[InvokerParameterName] string elementName,
+		//	[CallerMemberName] string callerMemberName = null)
+		//{
+		//	if (range.IsWithin(@this, EndpointExclusivity.Inclusive))
+		//		throw new ArgumentException(
+		//			elementName,
+		//			$"Parameter {elementName.SQuote()} passed to the " +
+		//			$"method {callerMemberName.SQuote()} cannot be null or whitespace.");
+		//}
 
 	}
 }

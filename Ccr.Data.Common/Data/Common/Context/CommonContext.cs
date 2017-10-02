@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Ccr.Data.Common.Domain;
 using Ccr.Data.Common.EntityMaps;
+using Ccr.Data.EntityFramework.Functions.Attributes;
 
 namespace Ccr.Data.Common.Context
 {
@@ -34,16 +36,40 @@ namespace Ccr.Data.Common.Context
 
 
 
-		public const string dbo = nameof(dbo);
+#pragma warning disable 168
+		[CcrFunction]
+		[SuppressMessage("ReSharper", "JoinDeclarationAndInitializer")]
+		[SuppressMessage("ReSharper", "NotAccessedVariable")]
+		public static int LevenshteinDistance(
+			[CcrFunctionParameter(100)] string sourceString,
+			[CcrFunctionParameter(100)] string targetString)
+		{
+			string matrix;
+			int ld;
+			int targetStringLength;
+			int sourceStringLength;
+			int ii;
+			int jj;
 
-		/*	[DbFunction("CodeFirstDatabaseSchema", "DamerauLevenschteinDistance")]
-			public static int DamerauLevenschteinDistance(
-				string SourceString,
-				string TargetString)
-			{
-				throw new NotImplementedException();
-			}
-			*/
+			char currentSourceChar;
+
+			char currentTargetChar;
+			int cost;
+			int above;
+			int aboveAndToLeft;
+			int toTheLeft;
+			int minimumValueOfCells;
+
+			if (sourceString == null || targetString == null)
+				return -1;
+
+			sourceStringLength = sourceString.Length;
+			targetStringLength = targetString.Length;
+			//matrix = 
+
+			throw new NotImplementedException();
+		}
+#pragma warning restore 168
 
 		public CommonContext() : base(
 			"ust_analytics_connection")
