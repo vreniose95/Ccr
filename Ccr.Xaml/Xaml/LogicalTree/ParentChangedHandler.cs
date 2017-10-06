@@ -1,4 +1,0 @@
-﻿namespace Ccr.Xaml.LogicalTree
-{
-
-}

@@ -57,8 +57,6 @@
     <Compile Include="Xaml\LogicalTree\ITreeNode.cs" />
     <Compile Include="Xaml\LogicalTree\ITreeNodeBase.cs" />
     <Compile Include="Xaml\LogicalTree\Propogation\ITreeNodeService.cs" />
-    <Compile Include="Xaml\LogicalTree\ParentChangedBaseHandler.cs" />
-    <Compile Include="Xaml\LogicalTree\ParentChangedHandler.cs" />
     <Compile Include="Xaml\LogicalTree\TreeNode.cs" />
     <Compile Include="Xaml\LogicalTree\TreeNodeBase.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\ConverterParam.cs" />
