@@ -130,9 +130,7 @@ namespace Ccr.Xaml.LogicalTree
 		/// <summary>
 		///		This method is called directly after a parent object is successfully unregistered
 		/// </summary>
-		protected internal virtual void OnUnregistered()
-		{
-		}
+		protected internal abstract void OnUnregistered();
 
 		#region IGNORE
 

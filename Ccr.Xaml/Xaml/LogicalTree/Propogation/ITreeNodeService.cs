@@ -1,4 +1,4 @@
-﻿namespace Ccr.Xaml.LogicalTree
+﻿namespace Ccr.Xaml.LogicalTree.Propogation
 {
 	public interface ITreeNodeService<TElement> 
 		where TElement
