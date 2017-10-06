@@ -1,4 +1,5 @@
-﻿using Ccr.Core.Extensions;
+﻿using System.Windows;
+using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
@@ -6,16 +7,34 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
 	public class RippleDiameterConverter
 		: XamlConverter<
 			double, 
-			double, 
-			NullParam, 
+			double,
+			Point,
+			ConverterParam<double>, 
 			double>
 	{
 		public override double Convert(
-			double containerHeight, 
-			double containerWidth, 
-			NullParam param)
+			double width,
+			double height, 
+			Point cursorPosition,
+			ConverterParam<double> scaleParameter)
 		{
-			return containerHeight.Smallest(containerWidth) / 2d;
+			var effectiveRippleCoverWidth
+				= cursorPosition.X < width / 2
+					? width - cursorPosition.X
+					: cursorPosition.X;
+
+			var effectiveRippleCoverHeight
+				= cursorPosition.Y < height / 2
+					? height - cursorPosition.Y
+					: cursorPosition.Y;
+
+			var radius =
+				(effectiveRippleCoverWidth.Squared() 
+					+ effectiveRippleCoverHeight.Squared())
+						.Root();
+
+			return radius * scaleParameter.Value;
+
 		}
 	}
 }

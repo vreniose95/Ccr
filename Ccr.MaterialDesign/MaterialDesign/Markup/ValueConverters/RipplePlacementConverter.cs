@@ -1,22 +1,34 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-using Ccr.Xaml.Markup.Extensions;
+﻿using System.Windows;
+using Ccr.Core.Extensions;
+using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
 	public class RipplePlacementConverter
-		: MarkupExtensionAbstractSingletonFactory,
-		IMultiValueConverter
+		: XamlConverter<
+			double, 
+			double, 
+			double, 
+			Point,
+			NullParam, 
+			Point>
 	{
-		public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+		public override Point Convert(
+			double width, 
+			double height, 
+			double rippleHeight, 
+			Point mousePosition,
+			NullParam param)
 		{
-			throw new NotImplementedException();
-		}
+			var upperRightOriginOffset = new Point(
+					rippleHeight / 2,
+					rippleHeight / 2)
+				.Invert();
 
-		public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
-		{
-			throw new NotImplementedException();
+			var rippleOffset = upperRightOriginOffset
+				.Push(mousePosition.X, mousePosition.Y);
+
+			return rippleOffset;
 		}
 	}
 }

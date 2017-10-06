@@ -10,7 +10,29 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 
 		private const string maxValueFieldName = "MaxValue";
 
-		
+
+		public static IntegralTypeInfo Build(
+			Type systemType)
+		{
+			if (!IntegralTypeReference.IsIntegralType(systemType))
+				throw new ArgumentException(
+					$"{systemType.Name.SQuote()} is not valid for the argument systemType " +
+					$"for an \'IntegralType\' because it is not an integral type.");
+
+			var valueRange = buildValueRange(systemType);
+			var integralTypeSize = buildTypeSize(systemType);
+
+			return new IntegralTypeInfo(
+				systemType,
+				valueRange,
+				integralTypeSize);
+		}
+
+		public static IntegralTypeInfo Build<TSystemType>()
+			where TSystemType : struct
+		{
+			return Build(typeof(TSystemType));
+		}
 
 		private static IntegralTypeValueRange buildValueRange(
 			Type systemType)
@@ -52,31 +74,6 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 				bits);
 
 			return integralTypeSize;
-		}
-
-
-
-		public static IntegralTypeInfo Build(
-			Type systemType)
-		{
-			if(!IntegralTypeReference.IsIntegralType(systemType))
-				throw new ArgumentException(
-					$"{systemType.Name.SQuote()} is not valid for the argument systemType " +
-					$"for an \'IntegralType\' because it is not an integral type.");
-
-			var valueRange = buildValueRange(systemType);
-			var integralTypeSize = buildTypeSize(systemType);
-
-			return new IntegralTypeInfo(
-				systemType,
-				valueRange,
-				integralTypeSize);
-		}
-
-		public static IntegralTypeInfo Build<TSystemType>()
-			where TSystemType : struct
-		{
-			return Build(typeof(TSystemType));
 		}
 	}
 }

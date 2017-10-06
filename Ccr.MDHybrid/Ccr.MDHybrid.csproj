@@ -124,6 +124,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="MDHybrid\Themes\MDHybrid.TextInput.PasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MDHybrid\Themes\MDHybrid.TextInput.TextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MDHybrid\Themes\MDHybrid.TextInput.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MDHybrid\Themes\MDHybrid.Window.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

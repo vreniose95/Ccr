@@ -49,6 +49,7 @@
     <Compile Include="Core\Extensions\ControlExtensions.cs" />
     <Compile Include="Core\Extensions\InvocationExtensions.cs" />
     <Compile Include="Core\Extensions\MediaExtensions.cs" />
+    <Compile Include="Core\Extensions\PointExtensions.cs" />
     <Compile Include="PresentationCore\Animation\AnimationHelpers.cs" />
     <Compile Include="PresentationCore\Animation\AnimationMode.cs" />
     <Compile Include="PresentationCore\Animation\Timelines\BrushAnimation.cs" />
@@ -70,12 +71,15 @@
     <Compile Include="PresentationCore\Helpers\EventHelpers\EM.cs" />
     <Compile Include="PresentationCore\Layout\LengthDescriptor.cs" />
     <Compile Include="PresentationCore\Layout\Percentage.cs" />
+    <Compile Include="PresentationCore\Layout\PolarPoint.cs" />
+    <Compile Include="PresentationCore\Markup\DesignTimeResourceDictionary.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseExtensionBase.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInExtension.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInOutExtension.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseOutExtension.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingFunctionFactory.cs" />
     <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingType.cs" />
+    <Compile Include="PresentationCore\Markup\SharedResourceDictionary.cs" />
     <Compile Include="PresentationCore\Markup\TypeConverters\PercentageConverter.cs" />
     <Compile Include="PresentationCore\Media\Metadata\AudioFileMetadata.cs" />
     <Compile Include="PresentationCore\Media\HslColor.cs" />

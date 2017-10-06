@@ -5,7 +5,6 @@ using System.Linq;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.Xaml.Collections;
-
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
 {

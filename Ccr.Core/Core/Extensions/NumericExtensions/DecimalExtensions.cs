@@ -139,7 +139,7 @@ namespace Ccr.Core.Extensions.NumericExtensions
 		}
 
 		/// <summary>
-		///		Extension method that allows for <see cref="NonIntegralRangeBase{TIntegralType}.IsNotWithin"/> 
+		///		Extension method that allows for <see cref="T:Ccr.Core.Numerics.NonIntegralRangeBase{TIntegralType}.IsNotWithin"/> 
 		///		to be called on a <see cref="Decimal"/> subject with the range and exclusivity passed as a
 		///		parameter, rather than on the <see cref="NonIntegralRangeBase{TIntegralType}"/> object 
 		///		with a <see cref="Decimal"/> parameter.
@@ -211,5 +211,6 @@ namespace Ccr.Core.Extensions.NumericExtensions
 				.Constrain(
 					@this);
 		}
+		
 	}
 }

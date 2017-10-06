@@ -54,7 +54,7 @@
 						VerticalAlignment="Center"
 						HorizontalAlignment="Center"/>-->
 		<!--<ContentControl x:Name="NavigationView"/>-->
-		<ListView>
+		<!--<ListView>
 			<ListView.ItemsSource>
 				<Binding Source="{StaticResource MaterialDesignPalette}" Path="Swatches"/>
 			</ListView.ItemsSource>
@@ -95,7 +95,75 @@
 					<UniformGrid Rows="1"/>
 				</ItemsPanelTemplate>
 			</ListView.ItemsPanel>
-		</ListView>
+		</ListView>-->
+		<Button Content="Hello"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Height="60"
+						Width="200">
+			<Button.Template>
+				<ControlTemplate TargetType="Button">
+					<Border Background="{TemplateBinding Background}">
+						<Grid x:Name="PART_Root" 
+						      ClipToBounds="{TemplateBinding ClipToBounds}">
+							<Ripple.TrackingService>
+								<RippleMouseTracker EventName="Click">
+									<RippleMouseTracker.SourceObject>
+										<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}"/>
+									</RippleMouseTracker.SourceObject>
+								</RippleMouseTracker>
+							</Ripple.TrackingService>
+							<Grid.Background>
+								<SolidColorBrush Opacity="0" 
+								                 Color="Black"/>
+							</Grid.Background>
+							<Canvas>
+								<Canvas.RenderTransform>
+									<TranslateTransform>
+										<Ripple.Placement>
+											<MultiBinding Converter="{RipplePlacementConverter}">
+												<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+												<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+												<Binding Path="ActualHeight" ElementName="PART_Ripple"/>
+												<Binding Path="(Ripple.MousePosition)" RelativeSource="{RelativeSource FindAncestor, AncestorType=Grid}"/>
+											</MultiBinding>
+										</Ripple.Placement>
+									</TranslateTransform>
+								</Canvas.RenderTransform>
+								<Ellipse x:Name="PART_Ripple"
+								         RenderTransformOrigin=".5,.5" 
+								         VerticalAlignment="Center" 
+								         HorizontalAlignment="Center"
+								         IsHitTestVisible="False">
+									<Ellipse.RenderTransform>
+										<ScaleTransform ScaleX="0" ScaleY="0"/>
+									</Ellipse.RenderTransform>
+									<Ellipse.Fill>
+										White
+										<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
+									</Ellipse.Fill>
+									<Ellipse.Height>
+										<MultiBinding Converter="{RippleDiameterConverter}" 
+										              ConverterParameter="2">
+											<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+											<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+											<Binding Path="(Ripple.MousePosition)" RelativeSource="{RelativeSource FindAncestor, AncestorType=Grid}"/>
+										</MultiBinding>
+									</Ellipse.Height>
+									<Ellipse.Width>
+										<Binding RelativeSource="{RelativeSource Self}" Path="ActualHeight" />
+									</Ellipse.Width>
+								</Ellipse>
+							</Canvas>
+							<ContentPresenter x:Name="PART_ContentPresenter" 
+							                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+							                  Margin="{TemplateBinding Padding}"/>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Button.Template>
+		</Button>
 	</Grid>
 
 </UserControl>

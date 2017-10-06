@@ -17,8 +17,8 @@ namespace Ccr.Xaml
 			CultureInfo cultureInfo,
 			object callingClass,
 			[CallerMemberName] string callerMemberName = null)
-			where TParam
-			: ConverterParam
+				where TParam
+					: ConverterParam
 		{ 
 			var parameterType = typeof(TParam);
 			if (parameterType == typeof(NullParam))
@@ -27,11 +27,11 @@ namespace Ccr.Xaml
 					value,
 					cultureInfo);
 			}
-			if (parameterType.IsGenericOf(typeof(ConverterParam)))
+			if (parameterType.IsGenericOf(typeof(ConverterParam<>)))
 			{
-				var valueType = value.GetType()
-				                     .GetGenericArguments()
-				                     .SingleOrDefault();
+				var valueType = parameterType
+					.GetGenericArguments()
+					.SingleOrDefault();
 
 				var valueConverted = ConvertImpl(
 					value,

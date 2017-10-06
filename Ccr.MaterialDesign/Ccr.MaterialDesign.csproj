@@ -46,6 +46,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Extensions\RichTextBoxExtensions.cs" />
+    <Compile Include="MaterialDesign\Adapters\TextFieldInputDataAdapter.cs" />
     <Compile Include="MaterialDesign\Interactivity\UserInputNuanceDescriptor.cs" />
     <Compile Include="MaterialDesign\Interactivity\UserInputSourceDeviceContext.cs" />
     <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialIdentityConverter.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="MaterialDesign\MVVM\Command.cs" />
     <Compile Include="MaterialDesign\MVVM\ViewModelBase.cs" />
     <Compile Include="MaterialDesign\Palette.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\HintAssist.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Ripple.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\RippleSurface.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\ButtonProgressAssist.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleAssist.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleInputTrackingService.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\UserInputNuanceProviderService.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Shadow.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\UserInputNuanceInjector.cs" />
     <Compile Include="MaterialDesign\Primitives\MaterialHybrid.cs" />
     <Compile Include="MaterialDesign\Swatch.cs" />

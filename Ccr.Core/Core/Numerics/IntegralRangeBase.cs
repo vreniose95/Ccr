@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using Ccr.Core.Extensions;
 // ReSharper disable ArrangeAccessorOwnerBody
-
 namespace Ccr.Core.Numerics
 {
 	public class IntegralRangeBase<TIntegralType>
@@ -155,7 +154,7 @@ namespace Ccr.Core.Numerics
 				{
 					case EndpointExclusivity.Inclusive:
 						return compare == ComparableResult.LessThan
-						       || compare == ComparableResult.EqualTo;
+									 || compare == ComparableResult.EqualTo;
 
 					case EndpointExclusivity.Exclusive:
 						return compare == ComparableResult.LessThan;
@@ -170,7 +169,7 @@ namespace Ccr.Core.Numerics
 				{
 					case EndpointExclusivity.Inclusive:
 						return compare == ComparableResult.GreaterThan
-						       || compare == ComparableResult.EqualTo;
+									 || compare == ComparableResult.EqualTo;
 
 					case EndpointExclusivity.Exclusive:
 						return compare == ComparableResult.GreaterThan;

@@ -210,6 +210,35 @@ namespace Ccr.Core.Extensions.NumericExtensions
 			return range
 				.Constrain(
 					@this);
+
 		}
+		public static double ArcCosine(
+			this double @this)
+		{
+			return Math.Acos(@this);
+		}
+		public static double ArcSine(
+			this double @this)
+		{
+			return Math.Asin(@this);
+		}
+		public static double ArcTangent(
+			this double @this)
+		{
+			return Math.Atan(@this);
+		}
+
+		public static double Squared(
+			this double @this)
+		{
+			return Math.Pow(@this, 2);
+		}
+
+		public static double Root(
+			this double @this)
+		{
+			return Math.Sqrt(@this);
+		}
+
 	}
 }

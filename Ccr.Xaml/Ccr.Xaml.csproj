@@ -53,6 +53,14 @@
     <Compile Include="Xaml\Collections\ReactiveDependencyObjectCollection.cs" />
     <Compile Include="Xaml\Infrastructure\AbstractSingletonFactory.cs" />
     <Compile Include="Xaml\Infrastructure\IAbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\LogicalTree\Propogation\IContextPropogrator.cs" />
+    <Compile Include="Xaml\LogicalTree\ITreeNode.cs" />
+    <Compile Include="Xaml\LogicalTree\ITreeNodeBase.cs" />
+    <Compile Include="Xaml\LogicalTree\Propogation\ITreeNodeService.cs" />
+    <Compile Include="Xaml\LogicalTree\ParentChangedBaseHandler.cs" />
+    <Compile Include="Xaml\LogicalTree\ParentChangedHandler.cs" />
+    <Compile Include="Xaml\LogicalTree\TreeNode.cs" />
+    <Compile Include="Xaml\LogicalTree\TreeNodeBase.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\ConverterParam.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\NullParam.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%271.cs" />

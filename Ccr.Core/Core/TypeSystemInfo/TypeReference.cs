@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Ccr.Core.TypeSystemInfo.IntegralTypes;
+// ReSharper disable ArrangeAccessorOwnerBody
 
-namespace Ccr.Core.TypeSystemInfo.ReferenceTypes
+namespace Ccr.Core.TypeSystemInfo
 {
 	public class TypeReference
 	{
@@ -101,5 +102,6 @@ namespace Ccr.Core.TypeSystemInfo.ReferenceTypes
 										 .Select(IntegralTypeBuilder.Build)
 										 .ToArray()));
 		}
+
 	}
 }

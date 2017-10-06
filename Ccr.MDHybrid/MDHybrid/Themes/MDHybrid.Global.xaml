@@ -7,20 +7,20 @@
 	</ResourceDictionary.MergedDictionaries>
 	
 	<SolidColorBrush x:Key="MaterialHybrid.Forms.ElementBorderBrush" 
-	                 Color="{Binding Source={StaticResource mtGrey600}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource Grey600}, Path=Color}"/>
 
 	<SolidColorBrush x:Key="MaterialHybrid.Forms.ElementCaretBrush" 
-	                 Color="{Binding Source={StaticResource mtBlueGrey800}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource BlueGrey800}, Path=Color}"/>
 			
 			
 	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.None" 
-	                 Color="{Binding Source={StaticResource mtGrey500}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource Grey500}, Path=Color}"/>
 
 	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.Failed" 
-	                 Color="{Binding Source={StaticResource mtRedA400}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource RedA400}, Path=Color}"/>
 
 	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.Valid" 
-	                 Color="{Binding Source={StaticResource mtTeal500}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource Teal500}, Path=Color}"/>
 			
 			
 	<Thickness x:Key="MaterialHybrid.Forms.ElementMargin">5 3</Thickness>
@@ -32,5 +32,5 @@
 	<system:Double x:Key="MaterialHybrid.Forms.Validation.HintTranslation.Y">-20</system:Double>
 
 	<!--<behaviors:HintVisualStateManagerService x:Key="MaterialHybrid.Forms.HintVisualStateManagerService"/>-->
-
+	
 </ResourceDictionary>
