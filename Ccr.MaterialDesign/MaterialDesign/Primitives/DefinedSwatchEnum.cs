@@ -1,6 +1,6 @@
-﻿namespace Ccr.MaterialDesign
+﻿namespace Ccr.MaterialDesign.Primitives
 {
-	public enum SwatchClassifier
+	public enum DefinedSwatchEnum
 	{
 		Red,
 		Pink,
@@ -20,7 +20,7 @@
 		DeepOrange,
 		Brown,
 		Grey,
-		BlueGrey
+		BlueGrey,
+		Transparent
 	}
-	
 }

@@ -27,7 +27,7 @@ namespace Ccr.Core.Extensions
 		{
 			if (@this is TValue)
 				return (TValue)@this;
-
+			
 			throw new InvalidCastException(
 				$"Cannot cast object of type \'{@this.GetType().Name}\' " +
 				$"to the type \'{typeof(TValue).Name}\'");

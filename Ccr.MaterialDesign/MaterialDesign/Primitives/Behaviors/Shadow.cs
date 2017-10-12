@@ -17,7 +17,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			if (!value.HasValue)
 				return true;
 
-			throw new NotImplementedException();
+			return value.Value >= 0;
 		}
 
 		private static double? onShadowLevelChanged(

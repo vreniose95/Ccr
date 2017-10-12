@@ -3,100 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-						 Designer.Viewport="HD720"
-						 Designer.Orientation="Landscape"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
-             mc:Ignorable="d" 
+						 mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
-             cal:Bind.AtDesignTime="True">
-	<Grid Background="{StaticResource Red200}">
-		<!--<VisualStateManager.VisualStateGroups>
-			<VisualStateGroup Name="SignUpViewStates">
-				<VisualState Name="EnterNameViewState">
-					<Storyboard>
-						<DoubleAnimation Storyboard.TargetName="NavigationView"
-														 Storyboard.TargetProperty="Opacity"
-														 Duration="0:0:0.3"
-														 From="1"
-														 To="0"
-						                 EasingFunction="{EaseOut Cubic }"/>
-						
-						<DoubleAnimation Storyboard.TargetName="OtherView"
-						                 Storyboard.TargetProperty="Opacity"
-						                 Duration="0:0:0.3"
-						                 From="0"
-						                 To="1"
-														 EasingFunction="{EaseIn Cubic }"/>
-					</Storyboard>
-				</VisualState>
-				<VisualState Name="EnterContactInfomationViewState">
-					<Storyboard>
-						<DoubleAnimation Storyboard.TargetName="OtherView"
-						                 Storyboard.TargetProperty="Opacity"
-						                 Duration="0:0:0.3"
-						                 From="1"
-						                 To="0"
-						                 EasingFunction="{EaseOut Cubic }"/>
-						
-						<DoubleAnimation Storyboard.TargetName="NavigationView"
-						                 Storyboard.TargetProperty="Opacity"
-						                 Duration="0:0:0.3"
-						                 From="0"
-						                 To="1"
-						                 EasingFunction="{EaseIn Cubic }"/>
-					</Storyboard>
-				</VisualState>
-			</VisualStateGroup>
-		</VisualStateManager.VisualStateGroups>-->
-		<!--<Button Style="{StaticResource MDH.Window.Button.Style}"
-						Content="Hello"
-						VerticalAlignment="Center"
-						HorizontalAlignment="Center"/>-->
-		<!--<ContentControl x:Name="NavigationView"/>-->
-		<!--<ListView>
-			<ListView.ItemsSource>
-				<Binding Source="{StaticResource MaterialDesignPalette}" Path="Swatches"/>
-			</ListView.ItemsSource>
-			<ListView.ItemTemplate>
-				<DataTemplate DataType="Swatch">
-					<Grid>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto"/>
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<Label Content="{Binding SwatchClassifier}"
-									 Background="{Binding ExemplarHue}"
-									 Foreground="White"/>
-						<ListView ItemsSource="{Binding Materials}"
-											Grid.Row="1">
-							<ListView.ItemTemplate>
-								<DataTemplate DataType="MaterialBrush">
-									<Border BorderThickness="0"
-													BorderBrush="Transparent">
-										<Border.Background>
-											<SolidColorBrush Color="{Binding Color}"/>
-										</Border.Background>
-										<Label Content="{Binding Identity.MaterialIndex}"></Label>
-									</Border>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-							<ListView.ItemsPanel>
-								<ItemsPanelTemplate>
-									<UniformGrid Columns="1"/>
-								</ItemsPanelTemplate>
-							</ListView.ItemsPanel>
-						</ListView>
-					</Grid>
-				</DataTemplate>
-			</ListView.ItemTemplate>
-			<ListView.ItemsPanel>
-				<ItemsPanelTemplate>
-					<UniformGrid Rows="1"/>
-				</ItemsPanelTemplate>
-			</ListView.ItemsPanel>
-		</ListView>-->
-		<Button Content="Hello"
+             cal:Bind.AtDesignTime="True"
+             Designer.Viewport="HD1080"
+             Designer.Orientation="Landscape">
+	<Grid Background="{StaticResource Red200}"
+				Width="1280"
+				Height="720">
+		<ItemsControl>
+
+			<ItemsControl.ItemsSource>
+				<Binding Source="{StaticResource MaterialDesignPalette}"/>
+			</ItemsControl.ItemsSource>
+		</ItemsControl>
+		<!--<Button Content="Hello"
 						HorizontalAlignment="Center"
 						VerticalAlignment="Center"
 						Height="60"
@@ -140,7 +63,7 @@
 									</Ellipse.RenderTransform>
 									<Ellipse.Fill>
 										White
-										<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
+										--><!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>--><!--
 									</Ellipse.Fill>
 									<Ellipse.Height>
 										<MultiBinding Converter="{RippleDiameterConverter}" 
@@ -163,7 +86,7 @@
 					</Border>
 				</ControlTemplate>
 			</Button.Template>
-		</Button>
+		</Button>-->
 	</Grid>
 
 </UserControl>

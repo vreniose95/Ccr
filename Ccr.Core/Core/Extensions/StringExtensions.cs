@@ -203,5 +203,70 @@ namespace Ccr.Core.Extensions
 		//	return stringBuilder.ToString();
 		//}
 
+		/// <summary>
+		///		Converts the specified input string to Pascal Case.
+		/// </summary>
+		/// <param name="this">
+		///		The subject <see cref="string"/> in which to convert.
+		/// </param>
+		/// <returns>
+		///		The value of the provided <paramref name="this"/> converted to Pascal Case.
+		/// </returns>
+		public static string ToPascalCase(
+			[NotNull] this string @this)
+		{
+			@this.IsNotNull(nameof(@this));
+
+			return Regex.Replace(
+				@this, 
+				"(?:^|_)(.)", 
+				match => match
+					.Groups[1]
+					.Value
+					.ToUpper());
+		}
+
+		/// <summary>
+		///		Converts the specified input string to Camel Case.
+		/// </summary>
+		/// <param name="this">
+		///		The subject <see cref="string"/> in which to convert.
+		/// </param>
+		/// <returns>
+		/// 	The value of the provided <paramref name="this"/> converted to Camel Case.
+		/// </returns>
+		public static string ToCamelCase(
+			[NotNull] this string @this)
+		{
+			@this.IsNotNull(nameof(@this));
+
+			var pascalCase = @this.ToPascalCase();
+			return pascalCase.Substring(0, 1).ToLower() + 
+				pascalCase.Substring(1);
+		}
+
+		/// <summary>
+		///		Separates the input words with underscore.
+		/// </summary>
+		/// <param name="this">
+		///		The subject <see cref="string"/> in which to convert.
+		/// </param>
+		/// <returns>
+		/// 	The provided <paramref name="this"/> with the words separated by underscores.
+		/// </returns>
+		public static string Underscore(
+			[NotNull] this string @this)
+		{
+			@this.IsNotNull(nameof(@this));
+
+			return
+				Regex.Replace(
+					Regex.Replace(
+						Regex.Replace(
+							@this, "([A-Z]+)([A-Z][a-z])", "$1_$2"), 
+						"([a-z\\d])([A-Z])", "$1_$2"), 
+					"[-\\s]", "_")
+				.ToLower();
+		}
 	}
 }

@@ -18,13 +18,21 @@ namespace Ccr.Data.Common.EntityMaps
 				.HasDatabaseGeneratedOption(
 					DatabaseGeneratedOption.Identity);
 
+			Property(t => t.Abbreviation)
+				.IsRequired()
+				.HasMaxLength(4)
+				.HasColumnAnnotation("Index",
+					new IndexAnnotation(
+						new UniqueIndexAttribute(
+							"UX_Country_Abbreviation")));
+
 			Property(t => t.CountryName)
 				.IsRequired()
 				.HasMaxLength(50)
 				.HasColumnAnnotation("Index",
 					new IndexAnnotation(
 						new UniqueNonClusteredIndexAttribute(
-							"UX_Country_CountryID")));
+							"UIX_Country_CountryID")));
 		}
 	}
 }

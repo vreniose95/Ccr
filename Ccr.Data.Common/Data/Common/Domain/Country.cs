@@ -14,21 +14,21 @@ namespace Ccr.Data.Common.Domain
 		public string CountryName { get; set; }
 
 
-		protected Country() { }
+		private Country() { }
 
 		public Country(
 			string abbreviation,
-			string memberName) : this()
+			string countryName) : this()
 		{
 			Abbreviation = abbreviation;
-			CountryName = memberName.Replace('_', ' ');
+			CountryName = countryName;
 		}
-		internal Country(
+		private Country(
 			int countryID,
 			string abbreviation,
 			[CallerMemberName] string memberName = "") : this(
-			abbreviation,
-			memberName)
+				abbreviation,
+				memberName.Replace('_', ' '))
 		{
 			CountryID = countryID;
 		}

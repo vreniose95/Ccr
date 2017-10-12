@@ -48,7 +48,6 @@ namespace Ccr.Xaml.LogicalTree
 			get => _parentBase;
 		}
 
-
 		private event ParentChangedBaseHandler _parentChangedBaseImpl;
 		/// <summary>
 		///		Explicit implementation of <see cref="ITreeNodeBase.ParentChangedBase"/> event.
@@ -133,16 +132,17 @@ namespace Ccr.Xaml.LogicalTree
 		protected internal abstract void OnUnregistered();
 
 		#region IGNORE
-
+		/*
 		internal static TreeNodeBase CreateServiceImplementation()
 		{
 			return new TreeNodeBaseImpl();
 		}
+		
 		private sealed class TreeNodeBaseImpl
 			: TreeNodeBase
 		{
 
-		}
+		}*/
 		#endregion
 	}
 }

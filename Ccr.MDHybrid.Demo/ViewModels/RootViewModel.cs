@@ -19,6 +19,16 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 				NotifyOfPropertyChange(() => TestProperty);
 			}
 		}
+		private Palette materialDesignPalette;
+		public Palette MaterialDesignPalette
+		{
+			get => materialDesignPalette;
+			set
+			{
+				materialDesignPalette = value;
+				NotifyOfPropertyChange(() => MaterialDesignPalette);
+			}
+		}
 		//private NavigationViewModel navigationView;
 		//public NavigationViewModel NavigationView
 		//{

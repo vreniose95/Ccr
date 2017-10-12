@@ -56,6 +56,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.PresentationCore.Tests", "Ccr.PresentationCore.Tests\Ccr.PresentationCore.Tests.csproj", "{F18274D5-F086-444C-9680-D810BA76719C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{BF6BB1CC-E84A-4663-8DE0-3464AD98ED46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDHybrid.ResourceGenerator", "MDHybrid.ResourceGenerator\MDHybrid.ResourceGenerator.csproj", "{EEE93ED3-7294-4640-BBCB-352378D79120}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Ccr\Ccr.projitems*{d671ffa9-1153-4254-b081-91cd71de1a89}*SharedItemsImports = 13
@@ -137,6 +141,10 @@ Global
 		{F18274D5-F086-444C-9680-D810BA76719C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18274D5-F086-444C-9680-D810BA76719C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18274D5-F086-444C-9680-D810BA76719C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE93ED3-7294-4640-BBCB-352378D79120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE93ED3-7294-4640-BBCB-352378D79120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE93ED3-7294-4640-BBCB-352378D79120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE93ED3-7294-4640-BBCB-352378D79120}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +156,7 @@ Global
 		{9B7FFFF5-A5E3-4AE1-AAC2-E96875F0CAD1} = {76BA4E78-33EC-428D-8618-7E9E0F92735C}
 		{8F965014-E25C-4D66-B3D6-1153CBB4BA65} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 		{F18274D5-F086-444C-9680-D810BA76719C} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
+		{EEE93ED3-7294-4640-BBCB-352378D79120} = {BF6BB1CC-E84A-4663-8DE0-3464AD98ED46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CBA47B9-9AA1-4FEC-9C93-66F058F6B28E}

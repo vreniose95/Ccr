@@ -355,6 +355,25 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		}
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with the 
+		/// specified <see cref="PropertyChange{TOwner,TValue}"/> callback implementation reference.
+		/// </summary>
+		/// <param name="propertyChangedCallback">
+		/// Reference to a handler implementation that is to be called by the property system whenever
+		/// the effective value of the dependency property changes.
+		/// </param>
+		/// <param name="optionFlags"></param>
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public MetaBase(
+			PropertyChange<DependencyObject, TValue> propertyChangedCallback,
+			FrameworkPropertyMetadataOptions optionFlags) : base(
+				propertyChangedCallback)
+		{
+			OptionFlags = optionFlags;
+		}
+		
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with
 		/// a specified default value and <see cref="PropertyChange{TOwner,TValue}"/> callback implementation 
 		/// reference for the dependency property that the resulting produced framework metadata will be applied to.

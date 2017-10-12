@@ -29,14 +29,15 @@ namespace Ccr.Data.EntityFramework.Infrastructure
 		{
 		}
 
+		public delegate string GetSomeFuckingShitHandler(int i);
+		public GetSomeFuckingShitHandler GetSomeFuckingShit;
+
 		public DatabaseFileLogger(
 			string path,
 			string options)
 				: this(path)
 		{
-
 		}
-
 		private static string resolvePath(
 			string templatedPath)
 		{

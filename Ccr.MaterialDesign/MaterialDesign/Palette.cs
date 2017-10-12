@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Markup;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.PresentationCore.Layout;
 using Ccr.Xaml.Collections;
 
 namespace Ccr.MaterialDesign
@@ -12,6 +15,8 @@ namespace Ccr.MaterialDesign
 	public class Palette
 		: Freezable
 	{
+		private readonly Dictionary<object, Swatch> _mapping
+			= new Dictionary<object, Swatch>();
 		public static readonly DependencyProperty SwatchesProperty = DP.Register(
 			new Meta<Palette, ReactiveCollection<Swatch>>());
 
@@ -27,9 +32,14 @@ namespace Ccr.MaterialDesign
 			Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
 		}
 
+		//public static Swatch Interpolate(Percentage progression)
+		//{
+
+		//}
+
 		private void onSwatchCollectionChange(
-			IReactiveCollection<Swatch> sender,
-			NotifyCollectionChangedEventArgs<Swatch> args)
+				IReactiveCollection<Swatch> sender,
+				NotifyCollectionChangedEventArgs<Swatch> args)
 		{
 			switch (args.Action)
 			{
