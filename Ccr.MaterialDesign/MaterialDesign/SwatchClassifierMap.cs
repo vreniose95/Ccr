@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Ccr.MaterialDesign
-{
+{  
 	//public static class SwatchClassifierMap
 	//{
 	//	public static Swatch GetSwatch(
