@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ccr.Data.Common.Domain;
 using Ccr.Data.Common.EntityMaps;
 using Ccr.Data.EntityFramework.Functions.Attributes;

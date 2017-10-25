@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Ccr.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
@@ -11,7 +12,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 		: TypeConverter
 	{
 		private static readonly Regex _parserRegex = new Regex(
-			@"\A[\s]*(?<swatchName>[A-z]*)(?<luminosity>[0-9]{3})");
+      @"\A[\s]*(?<swatchName>[A-z]*).(?<isAccent>[A])?(?<luminosity>[0-9]{3})");
 
 		public Type TargetType => typeof(MaterialIdentity);
 
@@ -19,7 +20,8 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 			ITypeDescriptorContext context,
 			Type sourceType)
 		{
-			if (sourceType == typeof(string) || TargetType.IsAssignableFrom(sourceType))
+			if (sourceType == typeof(string) 
+        || TargetType.IsAssignableFrom(sourceType))
 				return true;
 			return false;
 		}
@@ -28,7 +30,8 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 			ITypeDescriptorContext context,
 			Type destinationType)
 		{
-			if (destinationType == typeof(InstanceDescriptor) || destinationType == TargetType)
+			if (destinationType == typeof(InstanceDescriptor)
+        || destinationType == TargetType)
 				return true;
 			return false;
 		}
@@ -46,13 +49,11 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 			var swatchName = match.Groups["swatchName"].Value;
 			
 			var luminosityStr = match.Groups["luminosity"].Value;
-			var luminosity = int.Parse(luminosityStr);
 
-			var isAccent = swatchName.EndsWith("A");
-				//match.Groups["accentOptional"].Success;
-			
-			if(isAccent)
-				swatchName = swatchName.Substring(0, swatchName.Length - 1);
+		  var isAccent = match.Groups["isAccent"].Value.IsNotNullOrEmptyEx();
+
+      var luminosity = int.Parse(luminosityStr);
+      
 
 			SwatchClassifier swatchClassifier;
 			if(!Enum.TryParse(swatchName, out swatchClassifier))

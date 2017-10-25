@@ -73,21 +73,21 @@
     <StaticResource ResourceKey="MDH.Palette.DeepPurple.A700"/>
   </Swatch>
   
-  <Swatch x:Key="MDH.Palette.Indigo" SwatchClassifier="Red">
-    <StaticResource ResourceKey="MDH.Palette.Red.050"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.100"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.200"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.300"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.400"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.500"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.600"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.700"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.800"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.900"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.A100"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.A200"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.A400"/>
-    <StaticResource ResourceKey="MDH.Palette.Red.A700"/>
+  <Swatch x:Key="MDH.Palette.Indigo" SwatchClassifier="Indigo">
+    <StaticResource ResourceKey="MDH.Palette.Indigo.050"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.100"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.200"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.300"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.400"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.500"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.600"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.700"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.800"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.900"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.A100"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.A200"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.A400"/>
+    <StaticResource ResourceKey="MDH.Palette.Indigo.A700"/>
   </Swatch>
   
   <Swatch x:Key="MDH.Palette.Blue" SwatchClassifier="Blue">

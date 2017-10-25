@@ -6,24 +6,43 @@
 		<ResourceDictionary Source="MDHybrid.Palette.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 	
-	<SolidColorBrush x:Key="MaterialHybrid.Forms.ElementBorderBrush" 
-	                 Color="{Binding Source={StaticResource Grey600}, Path=Color}"/>
+	<MaterialBrush x:Key="MaterialHybrid.Forms.ElementBorderBrush">
+	  <MaterialBrush.Color>
+	    <Binding Source="{StaticResource MDH.Palette.Grey.600}" 
+               Path="Color" />
+	  </MaterialBrush.Color>
+	</MaterialBrush>
 
-	<SolidColorBrush x:Key="MaterialHybrid.Forms.ElementCaretBrush" 
-	                 Color="{Binding Source={StaticResource BlueGrey800}, Path=Color}"/>
-			
-			
-	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.None" 
-	                 Color="{Binding Source={StaticResource Grey500}, Path=Color}"/>
+  <MaterialBrush x:Key="MaterialHybrid.Forms.ElementCaretBrush">
+	  <MaterialBrush.Color>
+	    <Binding Source="{StaticResource MDH.Palette.BlueGrey.800}" 
+               Path="Color" />
+	  </MaterialBrush.Color>
+	</MaterialBrush>
 
-	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.Failed" 
-	                 Color="{Binding Source={StaticResource RedA400}, Path=Color}"/>
 
-	<SolidColorBrush x:Key="MaterialHybrid.Forms.Validation.Valid" 
-	                 Color="{Binding Source={StaticResource Teal500}, Path=Color}"/>
-			
-			
-	<Thickness x:Key="MaterialHybrid.Forms.ElementMargin">5 3</Thickness>
+  <MaterialBrush x:Key="MaterialHybrid.Forms.Validation.None">
+    <MaterialBrush.Color>
+      <Binding Source="{StaticResource MDH.Palette.Grey.500}"
+               Path="Color" />
+    </MaterialBrush.Color>
+  </MaterialBrush>
+
+  <MaterialBrush x:Key="MaterialHybrid.Forms.Validation.Failed">
+    <MaterialBrush.Color>
+      <Binding Source="{StaticResource MDH.Palette.Red.A400}" 
+               Path="Color" />
+    </MaterialBrush.Color>
+  </MaterialBrush>
+
+  <MaterialBrush x:Key="MaterialHybrid.Forms.Validation.Valid">
+    <MaterialBrush.Color>
+      <Binding Source="{StaticResource MDH.Palette.Teal.500}" Path="Color" />
+    </MaterialBrush.Color>
+  </MaterialBrush>
+
+
+  <Thickness x:Key="MaterialHybrid.Forms.ElementMargin">5 3</Thickness>
 
 	<Thickness x:Key="MaterialHybrid.Forms.InternalPadding">2 8 2 0</Thickness>
 

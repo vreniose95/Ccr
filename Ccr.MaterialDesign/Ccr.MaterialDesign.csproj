@@ -67,7 +67,7 @@
     <Compile Include="MaterialDesign\Interactivity\UserInputNuanceDescriptor.cs" />
     <Compile Include="MaterialDesign\Interactivity\UserInputSourceDeviceContext.cs" />
     <Compile Include="MaterialDesign\Luminosity.cs" />
-    <Compile Include="MaterialDesign\Markup\Extensions\MaterialBrushConverter.cs" />
+    <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialBrushConverter.cs" />
     <Compile Include="MaterialDesign\Markup\Extensions\MDBlendExtension.cs" />
     <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialBrushToColorConverter.cs" />
     <Compile Include="MaterialDesign\Markup\TypeConverters\MaterialIdentityConverter.cs" />

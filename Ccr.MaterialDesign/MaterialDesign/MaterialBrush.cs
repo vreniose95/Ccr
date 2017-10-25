@@ -14,31 +14,21 @@ namespace Ccr.MaterialDesign
 	/// A wrapper for both the <see cref="System.Windows.Media.Color"/> struct as well as an 
 	/// opaque instance of the <see cref="SolidColorBrush"/> class.
 	/// </summary>
-	[DictionaryKeyProperty(nameof(KeyPath))]
+	[DictionaryKeyProperty(nameof(Identity))]
   public class MaterialBrush
 		: HostedElement<Swatch>
 	{
-	  public static readonly DependencyProperty KeyPathProperty = DP.Register(
-	    new Meta<MaterialBrush, string>(null, onKeyPathChanged));
-    
-	  private static readonly DependencyPropertyKey IdentityPropertyKey = DP.RegisterReadOnly(
+    public static readonly DependencyProperty IdentityProperty = DP.Register(
       new Meta<MaterialBrush, MaterialIdentity>());
-    public static readonly DependencyProperty IdentityProperty = IdentityPropertyKey.DependencyProperty;
 
-    public static readonly DependencyProperty ColorProperty = DP.Register(
+	  public static readonly DependencyProperty ColorProperty = DP.Register(
 			new Meta<MaterialBrush, Color>(Colors.Transparent));
 
-
-
-    public string KeyPath
-	  {
-	    get => (string)GetValue(KeyPathProperty);
-	    set => SetValue(KeyPathProperty, value);
-	  }
+    
     public MaterialIdentity Identity
 		{
 			get { return (MaterialIdentity)GetValue(IdentityProperty);}
-	    protected set { SetValue(IdentityPropertyKey, value); }
+	    set { SetValue(IdentityProperty, value); }
 		}
 		public Color Color
 		{
@@ -136,7 +126,7 @@ namespace Ccr.MaterialDesign
 
 	  private static void onKeyPathChanged(
 	    MaterialBrush @this,
-	    DPChangedEventArgs<string> args)
+	    DPChangedEventArgs<object> args)
 	  {
 
 

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Windows.Media;
 using System.Xaml;
 
-namespace Ccr.MaterialDesign.Markup.Extensions
+namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
   [TypeConverter(typeof(MaterialBrush))]
   public class MaterialBrushConverter
@@ -15,9 +15,9 @@ namespace Ccr.MaterialDesign.Markup.Extensions
       Type sourceType)
     {
       if (sourceType == typeof(string)
-        || sourceType == typeof(Brush)
-        || sourceType == typeof(SolidColorBrush)
-        || sourceType == typeof(MaterialBrush))
+          || sourceType == typeof(Brush)
+          || sourceType == typeof(SolidColorBrush)
+          || sourceType == typeof(MaterialBrush))
       {
         return true;
       }
@@ -45,7 +45,7 @@ namespace Ccr.MaterialDesign.Markup.Extensions
     {
       var destinationTypeProvider =
         context.GetService(
-          typeof(IDestinationTypeProvider))
+            typeof(IDestinationTypeProvider))
           as IDestinationTypeProvider;
 
       if (destinationTypeProvider == null)
@@ -57,14 +57,10 @@ namespace Ccr.MaterialDesign.Markup.Extensions
 
       if (destinationType == typeof(string))
       {
-
-      }
-      else if (destinationType == typeof(SolidColorBrush))
-      {
         switch (value)
         {
           case string @string:
-            throw new Exception();
+            return @string;
 
           case SolidColorBrush solidColorBrush:
             return solidColorBrush;
@@ -79,12 +75,32 @@ namespace Ccr.MaterialDesign.Markup.Extensions
             throw new InvalidEnumArgumentException();
         }
       }
-      else if (destinationType == typeof(Brush))
+      if (destinationType == typeof(SolidColorBrush))
       {
         switch (value)
         {
           case string @string:
-            throw new Exception();
+            throw new NotImplementedException();
+
+          case SolidColorBrush solidColorBrush:
+            return solidColorBrush;
+
+          case Brush brush:
+            return (SolidColorBrush)brush;
+
+          case MaterialBrush materialBrush:
+            return materialBrush.Brush;
+
+          default:
+            throw new InvalidEnumArgumentException();
+        }
+      }
+      if (destinationType == typeof(Brush))
+      {
+        switch (value)
+        {
+          case string @string:
+            throw new NotImplementedException();
 
           case SolidColorBrush solidColorBrush:
             return solidColorBrush;
@@ -99,27 +115,86 @@ namespace Ccr.MaterialDesign.Markup.Extensions
             throw new InvalidEnumArgumentException();
         }
       }
-      else if (destinationType == typeof(MaterialBrush))
+      if (destinationType == typeof(MaterialBrush))
       {
         switch (value)
         {
           case string @string:
-            throw new Exception();
+            {
+              throw new NotImplementedException();
+              //  return GlobalResources.MaterialDesignPalette.Swatches[]i
+            }
 
           case SolidColorBrush solidColorBrush:
-            return solidColorBrush;
+            throw new NotImplementedException();
 
           case Brush brush:
-            return brush;
+            throw new NotImplementedException();
 
           case MaterialBrush materialBrush:
-            return materialBrush.Brush;
+            return materialBrush;
 
           default:
             throw new InvalidEnumArgumentException();
         }
       }
       return base.ConvertFrom(context, culture, value);
+    }
+
+    public override object ConvertTo(
+      ITypeDescriptorContext context,
+      CultureInfo culture,
+      object value,
+      Type destinationType)
+    {
+      if (destinationType == typeof(string))
+      {
+
+      }
+      if (destinationType == typeof(SolidColorBrush))
+      {
+        switch (value)
+        {
+          case string @string:
+            throw new NotImplementedException();
+
+          case SolidColorBrush solidColorBrush:
+            return solidColorBrush;
+
+          case Brush brush:
+            return (SolidColorBrush)brush;
+
+          case MaterialBrush materialBrush:
+            return materialBrush.Brush;
+
+          default:
+            throw new InvalidEnumArgumentException();
+        }
+      }
+      if (destinationType == typeof(Brush))
+      {
+        switch (value)
+        {
+          case string @string:
+            throw new NotImplementedException();
+
+          case SolidColorBrush solidColorBrush:
+            return solidColorBrush;
+
+          case Brush brush:
+            return brush;
+
+          case MaterialBrush materialBrush:
+            return materialBrush.Brush;
+
+          default:
+            throw new InvalidEnumArgumentException();
+        }
+      }
+      if (destinationType == typeof(MaterialBrush))
+      {
+      }
+      return base.ConvertTo(context, culture, value, destinationType);
     }
   }
 }

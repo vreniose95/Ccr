@@ -3,14 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Linq;
-using System.Windows;
 using System.Windows.Markup;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.Xaml.Collections;
-using Ccr.Xaml.LogicalTree;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
@@ -70,11 +67,13 @@ namespace Ccr.MaterialDesign
       }
     }
 
+
     public Swatch()
     {
       _primaries.CollectionChangedGeneric += onPrimariesCollectionChanged;
-
+      _materials = new List<MaterialBrush>();
     }
+
 
     public MaterialBrush GetMaterial(
       Luminosity luminosity)
