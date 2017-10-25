@@ -1,25 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Ccr.Geocoding.Google;
 
 namespace Ccr.Geocoding
 {
 	public interface IGeocoderAsync
 	{
-		Task<IEnumerable<GoogleAddress>> GeocodeAsync(
+		Task<IEnumerable<Address>> GeocodeAsync(
 			string address);
 
-		Task<IEnumerable<GoogleAddress>> GeocodeAsync(
+		Task<IEnumerable<Address>> GeocodeAsync(
 			string street, 
 			string city, 
 			string state, 
 			string postalCode, 
 			string country);
 
-		Task<IEnumerable<GoogleAddress>> ReverseGeocodeAsync(
+		Task<IEnumerable<Address>> ReverseGeocodeAsync(
 			Location location);
 
-		Task<IEnumerable<GoogleAddress>> ReverseGeocodeAsync(
+		Task<IEnumerable<Address>> ReverseGeocodeAsync(
 			double latitude, 
 			double longitude);
 	}

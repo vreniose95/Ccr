@@ -10,7 +10,6 @@ nuget JetBrains.Annotations
 nuget NUnit
 nuget NUnit3TestAdapter
 
-nuget Microsoft.CodeAnalysis
 nuget Microsoft.Composition
 
 nuget AngleSharp

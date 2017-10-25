@@ -16,6 +16,13 @@ namespace Ccr.PresentationCore.Helpers
 		{
 			SetPackUri(packUri);
 		}
+		public ResourceProvider(Uri packUri)
+		{
+			_resourceDictionary = new ResourceDictionary
+			{
+				Source = packUri
+			};
+		}
 
 		public void SetPackUri(string packUri)
 		{
@@ -24,6 +31,7 @@ namespace Ccr.PresentationCore.Helpers
 				Source = new Uri(packUri, UriKind.RelativeOrAbsolute)
 			};
 		}
+
 
 		public object Get(string key)
 		{

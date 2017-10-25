@@ -5,7 +5,7 @@
 		<!--<ResourceDictionary Source="MDHybrid.Drawables.xaml"/>-->
 	</ResourceDictionary.MergedDictionaries>
 	<Style x:Key="MDH.Window.Button.Style" TargetType="Button">
-		<Setter Property="Foreground" Value="{StaticResource Grey900}"/>
+		<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Grey.900}"/>
 		<Setter Property="Background" Value="Transparent"/>
 		<Setter Property="HorizontalContentAlignment" Value="Center"/>
 		<Setter Property="VerticalContentAlignment" Value="Center"/>

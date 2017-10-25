@@ -10,14 +10,26 @@
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD1080"
              Designer.Orientation="Landscape">
-	<Grid Background="{StaticResource Red200}"
+	<Grid 
 				Width="1280"
 				Height="720">
 		<ItemsControl>
-
 			<ItemsControl.ItemsSource>
-				<Binding Source="{StaticResource MaterialDesignPalette}"/>
+				<Binding Source="{StaticResource MDH.Palette}"/>
 			</ItemsControl.ItemsSource>
+      <ItemsControl.ItemTemplate>
+        <DataTemplate DataType="Swatch">
+          <Grid Background="{Binding ExemplarHue}">
+            <Label Content="{Binding SwatchClassifier}"
+                   Foreground="White"/>
+          </Grid>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+      <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+          <UniformGrid Rows="1"/>
+        </ItemsPanelTemplate>
+      </ItemsControl.ItemsPanel>
 		</ItemsControl>
 		<!--<Button Content="Hello"
 						HorizontalAlignment="Center"

@@ -45,6 +45,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MDHybrid\Themes\MDHybrid.Card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MDHybrid\Themes\MDHybrid.Drawables.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

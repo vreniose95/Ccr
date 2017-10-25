@@ -6,7 +6,7 @@ using Ccr.Data.Common.Context;
 using Ccr.Data.Common.EntityMaps;
 using Ccr.Data.Common.Repositories;
 using Ccr.Data.EntityFramework.Core;
-using Ccr.Geocoding.Google;
+using Ccr.Geocoding;
 using Core.Data.EntityFramework.Attributes;
 using JetBrains.Annotations;
 
@@ -52,10 +52,10 @@ namespace Ccr.Data.Common.Domain
 
 		private const string _apiKey = "AIzaSyDfgHD5nn_qH7t_rfyIYSwylObxpG_uEOQ";
 
-		private static GoogleGeocoder _geocoder;
-		protected internal static GoogleGeocoder Geocoder
+		private static Geocoder _geocoder;
+		protected internal static Geocoder Geocoder
 		{
-			get => _geocoder ?? (_geocoder = new GoogleGeocoder(_apiKey));
+			get => _geocoder ?? (_geocoder = new Geocoder(_apiKey));
 		}
 
 		//[NotMapped]
@@ -114,31 +114,31 @@ namespace Ccr.Data.Common.Domain
 			parsedAddress.IsNotNull(nameof(parsedAddress));
 
 			var _buildingNumber = parsedAddress.GetComponent(
-				GoogleAddressType.StreetNumber);
+				AddressType.StreetNumber);
 
 			var _streetNumber = int.Parse(_buildingNumber.LongName);
 
 			var _streetName = parsedAddress.GetComponent(
-				GoogleAddressType.Route);
+				AddressType.Route);
 
 			var _cityComponent = parsedAddress.GetComponent(
-				GoogleAddressType.Locality,
-				GoogleAddressType.Political);
+				AddressType.Locality,
+				AddressType.Political);
 
 			var _stateComponent = parsedAddress.GetComponent(
-				GoogleAddressType.AdministrativeAreaLevel2,
-				GoogleAddressType.Political);
+				AddressType.AdministrativeAreaLevel2,
+				AddressType.Political);
 
 
 			var _zipCodeComponent = parsedAddress.GetComponent(
-				GoogleAddressType.PostalCode);
+				AddressType.PostalCode);
 
 			var _zipCodeSuffixComponent = parsedAddress.GetComponent(
-				GoogleAddressType.PostalCodeSuffix);
+				AddressType.PostalCodeSuffix);
 
 			var _countryComponent = parsedAddress.GetComponent(
-				GoogleAddressType.AdministrativeAreaLevel3,
-				GoogleAddressType.Political);
+				AddressType.AdministrativeAreaLevel3,
+				AddressType.Political);
 
 
 			using (var UoW = new UnitOfWork<CommonContext>())

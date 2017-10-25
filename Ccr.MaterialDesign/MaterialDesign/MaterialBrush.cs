@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
@@ -10,30 +11,42 @@ using Ccr.PresentationCore.Media;
 namespace Ccr.MaterialDesign
 {
 	/// <summary>
-	/// An wrapper for both the <see cref="System.Windows.Media.Color"/> struct as well as an 
+	/// A wrapper for both the <see cref="System.Windows.Media.Color"/> struct as well as an 
 	/// opaque instance of the <see cref="SolidColorBrush"/> class.
 	/// </summary>
-	[DictionaryKeyProperty(nameof(Identity))]
-	public class MaterialBrush
+	[DictionaryKeyProperty(nameof(KeyPath))]
+  public class MaterialBrush
 		: HostedElement<Swatch>
 	{
-		public static readonly DependencyProperty IdentityProperty = DP.Register(
-			new Meta<MaterialBrush, MaterialIdentity>());
+	  public static readonly DependencyProperty KeyPathProperty = DP.Register(
+	    new Meta<MaterialBrush, string>(null, onKeyPathChanged));
+    
+	  private static readonly DependencyPropertyKey IdentityPropertyKey = DP.RegisterReadOnly(
+      new Meta<MaterialBrush, MaterialIdentity>());
+    public static readonly DependencyProperty IdentityProperty = IdentityPropertyKey.DependencyProperty;
 
-		public static readonly DependencyProperty ColorProperty = DP.Register(
+    public static readonly DependencyProperty ColorProperty = DP.Register(
 			new Meta<MaterialBrush, Color>(Colors.Transparent));
 
 
-		public MaterialIdentity Identity
+
+    public string KeyPath
+	  {
+	    get => (string)GetValue(KeyPathProperty);
+	    set => SetValue(KeyPathProperty, value);
+	  }
+    public MaterialIdentity Identity
 		{
 			get { return (MaterialIdentity)GetValue(IdentityProperty);}
-			set { SetValue(IdentityProperty, value); }
+	    protected set { SetValue(IdentityPropertyKey, value); }
 		}
 		public Color Color
 		{
 			get { return (Color)GetValue(ColorProperty); }
 			set { SetValue(ColorProperty, value); }
 		}
+    
+
 		public string Hex
 		{
 			get
@@ -45,7 +58,20 @@ namespace Ccr.MaterialDesign
 				Color = ColorConverter.ConvertFromString(value).As<Color>();
 			}
 		}
-		private HslColor? _hslColor;
+
+    private SolidColorBrush _brush;
+	  public SolidColorBrush Brush
+	  {
+	    get
+	    {
+	      if (_brush == null)
+	        _brush = new SolidColorBrush(Color);
+
+	      return _brush;
+	    }
+	  }
+
+    private HslColor? _hslColor;
 		protected HslColor HslColor
 		{
 			get
@@ -68,87 +94,52 @@ namespace Ccr.MaterialDesign
 				return _hsvColor.Value;
 			}
 		}
-		public byte RgbR
-		{
-			get
-			{
-				return Color.R;
-			}
-		}
 
-		public byte RgbG
-		{
-			get
-			{
-				return Color.G;;
-			}
-		}
+    public static implicit operator SolidColorBrush(
+      MaterialBrush @this)
+	  {
+	    return @this.Brush;
+	  }
 
-		public byte RgbB
-		{
-			get
-			{
-				return Color.B;
-			}
-		}
+	  public static implicit operator HslColor(
+	    MaterialBrush @this)
+	  {
+	    return @this.HslColor;
+	  }
 
-		
-		public double HslH
-		{
-			get
-			{
-				return HslColor.H;
-			}
-		}
-		public double HslS
-		{
-			get
-			{
-				return HslColor.S;
-			}
-		}
-		public double HslL
-		{
-			get
-			{
-				return HslColor.L;
-			}
-		}
+	  public static implicit operator HsvColor(
+	    MaterialBrush @this)
+	  {
+	    return @this.HsvColor;
+	  }
 
 
+	  private MaterialBrush _invert;
+	  protected MaterialBrush Invert
+	  {
+	    get
+	    {
+	      if (_invert == null)
+	        _invert = new MaterialBrush
+	        {
+	          Color = Color.Invert()
+	        };
 
-		public double HsvH
-		{
-			get
-			{
-				return HsvColor.H;
-			}
-		}
-		public double HsvS
-		{
-			get
-			{
-				return HsvColor.S;
-			}
-		}
-		public double HsvV
-		{
-			get
-			{
-				return HsvColor.V;
-			}
-		}
+	      return _invert;
+	    }
+	  }
 
-		//public static bool TryParseFromHex(
-		//	string hexString,
-		//	out Material material)
-		//{
+	  public static implicit operator Brush(MaterialBrush @this)
+	  {
+	    return @this.Brush;
+	  }
 
-		//}
+	  private static void onKeyPathChanged(
+	    MaterialBrush @this,
+	    DPChangedEventArgs<string> args)
+	  {
 
-		public MaterialBrush()
-		{
 
-		}
-	}
+	  }
+  }
 }

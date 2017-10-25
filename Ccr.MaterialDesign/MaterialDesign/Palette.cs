@@ -2,73 +2,149 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
-using Ccr.PresentationCore.Layout;
 using Ccr.Xaml.Collections;
 
 namespace Ccr.MaterialDesign
 {
-	[ContentProperty(nameof(Swatches))]
-	public class Palette
-		: Freezable
-	{
-		private readonly Dictionary<object, Swatch> _mapping
-			= new Dictionary<object, Swatch>();
-		public static readonly DependencyProperty SwatchesProperty = DP.Register(
-			new Meta<Palette, ReactiveCollection<Swatch>>());
+  //[DictionaryKeyProperty()]
+  [ContentProperty(nameof(Swatches))]
+  public class Palette
+    : Freezable,
+      IList<Swatch>
+  {
+    public static readonly DependencyProperty SwatchesProperty = DP.Register(
+      new Meta<Palette, ReactiveCollection<Swatch>>());
 
-		public ReactiveCollection<Swatch> Swatches
-		{
-			get => (ReactiveCollection<Swatch>)GetValue(SwatchesProperty);
-			set => SetValue(SwatchesProperty, value);
-		}
+    public ReactiveCollection<Swatch> Swatches
+    {
+      get => (ReactiveCollection<Swatch>)GetValue(SwatchesProperty);
+      set => SetValue(SwatchesProperty, value);
+    }
 
-		public Palette()
-		{
-			Swatches = new ReactiveCollection<Swatch>();
-			Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
-		}
+    public Palette()
+    {
+      Swatches = new ReactiveCollection<Swatch>();
+      Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
+    }
 
-		//public static Swatch Interpolate(Percentage progression)
-		//{
+    //public static Swatch Interpolate(Percentage progression)
+    //{
 
-		//}
+    //}
 
-		private void onSwatchCollectionChange(
-				IReactiveCollection<Swatch> sender,
-				NotifyCollectionChangedEventArgs<Swatch> args)
-		{
-			switch (args.Action)
-			{
-				case NotifyCollectionChangedAction.Add:
-					args.NewItems.ForEach(t => t.AttachHost(this));
-					break;
+    private void onSwatchCollectionChange(
+        IReactiveCollection<Swatch> sender,
+        NotifyCollectionChangedEventArgs<Swatch> args)
+    {
+      switch (args.Action)
+      {
+        case NotifyCollectionChangedAction.Add:
+          args.NewItems.ForEach(t => t.AttachHost(this));
+          break;
 
-				case NotifyCollectionChangedAction.Replace:
-					args.OldItems.ForEach(t => t.DetachHost());
-					args.NewItems.ForEach(t => t.AttachHost(this));
-					break;
+        case NotifyCollectionChangedAction.Replace:
+          args.OldItems.ForEach(t => t.DetachHost());
+          args.NewItems.ForEach(t => t.AttachHost(this));
+          break;
 
-				case NotifyCollectionChangedAction.Remove:
-				case NotifyCollectionChangedAction.Reset:
-					args.NewItems.ForEach(t => t.DetachHost());
-					break;
+        case NotifyCollectionChangedAction.Remove:
+        case NotifyCollectionChangedAction.Reset:
+          args.NewItems.ForEach(t => t.DetachHost());
+          break;
 
-				case NotifyCollectionChangedAction.Move:
-					break;
+        case NotifyCollectionChangedAction.Move:
+          break;
 
-				default:
-					throw new ArgumentOutOfRangeException(
-						);
-			}
-		}
+        default:
+          throw new ArgumentOutOfRangeException(
+            );
+      }
+    }
 
-		protected override Freezable CreateInstanceCore()
-		{
-			return new Palette();
-		}
-	}
+    protected override Freezable CreateInstanceCore()
+    {
+      return new Palette();
+    }
+
+
+    public IEnumerator<Swatch> GetEnumerator()
+    {
+      return Swatches.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return GetEnumerator();
+    }
+
+    void ICollection<Swatch>.Add(Swatch item)
+    {
+      Swatches.Add(item);
+    }
+
+    void ICollection<Swatch>.Clear()
+    {
+      Swatches.Clear();
+    }
+
+    public bool Contains(Swatch item)
+    {
+      return Swatches.Contains(item);
+    }
+
+    void ICollection<Swatch>.CopyTo(Swatch[] array, int arrayIndex)
+    {
+      throw new NotImplementedException();
+    }
+
+    bool ICollection<Swatch>.Remove(Swatch item)
+    {
+      throw new NotImplementedException();
+    }
+
+    public int Count
+    {
+      get => Swatches.Count;
+    }
+
+    bool ICollection<Swatch>.IsReadOnly
+    {
+      get => true;
+    }
+
+    public int IndexOf(Swatch item)
+    {
+      return Swatches.IndexOf(item);
+    }
+
+    public void Insert(int index, Swatch item)
+    {
+      Swatches.Insert(index, item);
+    }
+
+    public void RemoveAt(int index)
+    {
+      Swatches.RemoveAt(index);
+    }
+
+    public Swatch this[int index]
+    {
+      get => Swatches[index];
+      set => Swatches[index] = value;
+    }
+
+    public Swatch GetSwatch(
+      SwatchClassifier classifier)
+    {
+      var swatch = Swatches
+        .Single(t => t.SwatchClassifier == classifier);
+
+      return swatch;
+    }
+  }
 }

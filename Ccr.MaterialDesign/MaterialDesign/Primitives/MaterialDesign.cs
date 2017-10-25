@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Ccr.MaterialDesign.Static;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using static System.Windows.FrameworkPropertyMetadataOptions;
 
@@ -26,18 +27,22 @@ namespace Ccr.MaterialDesign.Primitives
 
 
 
-		private static void onThemeChanged
-			(DependencyObject @this, 
+		private static void onThemeChanged(
+      DependencyObject @this, 
 			DPChangedEventArgs<Swatch> args)
 		{
-			throw new NotImplementedException();
 		}
 
 		private static void onSwatchChanged(
 			DependencyObject @this,
 			DPChangedEventArgs<SwatchClassifier> args)
 		{
-			throw new NotImplementedException();
+      var swatch = GlobalResources
+		    .MaterialDesignPalette
+		    .GetSwatch(
+		      args.NewValue);
+
+      SetTheme(@this, swatch);
 		}
 
 	}

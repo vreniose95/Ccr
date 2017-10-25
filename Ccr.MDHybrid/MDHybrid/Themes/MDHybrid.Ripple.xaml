@@ -1,80 +1,80 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style TargetType="RippleSurface">
-        <Setter Property="RecognizesAccessKey" Value="True" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="ClipToBounds">
-            <Setter.Value>
-                <Binding Path="(RippleAssist.ClipToBounds)" RelativeSource="{RelativeSource Self}" />
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Feedback">
-            <Setter.Value>
-                <Binding Path="(RippleAssist.Feedback)" RelativeSource="{RelativeSource Self}" />
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RippleSurface">
-                    <Grid Background="Transparent">
-                        <Canvas HorizontalAlignment="Stretch"
+  <Style TargetType="RippleSurface">
+    <Setter Property="RecognizesAccessKey" Value="True" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="ClipToBounds">
+      <Setter.Value>
+        <Binding Path="(RippleAssist.ClipToBounds)" RelativeSource="{RelativeSource Self}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Feedback">
+      <Setter.Value>
+        <Binding Path="(RippleAssist.Feedback)" RelativeSource="{RelativeSource Self}" />
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="RippleSurface">
+          <Grid Background="Transparent">
+            <Canvas HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 IsHitTestVisible="False">
-                            <Ellipse x:Name="PART_ClickEllipse"
+              <Ellipse x:Name="PART_ClickEllipse"
                                      Fill="{TemplateBinding Feedback}"
                                      Opacity="0"
                                      RenderTransformOrigin=".5,.5">
-                                <Ellipse.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform x:Name="ScaleTransform"
-                                                        ScaleX="0"
-                                                        ScaleY="0" />
-                                        <SkewTransform />
-                                        <RotateTransform />
-                                        <TranslateTransform x:Name="TranslateTransform" />
-                                    </TransformGroup>
-                                </Ellipse.RenderTransform>
-                                <Ellipse.Width>
-                                    <Binding Path="RippleSize" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </Ellipse.Width>
-                                <Ellipse.Height>
-                                    <Binding Path="RippleSize" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </Ellipse.Height>
-                                <Canvas.Right>
-                                    <Binding Path="RippleX" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </Canvas.Right>
-                                <Canvas.Left>
-                                    <Binding Path="RippleY" RelativeSource="{RelativeSource TemplatedParent}" />
-                                </Canvas.Left>
-                            </Ellipse>
-                        </Canvas>
-                        <ContentPresenter Margin="{TemplateBinding Padding}"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                          RecognizesAccessKey="{TemplateBinding RecognizesAccessKey}"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition From="Normal" To="MousePressed">
-                                        <Storyboard />
-                                    </VisualTransition>
-                                </VisualStateGroup.Transitions>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
+                <Ellipse.RenderTransform>
+                  <TransformGroup>
+                    <ScaleTransform x:Name="ScaleTransform"
+                                    ScaleX="0"
+                                    ScaleY="0" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform x:Name="TranslateTransform" />
+                  </TransformGroup>
+                </Ellipse.RenderTransform>
+                <Ellipse.Width>
+                  <Binding Path="RippleSize" RelativeSource="{RelativeSource TemplatedParent}" />
+                </Ellipse.Width>
+                <Ellipse.Height>
+                  <Binding Path="RippleSize" RelativeSource="{RelativeSource TemplatedParent}" />
+                </Ellipse.Height>
+                <Canvas.Right>
+                  <Binding Path="RippleX" RelativeSource="{RelativeSource TemplatedParent}" />
+                </Canvas.Right>
+                <Canvas.Left>
+                  <Binding Path="RippleY" RelativeSource="{RelativeSource TemplatedParent}" />
+                </Canvas.Left>
+              </Ellipse>
+            </Canvas>
+            <ContentPresenter Margin="{TemplateBinding Padding}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Content="{TemplateBinding Content}"
+                              ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                              RecognizesAccessKey="{TemplateBinding RecognizesAccessKey}"
+                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup Name="CommonStates">
+                <VisualStateGroup.Transitions>
+                  <VisualTransition From="Normal" To="MousePressed">
+                    <Storyboard />
+                  </VisualTransition>
+                </VisualStateGroup.Transitions>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
 
-        </Setter>
-    </Style>
+    </Setter>
+  </Style>
 
 </ResourceDictionary>

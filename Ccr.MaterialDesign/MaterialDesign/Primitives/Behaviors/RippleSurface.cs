@@ -14,7 +14,8 @@ using Ccr.PresentationCore.Helpers.EventHelpers;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
-	public partial class RippleSurface : ContentControl
+	public partial class RippleSurface
+		: ContentControl
 	{
 		public enum CommonStates
 		{

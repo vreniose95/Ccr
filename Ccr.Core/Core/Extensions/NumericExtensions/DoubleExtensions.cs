@@ -240,5 +240,25 @@ namespace Ccr.Core.Extensions.NumericExtensions
 			return Math.Sqrt(@this);
 		}
 
-	}
+	  public static double Power(
+	    this double @this,
+	    double exponent)
+	  {
+	    return Math.Pow(
+	      @this,
+	      exponent);
+	  }
+
+	  public static double Round(
+	    this double @this,
+	    int decimals = 0,
+	    MidpointRounding midpointRounding = MidpointRounding.ToEven)
+	  {
+	    return Math.Round(
+	      @this,
+	      decimals,
+	      midpointRounding);
+	  }
+
+  }
 }

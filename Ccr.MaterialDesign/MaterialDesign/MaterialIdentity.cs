@@ -1,8 +1,5 @@
-﻿using System;
-using System.ComponentModel;
-using System.Diagnostics;
+﻿using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using Ccr.MaterialDesign.Markup.TypeConverters;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 

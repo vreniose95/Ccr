@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using Ccr.Core.Extensions;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 
 namespace Ccr.Geocoding
@@ -12,7 +14,7 @@ namespace Ccr.Geocoding
 
 
 		[JsonProperty("lat")]
-		public virtual double Latitude
+		public double Latitude
 		{
 			get => latitude;
 			set
@@ -33,7 +35,7 @@ namespace Ccr.Geocoding
 		}
 
 		[JsonProperty("lng")]
-		public virtual double Longitude
+		public double Longitude
 		{
 			get => longitude;
 			set
@@ -58,6 +60,7 @@ namespace Ccr.Geocoding
 			: this(0, 0)
 		{
 		}
+
 		public Location(
 			double latitude,
 			double longitude)
@@ -67,22 +70,22 @@ namespace Ccr.Geocoding
 		}
 
 
-		protected virtual double ToRadian(double val)
+		protected double ToRadian(double val)
 		{
 			return Math.PI / 180.0 * val;
 		}
 
 
-		public virtual Distance DistanceBetween(
-			Location location)
+		public Distance DistanceBetween(
+			[NotNull] Location location)
 		{
 			return DistanceBetween(
 				location,
 				DistanceUnits.Miles);
 		}
 
-		public virtual Distance DistanceBetween(
-			Location location,
+		public Distance DistanceBetween(
+		  [NotNull] Location location,
 			DistanceUnits units)
 		{
 			var earthRadius = units == DistanceUnits.Miles
@@ -116,8 +119,8 @@ namespace Ccr.Geocoding
 		}
 
 
-		public virtual bool IsInVacinity(
-			Location comparisonLocation,
+		public bool IsInVacinity(
+			[NotNull] Location comparisonLocation,
 			Distance vacinitySize)
 		{
 			var distance = DistanceBetween(comparisonLocation);
@@ -126,19 +129,23 @@ namespace Ccr.Geocoding
 
 
 
-		public override bool Equals(
+		public bool Equals(
 				object obj)
 		{
-			return Equals(obj as Location);
+		  var location = obj as Location;
+		  if (location == null)
+		    return false;
+
+			return Equals(location);
 		}
 
 		public bool Equals(
-			Location coor)
+			[NotNull] Location location)
 		{
-			if (coor == null)
-				return false;
+		  location.IsNotNull(nameof(location));
 
-			return (Latitude == coor.Latitude && Longitude == coor.Longitude);
+			return Latitude == location.Latitude
+        && Longitude == location.Longitude;
 		}
 
 

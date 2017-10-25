@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
+
 	public class MaterialIdentityConverter
 		: TypeConverter
 	{

@@ -1,200 +1,310 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Windows;
+using System.Windows.Markup;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.Xaml.Collections;
+using Ccr.Xaml.LogicalTree;
+
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
 {
-	public class Swatch
-		: HostedElement<Palette>,
-		  IList,
-		  IList<MaterialBrush>
-	{
-		private readonly ReactiveCollection<MaterialBrush> _primaries
-			= new ReactiveCollection<MaterialBrush>();
+  [DictionaryKeyProperty(nameof(SwatchClassifier))]
+  public class Swatch
+    : HostedElement<Palette>,
+      IList,
+      IList<MaterialBrush>,
+      ISupportInitialize
+  {
+    
+    private readonly ReactiveCollection<MaterialBrush> _primaries
+      = new ReactiveCollection<MaterialBrush>();
 
-		private readonly ReactiveCollection<MaterialBrush> _accents
-			= new ReactiveCollection<MaterialBrush>();
+    private readonly ReactiveCollection<MaterialBrush> _accents
+      = new ReactiveCollection<MaterialBrush>();
 
-
-		public MaterialBrush ExemplarHue
-		{
-			get
-			{
-				if(_primaries.Count >= 10)
-					return _primaries[6];
-
-				return null;
-			}
-	}
-		
-		public SwatchClassifier SwatchClassifier { get; set; }
-
-		
-		public IReadOnlyCollection<MaterialBrush> Primaries
-		{
-			get { return _primaries; }
-		}
-
-		public IReadOnlyCollection<MaterialBrush> Accents
-		{
-			get { return _accents; }
-		}
-
-		public IReadOnlyCollection<MaterialBrush> Materials
-		{
-			get { return _primaries.Concat(_accents).ToArray(); }
-		}
+    private List<MaterialBrush> _materials;
 
 
 
-		//protected override Freezable CreateInstanceCore()
-		//{
-		//	return new Swatch();
-		//}
-		public IEnumerator<MaterialBrush> GetEnumerator()
-		{
-			return Materials.GetEnumerator();
-		}
+    public MaterialBrush ExemplarHue
+    {
+      get
+      {
+        if (_primaries.Count >= 10)
+          return _primaries[6];
 
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return GetEnumerator();
-		}
+        return null;
+      }
+    }
 
-		void ICollection.CopyTo(Array array, int index)
-		{
-			Materials.ToArray().CopyTo(array, index);
-		}
+    public SwatchClassifier SwatchClassifier { get; set; }
 
-		bool ICollection<MaterialBrush>.Remove(MaterialBrush item)
-		{
-			throw new NotImplementedException();
-		}
 
-		public int Count
-		{
-			get
-			{
-				return Materials.ToArray().Length;
-			}
-		}
-		bool ICollection<MaterialBrush>.IsReadOnly
-		{
-			get { return false; }
-		}
-		int ICollection.Count
-		{
-			get { return Count; }
-		}
-		object ICollection.SyncRoot
-		{
-			get { return Materials.ToArray().SyncRoot; }
-		}
-		bool ICollection.IsSynchronized
-		{
-			get { return true; }
-		}
-		int IList.Add(object value)
-		{
-			Add(value.As<MaterialBrush>());
-			return Count;
-		}
+    public IReadOnlyCollection<MaterialBrush> Primaries
+    {
+      get { return _primaries; }
+    }
 
-		bool IList.Contains(object value)
-		{
-			return Contains(value.As<MaterialBrush>());
-		}
+    public IReadOnlyCollection<MaterialBrush> Accents
+    {
+      get { return _accents; }
+    }
 
-		public void Add(MaterialBrush item)
-		{
-			item.AttachHost(this);
-			if (item.Identity.IsAccent)
-			{
-				_accents.Add(item);
-			}
-			else
-			{
-				_primaries.Add(item);
-			}
-		}
+    public IReadOnlyCollection<MaterialBrush> Materials
+    {
+      get
+      {
+        if (_materials != null)
+          return _materials;
 
-		void ICollection<MaterialBrush>.Clear()
-		{
-			throw new NotImplementedException();
-		}
+        return _primaries
+          .Concat(_accents)
+          .ToArray();
+      }
+    }
 
-		public bool Contains(MaterialBrush item)
-		{
-			return Materials.Contains(item);
-		}
+    public Swatch()
+    {
+      _primaries.CollectionChangedGeneric += onPrimariesCollectionChanged;
 
-		public void CopyTo(MaterialBrush[] array, int arrayIndex)
-		{
-			Materials.ToArray().CopyTo(array, arrayIndex);
-		}
+    }
 
-		void IList.Clear()
-		{
-			throw new NotImplementedException();
-		}
+    public MaterialBrush GetMaterial(
+      Luminosity luminosity)
+    {
+      throw new NotImplementedException();
+    }
 
-		int IList.IndexOf(object value)
-		{
-			return IndexOf(value.As<MaterialBrush>());
-		}
+    private void onPrimariesCollectionChanged(
+      IReactiveCollection<MaterialBrush> sender,
+      NotifyCollectionChangedEventArgs<MaterialBrush> args)
+    {
+      switch (args.Action)
+      {
+        case NotifyCollectionChangedAction.Add:
+          {
+            args.NewItems.ForEach(t => t.AttachHost(this));
 
-		void IList.Insert(int index, object value)
-		{
-			throw new NotImplementedException();
-		}
+            var newItemsCount = args.NewItems.Count;
+            var targetPrimariesCount = Primaries.Count;
+            var insertionPosition = targetPrimariesCount - newItemsCount;
 
-		void IList.Remove(object value)
-		{
-			throw new NotImplementedException();
-		}
+            _materials.InsertRange(insertionPosition, args.NewItems);
 
-		public int IndexOf(MaterialBrush item)
-		{
-			return Materials.ToList().IndexOf(item);
-		}
+            break;
+          }
+        case NotifyCollectionChangedAction.Remove:
+          {
+            args.OldItems.ForEach(t => t.DetachHost());
+            args.NewItems.ForEach(t => t.AttachHost(this));
 
-		void IList<MaterialBrush>.Insert(int index, MaterialBrush item)
-		{
-			throw new NotSupportedException();
-		}
+            var oldItemsCount = args.OldItems.Count;
+            var targetPrimariesCount = Primaries.Count;
 
-		void IList<MaterialBrush>.RemoveAt(int index)
-		{
-			throw new NotSupportedException();
-		}
+            _materials.RemoveRange(targetPrimariesCount, oldItemsCount);
 
-		public MaterialBrush this[int index]
-		{
-			get { return Materials.ToList()[index]; }
-			set { throw new NotImplementedException(); }
-		}
+            break;
+          }
+        case NotifyCollectionChangedAction.Replace:
+          {
+            args.OldItems.ForEach(t => t.DetachHost());
+            args.NewItems.ForEach(t => t.AttachHost(this));
 
-		void IList.RemoveAt(int index)
-		{
-			throw new NotImplementedException();
-		}
+            var newItemsCount = args.NewItems.Count;
+            var oldItemsCount = args.OldItems.Count;
+            var targetPrimariesCount = Primaries.Count;
 
-		object IList.this[int index]
-		{
-			get { return this[index]; }
-			set { throw new NotImplementedException(); }
-		}
-		bool IList.IsReadOnly
-		{
-			get { return false; }
-		}
-		bool IList.IsFixedSize
-		{
-			get { return false; }
-		}
-	}
+            var insertionPosition = targetPrimariesCount - newItemsCount;
+
+            _materials.RemoveRange(targetPrimariesCount, oldItemsCount);
+            _materials.InsertRange(insertionPosition, args.NewItems);
+
+            break;
+          }
+        case NotifyCollectionChangedAction.Move:
+          {
+            break;
+          }
+        case NotifyCollectionChangedAction.Reset:
+          {
+            args.OldItems.ForEach(t => t.DetachHost());
+
+            _materials.Clear();
+            break;
+          }
+        default:
+          throw new InvalidEnumArgumentException();
+      }
+    }
+    
+    public IEnumerator<MaterialBrush> GetEnumerator()
+    {
+      return Materials.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+      return GetEnumerator();
+    }
+
+    void ICollection.CopyTo(
+      Array array,
+      int index)
+    {
+      _materials
+        .ToArray()
+        .CopyTo(
+          array,
+          index);
+    }
+
+    bool ICollection<MaterialBrush>.Remove(
+      MaterialBrush item)
+    {
+      throw new NotImplementedException();
+    }
+
+    public int Count
+    {
+      get => _materials.Count;
+    }
+
+    bool ICollection<MaterialBrush>.IsReadOnly
+    {
+      get { return false; }
+    }
+    int ICollection.Count
+    {
+      get => Materials.Count;
+    }
+    object ICollection.SyncRoot
+    {
+      get => Materials.ToArray().SyncRoot;
+    }
+    bool ICollection.IsSynchronized
+    {
+      get => true;
+    }
+    int IList.Add(object value)
+    {
+      Add(value.As<MaterialBrush>());
+      return Count;
+    }
+
+    bool IList.Contains(object value)
+    {
+      return Contains(value.As<MaterialBrush>());
+    }
+
+    public void Add(MaterialBrush item)
+    {
+      if (item == null)
+        throw new ArgumentNullException(nameof(item));
+
+      item.AttachHost(this);
+
+      if (item.Identity.IsAccent)
+        _accents.Add(item);
+      else
+        _primaries.Add(item);
+    }
+
+    void ICollection<MaterialBrush>.Clear()
+    {
+      throw new NotSupportedException();
+    }
+
+    public bool Contains(MaterialBrush item)
+    {
+      return Materials.Contains(item);
+    }
+
+    void ICollection<MaterialBrush>.CopyTo(
+      MaterialBrush[] array,
+      int arrayIndex)
+    {
+      Materials
+        .ToArray()
+        .CopyTo(array, arrayIndex);
+    }
+
+    void IList.Clear()
+    {
+      throw new NotSupportedException();
+    }
+
+    int IList.IndexOf(object value)
+    {
+      return IndexOf(value.As<MaterialBrush>());
+    }
+
+    void IList.Insert(int index, object value)
+    {
+      throw new NotSupportedException();
+    }
+
+    void IList.Remove(object value)
+    {
+      throw new NotSupportedException();
+    }
+
+    public int IndexOf(MaterialBrush item)
+    {
+      return _materials.IndexOf(item);
+    }
+
+    void IList<MaterialBrush>.Insert(int index, MaterialBrush item)
+    {
+      throw new NotSupportedException();
+    }
+
+    void IList<MaterialBrush>.RemoveAt(int index)
+    {
+      throw new NotSupportedException();
+    }
+
+    public MaterialBrush this[int index]
+    {
+      get { return _materials[index]; }
+      set { throw new NotImplementedException(); }
+    }
+
+    void IList.RemoveAt(int index)
+    {
+      throw new NotSupportedException();
+    }
+
+    object IList.this[int index]
+    {
+      get { return this[index]; }
+      set { throw new NotSupportedException(); }
+    }
+
+    bool IList.IsReadOnly
+    {
+      get => !_isInitializing;
+    }
+
+    bool IList.IsFixedSize
+    {
+      get => false;
+    }
+
+    private bool _isInitializing;
+    void ISupportInitialize.BeginInit()
+    {
+      _isInitializing = true;
+    }
+    void ISupportInitialize.EndInit()
+    {
+      _isInitializing = false;
+    }
+  }
 }

@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
-using Ccr.Geocoding.Google;
 
 namespace Ccr.Geocoding
 {
 	public interface IGeocoder
 	{
-		IEnumerable<GoogleAddress> Geocode(
+		IEnumerable<Address> Geocode(
 			string address);
 
-		IEnumerable<GoogleAddress> Geocode(
+		IEnumerable<Address> Geocode(
 			string street,
 			string city,
 			string state,
 			string postalCode,
 			string country);
 
-		IEnumerable<GoogleAddress> ReverseGeocode(
+
+		IEnumerable<Address> ReverseGeocode(
 			Location location);
 
-		IEnumerable<GoogleAddress> ReverseGeocode(
+		IEnumerable<Address> ReverseGeocode(
 			double latitude,
 			double longitude);
 	}

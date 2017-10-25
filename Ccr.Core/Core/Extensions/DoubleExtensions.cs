@@ -1,4 +1,6 @@
-﻿namespace Ccr.Core.Extensions
+﻿using System;
+
+namespace Ccr.Core.Extensions
 {
 	public static class DoubleExtensions
 	{
@@ -18,5 +20,8 @@
 				? value
 				: @this;
 		}
-	}
+
+    
+
+  }
 }

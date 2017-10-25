@@ -208,7 +208,7 @@ namespace Ccr.Core.Extensions
 		/// </summary>
 		/// <param name="this">
 		///		The subject <see cref="string"/> in which to convert.
-		/// </param>
+		/// </param> c
 		/// <returns>
 		///		The value of the provided <paramref name="this"/> converted to Pascal Case.
 		/// </returns>

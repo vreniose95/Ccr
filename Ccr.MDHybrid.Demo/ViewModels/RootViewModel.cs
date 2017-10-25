@@ -1,6 +1,4 @@
 ﻿using System.Windows.Input;
-using System.Windows.Media.Media3D;
-using Caliburn.Micro;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
 

@@ -211,5 +211,36 @@ namespace Ccr.Core.Extensions.NumericExtensions
 				.Constrain(
 					@this);
 		}
-	}
+
+
+	  public static byte ScaleDown(
+      this byte @this, 
+      double percent)
+	  {
+	    var value = @this - @this * (percent / 1);
+
+	    if (value > byte.MaxValue)
+        value = byte.MaxValue;
+
+	    if (value < byte.MinValue)
+        value = byte.MinValue;
+
+	    return Convert.ToByte(value);
+	  }
+
+	  public static byte ScaleUp(
+      this byte @this, 
+      double percent)
+	  {
+	    var value = @this + @this * (percent / 1);
+
+	    if (value > byte.MaxValue)
+        value = byte.MaxValue;
+
+	    if (value < byte.MinValue)
+        value = byte.MinValue;
+
+	    return Convert.ToByte(value);
+	  }
+  }
 }
