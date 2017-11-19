@@ -35,6 +35,7 @@ namespace Ccr.Data.EntityFramework.Infrastructure
 				: this(path)
 		{
 		}
+
 		private static string resolvePath(
 			string templatedPath)
 		{

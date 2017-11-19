@@ -34,6 +34,7 @@ namespace Ccr.MaterialDesign.Markup.Extensions
         OnPropertyChanged();
       }
     }
+
     private bool isAccent;
     public bool IsAccent
     {

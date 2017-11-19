@@ -111,7 +111,6 @@ namespace Ccr.Algorithms
       Vector2 p1,
       float alpha)
     {
-
       return (
         (p1.X - p0.X).Power(2f) +
         (p1.Y - p0.Y).Power(2f))

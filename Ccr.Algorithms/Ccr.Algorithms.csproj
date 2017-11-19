@@ -47,6 +47,8 @@
     <Compile Include="Algorithms\Collections\Sequential.cs" />
     <Compile Include="Algorithms\Collections\SequentialPair.cs" />
     <Compile Include="Algorithms\Collections\SequentialQuad.cs" />
+    <Compile Include="Algorithms\Collections\SequentialSet.cs" />
+    <Compile Include="Algorithms\Collections\SequentialSetFactory.cs" />
     <Compile Include="Algorithms\Collections\SequentialSetMemberResolver.cs" />
     <Compile Include="Algorithms\Collections\SequentialSetValueAttribute.cs" />
     <Compile Include="Algorithms\Collections\SequentialSetBase.cs" />

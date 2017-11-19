@@ -33,5 +33,19 @@ namespace Ccr.Algorithms.Collections
         selector(source.Value3),
         selector(source.Value4));
     }
+
+    public static SequentialTriple<SequentialPair<TValue>> Pairwise<TValue>(
+      this SequentialQuad<TValue> source,
+      int index)
+    {
+      if (index >= source.ValueArray.Count - 1)
+        throw new IndexOutOfRangeException();
+
+      throw new NotImplementedException();
+      //return new SequentialPair<TValue>(
+      //  ValueArray[index],
+      //  ValueArray[index + 1]);
+    }
+
   }
 }
