@@ -13,3 +13,4 @@ nuget NUnit3TestAdapter
 nuget Microsoft.Composition
 
 nuget AngleSharp
+nuget System.Numerics.Vectors 4.3.0

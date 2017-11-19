@@ -80,8 +80,8 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 			[NotNull] object targetObject,
 			[NotNull] XamlSetTypeConverterEventArgs eventArgs)
 		{
-			targetObject.IsNotNull("targetObject");
-			eventArgs.IsNotNull("eventArgs");
+			targetObject.IsNotNull(nameof(targetObject));
+			eventArgs.IsNotNull(nameof(eventArgs));
 
 
 			var injectedTypeConverterAttributes = eventArgs.Member.UnderlyingMember

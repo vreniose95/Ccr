@@ -6,43 +6,50 @@ using Ccr.PresentationCore.Helpers.DependencyHelpers;
 namespace Ccr.MaterialDesign
 {
 	[TypeConverter(typeof(MaterialIdentityConverter))]
-	public class MaterialIdentity : Freezable
+	public class MaterialIdentity
+    : Freezable
 	{
-		public static readonly DependencyProperty SwatchClassifierProperty = DP.Register(
-			new Meta<MaterialIdentity, SwatchClassifier>());
-
-		public static readonly DependencyProperty IsAccentProperty = DP.Register(
-			new Meta<MaterialIdentity, bool>());
-
-		public static readonly DependencyProperty MaterialIndexProperty = DP.Register(
-			new Meta<MaterialIdentity, double>());
+	  protected static readonly DependencyPropertyKey SwatchClassifierPropertyKey = DP.RegisterReadOnly(
+	    new Meta<MaterialIdentity, SwatchClassifier>());
+    public static readonly DependencyProperty SwatchClassifierProperty = SwatchClassifierPropertyKey.DependencyProperty;
 
 
-		public SwatchClassifier SwatchClassifier
-		{
-			get => (SwatchClassifier)GetValue(SwatchClassifierProperty);
-			set => SetValue(SwatchClassifierProperty, value);
-		}
-		public bool IsAccent
-		{
-			get => (bool)GetValue(IsAccentProperty);
-			set => SetValue(IsAccentProperty, value);
-		}
-		public double MaterialIndex
-		{
-			get => (double)GetValue(MaterialIndexProperty);
-			set => SetValue(MaterialIndexProperty, value);
-		}
+	  protected static readonly DependencyPropertyKey IsAccentPropertyKey = DP.RegisterReadOnly(
+	    new Meta<MaterialIdentity, bool>());
+	  public static readonly DependencyProperty IsAccentProperty = IsAccentPropertyKey.DependencyProperty;
 
 
-		internal MaterialIdentity(
+	  protected static readonly DependencyPropertyKey LuminosityPropertyKey = DP.RegisterReadOnly(
+	    new Meta<MaterialIdentity, Luminosity>());
+    public static readonly DependencyProperty LuminosityProperty = LuminosityPropertyKey.DependencyProperty;
+
+
+
+    public SwatchClassifier SwatchClassifier
+    {
+      get => (SwatchClassifier)GetValue(SwatchClassifierProperty);
+      protected set => SetValue(SwatchClassifierPropertyKey, value);
+    }
+	  public bool IsAccent
+	  {
+	    get => (bool)GetValue(IsAccentProperty);
+	    protected set => SetValue(IsAccentPropertyKey, value);
+	  }
+	  public Luminosity Luminosity
+	  {
+	    get => (Luminosity)GetValue(LuminosityProperty);
+	    protected set => SetValue(LuminosityPropertyKey, value);
+	  }
+
+    
+    internal MaterialIdentity(
 			SwatchClassifier swatchClassifier,
 			bool isAccent,
-			double materialIndex)
+			Luminosity luminosity)
 		{
 			SwatchClassifier = swatchClassifier;
 			IsAccent = isAccent;
-			MaterialIndex = materialIndex;
+			Luminosity = luminosity;
 		}
 
 
@@ -51,8 +58,7 @@ namespace Ccr.MaterialDesign
 			return new MaterialIdentity(
 				SwatchClassifier,
 				IsAccent,
-				MaterialIndex);
+			  Luminosity);
 		}
 	}
-
 }

@@ -6,7 +6,7 @@
 		<ResourceDictionary Source="MDHybrid.Palette.xaml"/>
 	</ResourceDictionary.MergedDictionaries>
 	
-	<MaterialBrush x:Key="MaterialHybrid.Forms.ElementBorderBrush">
+	<!--<MaterialBrush x:Key="MaterialHybrid.Forms.ElementBorderBrush">
 	  <MaterialBrush.Color>
 	    <Binding Source="{StaticResource MDH.Palette.Grey.600}" 
                Path="Color" />
@@ -39,7 +39,7 @@
     <MaterialBrush.Color>
       <Binding Source="{StaticResource MDH.Palette.Teal.500}" Path="Color" />
     </MaterialBrush.Color>
-  </MaterialBrush>
+  </MaterialBrush>-->
 
 
   <Thickness x:Key="MaterialHybrid.Forms.ElementMargin">5 3</Thickness>

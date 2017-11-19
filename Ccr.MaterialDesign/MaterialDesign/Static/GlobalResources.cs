@@ -16,7 +16,7 @@ namespace Ccr.MaterialDesign.Static
 				string _componentPath)
 			{
 				return new Uri(
-					$"{packPrefix}{_assemblyName}{component}{_assemblyName}/{_componentPath}",
+					$"{packPrefix}{_assemblyName}{component}/{_componentPath}",
 					UriKind.RelativeOrAbsolute);
 			}
 
@@ -39,9 +39,12 @@ namespace Ccr.MaterialDesign.Static
 
 			_paletteResourceProvider = new ResourceProvider(
 				_palletResourceUri);
-			//"pack://application:,,,/Material;component/MDHybrid/Themes/MDHybrid.Palette.xaml");
-
-
-		}
-	}
+      //"pack://application:,,,/Material;component/MDHybrid/Themes/MDHybrid.Palette.xaml");
+      //"pack://application:,,,/Ccr.MDHybrid;component/MDHybrid/Themes/MDHybrid.Palette.xaml"
+      /*				return new Uri(
+					$"{packPrefix}{_assemblyName}{component}{_assemblyName}/{_componentPath}",
+					UriKind.RelativeOrAbsolute);
+			}*/
+    }
+  }
 }

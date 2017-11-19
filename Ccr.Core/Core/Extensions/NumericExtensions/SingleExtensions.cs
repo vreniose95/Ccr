@@ -211,5 +211,17 @@ namespace Ccr.Core.Extensions.NumericExtensions
 				.Constrain(
 					@this);
 		}
-	}
+
+
+	  public static Single Power(
+	    this Single @this,
+      Single exponent)
+	  {
+	    return (Single) Math.Pow(
+        @this,
+        exponent);
+	  }
+
+
+  }
 }

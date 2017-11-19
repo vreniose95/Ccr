@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure.Interception;
 
 namespace Ccr.Data.EntityFramework.Infrastructure
@@ -28,9 +27,7 @@ namespace Ccr.Data.EntityFramework.Infrastructure
 						resolvePath(path))
 		{
 		}
-
-		public delegate string GetSomeFuckingShitHandler(int i);
-		public GetSomeFuckingShitHandler GetSomeFuckingShit;
+    
 
 		public DatabaseFileLogger(
 			string path,

@@ -6,7 +6,7 @@ using System.Xaml;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-  [TypeConverter(typeof(MaterialBrush))]
+  //[TypeConverter(typeof(MaterialBrush))]
   public class MaterialBrushConverter
     : TypeConverter
   {
@@ -35,7 +35,9 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       {
         return true;
       }
-      return base.CanConvertTo(context, destinationType);
+      return base.CanConvertTo(
+        context,
+        destinationType);
     }
 
     public override object ConvertFrom(
@@ -50,7 +52,8 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 
       if (destinationTypeProvider == null)
         throw new NullReferenceException(
-          $"The destination type provider is null.");
+          $"The destination type provider is null " +
+          $"and not available in this context.");
 
       var destinationType = destinationTypeProvider
         .GetDestinationType();
@@ -141,6 +144,13 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       return base.ConvertFrom(context, culture, value);
     }
 
+    private MaterialBrush _performConvert(
+      SolidColorBrush solidColorBrush)
+    {
+      throw new Exception();
+    }
+
+
     public override object ConvertTo(
       ITypeDescriptorContext context,
       CultureInfo culture,
@@ -195,6 +205,11 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       {
       }
       return base.ConvertTo(context, culture, value, destinationType);
+    }
+
+    public override bool IsValid(ITypeDescriptorContext context, object value)
+    {
+      return base.IsValid(context, value);
     }
   }
 }

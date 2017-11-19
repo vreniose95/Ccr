@@ -24,6 +24,10 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
 	"Ccr.MaterialDesign.Controls")]
+
+[assembly: XmlnsDefinition(
+  @"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
+  "Ccr.MaterialDesign.Markup.Extensions")]
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation", 
 	"Ccr.MaterialDesign.Markup.TypeConverters")]

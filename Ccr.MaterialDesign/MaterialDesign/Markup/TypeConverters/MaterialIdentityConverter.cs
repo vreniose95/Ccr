@@ -7,15 +7,15 @@ using Ccr.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-
 	public class MaterialIdentityConverter
 		: TypeConverter
 	{
 		private static readonly Regex _parserRegex = new Regex(
       @"\A[\s]*(?<swatchName>[A-z]*).(?<isAccent>[A])?(?<luminosity>[0-9]{3})");
 
-		public Type TargetType => typeof(MaterialIdentity);
+    public Type TargetType => typeof(MaterialIdentity);
 
+    
 		public override bool CanConvertFrom(
 			ITypeDescriptorContext context,
 			Type sourceType)
@@ -46,19 +46,17 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 
 			var match = _parserRegex.Match(value.ToString());
 
-			var swatchName = match.Groups["swatchName"].Value;
-			
+      var swatchName = match.Groups["swatchName"].Value;
 			var luminosityStr = match.Groups["luminosity"].Value;
+      var isAccent = match.Groups["isAccent"].Value.IsNotNullOrEmptyEx();
 
-		  var isAccent = match.Groups["isAccent"].Value.IsNotNullOrEmptyEx();
+      var luminosityVal = int.Parse(luminosityStr);
 
-      var luminosity = int.Parse(luminosityStr);
-      
+		  var luminosity = new Luminosity(luminosityVal, isAccent);
 
-			SwatchClassifier swatchClassifier;
-			if(!Enum.TryParse(swatchName, out swatchClassifier))
+      if(!Enum.TryParse(swatchName, out SwatchClassifier swatchClassifier))
 				throw new FormatException(
-					$"\"{swatchName}\" cannot be parsed into a \"SwatchClassifier\" enum object.");
+					$"\"{swatchName}\" cannot be parsed into a \'SwatchClassifier\' enum object.");
 
 			return new MaterialIdentity(
 				swatchClassifier,

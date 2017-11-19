@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows.Markup;
+using System.Windows.Media;
+using Ccr.Algorithms.Collections;
 using Ccr.Core.Extensions;
+using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.Xaml.Collections;
 
@@ -19,7 +23,7 @@ namespace Ccr.MaterialDesign
       IList<MaterialBrush>,
       ISupportInitialize
   {
-    
+
     private readonly ReactiveCollection<MaterialBrush> _primaries
       = new ReactiveCollection<MaterialBrush>();
 
@@ -67,6 +71,50 @@ namespace Ccr.MaterialDesign
       }
     }
 
+    private MaterialBrush _lowPrimaryBounds;
+    internal MaterialBrush LowPrimaryBounds
+    {
+      get => _lowPrimaryBounds
+             ?? (_lowPrimaryBounds = new MaterialBrush
+             {
+               Identity = new MaterialIdentity(SwatchClassifier, false, new Luminosity(0, false)),
+               Color = Colors.Black
+             });
+    }
+
+    private MaterialBrush _highPrimaryBounds;
+    internal MaterialBrush HighPrimaryBounds
+    {
+      get => _highPrimaryBounds
+             ?? (_highPrimaryBounds = new MaterialBrush
+             {
+               Identity = new MaterialIdentity(SwatchClassifier, false, new Luminosity(1000, false)),
+               Color = Colors.White
+             });
+    }
+    private MaterialBrush _lowAccentBounds;
+    internal MaterialBrush LowAccentBounds
+    {
+      get => _lowAccentBounds
+             ?? (_lowAccentBounds = new MaterialBrush
+             {
+               Identity = new MaterialIdentity(SwatchClassifier, true, new Luminosity(0, true)),
+               Color = Colors.Black
+             });
+    }
+
+    private MaterialBrush _highAccentBounds;
+    internal MaterialBrush HighAccentBounds
+    {
+      get => _highAccentBounds
+             ?? (_highAccentBounds = new MaterialBrush
+             {
+               Identity = new MaterialIdentity(SwatchClassifier, true, new Luminosity(1000, true)),
+               Color = Colors.White
+             });
+    }
+
+
 
     public Swatch()
     {
@@ -75,11 +123,65 @@ namespace Ccr.MaterialDesign
     }
 
 
+
     public MaterialBrush GetMaterial(
       Luminosity luminosity)
     {
-      throw new NotImplementedException();
+      var brushRange = GetRange(luminosity);
+
+      var range = (
+        (double)brushRange.low.Identity.Luminosity.LuminosityIndex,
+        (double)brushRange.high.Identity.Luminosity.LuminosityIndex);
+
+      var index = (double)luminosity.LuminosityIndex;
+      var progression = index.LinearMap(range, (0d, 100d));
+
+      //var s = new SequentialQuad<MaterialBrush>()
+
+
+      return new MaterialBrush
+      {
+        Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
+        Color = brushRange.low
+      };
     }
+
+
+    private (MaterialBrush low, MaterialBrush high) GetRange(
+      Luminosity luminosity)
+    {
+      if (luminosity.IsAccent)
+      {
+        var lowBounds = LowAccentBounds;
+
+        foreach (var accentBrush in Accents
+          .OrderBy(t => t.Identity.Luminosity))
+        {
+          if (luminosity < accentBrush.Identity.Luminosity)
+          {
+            return (lowBounds, accentBrush);
+          }
+          lowBounds = accentBrush;
+        }
+        return (lowBounds, HighAccentBounds);
+      }
+      else
+      {
+        var lowBounds = LowPrimaryBounds;
+
+        foreach (var primaryBrush in Primaries
+          .OrderBy(t => t.Identity.Luminosity))
+        {
+          if (luminosity < primaryBrush.Identity.Luminosity)
+          {
+            return (lowBounds, primaryBrush);
+          }
+          lowBounds = primaryBrush;
+        }
+        return (lowBounds, HighPrimaryBounds);
+      }
+    }
+
 
     private void onPrimariesCollectionChanged(
       IReactiveCollection<MaterialBrush> sender,
@@ -142,7 +244,7 @@ namespace Ccr.MaterialDesign
           throw new InvalidEnumArgumentException();
       }
     }
-    
+
     public IEnumerator<MaterialBrush> GetEnumerator()
     {
       return Materials.GetEnumerator();

@@ -1,14 +1,19 @@
 ﻿using System;
+using Ccr.Core.Extensions;
+using JetBrains.Annotations;
 
 namespace Ccr.Core.TypeSystemInfo
 {
-	public class BuiltInTypeInfo
+	public abstract class BuiltInTypeInfo
 	{
+    [NotNull]
 		public Type SystemType { get; }
 
-		public BuiltInTypeInfo(
-			Type systemType)
+	  protected BuiltInTypeInfo(
+	    [NotNull] Type systemType)
 		{
+      systemType.IsNotNull(nameof(systemType));
+
 			SystemType = systemType;
 		}
 	}

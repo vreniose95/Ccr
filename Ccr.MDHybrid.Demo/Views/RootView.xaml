@@ -5,15 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
-						 mc:Ignorable="d" 
+             xmlns:extensions="clr-namespace:Ccr.MaterialDesign.Markup.Extensions;assembly=Ccr.MaterialDesign"
+             mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD1080"
              Designer.Orientation="Landscape">
-	<Grid 
-				Width="1280"
-				Height="720">
-		<ItemsControl>
+	<Grid Background="{MDH Swatch=Indigo, Luminosity=600, IsAccent=True}">
+		<!--<StackPanel Orientation="Vertical ">
+			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+			<Label Content="IM TESTING MORE STUFF" FontSize="28pt" Foreground="{MDH Swatch=DeepOrange}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+		</StackPanel>-->
+		<!--<ItemsControl>
 			<ItemsControl.ItemsSource>
 				<Binding Source="{StaticResource MDH.Palette}"/>
 			</ItemsControl.ItemsSource>
@@ -30,7 +33,7 @@
           <UniformGrid Rows="1"/>
         </ItemsPanelTemplate>
       </ItemsControl.ItemsPanel>
-		</ItemsControl>
+		</ItemsControl-->
 		<!--<Button Content="Hello"
 						HorizontalAlignment="Center"
 						VerticalAlignment="Center"

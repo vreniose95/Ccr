@@ -1,4 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
+using Caliburn.Micro;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
 
@@ -7,7 +10,7 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 	public class RootViewModel
 		: ViewModelBase
 	{
-		private string testProperty = "Some Nonsense";
+	  private string testProperty = "Some Nonsense";
 		public string TestProperty
 		{
 			get => testProperty;
@@ -27,6 +30,8 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 				NotifyOfPropertyChange(() => MaterialDesignPalette);
 			}
 		}
+
+
 		//private NavigationViewModel navigationView;
 		//public NavigationViewModel NavigationView
 		//{

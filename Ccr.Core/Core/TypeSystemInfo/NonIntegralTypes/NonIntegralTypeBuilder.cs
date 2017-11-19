@@ -2,17 +2,27 @@
 using System.Runtime.InteropServices;
 using Ccr.Core.Extensions;
 using Ccr.Core.TypeSystemInfo.IntegralTypes;
+using JetBrains.Annotations;
 
 namespace Ccr.Core.TypeSystemInfo.NonIntegralTypes
 {
-	internal static class NonIntegralTypeBuilder
+  //internal class NonIntegralTypeBuilder
+  //  : BuiltInTypeBuilder<>
+  //{
+  //  protected internal override BuiltInTypeInfo BuildBase(
+  //    Type systemType)
+  //  {
+
+  //  }
+  //}
+
+  internal static class NonIntegralTypeBuilder2
 	{
 		private const string minValueFieldName = "MinValue";
 
 		private const string maxValueFieldName = "MaxValue";
 		
-
-
+    
 		public static IntegralTypeInfo Build(
 			Type systemType)
 		{

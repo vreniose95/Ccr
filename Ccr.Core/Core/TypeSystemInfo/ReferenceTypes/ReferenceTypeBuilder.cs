@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ccr.Core.TypeSystemInfo.ReferenceTypes
 {
-	class ReferenceTypeBuilder
+	public class ReferenceTypeBuilder
 	{
+
 	}
 }

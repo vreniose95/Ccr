@@ -70,6 +70,7 @@
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%272.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%273.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%274.cs" />
+    <Compile Include="Xaml\Markup\Converters\Injection\XamlConverterTypeDescriptorProvider.cs" />
     <Compile Include="Xaml\Markup\Extensions\MarkupExtensionAbstractSingletonFactory.cs" />
     <Compile Include="Xaml\Markup\TypeConverterInjection\InjectTypeConverterAttribute.cs" />
     <Compile Include="Xaml\Markup\TypeConverterInjection\TypeConverterInjectionCore.cs" />

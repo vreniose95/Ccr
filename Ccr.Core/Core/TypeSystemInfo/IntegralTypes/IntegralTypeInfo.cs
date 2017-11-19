@@ -1,25 +1,32 @@
 ﻿using System;
+using Ccr.Core.Extensions;
+using JetBrains.Annotations;
 
 namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	public class IntegralTypeInfo
+    : BuiltInTypeInfo
 	{
-		public Type SystemType { get; }
-
+    [NotNull]
 		public IntegralTypeValueRange ValueRange { get; }
 
+    [NotNull]
 		public IntegralTypeSizeInfo Size { get; }
 
 
 		public IntegralTypeInfo(
-			Type systemType,
-			IntegralTypeValueRange valueRange,
-			IntegralTypeSizeInfo size)
+			[NotNull] Type systemType,
+			[NotNull] IntegralTypeValueRange valueRange,
+			[NotNull] IntegralTypeSizeInfo size) : base(
+        systemType)
 		{
-			SystemType = systemType;
+      valueRange.IsNotNull(nameof(valueRange));
+      size.IsNotNull(nameof(size));
+
 			ValueRange = valueRange;
 			Size = size;
 		}
+
 
 		//public IntegralTypeInfo CreateFrom<TSystemType>()
 		//{

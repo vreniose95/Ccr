@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Ccr.Core.Extensions;
+using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Xaml.Collections;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
-using Ccr.Core.Extensions;
-using Ccr.PresentationCore.Helpers.DependencyHelpers;
-using Ccr.Xaml.Collections;
+using System.Windows.Media;
+using Ccr.PresentationCore.Layout;
 
 namespace Ccr.MaterialDesign
 {
@@ -32,10 +34,21 @@ namespace Ccr.MaterialDesign
       Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
     }
 
-    //public static Swatch Interpolate(Percentage progression)
-    //{
+    public static Swatch Interpolate(
+      Percentage progression)
+    {
 
-    //}
+
+
+      throw new Exception();
+    }
+    public MaterialBrush LookupNearestVector(
+      SolidColorBrush solidColorBrush)
+    {
+      throw new NotImplementedException();
+
+      
+    }
 
     private void onSwatchCollectionChange(
         IReactiveCollection<Swatch> sender,
@@ -57,7 +70,7 @@ namespace Ccr.MaterialDesign
           args.NewItems.ForEach(t => t.DetachHost());
           break;
 
-        case NotifyCollectionChangedAction.Move:
+       case NotifyCollectionChangedAction.Move:
           break;
 
         default:

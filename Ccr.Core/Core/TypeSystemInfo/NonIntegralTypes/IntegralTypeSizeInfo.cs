@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Ccr.Core.TypeSystemInfo.ReferenceTypes;
 
-namespace Ccr.Core.TypeSystemInfo
+namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	[DebuggerDisplay("ToString")]
 	public class IntegralTypeSizeInfo

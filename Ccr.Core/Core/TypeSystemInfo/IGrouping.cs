@@ -1,0 +1,4 @@
+﻿namespace Ccr.Core.TypeSystemInfo
+{
+ 
+}
