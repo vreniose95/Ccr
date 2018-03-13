@@ -7,7 +7,8 @@ namespace Ccr.Geocoding.Tests
   [TestFixture]
   public class GeocoderTests
   {
-    private const string _apiKey = "AIzaSyDfgHD5nn_qH7t_rfyIYSwylObxpG_uEOQ";
+    private const string _apiKey
+      = "AIzaSyDfgHD5nn_qH7t_rfyIYSwylObxpG_uEOQ";
 
     private Geocoder _geocoder;
 

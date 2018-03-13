@@ -9,6 +9,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Ccr.MaterialDesign.DesignTime.Infrastructure;
 using Ccr.PresentationCore.Layout;
 
 namespace Ccr.MaterialDesign
@@ -18,6 +19,7 @@ namespace Ccr.MaterialDesign
   public class Palette
     : Freezable,
       IList<Swatch>
+      //IPalette
   {
     public static readonly DependencyProperty SwatchesProperty = DP.Register(
       new Meta<Palette, ReactiveCollection<Swatch>>());
@@ -37,17 +39,12 @@ namespace Ccr.MaterialDesign
     public static Swatch Interpolate(
       Percentage progression)
     {
-
-
-
       throw new Exception();
     }
     public MaterialBrush LookupNearestVector(
       SolidColorBrush solidColorBrush)
     {
       throw new NotImplementedException();
-
-      
     }
 
     private void onSwatchCollectionChange(
@@ -70,7 +67,7 @@ namespace Ccr.MaterialDesign
           args.NewItems.ForEach(t => t.DetachHost());
           break;
 
-       case NotifyCollectionChangedAction.Move:
+        case NotifyCollectionChangedAction.Move:
           break;
 
         default:
@@ -95,7 +92,7 @@ namespace Ccr.MaterialDesign
       return GetEnumerator();
     }
 
-    void ICollection<Swatch>.Add(Swatch item)
+    public void Add(Swatch item)
     {
       Swatches.Add(item);
     }

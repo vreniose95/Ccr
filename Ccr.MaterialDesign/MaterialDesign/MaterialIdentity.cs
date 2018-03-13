@@ -52,8 +52,14 @@ namespace Ccr.MaterialDesign
 			Luminosity = luminosity;
 		}
 
+	  public override string ToString()
+	  {
+	    return (IsAccent ? "A" : "") 
+        + Luminosity.LuminosityIndex;
+	  }
 
-		protected override Freezable CreateInstanceCore()
+
+	  protected override Freezable CreateInstanceCore()
 		{
 			return new MaterialIdentity(
 				SwatchClassifier,

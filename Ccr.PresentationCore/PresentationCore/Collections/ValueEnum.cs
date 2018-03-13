@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 
 namespace Ccr.PresentationCore.Collections
 {
+  //TODO BUG MAJOR STACKOVERFLOWEXCEPTION GOING ON WITH CIRCULAR EQUALITY == / .EQUALS WITH NULL
 	/// <summary>
 	/// Base class for <see cref="ValueEnum{TValue}"/>, a method of creating strongly typed sets 
 	/// of named values of types, not limited to integral data types. 
@@ -464,14 +465,19 @@ namespace Ccr.PresentationCore.Collections
 			return matchingValues[0];
 		}
 
-		public new static TEnum FromName<TEnum>(string name, bool ignoreCase = false)
-			where TEnum : ValueEnum
+		public new static TEnum FromName<TEnum>(
+      string name, 
+      bool ignoreCase = false)
+        where TEnum
+          : ValueEnum
 		{
-			return Parse(typeof(TEnum), name, ignoreCase).As<TEnum>();
+			return Parse(typeof(TEnum), name, ignoreCase)
+        .As<TEnum>();
 		}
 
 		public new static string[] GetNames<TEnum>()
-			where TEnum : ValueEnum<TValue>
+			where TEnum
+      : ValueEnum<TValue>
 		{
 			return ToArray<TEnum>()
 				.Select(t => t.Name)
@@ -479,7 +485,8 @@ namespace Ccr.PresentationCore.Collections
 		}
 
 		public static TValue[] GetValues<TEnum>()
-			where TEnum : ValueEnum<TValue>
+			where TEnum
+      : ValueEnum<TValue>
 		{
 			return ToArray<TEnum>()
 				.Select(t => t.Value)
@@ -487,7 +494,8 @@ namespace Ccr.PresentationCore.Collections
 		}
 
 
-		public int CompareTo(ValueEnum<TValue> obj)
+		public int CompareTo(
+      ValueEnum<TValue> obj)
 		{
 			return LineNumber.CompareTo(obj.LineNumber);
 		}
@@ -497,7 +505,8 @@ namespace Ccr.PresentationCore.Collections
 			return Name;
 		}
 
-		public static implicit operator TValue(ValueEnum<TValue> @this)
+		public static implicit operator TValue(
+      ValueEnum<TValue> @this)
 		{
 			return @this.Value;
 		}
@@ -511,9 +520,11 @@ namespace Ccr.PresentationCore.Collections
 			return Equals(enumeration);
 		}
 
-		protected bool Equals(ValueEnum<TValue> other)
+		protected bool Equals(
+      ValueEnum<TValue> other)
 		{
-			return GetType() == other.GetType() && Value.Equals(other.Value);
+		  return GetType() == other.GetType()
+        && Value.Equals(other.Value);
 		}
 
 		public override int GetHashCode()

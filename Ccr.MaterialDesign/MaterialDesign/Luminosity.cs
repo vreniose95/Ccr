@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Core.Numerics;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign
@@ -110,5 +113,55 @@ namespace Ccr.MaterialDesign
     {
       return a.LuminosityIndex >= b.LuminosityIndex;
     }
-  }
+
+    public static Luminosity Define(
+      [CallerMemberName] string memberName = "")
+    {
+      return Parse(memberName);
+    }
+
+    public static Luminosity Parse(
+      string luminosityStr = "")
+    {
+      var originalStr = luminosityStr;
+
+      var isAccent = luminosityStr.StartsWith("A");
+
+      if (isAccent)
+        luminosityStr = luminosityStr.Substring(1);
+
+      if (!int.TryParse(luminosityStr, out var _index))
+      {
+        throw new FormatException(
+          $"Could not parse \'Luminosity\' object from the text {originalStr.Quote()} " +
+          $"because {luminosityStr.Quote()} cannot ne parsed into type \'int\'. ");
+      }
+
+      return new Luminosity(_index, isAccent);
+    }
+
+    
 }
+}
+
+//if (!memberName.StartsWith("A"))
+//{
+//  if (!int.TryParse(memberName, out var _index))
+//  {
+//    throw new FormatException(
+//      $"Could not parse \'Luminosity\' object from the text {memberName.Quote()} " +
+//      $"because {memberName.Quote()} cammpt ne parsed into type \'int\'. ");
+//  }
+//  return new Luminosity(_index, false);
+//}
+//else
+//{
+//  var indexStr = memberName.Substring(1);
+//  if (!int.TryParse(indexStr, out var _index))
+//  {
+//    throw new FormatException(
+//      $"Could not parse \'Luminosity\' object from the text {memberName.Quote()} " +
+//      $"because {indexStr.Quote()} cammpt ne parsed into type \'int\'. ");
+//  }
+//  return new Luminosity(_index, true);
+//}

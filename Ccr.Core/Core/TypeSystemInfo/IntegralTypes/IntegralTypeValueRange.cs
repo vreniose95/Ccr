@@ -1,9 +1,11 @@
+using System;
 using System.Diagnostics;
 
 namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 {
 	[DebuggerDisplay("ToString")]
 	public class IntegralTypeValueRange
+    : BuiltInTypeInfo
 	{
 		public long Minimum { get; }
 
@@ -12,8 +14,10 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 
 		public IntegralTypeValueRange(
 			long minimum,
-			ulong maximum)
-		{
+			ulong maximum,
+		  Type systemType) : base(
+        systemType)
+    {
 			Minimum = minimum;
 			Maximum = maximum;
 		}

@@ -64,7 +64,7 @@ namespace Ccr.Core.Extensions
 				case UnaryExpression unaryExpression:
 					return unaryExpression
 						.Operand
-						.IsOfType<MemberExpression>();
+						.As<MemberExpression>();
 					
 				default:
 					throw new NotSupportedException(

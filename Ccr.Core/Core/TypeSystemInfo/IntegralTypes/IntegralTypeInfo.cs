@@ -14,6 +14,8 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 		public IntegralTypeSizeInfo Size { get; }
 
 
+    
+
 		public IntegralTypeInfo(
 			[NotNull] Type systemType,
 			[NotNull] IntegralTypeValueRange valueRange,

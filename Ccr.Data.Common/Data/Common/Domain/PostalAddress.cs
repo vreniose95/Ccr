@@ -5,9 +5,9 @@ using Ccr.Core.Extensions;
 using Ccr.Data.Common.Context;
 using Ccr.Data.Common.EntityMaps;
 using Ccr.Data.Common.Repositories;
+using Ccr.Data.EntityFramework.Attributes;
 using Ccr.Data.EntityFramework.Core;
 using Ccr.Geocoding;
-using Core.Data.EntityFramework.Attributes;
 using JetBrains.Annotations;
 
 namespace Ccr.Data.Common.Domain

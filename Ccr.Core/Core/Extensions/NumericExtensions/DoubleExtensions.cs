@@ -82,21 +82,21 @@ namespace Ccr.Core.Extensions.NumericExtensions
 		///		A <see cref="Double"/> value that has been linearly mapped to the <paramref name="startRange"/>
 		///		parameter and re-mapped to the <paramref name="endRange"/> parameter.
 		/// </returns>
-		public static Double LinearMap(
-			this Double @this,
-			[NotNull] DoubleRange startRange,
-			[NotNull] DoubleRange endRange)
-		{
-			startRange.IsNotNull(nameof(startRange));
-			endRange.IsNotNull(nameof(endRange));
+public static Double LinearMap(
+	this Double @this,
+	[NotNull] DoubleRange startRange,
+	[NotNull] DoubleRange endRange)
+{
+	startRange.IsNotNull(nameof(startRange));
+	endRange.IsNotNull(nameof(endRange));
 
-			return (
-					(@this - startRange.Minimum) *
-					(endRange.Maximum - endRange.Minimum) /
-					(startRange.Maximum - startRange.Minimum) +
-					endRange.Minimum)
-				.To<Double>();
-		}
+	return (
+			(@this - startRange.Minimum) *
+			(endRange.Maximum - endRange.Minimum) /
+			(startRange.Maximum - startRange.Minimum) +
+			endRange.Minimum)
+		.To<Double>();
+}
 
 		/// <summary>
 		///		Extension method that allows for <see cref="NonIntegralRangeBase{TIntegralType}.IsWithin"/> 
@@ -212,7 +212,17 @@ namespace Ccr.Core.Extensions.NumericExtensions
 					@this);
 
 		}
-		public static double ArcCosine(
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="this">
+    /// 
+    /// </param>
+    /// <returns>
+    /// 
+    /// </returns>
+    public static double ArcCosine(
 			this double @this)
 		{
 			return Math.Acos(@this);

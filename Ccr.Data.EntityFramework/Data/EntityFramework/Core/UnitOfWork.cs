@@ -10,8 +10,10 @@ using Ccr.Introspective.Infrastructure.Context;
 
 namespace Ccr.Data.EntityFramework.Core
 {
-	public class UnitOfWork<TContext> : IUnitOfWork 
-		where TContext : DbContext//, new()
+	public class UnitOfWork<TContext>
+    : IUnitOfWork 
+		where TContext 
+    : DbContext
 	{
 		private DbContextTransaction _transaction;
 		private readonly Dictionary<Type, object> _repositories;
@@ -25,11 +27,13 @@ namespace Ccr.Data.EntityFramework.Core
 		}
 
 		public TRepository GetCustomRepository<TRepository, TEntity>()
-			where TRepository : IRepository<TEntity>
-			where TEntity : class
+			where TRepository
+        : IRepository<TEntity>
+			where TEntity 
+        : class
 		{
-			if (_repositories.Keys.Contains(typeof(TEntity)))
-				return _repositories[typeof(TEntity)].As<TRepository>();
+      if(_repositories.TryGetValue(typeof(TEntity), out var existing))
+        return existing.As<TRepository>();
 
 			var repository = 
 				new IntrospectiveStaticContext<TRepository>()
@@ -43,8 +47,10 @@ namespace Ccr.Data.EntityFramework.Core
 		}
 
 		public IRepository<TSet, TKey> GetRepository<TSet, TKey>() 
-			where TSet : class
-			where TKey : IComparable
+			where TSet 
+        : class
+			where TKey
+        : IComparable
 		{
 			if (_repositories.Keys.Contains(typeof(TSet)))
 				return _repositories[typeof(TSet)] as IRepository<TSet, TKey>;
@@ -55,7 +61,8 @@ namespace Ccr.Data.EntityFramework.Core
 		}
 
 		public IRepository<TSet> GetRepositoryBase<TSet>()
-			where TSet : class
+			where TSet
+        : class
 		{
 			if (_repositories.Keys.Contains(typeof(TSet)))
 				return _repositories[typeof(TSet)] as IRepository<TSet>;

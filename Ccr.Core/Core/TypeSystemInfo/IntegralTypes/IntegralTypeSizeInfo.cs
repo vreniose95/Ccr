@@ -7,14 +7,14 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 	public class IntegralTypeSizeInfo
 		: ReferenceTypeSize
 	{
-		public Signedness Signedness { get; }
+		
 
 		public IntegralTypeSizeInfo(
 			Signedness signedness,
 			int bits) : base(
+        signedness,
 				bits)
 		{
-			Signedness = signedness;
 		}
 
 

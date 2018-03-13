@@ -18,6 +18,13 @@ namespace Ccr.Algorithms.Collections
       get => _valueArrayCache
              ?? (_valueArrayCache = ValueArrayBase.Cast<TValue>().ToArray());
     }
+    
+    protected IList<TValue> VolatileValues
+    {
+      get => _valueArrayCache
+             ?? (_valueArrayCache = ValueArrayBase.Cast<TValue>().ToArray());
+    }
+
 
     public int Count
     {
@@ -34,6 +41,15 @@ namespace Ccr.Algorithms.Collections
             $"{GetType().Name.SQuote()}.");
 
         return ValueArray[index];
+      }
+      set
+      {
+        if (index.IsNotWithin((0, Count - 1)))
+          throw new IndexOutOfRangeException(
+            $"The index \'{index}\' is outside the bounds of the SequentialSet type " +
+            $"{GetType().Name.SQuote()}.");
+
+        VolatileValues[index] = value;
       }
     }
 

@@ -139,20 +139,7 @@ namespace Ccr.Data.EntityFramework.Core
 		: StaticEntityStoreBase
 			where TEntity : class
 	{
-
-
-
-		/// <summary>
-		/// Enumerates the ValueEnum
-		/// </summary>
-		/// <typeparam name="TEntity"></typeparam>
-		/// <returns></returns>
-		public static IEnumerable<TEntity> Enumerate()
-		{
-			return ToArray<TEntity>();
-		}
-
-		/// <summary>
+    /// <summary>
 		/// Converts the <see cref="StaticEntityStore{TEntity}"/> to an array
 		/// </summary>
 		/// <typeparam name="TEntity"></typeparam>

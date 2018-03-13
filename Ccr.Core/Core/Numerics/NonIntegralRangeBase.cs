@@ -24,7 +24,7 @@ namespace Ccr.Core.Numerics
 			get => _minimumAsDecimal ??
 			       (_minimumAsDecimal = Convert
 				       .ChangeType(_minimum, typeof(decimal))
-				       .IsOfType<decimal>())
+				       .As<decimal>())
 			       .Value;
 		}
 		decimal INonIntegralRange.Maximum
@@ -32,7 +32,7 @@ namespace Ccr.Core.Numerics
 			get => _maximumAsDecimal ??
 			       (_maximumAsDecimal = Convert
 				       .ChangeType(_minimum, typeof(ulong))
-				       .IsOfType<ulong>())
+				       .As<ulong>())
 			       .Value;
 		}
 

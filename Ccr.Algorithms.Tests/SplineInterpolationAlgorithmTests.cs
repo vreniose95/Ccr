@@ -10,7 +10,7 @@ namespace Ccr.Algorithms.Tests
     [Test]
     public void CentripetalCatmullRomSplineInterpolatorTests()
     {
-      var vectorsStart = new Vector2[]
+      var vectorsStart = new []
       {
         new Vector2(1, 50),
         new Vector2(2, 20),
@@ -24,7 +24,7 @@ namespace Ccr.Algorithms.Tests
       };
 
       var vectorsEnd = SplineInterpolationAlgorithms.CentripetalCatmullRomSplineInterpolator(vectorsStart);
-      foreach (Vector2 vec in vectorsEnd)
+      foreach (var vec in vectorsEnd)
       {
         Debug.WriteLine($"{vec.X}, {vec.Y}");
       }

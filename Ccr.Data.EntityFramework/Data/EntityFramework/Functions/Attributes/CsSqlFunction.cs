@@ -2,10 +2,11 @@
 
 namespace Ccr.Data.EntityFramework.Functions.Attributes
 {
-	public class CcrFunction
+  [AttributeUsage(AttributeTargets.Method)]
+	public class CsSqlFunction
 		 : Attribute
 	{
-		public CcrFunction()
+		public CsSqlFunction()
 		{
 		}
 	}

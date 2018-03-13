@@ -32,7 +32,7 @@ namespace Ccr.Data.Common.Context
 
 
 #pragma warning disable 168
-		[CcrFunction]
+		[CsSqlFunction]
 		[SuppressMessage("ReSharper", "JoinDeclarationAndInitializer")]
 		[SuppressMessage("ReSharper", "NotAccessedVariable")]
 		public static int LevenshteinDistance(

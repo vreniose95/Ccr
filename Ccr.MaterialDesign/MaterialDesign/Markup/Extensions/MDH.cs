@@ -1,74 +1,95 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Ccr.MaterialDesign.Static;
+using Ccr.MaterialDesign.DesignTime;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Markup.Extensions
 {
   [MarkupExtensionReturnType(typeof(SolidColorBrush))]
-  public class MDH
+  public partial class MDH
     : MarkupExtension,
       INotifyPropertyChanged
   {
     private SwatchClassifier swatch;
     public SwatchClassifier Swatch
     {
-      private get { return swatch; }
+      private get => swatch;
       set
       {
         swatch = value;
         OnPropertyChanged();
       }
     }
+    
 
-    private int luminosity;
-    public int Luminosity
+    private int lum;
+    public int Lum
     {
-      private get { return luminosity; }
+      private get => lum;
       set
       {
-        luminosity = value;
+        lum = value;
         OnPropertyChanged();
       }
     }
 
-    private bool isAccent;
-    public bool IsAccent
+
+    private bool a;
+    public bool A
     {
-      get => isAccent;
+      private get => a;
       set
       {
-        isAccent = value;
+        a = value;
         OnPropertyChanged();
       }
     }
 
+    
 
     public override object ProvideValue(
       IServiceProvider serviceProvider)
     {
       try
       {
-        var _swatch = GlobalResources
-          .MaterialDesignPalette
+        var _swatch = PaletteMock
+          .Palette
           .GetSwatch(Swatch);
 
-        var _luminosity = new Luminosity(Luminosity, IsAccent);
+        var _luminosity = new Luminosity(Lum, A);
 
         var material = _swatch.GetMaterial(_luminosity);
-        
+
+        using (var sw = File.AppendText(
+          Environment.GetFolderPath(
+            Environment.SpecialFolder.Desktop) + "/ccrlog.txt"))
+        {
+          sw.WriteLine($"GOOD: {material.Hex} | " +
+                       $"{material.Identity.SwatchClassifier} | " +
+                       $"{material.Identity.Luminosity.LuminosityIndex} | " +
+                       $"{material.Identity.IsAccent}");
+        }
+
         return material.Brush;
       }
       catch (Exception ex)
       {
-        return Brushes.Yellow;
+        using (StreamWriter sw = File.AppendText(
+          Environment.GetFolderPath(
+            Environment.SpecialFolder.Desktop) + "/ccrlog.txt"))
+        {
+          sw.WriteLine($"EXC: {ex}");
+        }
+
+        return Brushes.Orange;
       }
-
-
     }
+
+
 
     public event PropertyChangedEventHandler PropertyChanged;
 

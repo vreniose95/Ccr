@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using Ccr.WinCore.Common;
-using Ccr.WinCore.Derived;
-using Ccr.WinCore.WinCore.Common;
 
-namespace Ccr.WinCore.WinCore.WinAPIs
+namespace Ccr.WinCore.WinAPIs
 {
 	public partial class Shell32
 	{

@@ -31,6 +31,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 			Type destinationType)
 		{
 			if (destinationType == typeof(InstanceDescriptor)
+        || destinationType == typeof(string)
         || destinationType == TargetType)
 				return true;
 			return false;
@@ -63,5 +64,22 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 				isAccent,
 				luminosity);
 		}
+
+	  public override object ConvertTo(
+      ITypeDescriptorContext context, 
+      CultureInfo culture,
+      object value, 
+      Type destinationType)
+	  {
+	    if (destinationType == typeof(string))
+	    {
+	      var identity = value.As<MaterialIdentity>();
+	      return identity.ToString();
+
+	      return (identity.IsAccent ? "A" : "") + identity.Luminosity.LuminosityIndex;
+	    }
+
+	    return base.ConvertTo(context, culture, value, destinationType);
+	  }
 	}
 }

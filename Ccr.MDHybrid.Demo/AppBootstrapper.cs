@@ -5,24 +5,25 @@ using Caliburn.Micro;
 
 namespace Ccr.MDHybrid.Demo
 {
-	public class AppBootstrapper
-		: BootstrapperBase
-	{
-		public AppBootstrapper()
-		{
-			Initialize();
-		}
+  public class AppBootstrapper
+    : BootstrapperBase
+  {
+    public AppBootstrapper()
+    {
+      Initialize();
+    }
 
-		protected override void OnStartup(object sender, StartupEventArgs e)
-		{
-			var settings = new Dictionary<string, object>
-				{
-					{ "SizeToContent", SizeToContent.Manual },
-					{ "WindowState" , WindowState.Maximized }
-				};
+    protected override void OnStartup(object sender, StartupEventArgs e)
+    {
+      var settings = new Dictionary<string, object>
+        {
+          { "SizeToContent", SizeToContent.Manual },
+          { "WindowState" , WindowState.Maximized },
+          //{ "WindowStyle", WindowStyle.None }
+        };
 
-			DisplayRootViewFor<RootViewModel>(settings);
-		}
-	}
+      DisplayRootViewFor<RootViewModel>(settings);
+    }
+  }
 
 }

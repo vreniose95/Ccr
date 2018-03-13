@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.TypeSystemInfo;
 using Ccr.Core.TypeSystemInfo.IntegralTypes;
 using NUnit.Framework;
 

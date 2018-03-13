@@ -7,9 +7,14 @@ namespace Ccr.Core.TypeSystemInfo.ReferenceTypes
 	{
 		public int Bits { get; }
 
-		protected ReferenceTypeSize(
-			int bits)
-		{
+	  public Signedness Signedness { get; }
+
+    
+    protected ReferenceTypeSize(
+      Signedness signedness,
+      int bits)
+    {
+      Signedness = signedness;
 			Bits = bits;
 		}
 

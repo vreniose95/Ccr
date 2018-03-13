@@ -1,6 +1,8 @@
-﻿namespace Ccr.Algorithms.Collections
+﻿using System.Collections.Generic;
+
+namespace Ccr.Algorithms.Collections
 {
-  public class SequentialPair<TValue>
+  public sealed class SequentialPair<TValue>
     : SequentialSet<TValue>
   {
     [SequentialSetValue(0)]
@@ -16,6 +18,63 @@
     {
       Value1 = value1;
       Value2 = value2;
+    }
+
+    public static implicit operator (TValue a, TValue b)(
+      SequentialPair<TValue> @this)
+    {
+      return (
+        @this.Value1,
+        @this.Value2);
+    }
+
+    public TValue Difference
+    {
+      get => subtractDynamic(
+          Value2,
+          Value1);
+    }
+
+    private static dynamic subtractDynamic(
+      dynamic left, 
+      dynamic right)
+    {
+      return left - right;
+    }
+    private static dynamic addDynamic(
+      dynamic left,
+      dynamic right)
+    {
+      return left + right;
+    }
+    private static dynamic multiplyDynamic(
+      dynamic left,
+      dynamic right)
+    {
+      return left * right;
+    }
+    private static dynamic divideDynamic(
+      dynamic left,
+      dynamic right)
+    {
+      return left / right;
+    }
+
+    public IEnumerable<TValue> LinearSpace(
+      int count)
+    {
+      var spacing = divideDynamic(
+        Difference,
+        count);
+
+      for (var i = 0; i < count; i++)
+      {
+        yield return addDynamic(
+          multiplyDynamic(
+            i, 
+            spacing), 
+          Value1);
+      }
     }
   }
 }

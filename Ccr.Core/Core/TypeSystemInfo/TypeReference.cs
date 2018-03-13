@@ -71,6 +71,20 @@ namespace Ccr.Core.TypeSystemInfo
     };
 
 
+    public static bool IsIntegralType(
+      Type type)
+    {
+      return _integralTypesArray
+        .Contains(type);
+    }
+    public static bool IsNonIntegralType(
+      Type type)
+    {
+      return _nonIntegralTypesArray
+        .Contains(type);
+    }
+
+
 
     private static ReadOnlyCollection<Type> _unsortedTypes;
     public static IReadOnlyCollection<Type> UnsortedTypes
@@ -141,6 +155,7 @@ namespace Ccr.Core.TypeSystemInfo
 
     public static BuiltInTypeInfo GetBuiltInTypeInfo()
     {
+     
       throw new NotImplementedException();
     }
 

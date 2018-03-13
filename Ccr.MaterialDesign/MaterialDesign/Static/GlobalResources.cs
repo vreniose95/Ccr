@@ -21,14 +21,17 @@ namespace Ccr.MaterialDesign.Static
 			}
 
 		}
-		private static ResourceProvider _paletteResourceProvider;
+		private static readonly ResourceProvider _paletteResourceProvider;
 
 
-		private static Palette _materialDesignPalette;
+	  private static Palette _materialDesignPalette;
 	  public static Palette MaterialDesignPalette
 		{
-			get => _materialDesignPalette ??
-						 _paletteResourceProvider.Get<Palette>("MDH.Palette");
+			get => _materialDesignPalette 
+        ?? (
+          _materialDesignPalette = 
+            _paletteResourceProvider
+              .Get<Palette>("MDH.Palette"));
 		}
 
 		static GlobalResources()
@@ -39,12 +42,6 @@ namespace Ccr.MaterialDesign.Static
 
 			_paletteResourceProvider = new ResourceProvider(
 				_palletResourceUri);
-      //"pack://application:,,,/Material;component/MDHybrid/Themes/MDHybrid.Palette.xaml");
-      //"pack://application:,,,/Ccr.MDHybrid;component/MDHybrid/Themes/MDHybrid.Palette.xaml"
-      /*				return new Uri(
-					$"{packPrefix}{_assemblyName}{component}{_assemblyName}/{_componentPath}",
-					UriKind.RelativeOrAbsolute);
-			}*/
     }
   }
 }

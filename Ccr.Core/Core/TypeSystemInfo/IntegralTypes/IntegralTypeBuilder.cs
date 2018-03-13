@@ -49,7 +49,8 @@ namespace Ccr.Core.TypeSystemInfo.IntegralTypes
 
 			var valueRange = new IntegralTypeValueRange(
 				minValue,
-				maxValue);
+				maxValue, 
+        systemType);
 
 			return valueRange;
 		}

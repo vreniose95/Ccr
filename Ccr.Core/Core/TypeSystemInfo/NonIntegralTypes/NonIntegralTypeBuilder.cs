@@ -16,37 +16,38 @@ namespace Ccr.Core.TypeSystemInfo.NonIntegralTypes
   //  }
   //}
 
-  internal static class NonIntegralTypeBuilder2
+  internal static class NonIntegralTypeBuilder
 	{
 		private const string minValueFieldName = "MinValue";
 
 		private const string maxValueFieldName = "MaxValue";
 		
     
-		public static IntegralTypeInfo Build(
+		public static NonIntegralTypeInfo Build(
 			Type systemType)
 		{
-			if (!IntegralTypeReference.IsIntegralType(systemType))
+			if (!TypeReference.IsNonIntegralType(systemType))
 				throw new ArgumentException(
 					$"{systemType.Name.SQuote()} is not valid for the argument systemType " +
-					$"for an \'IntegralType\' because it is not an integral type.");
+					$"for an \'NonIntegralType\' because it is not a non-integral type.");
 
 			var valueRange = buildValueRange(systemType);
-			var integralTypeSize = buildTypeSize(systemType);
+			var nonIntegralTypeSize = buildTypeSize(systemType);
 
-			return new IntegralTypeInfo(
+			return new NonIntegralTypeInfo(
 				systemType,
 				valueRange,
-				integralTypeSize);
+				nonIntegralTypeSize);
 		}
 
-		public static IntegralTypeInfo Build<TSystemType>()
-			where TSystemType : struct
+		public static NonIntegralTypeInfo Build<TSystemType>()
+			where TSystemType
+        : struct
 		{
 			return Build(typeof(TSystemType));
 		}
 
-		private static IntegralTypeValueRange buildValueRange(
+		private static NonIntegralTypeValueRange buildValueRange(
 			Type systemType)
 		{
 			var minValue = systemType
@@ -59,14 +60,16 @@ namespace Ccr.Core.TypeSystemInfo.NonIntegralTypes
 				.GetValue(null)
 				.To<ulong>();
 
-			var valueRange = new IntegralTypeValueRange(
+			var valueRange = new NonIntegralTypeValueRange(
 				minValue,
-				maxValue);
+				maxValue,
+        systemType);
 
 			return valueRange;
 		}
 
-		private static IntegralTypeSizeInfo buildTypeSize(
+
+		private static NonIntegralTypeSizeInfo buildTypeSize(
 			Type systemType)
 		{
 			var minValue = systemType
@@ -81,7 +84,7 @@ namespace Ccr.Core.TypeSystemInfo.NonIntegralTypes
 			var byteSize = Marshal.SizeOf(systemType);
 			var bits = byteSize * 8;
 
-			var integralTypeSize = new IntegralTypeSizeInfo(
+			var integralTypeSize = new NonIntegralTypeSizeInfo(
 				signedness,
 				bits);
 

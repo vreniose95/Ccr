@@ -9,31 +9,182 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
-             Designer.Viewport="HD1080"
-             Designer.Orientation="Landscape">
-	<Grid Background="{MDH Swatch=Indigo, Luminosity=600, IsAccent=True}">
+             Designer.Viewport="HD720"
+             Designer.Orientation="Portrait">
+	<UserControl.Resources>
+	</UserControl.Resources>
+
+	<Grid>
+		<Card>
+			
+		</Card>
 		<!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 			<Label Content="IM TESTING MORE STUFF" FontSize="28pt" Foreground="{MDH Swatch=DeepOrange}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 		</StackPanel>-->
-		<!--<ItemsControl>
-			<ItemsControl.ItemsSource>
+		<!--<ListView Background="Transparent"
+							BorderBrush="Transparent"
+							BorderThickness="0">
+			<ListView.ItemsSource>
 				<Binding Source="{StaticResource MDH.Palette}"/>
-			</ItemsControl.ItemsSource>
-      <ItemsControl.ItemTemplate>
-        <DataTemplate DataType="Swatch">
-          <Grid Background="{Binding ExemplarHue}">
-            <Label Content="{Binding SwatchClassifier}"
-                   Foreground="White"/>
-          </Grid>
-        </DataTemplate>
-      </ItemsControl.ItemTemplate>
-      <ItemsControl.ItemsPanel>
-        <ItemsPanelTemplate>
-          <UniformGrid Rows="1"/>
-        </ItemsPanelTemplate>
-      </ItemsControl.ItemsPanel>
-		</ItemsControl-->
+			</ListView.ItemsSource>
+			<ListView.ItemTemplate>
+				<DataTemplate DataType="Swatch">
+					<Grid x:Name="PART_SwatchExemplar"
+								Background="{Binding ExemplarHue}">
+						<Label x:Name="PART_SwatchLabel"
+									 Content="{Binding SwatchClassifier, Converter={ToUpperConverter}}"
+						       VerticalAlignment="Bottom"
+									 HorizontalAlignment="Right"
+									 Margin="5 20"
+									 FontWeight="Thin"
+									 FontSize="24pt"
+									 RenderTransformOrigin=".5,.5">
+							<Label.Foreground>
+								<Binding Converter="{ConditionalTextInverter}" 
+												 ElementName="PART_SwatchExemplar"
+												 Path="Background"/>
+							</Label.Foreground>
+							<Label.LayoutTransform>
+								<RotateTransform Angle="-90"
+																 CenterX=".5" 
+																 CenterY=".5"/>
+							</Label.LayoutTransform>
+						</Label>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="10*"/>
+								<RowDefinition Height="4*"/>
+							</Grid.RowDefinitions>
+							<ItemsControl x:Name="PART_Materials" 
+							              Visibility="Hidden">
+								<ItemsControl.ItemTemplate>
+
+									<DataTemplate DataType="MaterialBrush">
+										<Grid x:Name="PART_Swatch"
+										      Background="{Binding Brush}">
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<Label x:Name="PART_BrushLabel"
+											       Content="{Binding Identity}"
+											       HorizontalAlignment="Left"
+											       Margin="3 2"
+											       FontWeight="Light"
+											       FontSize="12pt">
+												<Label.Foreground>
+													<Binding Converter="{ConditionalTextInverter}" 
+													         ElementName="PART_Swatch"
+													         Path="Background"/>
+												</Label.Foreground>
+											</Label>
+											<Label x:Name="PART_HexLabel"
+											       Content="{Binding Hex}"
+											       HorizontalAlignment="Right"
+											       Margin="3 2"
+											       FontWeight="Light"
+											       FontSize="12pt"
+											       Grid.Row="1">
+												<Label.Foreground>
+													<Binding ElementName="PART_BrushLabel"
+													         Path="Foreground"/>
+												</Label.Foreground>
+											</Label>
+										</Grid>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+								<ItemsControl.ItemsSource>
+									<Binding Path="Primaries"/>
+								</ItemsControl.ItemsSource>
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<UniformGrid Columns="1"/>
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+							</ItemsControl>
+							<ItemsControl x:Name="PART_Accents" 
+														Grid.Row="1"
+							              Visibility="Hidden">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate DataType="MaterialBrush">
+										<Grid x:Name="PART_Swatch"
+										      Background="{Binding Brush}">
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<Label x:Name="PART_BrushLabel"
+											       Content="{Binding Identity}"
+											       HorizontalAlignment="Left"
+											       Margin="3 2"
+											       FontWeight="Light"
+											       FontSize="12pt">
+												<Label.Foreground>
+													<Binding Converter="{ConditionalTextInverter}" 
+													         ElementName="PART_Swatch"
+													         Path="Background"/>
+												</Label.Foreground>
+											</Label>
+											<Label x:Name="PART_HexLabel"
+											       Content="{Binding Hex}"
+											       HorizontalAlignment="Right"
+											       Margin="3 2"
+											       FontWeight="Light"
+											       FontSize="12pt"
+											       Grid.Row="1">
+												<Label.Foreground>
+													<Binding ElementName="PART_BrushLabel"
+													         Path="Foreground"/>
+												</Label.Foreground>
+											</Label>
+										</Grid>
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+								<ItemsControl.ItemsSource>
+									<Binding Path="Accents"/>
+								</ItemsControl.ItemsSource>
+								<ItemsControl.ItemsPanel>
+									<ItemsPanelTemplate>
+										<UniformGrid Columns="1"/>
+									</ItemsPanelTemplate>
+								</ItemsControl.ItemsPanel>
+							</ItemsControl>
+						</Grid>
+					</Grid>
+					<DataTemplate.Triggers>
+						<DataTrigger Value="True">
+							<DataTrigger.Binding>
+								<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=ListViewItem}" 
+												 Path="IsSelected" />
+							</DataTrigger.Binding>
+							<Setter TargetName="PART_Materials"
+											Property="Visibility"
+											Value="Visible"/>
+							<Setter TargetName="PART_Accents"
+							        Property="Visibility"
+							        Value="Visible"/>
+						</DataTrigger>
+					</DataTemplate.Triggers>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			<ListView.ItemContainerStyle>
+				<Style TargetType="ListViewItem">
+					<Setter Property="Template">
+						<Setter.Value>
+							<ControlTemplate TargetType="ContentControl">
+								<ContentPresenter Margin="0"/>
+							</ControlTemplate>
+						</Setter.Value>
+					</Setter>
+				</Style>
+			</ListView.ItemContainerStyle>
+			<ListView.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Rows="1"/>
+				</ItemsPanelTemplate>
+			</ListView.ItemsPanel>
+		</ListView>-->
 		<!--<Button Content="Hello"
 						HorizontalAlignment="Center"
 						VerticalAlignment="Center"
@@ -78,7 +229,9 @@
 									</Ellipse.RenderTransform>
 									<Ellipse.Fill>
 										White
-										--><!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>--><!--
+										-->
+		<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
+		<!--
 									</Ellipse.Fill>
 									<Ellipse.Height>
 										<MultiBinding Converter="{RippleDiameterConverter}" 

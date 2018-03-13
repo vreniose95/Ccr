@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Ccr.Core.Extensions;
 using Ccr.Data.Common.EntityMaps;
-using Core.Data.EntityFramework.Attributes;
+using Ccr.Data.EntityFramework.Attributes;
 using JetBrains.Annotations;
 
 namespace Ccr.Data.Common.Domain

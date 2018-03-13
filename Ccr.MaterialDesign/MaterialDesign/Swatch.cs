@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Net.NetworkInformation;
+using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using System.Windows.Media;
 using Ccr.Algorithms.Collections;
 using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Core.Numerics.Ranges;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.Xaml.Collections;
 
@@ -92,6 +93,7 @@ namespace Ccr.MaterialDesign
                Color = Colors.White
              });
     }
+
     private MaterialBrush _lowAccentBounds;
     internal MaterialBrush LowAccentBounds
     {
@@ -122,6 +124,14 @@ namespace Ccr.MaterialDesign
       _materials = new List<MaterialBrush>();
     }
 
+    internal Swatch(
+      IEnumerable<MaterialBrush> brushes) : this()
+    {
+      foreach (var brush in brushes)
+      {
+        Add(brush);
+      }
+    }
 
 
     public MaterialBrush GetMaterial(
@@ -129,20 +139,22 @@ namespace Ccr.MaterialDesign
     {
       var brushRange = GetRange(luminosity);
 
-      var range = (
+      var range = new DoubleRange(        
         (double)brushRange.low.Identity.Luminosity.LuminosityIndex,
         (double)brushRange.high.Identity.Luminosity.LuminosityIndex);
 
       var index = (double)luminosity.LuminosityIndex;
-      var progression = index.LinearMap(range, (0d, 100d));
-
+      //var progression = index.LinearMap(range, (0d, 1d));
+      var progression = index.LinearMap(range, new DoubleRange(0d, 1d));
       //var s = new SequentialQuad<MaterialBrush>()
 
+
+      var interpolated = brushRange.low.Color.Interpolate(brushRange.high.Color, progression);
 
       return new MaterialBrush
       {
         Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
-        Color = brushRange.low
+        Color = interpolated
       };
     }
 
@@ -156,6 +168,7 @@ namespace Ccr.MaterialDesign
 
         foreach (var accentBrush in Accents
           .OrderBy(t => t.Identity.Luminosity))
+          //.Pair())
         {
           if (luminosity < accentBrush.Identity.Luminosity)
           {
@@ -406,6 +419,19 @@ namespace Ccr.MaterialDesign
     void ISupportInitialize.EndInit()
     {
       _isInitializing = false;
+    }
+
+    public static Swatch Create(
+      params MaterialBrush[] _materials)
+    {
+      var _classifier = _materials[0]
+        .Identity
+        .SwatchClassifier;
+      
+      return new Swatch(_materials)
+      {
+        SwatchClassifier = _classifier,
+      };
     }
   }
 }

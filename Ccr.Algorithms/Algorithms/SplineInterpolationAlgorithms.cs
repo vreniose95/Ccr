@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Numerics;
 using Ccr.Algorithms.Collections;
 using Ccr.Algorithms.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
-
 
 namespace Ccr.Algorithms
 {
@@ -14,7 +12,7 @@ namespace Ccr.Algorithms
     public static IEnumerable<Vector2> CentripetalCatmullRomSplineInterpolator(
       Vector2[] source,
       float alpha = 0.5f,
-      int splineResolution = 15)
+      int resolution = 15)
     {
       var result = new List<Vector2>();
 
@@ -22,7 +20,7 @@ namespace Ccr.Algorithms
       var segment = GetFirstSegment(
         initial,
         alpha,
-        splineResolution);
+        resolution);
 
       result.AddRange(segment);
 
@@ -32,7 +30,7 @@ namespace Ccr.Algorithms
         var innerSplineSegment = GetSegment(
           innerSpline,
           alpha,
-          splineResolution);
+          resolution);
 
         result.AddRange(innerSplineSegment);
       }
@@ -41,7 +39,7 @@ namespace Ccr.Algorithms
       var finalSplineSegment = GetLastSegment(
         final,
         alpha,
-        splineResolution);
+        resolution);
 
       result.AddRange(finalSplineSegment);
 
@@ -51,7 +49,7 @@ namespace Ccr.Algorithms
     private static IEnumerable<Vector2> GetFirstSegment(
       SequentialTriple<Vector2> points,
       float alpha,
-      int splineResolution)
+      int resolution)
     {
       var initial = points[0] * 2 - points[1];
       var quad = points.PrependValue(initial);
@@ -59,13 +57,13 @@ namespace Ccr.Algorithms
       return GetSegment(
         quad,
         alpha,
-        splineResolution);
+        resolution);
     }
 
     private static IEnumerable<Vector2> GetLastSegment(
       SequentialTriple<Vector2> points,
       float alpha,
-      int splineResolution)
+      int resolution)
     {
       var final = points[2] * 2 - points[1];
       var quad = points.AppendValue(final);
@@ -73,53 +71,122 @@ namespace Ccr.Algorithms
       return GetSegment(
         quad,
         alpha,
-        splineResolution);
+        resolution);
     }
 
     private static IEnumerable<Vector2> GetSegment(
       SequentialQuad<Vector2> points,
       float alpha,
-      int splineResolution)
+      int resolution)
     {
-      var result = new List<Vector2>();
+      var segments = points.Pairwise();
+      
+      var t = new SequentialQuad<float>(0f, 0f, 0f, 0f);
+      var index = 0;
 
-      var t0 = 0.0f;
-      var t1 = GetT(t0, points[0], points[1], alpha);
-      var t2 = GetT(t1, points[1], points[2], alpha);
-      var t3 = GetT(t2, points[2], points[3], alpha);
-
-      for (var t = t1; t < t2; t += ((t2 - t1) / splineResolution))
+      foreach (var segment in segments)
       {
-        Vector2 A1 = (t1 - t) / (t1 - t0) * points[0] + (t - t0) / (t1 - t0) * points[1];
-        Vector2 A2 = (t2 - t) / (t2 - t1) * points[1] + (t - t1) / (t2 - t1) * points[2];
-        Vector2 A3 = (t3 - t) / (t3 - t2) * points[2] + (t - t2) / (t3 - t2) * points[3];
-
-        Vector2 B1 = (t2 - t) / (t2 - t0) * A1 + (t - t0) / (t2 - t0) * A2;
-        Vector2 B2 = (t3 - t) / (t3 - t1) * A2 + (t - t1) / (t3 - t1) * A3;
-
-        Vector2 C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;
-
-        result.Add(C);
+        t[index + 1] = GetT(t[index], segment, alpha);
+        index++;
       }
 
-      return result;
+      var center = t.Center;
+      
+      foreach (var x in center.LinearSpace(resolution))
+      {
+        var a1 =
+            (t[1] - x) / (t[1] - t[0]) * points[0]
+          + (x - t[0]) / (t[1] - t[0]) * points[1];
+
+        var a2 =
+            (t[2] - x) / (t[2] - t[1]) * points[1]
+          + (x - t[1]) / (t[2] - t[1]) * points[2];
+
+        var a3 =
+            (t[3] - x) / (t[3] - t[2]) * points[2]
+          + (x - t[2]) / (t[3] - t[2]) * points[3];
+
+
+        var b1 =
+          (t[2] - x) / (t[2] - t[0]) * a1
+          + (x - t[0]) / (t[2] - t[0]) * a2;
+
+        var b2 =
+          (t[3] - x) / (t[3] - t[1]) * a2
+          + (x - t[1]) / (t[3] - t[1]) * a3;
+
+
+        yield return
+            (t[2] - x) / (t[2] - t[1]) * b1
+          + (x - t[1]) / (t[2] - t[1]) * b2;
+      }
     }
 
     private static float GetT(
-      float t,
-      Vector2 p0,
-      Vector2 p1,
+      float tValue,
+      SequentialPair<Vector2> segment,
       float alpha)
     {
       return (
-        (p1.X - p0.X).Power(2f) +
-        (p1.Y - p0.Y).Power(2f))
+        (segment.Value2.X - segment.Value1.X).Power(2f) +
+        (segment.Value2.Y - segment.Value1.Y).Power(2f))
           .Power(.5f)
-          .Power(alpha) + t;
+          .Power(alpha) + tValue;
     }
   }
 
 }
+//for (
+//  var t = center.Value1; 
+//  t < center.Value2;
+//  t += center.Difference / splineResolution)
+//{
+
+/*
+         var a1 = 
+            (T[1] - t) / (T[1] - T[0]) * points[0] 
+          + (t - T[0]) / (T[1] - T[0]) * points[1];
+
+        var a2 = 
+            (T[2] - t) / (T[2] - T[1]) * points[1] 
+          + (t - T[1]) / (T[2] - T[1]) * points[2];
+
+        var a3 = 
+            (T[3] - t) / (T[3] - T[2]) * points[2] 
+          + (t - T[2]) / (T[3] - T[2]) * points[3];
+
+
+        var b1 = 
+            (T[2] - t) / (T[2] - T[0]) * a1 
+          + (t - T[0]) / (T[2] - T[0]) * a2;
+
+        var b2 = 
+            (T[3] - t) / (T[3] - T[1]) * a2 
+          + (t - T[1]) / (T[3] - T[1]) * a3;
+
+
+        yield return 
+            (T[2] - t) / (T[2] - T[1]) * b1 
+          + (t - T[1]) / (T[2] - T[1]) * b2;*/
+//var t0 = 0.0f;
+//var t1 = GetT(t0, segments[0], alpha);
+//var t2 = GetT(t1, segments[1], alpha);
+//var t3 = GetT(t2, segments[2], alpha);
+
+//for (var t = t1; t < t2; t += (t2 - t1) / splineResolution)
+//{
+//  var A1 = (t1 - t) / (t1 - t0) * points[0] + (t - t0) / (t1 - t0) * points[1];
+//  var A2 = (t2 - t) / (t2 - t1) * points[1] + (t - t1) / (t2 - t1) * points[2];
+//  var A3 = (t3 - t) / (t3 - t2) * points[2] + (t - t2) / (t3 - t2) * points[3];
+
+//  var B1 = (t2 - t) / (t2 - t0) * A1 + (t - t0) / (t2 - t0) * A2;
+//  var B2 = (t3 - t) / (t3 - t1) * A2 + (t - t1) / (t3 - t1) * A3;
+
+//  var C = (t2 - t) / (t2 - t1) * B1 + (t - t1) / (t2 - t1) * B2;
+
+//  result.Add(C);
+//}
+
 /*
 
       var a = (float)(Math.Pow(p1.X - p0.X, 2.0f) + Math.Pow(p1.Y - p0.Y, 2.0f));

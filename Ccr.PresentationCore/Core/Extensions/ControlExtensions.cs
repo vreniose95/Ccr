@@ -4,24 +4,34 @@ using Ccr.Introspective.Infrastructure;
 
 namespace Ccr.Core.Extensions
 {
-	public static class ControlExtensions
-	{
-		public static void OverrideStyleKey<TOwner>()
-		{
-			var defaultStyleKeyDependencyProperty = 
-				typeof(FrameworkElement)
-					.Reflect()
-					.GetFieldValue<DependencyProperty>(
-						MemberDescriptor.NonPublicStatic,
-						"DefaultStyleKeyProperty");
+  /// <summary>
+  ///   Control Extensions and Helper Methods
+  /// </summary>
+  public static class ControlExtensions
+  {
+    /// <summary>
+    ///   Overrides the <see cref="DependencyProperty.DefaultMetadata"/> for the type
+    ///   <typeparamref name="TOwner"/> using the DependencyProperty metadata system.
+    /// </summary>
+    /// <typeparam name="TOwner">
+    ///   The type of the <see cref="FrameworkElement"/> to override for.
+    /// </typeparam>
+    public static void OverrideStyleKey<TOwner>()
+      where TOwner
+      : FrameworkElement
+    {
+      var defaultStyleKeyDependencyProperty =
+        typeof(FrameworkElement)
+          .Reflect()
+          .GetFieldValue<DependencyProperty>(
+            MemberDescriptor.NonPublicStatic,
+            "DefaultStyleKeyProperty");
 
-			defaultStyleKeyDependencyProperty
-				.OverrideMetadata(
-					typeof(TOwner), 
-					new FrameworkPropertyMetadata(
-						typeof(TOwner)));
-		}
-	}
+      defaultStyleKeyDependencyProperty
+        .OverrideMetadata(
+          typeof(TOwner),
+          new FrameworkPropertyMetadata(
+            typeof(TOwner)));
+    }
+  }
 }
-/*	var defaultStyleKey = @this.GetValue(defaultStyleKeyDependencyProperty);
-			*/

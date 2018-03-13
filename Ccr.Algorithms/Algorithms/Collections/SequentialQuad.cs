@@ -1,10 +1,17 @@
-using System;
-
 namespace Ccr.Algorithms.Collections
 {
-  public class SequentialQuad<TValue>
-    : SequentialTriple<TValue>
+  public sealed class SequentialQuad<TValue>
+    : SequentialSet<TValue>
   {
+    [SequentialSetValue(0)]
+    public TValue Value1 { get; }
+
+    [SequentialSetValue(1)]
+    public TValue Value2 { get; }
+
+    [SequentialSetValue(2)]
+    public TValue Value3 { get; }
+
     [SequentialSetValue(3)]
     public TValue Value4 { get; }
 
@@ -13,25 +20,31 @@ namespace Ccr.Algorithms.Collections
       TValue value1,
       TValue value2,
       TValue value3,
-      TValue value4) : base(
-        value1,
-        value2,
-        value3)
+      TValue value4)
     {
+      Value1 = value1;
+      Value2 = value2;
+      Value3 = value3;
       Value4 = value4;
     }
 
-    public SequentialPair<TValue> PairwiseIndex(
-      int index)
+    public static implicit operator (TValue a, TValue b, TValue c, TValue d) (
+      SequentialQuad<TValue> @this)
     {
-      if(index >= ValueArray.Count - 1)
-        throw new IndexOutOfRangeException();
-
-      return new SequentialPair<TValue>(
-        ValueArray[index],
-        ValueArray[index + 1]);
+      return (
+        @this.Value1,
+        @this.Value2,
+        @this.Value3,
+        @this.Value4);
     }
 
+
+    public SequentialPair<TValue> Center
+    {
+      get => new SequentialPair<TValue>(
+        Value2,
+        Value3);
+    }
 
   }
 }

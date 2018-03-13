@@ -1,4 +1,4 @@
-﻿namespace Ccr.WinCore.WinCore.Common
+﻿namespace Ccr.WinCore.Common
 {
 	internal enum __APP_BAR_EDGE : uint
 	{

@@ -27,28 +27,30 @@ namespace Ccr.Data.EntityFramework.Infrastructure
 						resolvePath(path))
 		{
 		}
-    
 
-		public DatabaseFileLogger(
-			string path,
-			string options)
-				: this(path)
-		{
-		}
 
 		private static string resolvePath(
 			string templatedPath)
 		{
-			throw new Exception();
-			//var _parser = new DatabaseFileTemplateParser(
+      throw new NotImplementedException();
+			//var _resolved = DatabaseFileTemplateParser.Parse(
 			//	templatedPath);
-
-			//var _resolved = _parser.Parse();
 
 			//return _resolved;
 		}
 
-	}
+	  //private static class DatabaseFileTemplateParser
+	  //{
+	  //  public static string Parse(
+	  //    string templatedPath)
+	  //  {
+
+	      
+	  //  }
+
+   // }
+
+  }
 
 
 }

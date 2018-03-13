@@ -110,6 +110,7 @@ namespace Ccr.Geocoding
 						builder.Append("&channel=");
 						builder.Append(WebUtility.UrlEncode(BusinessKey.Channel));
 					}
+          
 				}
 
 				if (BoundsBias != null)

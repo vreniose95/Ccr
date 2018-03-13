@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
@@ -134,15 +135,28 @@ namespace Ccr.MaterialDesign
 	  }
 
 
-
-	  private static void onKeyPathChanged(
-	    MaterialBrush @this,
-	    DPChangedEventArgs<object> args)
+	  public static MaterialBrush Create(
+      Color color,
+	    [CallerMemberName] string memberName = "")
 	  {
+	    var parts = memberName.Split('_');
 
+      var swatchName = parts[0];
+	    var luminosityStr = parts[1];
+      
+      if (!Enum.TryParse<SwatchClassifier>(swatchName, out var _classifier))
+	      throw new InvalidEnumArgumentException();
 
+      var luminosity = Luminosity.Parse(luminosityStr);
+
+	    var identity = new MaterialIdentity(_classifier, luminosity.IsAccent, luminosity);
+
+      return new MaterialBrush
+	    {
+        Identity = identity,
+        Color = color
+	    };
 	  }
-
 
     
 

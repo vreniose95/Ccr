@@ -1,7 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
-using Caliburn.Micro;
+﻿using System.Windows.Input;
+using System.Windows.Threading;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
 
@@ -10,7 +8,12 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 	public class RootViewModel
 		: ViewModelBase
 	{
-	  private string testProperty = "Some Nonsense";
+	  public static DispatcherTimer _dispatcherTimer;
+
+	  public RootViewModel()
+	  {
+    }
+    private string testProperty = "Some Nonsense";
 		public string TestProperty
 		{
 			get => testProperty;

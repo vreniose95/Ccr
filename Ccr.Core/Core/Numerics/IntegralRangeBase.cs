@@ -21,7 +21,7 @@ namespace Ccr.Core.Numerics
 			get => _minimumAsLong ??
 					(_minimumAsLong = Convert
 						.ChangeType(_minimum, typeof(long))
-						.IsOfType<long>())
+						.As<long>())
 					.Value;
 		}
 		ulong IIntegralRange.Maximum
@@ -29,7 +29,7 @@ namespace Ccr.Core.Numerics
 			get => _maximumAsUlong ??
 						 (_maximumAsUlong = Convert
 							 .ChangeType(_minimum, typeof(ulong))
-							 .IsOfType<ulong>())
+							 .As<ulong>())
 						 .Value;
 		}
 

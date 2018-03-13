@@ -55,21 +55,21 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
     private static readonly Type _type = typeof(Shadow);
 
     public static readonly DependencyProperty LevelProperty = DP.Attach(
-      _type, new MetaBase<double?>(null, onShadowLevelChanged), shadowLevelPropertyValidator);
+      _type, new MetaBase<double?>(null, onShadowLevelChanged));
 
 
     public static double GetLevel(DependencyObject i) => i.Get<double>(LevelProperty);
     public static void SetLevel(DependencyObject i, double v) => i.Set(LevelProperty, v);
 
 
-    private static bool shadowLevelPropertyValidator(
-      double? value)
-    {
-      if (!value.HasValue)
-        return true;
+    //private static bool shadowLevelPropertyValidator(
+    //  double? value)
+    //{
+    //  if (!value.HasValue)
+    //    return true;
 
-      return value.Value >= 0;
-    }
+    //  return value.Value >= 0;
+    //}
 
     private static void onShadowLevelChanged(
       DependencyObject @this,

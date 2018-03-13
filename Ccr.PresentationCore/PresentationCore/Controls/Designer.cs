@@ -133,11 +133,11 @@ namespace Ccr.PresentationCore.Controls
 			Viewport _viewport,
 			PageOrientation _pageOrientation,
 			bool _compensateForWindowsToolbar)
-		{
-			//if (!LinqEntityViewModel.IsInDesignModeStatic)
-			//	return;
+    {
+      if (!ObservableObject.IsInDesignModeStatic)
+        return;
 
-			var frameworkElement = _dependencyObject as FrameworkElement;
+      var frameworkElement = _dependencyObject as FrameworkElement;
 			if (frameworkElement == null)
 				throw new ArgumentException(
 					$"Parameter \'_dependencyObject\' must be not null and of type \'FrameworkElement\'.",

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
@@ -16,6 +17,7 @@ namespace Ccr.MaterialDesign.Controls
       get => (double) GetValue(CornerRadiusProperty);
       set => SetValue(CornerRadiusProperty, value);
     }
+    
 
     static Card()
     {

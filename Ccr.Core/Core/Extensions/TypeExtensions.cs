@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using Ccr.Core.TypeSystemInfo.IntegralTypes;
 using JetBrains.Annotations;
@@ -8,23 +10,31 @@ namespace Ccr.Core.Extensions
 {
 	public static class TypeExtensions
 	{
-		/// <summary>
-		/// Extension method to cast an object to the specified type though the
-		/// type parameter <typeparamref name="TValue"/>. This method is merely
-		/// a differing syntax preference for object type casts.
-		/// </summary>
-		/// <typeparam name="TValue">
-		/// The destination type to cast the object to.
-		/// </typeparam>
-		/// <param name="this">
-		/// The object to cast to the type parameter <typeparamref name="TValue"/>.
-		/// </param>
-		/// <returns>
-		/// The object that has been typecasted to the specified type.
-		/// </returns>
-		public static TValue IsOfType<TValue>(
+    /// <summary>
+    ///   Extension method to cast an object to the specified type though the 
+    ///   type parameter <typeparamref name="TValue"/>. This method is merely 
+    ///   a differing syntax preference for object type casts.
+    /// </summary>
+    /// <typeparam name="TValue">
+    ///   The destination type to cast the object <paramref name="this"/> to.
+    /// </typeparam>
+    /// <param name="this">
+    ///   The object being casted to type <typeparamref name="TValue"/>.
+    /// </param>
+    /// <returns>
+    ///   An object that has been cast to type <typeparamref name="TValue"/>.
+    /// </returns>
+    private static TValue Cast<TValue>(
 			this object @this)
 		{
+		  if (typeof(TValue).IsGenericType)
+		  {
+		    if (typeof(TValue).IsGenericOf(typeof(Nullable<>)))
+		    {
+		      
+		    }
+		  }
+
 			if (@this is TValue)
 				return (TValue)@this;
 			
@@ -46,11 +56,11 @@ namespace Ccr.Core.Extensions
 			if (@this == null)
 				return default(TValue);
 
-			return @this.IsOfType<TValue>();
-		}
+      return @this.Cast<TValue>();
+    }
 
 
-		/// <summary>
+	  /// <summary>
 		/// 
 		/// </summary>
 		/// <typeparam name="TValue"></typeparam>
@@ -78,8 +88,9 @@ namespace Ccr.Core.Extensions
 		}
 
 		/// <summary>
-		/// Checks if the provided <paramref name="this"/> is a generic of the 
-		/// <paramref name="genericType"/> 
+		///   Checks if the provided <paramref name="this"/> is a generic of the 
+		/// <paramref name="genericType"/>
+		///   
 		/// </summary>
 		/// <param name="this">
 		/// The instance of the <see cref="Type"/> to check
@@ -98,7 +109,9 @@ namespace Ccr.Core.Extensions
 		/// <returns>
 		/// 
 		/// </returns>
-		public static bool IsGenericOf(this Type @this, Type genericType)
+		public static bool IsGenericOf(
+      this Type @this, 
+      Type genericType)
 		{
 			if (!@this.IsGenericType)
 				return false;
@@ -106,17 +119,47 @@ namespace Ccr.Core.Extensions
 			return @this.GetGenericTypeDefinition() == genericType;
 		}
 
-		/// <summary>
-		/// Checks if a PropertyInfo's PropertyType Is a generic of the given type
-		/// </summary>
-		/// <param name="this">
-		/// the instance of the PropertyInfo to check
-		/// </param>
-		/// <param name="genericType">
-		/// 
-		/// </param>
-		/// <returns></returns>
-		public static bool IsPropertyTypeGenericOf(
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="this"></param>
+    /// <param name="args"></param>
+    /// <returns></returns>
+	  public static bool HasGenericArgs(
+	    this Type @this,
+	    params Type[] args)
+	  {
+	    if (!@this.IsGenericType)
+	      return false;
+
+	    var genericArgs = @this.GenericTypeArguments;
+	    return genericArgs.SequenceEqual(args);
+	  }
+
+    //public static bool IsNullableReferenceType(
+    //   this Type @this)
+
+    //{
+    //  if (!@this.IsGenericType)
+    //    return false;
+
+    //   if(!@this.IsGenericOf(typeof()))
+    //  var genericParameterConstraints = @this.GetGenericParameterConstraints();
+    //  var gga = @this.GetGenericArguments();
+    //  var genericArgument = gga.SingleOrDefault();
+    //}
+
+    /// <summary>
+    /// Checks if a PropertyInfo's PropertyType Is a generic of the given type
+    /// </summary>
+    /// <param name="this">
+    /// the instance of the PropertyInfo to check
+    /// </param>
+    /// <param name="genericType">
+    /// 
+    /// </param>
+    /// <returns></returns>
+    public static bool IsPropertyTypeGenericOf(
 			this PropertyInfo @this, 
 			Type genericType)
 		{
@@ -193,5 +236,63 @@ namespace Ccr.Core.Extensions
 				? specialFormat 
 				: @this.Name;
 		}
-	}
+
+	  public static void DebuggerReflectLog<TValue>(
+	    this TValue @this)
+	  {
+	    Debug.WriteLine(
+        $"<{typeof(TValue).Name}>");
+
+	    var properties =
+	      typeof(TValue).GetProperties(
+	        BindingFlags.Instance | BindingFlags.Public);
+
+	    foreach (var property in properties)
+	    {
+	      var value = property.GetValue(@this);
+
+	      Debug.WriteLine($"  ({property.PropertyType.FormatName()}) " +
+	                      $"\t\t\t \"{value ?? "<null>"}\"");
+      }
+	    Debug.WriteLine($"</{typeof(TValue).Name}>");
+	  }
+
+
+
+    public static bool Implements<TInterface>(
+      this Type @this)
+    {
+      return @this
+        .GetTypeInfo()
+        .ImplementsInterface(
+          typeof(TInterface));
+    }
+
+    public static bool Implements<TInterface>(
+      this TypeInfo @this)
+    {
+      return @this
+        .ImplementsInterface(
+          typeof(TInterface));
+    }
+
+	  public static bool ImplementsInterface(
+	    this Type thisType,
+      Type interfaceType)
+	  {
+	    if (!interfaceType.IsInterface)
+	      throw new InvalidOperationException(
+	        $"Parameter interfaceType {interfaceType.Name.SQuote()} " +
+	        $"is not valid because it is not an Interface type.");
+
+	    return thisType
+        .GetTypeInfo()
+        .ImplementedInterfaces
+	      .Contains(
+	        interfaceType);
+
+	  }
+
+  }
 }
+

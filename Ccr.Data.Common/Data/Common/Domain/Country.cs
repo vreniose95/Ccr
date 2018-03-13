@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Ccr.Data.Common.EntityMaps;
-using Core.Data.EntityFramework.Attributes;
+using Ccr.Data.EntityFramework.Attributes;
 
 namespace Ccr.Data.Common.Domain
 {

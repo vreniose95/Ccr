@@ -10,7 +10,8 @@ using JetBrains.Annotations;
 
 namespace Ccr.PresentationCore.Controls
 {
-	public class ObservableObject : INotifyPropertyChanged
+	public class ObservableObject
+    : INotifyPropertyChanged
 	{
 		//private static DependencyObject _designerMode;
 		//protected static DependencyObject DesignerMode

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Ccr.WinCore.WinCore.Common
+namespace Ccr.WinCore.Common
 {
 	[StructLayout(LayoutKind.Sequential)]
 	public struct __POINT

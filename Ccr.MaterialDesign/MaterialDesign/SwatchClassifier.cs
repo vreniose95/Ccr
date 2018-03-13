@@ -1,6 +1,6 @@
 ﻿namespace Ccr.MaterialDesign
 {
-	public enum SwatchClassifier
+  public enum SwatchClassifier
 	{
 		Red,
 		Pink,

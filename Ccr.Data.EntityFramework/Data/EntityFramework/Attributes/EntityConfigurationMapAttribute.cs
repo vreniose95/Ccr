@@ -1,5 +1,6 @@
 ﻿using System;
-namespace Core.Data.EntityFramework.Attributes
+
+namespace Ccr.Data.EntityFramework.Attributes
 {
 	[AttributeUsage(AttributeTargets.Class)]
 	public class EntityConfigurationMapAttribute

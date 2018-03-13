@@ -53,19 +53,22 @@
 			return char.IsWhiteSpace(@this);
 		}
 
-		/// <summary>
-		/// Indicates whether the specified Unicode character is categorized as an uppercase letter.
-		/// </summary>
-		/// <remarks>
-		/// Extension method mapping to the static method <see cref="M:Char.IsUpper(Char)"/>.
-		/// </remarks>
-		/// <param name="this">
-		/// The Unicode character to evaluate. 
-		/// </param>
-		/// <returns>
-		/// true if <paramref name="this" /> is an uppercase letter; otherwise, false.
-		/// </returns>
-		public static bool IsUpper(this char @this) => char.IsUpper(@this);
+	  /// <summary>
+	  /// Indicates whether the specified Unicode character is categorized as an uppercase letter.
+	  /// </summary>
+	  /// <remarks>
+	  /// Extension method mapping to the static method <see cref="M:Char.IsUpper(Char)"/>.
+	  /// </remarks>
+	  /// <param name="this">
+	  /// The Unicode character to evaluate. 
+	  /// </param>
+	  /// <returns>
+	  /// true if <paramref name="this" /> is an uppercase letter; otherwise, false.
+	  /// </returns>
+	  public static bool IsUpper(this char @this)
+	  {
+	    return char.IsUpper(@this);
+    }
 
 		/// <summary>
 		/// Indicates whether the specified Unicode character is categorized as a lowercase letter.
@@ -83,6 +86,7 @@
 		{
 			return char.IsLower(@this);
 		}
+
 		/// <summary>
 		/// Indicates whether the specified Unicode character is categorized as a punctuation mark.
 		/// </summary>

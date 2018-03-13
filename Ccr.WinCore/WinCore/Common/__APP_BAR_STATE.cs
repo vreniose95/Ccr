@@ -1,4 +1,4 @@
-﻿namespace Ccr.WinCore.WinCore.Common
+﻿namespace Ccr.WinCore.Common
 {
 	internal static class __APP_BAR_STATE
 	{

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using Ccr.WinCore.WinCore.Common;
 
 namespace Ccr.WinCore.Common
 {
