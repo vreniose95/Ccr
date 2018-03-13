@@ -13,6 +13,9 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 	  public RootViewModel()
 	  {
     }
+
+
+
     private string testProperty = "Some Nonsense";
 		public string TestProperty
 		{

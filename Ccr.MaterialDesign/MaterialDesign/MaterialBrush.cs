@@ -67,7 +67,7 @@ namespace Ccr.MaterialDesign
 		{
 			get
 			{
-				if (_hslColor == null)
+        if (_hslColor == null)
 					_hslColor = HslColor.FromColor(Color);
 
 				return _hslColor.Value;
