@@ -17,15 +17,18 @@ namespace Ccr.Std.Core.Tests.Extensions
       Assert.AreEqual(boxed_2, unbox_3);
     }
 
-    public void AsExtensionTypeCastTestFails()
+    [Test]
+    public void AsExtensionTypeCastTest_ThrowsInvalidCastException()
     {
-      Assert.Throws<Exception>(() =>
+      Assert.Throws<InvalidCastException>(() =>
       {
         const string @string = "test";
-        var boxed_2 = (object) @string;
 
-        var unbox_3 = boxed_2.AsOrDefault<string>();
+        var boxed_2 = (object) @string;
+        var unbox_3 = boxed_2.As<string>();
       });
     }
+
+
   }
 }

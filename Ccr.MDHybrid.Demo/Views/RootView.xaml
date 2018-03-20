@@ -18,6 +18,7 @@
 		<Card>
 			
 		</Card>
+		
 		<!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 			<Label Content="IM TESTING MORE STUFF" FontSize="28pt" Foreground="{MDH Swatch=DeepOrange}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>

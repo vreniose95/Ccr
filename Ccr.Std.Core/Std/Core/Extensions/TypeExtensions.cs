@@ -36,47 +36,49 @@ namespace Ccr.Std.Core.Extensions
       this object @this,
       out TValue value)
     {
-      if (@this == null)
+      if (typeof(TValue).IsValueType)
       {
-        value = default(TValue);
-        return false;
-      }
+        var wrapperType = @this.GetType();
 
-      var wrapperType = @this.GetType();
-
-      if (wrapperType.IsGenericType)
-      {
-        if (wrapperType.IsGenericOf(typeof(Nullable<>)))
+        if (wrapperType.IsGenericType)
         {
-          var rootValueType = typeof(TValue)
-            .GetGenericArguments()
-            .Single();
-
-          if (rootValueType.IsInstanceOfType(@this)
-            || wrapperType.IsInstanceOfType(@this))
+          if (wrapperType.IsGenericOf(typeof(Nullable<>)))
           {
-            var nullableWrapper = NullableObjectFactory
-              .BuildNullableBase(
-                rootValueType,
-                @this);
+            var rootValueType = typeof(TValue)
+                                .GetGenericArguments()
+                                .Single();
 
-            value = (TValue) nullableWrapper;
-            return true;
+            if (rootValueType.IsInstanceOfType(@this)
+                || wrapperType.IsInstanceOfType(@this))
+            {
+              var nullableWrapper = NullableObjectFactory
+                .BuildNullableBase(
+                  rootValueType,
+                  @this);
+
+              value = (TValue)nullableWrapper;
+              return true;
+            }
           }
         }
       }
-
-      if (@this is TValue)
+      else
       {
-        value = (TValue)@this;
-        return true;
-      }
+        if (@this == null)
+        {
+          value = default(TValue);
+          return true;
+        }
 
+        if (@this is TValue)
+        {
+          value = (TValue)@this;
+          return true;
+        }
+      }
+      
       value = default(TValue);
       return false;
-      //throw new InvalidCastException(
-      //  $"Cannot cast object of type \'{@this.GetType().Name}\' " +
-      //  $"to the type \'{typeof(TValue).Name}\'");
     }
 
 
@@ -150,43 +152,120 @@ namespace Ccr.Std.Core.Extensions
     //}
 
 
-    public static TStruct As<TStruct>(
+    public static TValue As<TValue>(
       [NotNull] this object @this)
-        where TStruct
-          : struct
     {
       @this.IsNotNull(nameof(@this));
 
-      if (!@this.TryCast<TStruct>(out var _value))
+      if (!@this.TryCast<TValue>(out var _value))
         throw new InvalidCastException(
           $"Unable to perform the typecast operation. The value of parameter " +
           $"ref={nameof(@this).Quote()} is of the type {@this.GetType().Name.Quote()}, " +
-          $"and there is no valid typecast defined to the type {typeof(TStruct).Name.SQuote()}," +
-          $"passed by the typeparameter ref={nameof(TStruct).Quote()}.");
+          $"and there is no valid typecast defined to the type {typeof(TValue).Name.SQuote()}," +
+          $"passed by the typeparameter ref={nameof(TValue).Quote()}.");
 
       return _value;
     }
 
 
-    public static TStruct To<TStruct>(
+    //public static TStruct To<TStruct>(
+    //  [NotNull] this object @this)
+    //    where TStruct
+    //      : struct
+    //{
+    //  var convertedValue = Convert.ChangeType(
+    //    @this,
+    //    typeof(TStruct));
+
+    //  return convertedValue.As<TStruct>();
+
+    //}
+
+    public static TClass To<TClass>(
       [NotNull] this object @this)
-        where TStruct
-          : struct
     {
       var convertedValue = Convert.ChangeType(
         @this,
-        typeof(TStruct));
+        typeof(TClass));
 
-      return convertedValue.As<TStruct>();
+      if (!convertedValue.TryCast<TClass>(out var value))
+        throw new InvalidCastException(
+          $"Unable to perform the typecast operation. The value of parameter " +
+          $"ref={nameof(@this).Quote()} is of the type {@this.GetType().Name.Quote()}, " +
+          $"and there is no valid typecast defined to the type {typeof(TClass).Name.SQuote()}," +
+          $"passed by the typeparameter ref={nameof(TClass).Quote()}.");
+
+      return value;
+
+    }
+
+    [CanBeNull]
+    public static TValue AsOrDefault<TValue>(
+      [NotNull] this object @this)
+    {
+      @this.IsNotNull(nameof(@this));
+
+      if (@this.GetType().IsValueType)
+      {
+        if (@this.Equals(default(TValue)))
+        {
+          if (!@this.TryCast<TValue>(out var value))
+            throw new InvalidCastException(
+              $"Unable to perform the typecast operation. The value of parameter " +
+              $"ref={nameof(@this).Quote()} is of the type {@this.GetType().Name.Quote()}, " +
+              $"and there is no valid typecast defined to the type {typeof(TValue).Name.SQuote()}," +
+              $"passed by the typeparameter ref={nameof(TValue).Quote()}.");
+
+          return value;
+        }
+      }
 
     }
 
 
     [CanBeNull]
+    private static object AsNullableStructOrDefault(
+      [NotNull] this object @this,
+      Type targetType)
+    {
+      @this.IsNotNull(nameof(@this));
+
+      var type = @this.GetType();
+
+      var effectiveType = resolveTypeOrNullableRootType(
+        type);
+
+      if (targetType.IsValueType)
+      {
+        return NullableObjectFactory.BuildNullableBase(targetType);
+      }
+
+      if (!@this.TryCast<TValue>(out var _value))
+        return default(TValue);
+
+      return _value;
+    }
+
+    private static Type resolveTypeOrNullableRootType(
+      Type type)
+    {
+      if (!type.IsValueType || !type.IsGenericType)
+        return type;
+
+      if (type.IsGenericOf(typeof(Nullable<>)))
+      {
+        return type
+            .GetGenericArguments()
+            .Single();
+      }
+      return type;
+    }
+
+    [CanBeNull]
     public static TValue AsOrDefault<TValue>(
       [NotNull] this object @this)
-        where TValue
-          : class
+      where TValue
+      : class
     {
       @this.IsNotNull(nameof(@this));
 
