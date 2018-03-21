@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.Std.Core.Tests", "Ccr.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.WinCore.Tests", "Ccr.WinCore.Tests\Ccr.WinCore.Tests.csproj", "{F63AE164-9619-4AC5-B634-325BE0F39342}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.Parsing.Tests", "Ccr.Parsing.Tests\Ccr.Parsing.Tests.csproj", "{DB783A8F-5260-434E-8DE6-AF5EFD935D5F}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Ccr\Ccr.projitems*{d671ffa9-1153-4254-b081-91cd71de1a89}*SharedItemsImports = 13
@@ -164,6 +166,10 @@ Global
 		{F63AE164-9619-4AC5-B634-325BE0F39342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F63AE164-9619-4AC5-B634-325BE0F39342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F63AE164-9619-4AC5-B634-325BE0F39342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB783A8F-5260-434E-8DE6-AF5EFD935D5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB783A8F-5260-434E-8DE6-AF5EFD935D5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB783A8F-5260-434E-8DE6-AF5EFD935D5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB783A8F-5260-434E-8DE6-AF5EFD935D5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +184,7 @@ Global
 		{254A1047-4C09-4E9D-B058-9A4E0CF3B687} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 		{DE44FEBA-7E83-465F-9735-A4D9DE84C330} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 		{F63AE164-9619-4AC5-B634-325BE0F39342} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
+		{DB783A8F-5260-434E-8DE6-AF5EFD935D5F} = {0EF292A4-F2D8-4012-84A2-57CAC3F26531}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9CBA47B9-9AA1-4FEC-9C93-66F058F6B28E}

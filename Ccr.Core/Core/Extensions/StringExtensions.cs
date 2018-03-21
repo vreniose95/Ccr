@@ -50,20 +50,32 @@ namespace Ccr.Core.Extensions
     }
 
     public static string SQuote(
-      this string @this)
+      this char @this)
 	  {
-	    return @this.Surround('\''); 
+	    return @this.ToString().Surround('\''); 
+	  }
+
+	  public static string Quote(
+	    this char @this)
+	  {
+      return @this.ToString().Surround('\"');
+    }
+
+	  public static string SQuote(
+	    this string @this)
+	  {
+	    return @this.Surround('\'');
 	  }
 
 	  public static string Quote(
 	    this string @this)
 	  {
-      return @this.Surround('\"');
-    }
+	    return @this.Surround('\"');
+	  }
 
-		
 
-		public static string Limit(
+
+    public static string Limit(
       this string @this, 
       int length)
 		{

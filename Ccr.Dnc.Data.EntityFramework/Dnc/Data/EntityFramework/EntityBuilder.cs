@@ -24,6 +24,9 @@ namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
 
     static EntityBuilder()
     {
+
+      var x = "".ToCharArray().Take(5).Skip(4);
+      
       RegisterBuilder(
         memberName => new Gender(
           memberName.Substring(0, 1),

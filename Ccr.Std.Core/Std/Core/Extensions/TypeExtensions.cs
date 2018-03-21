@@ -4,6 +4,26 @@ using JetBrains.Annotations;
 
 namespace Ccr.Std.Core.Extensions
 {
+  /// <summary>
+  /// [null].Cast{TStruct}    ->    throw
+  /// [null].Cast{TClass}     ->    return null
+  /// 
+  /// [TStruct].Cast{TStruct} ->    cast if valid, throw if not
+  /// [TStruct].Cast{TClass}  ->    cast if valid, throw if not
+  /// 
+  /// [TClass].Cast{TStruct}  ->    cast if valid, throw if not
+  /// [TClass].Cast{TClass}   ->    cast if valid, throw if not
+  /// 
+  /// 
+  /// [null].As{TStruct}      ->    +return unset TStruct?
+  /// [null].As{TClass}       ->    +return null
+  /// 
+  /// [TStruct].As{TStruct}   ->    +cast if valid, return as TStruct?, return unset TStruct? else
+  /// [TStruct].As{TClass}    ->    +cast if valid, return null if else
+  /// 
+  /// [TClass].As{TStruct]    ->    +cast if valid, return unset TStruct? if else
+  /// [TClass].As{TClass]     ->    +cast if valid, return null if else
+  /// </summary>
   public static class TypeExtensions
   {
     /// <summary>
@@ -80,8 +100,7 @@ namespace Ccr.Std.Core.Extensions
       value = default(TValue);
       return false;
     }
-
-
+    
     internal class NullableObjectFactory
     {
       // ReSharper disable ConvertNullableToShortForm
@@ -143,15 +162,135 @@ namespace Ccr.Std.Core.Extensions
     }
 
 
-    //private static TValue Cast<TValue>(
-    //  this object @this)
-    //    where TValue
-    //    : struct
-    //{
+    public static TStruct? AsOrDefault<TStruct>(
+      this object @this)
+        where TStruct
+          : struct
+    {
+      if (@this == null)
+        return new TStruct?();
+      
+      var type = @this.GetType();
 
-    //}
+      if (type.IsValueType)
+      {
+        return !@this.TryCast<TStruct>(out var value)
+          ? new TStruct?() 
+          : value;
+      }
+      if (type.IsClass || type.IsInterface)
+      {
+        return !@this.TryCast<TStruct>(out var value) 
+          ? new TStruct?()
+          : value;
+      }
+      throw new NotSupportedException();
+    }
 
 
+    public static TClass AsOrDefault2<TClass>(
+      this object @this)
+        where TClass
+          : class
+    {
+      if (@this == null)
+        return null;
+
+      var type = @this.GetType();
+
+      if (type.IsValueType)
+      {
+        return !@this.TryCast<TClass>(out var value)
+          ? null
+          : value;
+      }
+      if (type.IsClass || type.IsInterface)
+      {
+        return !@this.TryCast<TClass>(out var value)
+          ? null
+          : value;
+      }
+      throw new NotSupportedException();
+    }
+
+    public static TStruct CastStruct<TStruct>(
+      this object @this)
+        where TStruct
+          : struct
+    {
+      if (@this == null)
+        throw new InvalidCastException(
+          $"");
+
+      var type = @this.GetType();
+
+      if (type.IsValueType)
+      {
+        if (!@this.TryCast<TStruct>(out var value))
+          throw new InvalidCastException(
+            $"");
+
+        return value;
+      }
+      if (type.IsClass || type.IsInterface)
+      {
+        if (!@this.TryCast<TStruct>(out var value))
+          throw new InvalidCastException(
+            $"");
+
+        return value;
+      }
+      throw new NotSupportedException();
+    }
+
+
+    public static TClass CastClass<TClass>(
+      this object @this)
+        where TClass
+          : class
+    {
+      if (@this == null)
+        return null;
+
+      var type = @this.GetType();
+
+      if (type.IsValueType)
+      {
+        if (!@this.TryCast<TClass>(out var value))
+          throw new InvalidCastException(
+            $"");
+
+        return value;
+      }
+      if (type.IsClass || type.IsInterface)
+      {
+        if (!@this.TryCast<TClass>(out var value))
+          throw new InvalidCastException(
+            $"");
+
+        return value;
+      }
+      throw new NotSupportedException();
+    }
+
+
+
+    public static bool IsGenericOf(
+      [NotNull] this Type @this,
+      [NotNull] Type genericType)
+    {
+      @this.IsNotNull(nameof(@this));
+      genericType.IsNotNull(nameof(genericType));
+
+      if (!@this.IsGenericType)
+        return false;
+
+      return @this.GetGenericTypeDefinition() == genericType;
+    }
+
+  }
+}
+/*
     public static TValue As<TValue>(
       [NotNull] this object @this)
     {
@@ -273,20 +412,4 @@ namespace Ccr.Std.Core.Extensions
         return default(TValue);
 
       return _value;
-    }
-
-    public static bool IsGenericOf(
-      [NotNull] this Type @this,
-      [NotNull] Type genericType)
-    {
-      @this.IsNotNull(nameof(@this));
-      genericType.IsNotNull(nameof(genericType));
-
-      if (!@this.IsGenericType)
-        return false;
-
-      return @this.GetGenericTypeDefinition() == genericType;
-    }
-
-  }
-}
+    }*/
