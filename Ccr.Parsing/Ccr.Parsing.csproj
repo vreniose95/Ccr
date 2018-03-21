@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parsing\Lexer\SemanticLexer.cs" />
-    <Compile Include="Parsing\Lexer\TimeSpanHelper.cs" />
+    <Compile Include="Parsing\TimeSpanHelper.cs" />
     <Compile Include="Parsing\Tokenizer\TokenizerBase.cs" />
     <Compile Include="Parsing\Tokenizer\TokenizerFrame.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\ContentToken.cs" />

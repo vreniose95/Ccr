@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Ccr.Core.Extensions;
 
-namespace Ccr.Parsing.Lexer
+namespace Ccr.Parsing
 {
   public static class TimeSpanHelper
   {
@@ -31,25 +31,24 @@ namespace Ccr.Parsing.Lexer
     {
       var syntacticBlocks = new List<(SyntaxDirective directive, int value)>();
       var numericBuffer = "";
-      SyntaxDirective? currentDirective = null;
+
+      void AcceptNumericBuffer(SyntaxDirective targetDirective)
+      {
+        if (numericBuffer.Length == 0)
+          throw new FormatException(
+            $"Cannot accept the numeric buffer with the SyntaxDirective {targetDirective.ToString().Quote()} " +
+            $"in the current context because the numeric buffer is empty.");
+
+        var integralValue = int.Parse(numericBuffer);
+
+        syntacticBlocks.Add((targetDirective, integralValue));
+        numericBuffer = "";
+      }
 
       foreach (var c in input)
       {
         if (char.IsLetter(c))
         {
-          if (numericBuffer.Length > 0)
-          {
-            var integralValue = int.Parse(numericBuffer);
-
-            if (!currentDirective.HasValue)
-              throw new FormatException(
-                $"The character {c.SQuote()} is invalid at this position. Expected a valid directive [s, m, h, d] " +
-                $"prior to a numeric value {numericBuffer.Quote()}.");
-
-            syntacticBlocks.Add((currentDirective.Value, integralValue));
-            numericBuffer = "";
-          }
-
           if (!SyntaxDirectives.TryGetValue(c, out var syntaxDirective))
             throw new FormatException(
               $"The character {c.SQuote()} is not a valid directive character. Expected [s, m, h, d].");
@@ -59,15 +58,10 @@ namespace Ccr.Parsing.Lexer
               $"The syntax directive character {c.SQuote()}, mapping to the directive {syntaxDirective.ToString().Quote()}, " +
               $"is not valid because it has already been set.");
 
-          currentDirective = syntaxDirective;
+          AcceptNumericBuffer(syntaxDirective);
         }
         else if (char.IsDigit(c))
         {
-          if (!currentDirective.HasValue)
-            throw new FormatException(
-              $"The character {c.SQuote()} is invalid at this position. Expected a valid directive [s, m, h, d] " +
-              $"prior to a numeric value.");
-
           numericBuffer += c;
         }
         else
@@ -80,15 +74,12 @@ namespace Ccr.Parsing.Lexer
 
       if (numericBuffer.Length > 0)
       {
-        var integralValue = int.Parse(numericBuffer);
-
-        if (!currentDirective.HasValue)
-          throw new InvalidOperationException(
-            $"Logic error. CurrentDirective must have a value at this point.");
-
-        syntacticBlocks.Add((currentDirective.Value, integralValue));
+        throw new FormatException(
+          $"The TimeSpan format is invalid because it does not end with a valid directive character [s, m, h, d]. " +
+          $"The numeric buffer {numericBuffer.Quote()} must be empty.");
       }
-      
+
+
       var rankOrderedBlocks = syntacticBlocks
                               .OrderBy(t => (int) t.directive)
                               .ToArray();
