@@ -28,7 +28,7 @@ namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
         .Build(callerMemberName);
 
       var storageCache = StaticEntityStorageCache
-        .I.GetDeclarationCache<TEntity>();
+        .I.GetDeclarationCache<TEntity>();[]
 
       storageCache.RegisterEntity(
         callerLineNumber,

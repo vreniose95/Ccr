@@ -16,18 +16,5 @@ namespace Ccr.Core.Assurance
 			throw new System.NotImplementedException();
 		}
 	}
-	public class Text
-	{
-		public void test()
-		{
-			var x = new List<string>()
-			{
-				"all",
-				"that",
-				"shite"
-			};
-			x.Contains("a", new StringComparatorContains());
-		}
 
-	}
 }
