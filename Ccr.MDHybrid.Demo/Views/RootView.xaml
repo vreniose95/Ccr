@@ -11,8 +11,23 @@
              Designer.Viewport="HD720"
              Designer.Orientation="Landscape">
 	<Grid Background="White">
-		<Card></Card>
-		.
+		<DockPanel HorizontalAlignment="Center"
+		      VerticalAlignment="Center"
+					Height="300"
+					Shadow.Level="4"
+		      Background="{Binding Source={StaticResource MDH.Palette.Indigo.800}}">
+			
+			<Card DockPanel.Dock="Top"
+			      Background="{Binding Source={StaticResource MDH.Palette.Cyan.300}}">
+				<Label Style="{StaticResource _t18pLSubheadMed}"
+				       Content="John Doe"
+				       Padding="20 10"/>
+			</Card>
+			<Grid>
+
+			</Grid>
+		</DockPanel>
+		
 
 		<!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
