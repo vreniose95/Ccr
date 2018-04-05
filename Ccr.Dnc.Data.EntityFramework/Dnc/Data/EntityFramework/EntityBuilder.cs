@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
+namespace Ccr.Dnc.Data.EntityFramework
 {
   public abstract class EntityBuilder
   {
@@ -24,28 +24,25 @@ namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
 
     static EntityBuilder()
     {
+      //RegisterBuilder(
+      //  memberName => new Gender(
+      //    memberName.Substring(0, 1),
+      //    memberName));
 
-      var x = "".ToCharArray().Take(5).Skip(4);
-      
-      RegisterBuilder(
-        memberName => new Gender(
-          memberName.Substring(0, 1),
-          memberName));
+      //RegisterBuilder(
+      //  memberName => new GuestAppearanceType(
+      //    memberName));
 
-      RegisterBuilder(
-        memberName => new GuestAppearanceType(
-          memberName));
-
-      RegisterBuilder(memberName =>
-      {
-        return PersonFactory.CreatePerson<Host>(
-          memberName);
-      });
-      RegisterBuilder(memberName =>
-      {
-        return new EmbeddedContentSource(
-          memberName);
-      });
+      //RegisterBuilder(memberName =>
+      //{
+      //  return PersonFactory.CreatePerson<Host>(
+      //    memberName);
+      //});
+      //RegisterBuilder(memberName =>
+      //{
+      //  return new EmbeddedContentSource(
+      //    memberName);
+      //});
     }
 
 

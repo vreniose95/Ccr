@@ -326,7 +326,9 @@ namespace Ccr.PresentationCore.Collections
           $"naming conventions.",
           nameof(name));
 
-      var stringComparison = ignoreCase ? StringComparison.CurrentCulture : StringComparison.CurrentCultureIgnoreCase;
+      var stringComparison = ignoreCase
+        ? StringComparison.CurrentCulture
+        : StringComparison.CurrentCultureIgnoreCase;
 
       var matchingValues = ToArrayBase(valueEnumType)
                            .Where(t => t.Name.Equals(name, stringComparison))

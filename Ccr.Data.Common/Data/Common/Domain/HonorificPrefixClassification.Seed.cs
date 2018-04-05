@@ -15,7 +15,7 @@
 		public static HonorificPrefixClassification Academic_and_Professional_Titles
 			= new HonorificPrefixClassification(03);
 
-		public static HonorificPrefixClassification Relgious_Titles
+		public static HonorificPrefixClassification Religious_Titles
 			= new HonorificPrefixClassification(04);
 
 		public static HonorificPrefixClassification Military_and_Law_Enforcement_Titles

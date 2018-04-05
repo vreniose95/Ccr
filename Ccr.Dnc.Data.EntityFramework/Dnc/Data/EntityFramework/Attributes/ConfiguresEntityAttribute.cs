@@ -1,7 +1,8 @@
 ﻿using System;
+using Ccr.Std.Core.Extensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework.Attributes
+namespace Ccr.Dnc.Data.EntityFramework.Attributes
 {
   public class ConfiguresEntityAttribute
     : Attribute
@@ -15,7 +16,7 @@ namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework.Attributes
     public ConfiguresEntityAttribute(
       Type entityConfigurationType)
     {
-      (!expectedParameterImpl.IsInstanceOfType(entityConfigurationType))
+      if (!expectedParameterImpl.IsInstanceOfType(entityConfigurationType))
         throw new InvalidOperationException(
           $"{entityConfigurationType.Name.SQuote()}");
     }

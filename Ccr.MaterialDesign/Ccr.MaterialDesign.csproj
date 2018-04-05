@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
     <AssemblyName>Ccr.MaterialDesign</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -37,9 +37,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel.Selectors" />
     <Reference Include="System.Security" />
-    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -102,6 +99,8 @@
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\HostedElement.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleAssist.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\RippleInputTrackingService.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\TooltipPositioningAssist.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Services\TooltipPositioningService.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\UserInputNuanceProviderService.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Shadow.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\UserInputNuanceInjector.cs" />
@@ -141,7 +140,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

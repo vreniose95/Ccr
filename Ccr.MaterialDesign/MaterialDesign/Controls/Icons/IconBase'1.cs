@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
@@ -9,6 +10,13 @@ using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Controls.Icons
 {
+  public abstract class IconBase
+    : Control
+  {
+    internal abstract void UpdateData();
+  }
+
+
   public abstract class IconBase<TKind>
     : IconBase
   {

@@ -1,10 +1,10 @@
-﻿using System.Windows.Controls;
+﻿//using System.Windows.Controls;
 
-namespace Ccr.MaterialDesign.Controls.Icons
-{
-	public abstract class IconBase
-		: Control
-	{
-		internal abstract void UpdateData();
-	}
-}
+//namespace Ccr.MaterialDesign.Controls.Icons
+//{
+//	public abstract class IconBase
+//		: Control
+//	{
+//		internal abstract void UpdateData();
+//	}
+//}

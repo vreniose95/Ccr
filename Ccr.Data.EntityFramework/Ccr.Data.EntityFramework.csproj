@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
     <AssemblyName>Ccr.Data.EntityFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -71,12 +71,15 @@
     <Compile Include="Data\EntityFramework\Functions\Attributes\CcrPrimitiveTypeKind.cs" />
     <Compile Include="Data\EntityFramework\Functions\Sql\GlobalFunction.cs" />
     <Compile Include="Data\EntityFramework\Infrastructure\DatabaseFileLogger.cs" />
+    <Compile Include="Data\EntityFramework\Sqlite\DefaultValueSqliteServerMigrationSqliteGenerator.cs" />
     <Compile Include="Data\EntityFramework\SqlServer\FlexSqlServer2014Service.cs" />
     <Compile Include="Data\EntityFramework\SqlServer\PrimitivePropertyConfigurationExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="paket.references" />
   </ItemGroup>
@@ -84,10 +87,6 @@
     <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
       <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
       <Name>Ccr.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
-      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
-      <Name>Ccr.Introspective</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -22,7 +22,6 @@ namespace Ccr.Core.Tests
   [TestFixture]
   public class LinearMapTest
   {
-
     [Test]
     public void LinearMap_Byte()
     {
@@ -30,6 +29,7 @@ namespace Ccr.Core.Tests
       var mappedValue = value.LinearMap((0, 100), (100, 200));
       Assert.AreEqual(mappedValue, (Byte)150);
     }
+
     [Test]
     public void LinearMap_SByte()
     {
@@ -37,6 +37,7 @@ namespace Ccr.Core.Tests
       var mappedValue = value.LinearMap((0, 100), (100, 110));
       Assert.AreEqual(mappedValue, (SByte)105);
     }
+
     [Test]
     public void LinearMap_Int16()
     {
@@ -60,7 +61,6 @@ namespace Ccr.Core.Tests
       var mappedValue = value.LinearMap((0L, 100L), (1000L, 2000L));
       Assert.AreEqual(mappedValue, 1500L);
     }
-
 
     [Test]
     public void LinearMap_UInt16()
@@ -101,6 +101,7 @@ namespace Ccr.Core.Tests
       var mappedValue = value.LinearMap(new DoubleRange(0D, 100D), new DoubleRange(10.00D, 20.00D));
       Assert.AreEqual(mappedValue, 15.00D);
     }
+
     [Test]
     public void LinearMap_Decimal()
     {

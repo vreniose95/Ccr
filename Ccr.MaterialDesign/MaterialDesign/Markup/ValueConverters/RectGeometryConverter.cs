@@ -8,14 +8,20 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
     : XamlConverter<
       double,
       double, 
-      ConverterParam<double>, 
+      double,
+      ConverterParam<bool>, 
       RectangleGeometry>
   {
     public override RectangleGeometry Convert(
       double width,
       double height,
-      ConverterParam<double> corner)
+      double cornerRadius,
+      ConverterParam<bool> shouldDisable)
     {
+      var effectRadius = shouldDisable.Value
+        ? 0
+        : cornerRadius;
+
       return new RectangleGeometry(
         new Rect(
           0, 
@@ -23,8 +29,8 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
           width, 
           height))
       {
-        RadiusX = corner.Value,
-        RadiusY = corner.Value
+        RadiusX = effectRadius,
+        RadiusY = effectRadius
       };
     }
   }

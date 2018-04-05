@@ -128,22 +128,22 @@ namespace Ccr.Introspective.Extensions
 			@this.IsNotNull(nameof(@this));
 			memberDescriptor.IsNotNull(nameof(memberDescriptor));
 
-var parameterTypes = arguments
-	.Select(t => t?.GetType())
-	.ToArray();
+      var parameterTypes = arguments
+	      .Select(t => t?.GetType())
+	      .ToArray();
 
-var constructorInfo = @this.TargetType.GetConstructor(
-	memberDescriptor,
-	null,
-	CallingConventions.Any,
-	parameterTypes,
-	new ParameterModifier[] { });
+      var constructorInfo = @this.TargetType.GetConstructor(
+	      memberDescriptor,
+	      null,
+	      CallingConventions.Any,
+	      parameterTypes,
+	      new ParameterModifier[] { });
 
-if (constructorInfo == null)
-	throw new TypeInitializationException(
-		@this.TargetType.FullName, null);
+      if (constructorInfo == null)
+	      throw new TypeInitializationException(
+		      @this.TargetType.FullName, null);
 			
-var instance = constructorInfo.Invoke(arguments);
+      var instance = constructorInfo.Invoke(arguments);
 			return instance;
 
 			//throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");

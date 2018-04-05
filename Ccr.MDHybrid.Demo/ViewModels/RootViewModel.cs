@@ -26,6 +26,7 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 				NotifyOfPropertyChange(() => TestProperty);
 			}
 		}
+
 		private Palette materialDesignPalette;
 		public Palette MaterialDesignPalette
 		{

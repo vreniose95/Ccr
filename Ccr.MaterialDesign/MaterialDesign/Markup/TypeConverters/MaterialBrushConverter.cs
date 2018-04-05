@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Media;
@@ -10,6 +11,26 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
   public class MaterialBrushConverter
     : TypeConverter
   {
+    public override object CreateInstance(ITypeDescriptorContext context, IDictionary propertyValues)
+    {
+      return base.CreateInstance(context, propertyValues);
+    }
+
+    public override bool GetCreateInstanceSupported(ITypeDescriptorContext context)
+    {
+      return base.GetCreateInstanceSupported(context);
+    }
+
+    public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext context, object value, Attribute[] attributes)
+    {
+      return base.GetProperties(context, value, attributes);
+    }
+
+    public override StandardValuesCollection GetStandardValues(ITypeDescriptorContext context)
+    {
+      return base.GetStandardValues(context);
+    }
+
     public override bool CanConvertFrom(
       ITypeDescriptorContext context,
       Type sourceType)

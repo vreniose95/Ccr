@@ -1,4 +1,4 @@
-﻿namespace Ccr.Std.Core.Numerics.Ranges.Infrastructure
+﻿namespace Ccr.Std.Core.Numerics.Infrastructure
 {
   public interface INumericRange
   {

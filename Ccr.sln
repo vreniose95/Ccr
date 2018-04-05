@@ -50,6 +50,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.Parsing", "Ccr.Parsing\Ccr.Parsing.csproj", "{41B1D9B2-10CB-46B5-A861-1EBFD1016A8C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6BB7EB7-7347-46A2-8D1D-7E8A7A384374}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ccr.PresentationCore.Tests", "Ccr.PresentationCore.Tests\Ccr.PresentationCore.Tests.csproj", "{F18274D5-F086-444C-9680-D810BA76719C}"
 EndProject

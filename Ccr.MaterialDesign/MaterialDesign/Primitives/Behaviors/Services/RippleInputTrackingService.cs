@@ -8,8 +8,8 @@ using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
-	public class RippleMouseTracker :
-		HostedElement<FrameworkElement>
+	public class RippleMouseTracker
+	  : HostedElement<FrameworkElement>
 	{
 		private static readonly Type type = typeof(RippleMouseTracker);
 

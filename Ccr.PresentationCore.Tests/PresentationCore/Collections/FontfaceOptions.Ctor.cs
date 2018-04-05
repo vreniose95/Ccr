@@ -12,7 +12,7 @@ namespace Ccr.PresentationCore.Collections
       Color foreground,
       double fontSize,
       [CallerMemberName] string fieldName = "",
-      [CallerLineNumber] double line = 0)
+      [CallerLineNumber] int line = 0)
       : base(
         (background, foreground, fontSize),
         fieldName,

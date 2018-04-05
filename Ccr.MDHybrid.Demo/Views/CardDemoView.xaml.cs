@@ -10,29 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Ccr.MaterialDesign.MVVM;
 
 namespace Ccr.MDHybrid.Demo.Views
 {
   /// <summary>
-  /// Interaction logic for Calc.xaml
+  /// Interaction logic for CardDemoView.xaml
   /// </summary>
-  public partial class Calc : Window
+  public partial class CardDemoView : UserControl
   {
-    public Calc()
+    public CardDemoView()
     {
       InitializeComponent();
-      DataContext = new CalcViewModel();
     }
-  }
-  public class CalcViewModel
-    : ViewModelBase
-  {
-    public ICommand CalculatorButtonClickCommand => new Command(
-      t =>
-      {
-        
-      });
   }
 }

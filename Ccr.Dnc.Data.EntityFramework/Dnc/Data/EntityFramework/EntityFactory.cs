@@ -1,6 +1,7 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 
-namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
+namespace Ccr.Dnc.Data.EntityFramework
 {
   public class EntityFactory
   {
@@ -27,14 +28,15 @@ namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
       var builtEntity = builder
         .Build(callerMemberName);
 
-      var storageCache = StaticEntityStorageCache
-        .I.GetDeclarationCache<TEntity>();[]
+      throw new NotImplementedException();
+      //var storageCache = StaticEntityStorageCache
+      //  .I.GetDeclarationCache<TEntity>();[]
 
-      storageCache.RegisterEntity(
-        callerLineNumber,
-        builtEntity);
+      //storageCache.RegisterEntity(
+      //  callerLineNumber,
+      //  builtEntity);
 
-      return builtEntity;
+      //return builtEntity;
     }
   }
 }

@@ -71,7 +71,7 @@ namespace Ccr.Xaml
 		{
 			if (destinationValueType.IsGenericOf(typeof(Nullable<>)))
 			{
-				if (value == DependencyProperty.UnsetValue &&
+        if (value == DependencyProperty.UnsetValue ||
 				    value == null)
 				{
 					return null;
@@ -96,7 +96,7 @@ namespace Ccr.Xaml
 						$"to {destinationValueType.FormatName().SQuote()}.");
 				}
 			}
-			if (value == DependencyProperty.UnsetValue &&
+			if (value == DependencyProperty.UnsetValue ||
 			    value == null)
 			{
 				if (destinationValueType.IsValueType)
@@ -104,7 +104,7 @@ namespace Ccr.Xaml
 
 				return null;
 			}
-			if (destinationValueType.IsAssignableFrom(destinationValueType))
+			if (destinationValueType.IsInstanceOfType(value))
 				return value;
 
 			if (value is IConvertible)

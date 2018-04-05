@@ -2,9 +2,11 @@
   <ResourceDictionary.MergedDictionaries>
     <ResourceDictionary Source="MDHybrid.Palette.xaml"/>
   </ResourceDictionary.MergedDictionaries>
+
   <Style TargetType="Card">
     <Setter Property="Shadow.Level" Value="2"/>
-    <!--<Setter Property="Background" Value="{StaticResource MDH.Palette.Grey.050}"/>-->
+    <Setter Property="Background"
+            Value="{Binding Source={StaticResource MDH.Palette.Grey.050}}"/>
     <Setter Property="Margin" Value="10"/>
     <Setter Property="Template">
       <Setter.Value>
@@ -20,17 +22,19 @@
                     <DrawingGroup>
                       <GeometryDrawing Brush="Transparent">
                         <GeometryDrawing.Geometry>
-                          <MultiBinding Converter="{RectGeometryConverter}" ConverterParameter="0">
-                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=Card}"/>
-                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource FindAncestor, AncestorType=Card}"/>
+                          <MultiBinding Converter="{RectGeometryConverter}" ConverterParameter="true">
+                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+	                          <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}"/>
                           </MultiBinding>
                         </GeometryDrawing.Geometry>
                       </GeometryDrawing>
                       <GeometryDrawing Brush="White">
                         <GeometryDrawing.Geometry>
-                          <MultiBinding Converter="{RectGeometryConverter}" ConverterParameter="2">
-                            <Binding Path="ActualWidth" RelativeSource="{RelativeSource FindAncestor, AncestorType=Card}"/>
-                            <Binding Path="ActualHeight" RelativeSource="{RelativeSource FindAncestor, AncestorType=Card}"/>
+                          <MultiBinding Converter="{RectGeometryConverter}" ConverterParameter="false">
+	                          <Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+	                          <Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+	                          <Binding Path="CornerRadius" RelativeSource="{RelativeSource TemplatedParent}"/>
                           </MultiBinding>
                         </GeometryDrawing.Geometry>
                       </GeometryDrawing>

@@ -1,0 +1,16 @@
+Generic.xaml
+{
+	include MDHybrid.xaml
+	{
+		include MDHybrid.Globals.xaml
+		{
+		}
+		include MDHybrid.Palette.xaml
+		{
+			include MDHybrid.Palette.Brushes.xaml
+			{			
+			}
+		}
+
+	}
+}

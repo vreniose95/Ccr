@@ -157,9 +157,5 @@ namespace Ccr.MaterialDesign
         Color = color
 	    };
 	  }
-
-    
-
-
   }
 }

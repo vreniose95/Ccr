@@ -12,6 +12,7 @@ namespace Ccr.PresentationCore.Markup
 		private static readonly Dictionary<Uri, ResourceDictionary> _cachedDictionaries
 			= new Dictionary<Uri, ResourceDictionary>();
 
+
 		public new Uri Source
 		{
 			get => _sourceUri;

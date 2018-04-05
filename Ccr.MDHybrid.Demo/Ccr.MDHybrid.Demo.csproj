@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Ccr.MDHybrid.Demo</RootNamespace>
     <AssemblyName>Ccr.MDHybrid.Demo</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -60,9 +60,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModels\CardDemoViewModel.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
-    <Compile Include="Views\Calc.xaml.cs">
-      <DependentUpon>Calc.xaml</DependentUpon>
+    <Compile Include="Views\CardDemoView.xaml.cs">
+      <DependentUpon>CardDemoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RootView.xaml.cs">
       <DependentUpon>RootView.xaml</DependentUpon>
@@ -119,7 +120,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Calc.xaml">
+    <Page Include="Views\CardDemoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

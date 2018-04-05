@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>Ccr</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
   </ItemGroup>
 
 </Project>

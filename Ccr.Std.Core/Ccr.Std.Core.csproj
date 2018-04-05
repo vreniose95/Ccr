@@ -4,10 +4,5 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
-	  <Folder Include="Std\Core\Extensions\" />
-    <Folder Include="Std\Core\Extensions\Templates\" />
-    <Folder Include="Std\Core\Extensions\NumericExtensions\" />
-  </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

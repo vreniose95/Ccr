@@ -1,4 +1,4 @@
-﻿namespace Ccr.Dnc.Data.EntityFramework.Dnc.Data.EntityFramework
+﻿namespace Ccr.Dnc.Data.EntityFramework
 {
   internal abstract class EntityDeclaration
   {
