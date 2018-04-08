@@ -144,16 +144,154 @@ namespace Ccr.Core.Extensions
       return Math.Sinh(@this);
     }
 
-    /// <inheritdoc cref="Math.Sinh(double)"/>
+    /// <inheritdoc cref="Math.Tanh(double)"/>
     public static double HyperbolicTan(
       this double @this)
     {
       return Math.Tanh(@this);
     }
 
+    /// <inheritdoc cref="Math.Round(double)"/>
+    public static double Round(
+      this double @this)
+    {
+      return Math.Round(@this);
+    }
+
+    /// <inheritdoc cref="Math.Round(double,int)"/>
+    public static double Round(
+      this double @this,
+      int digits)
+    {
+      return Math.Round(@this);
+    }
+
+    /// <inheritdoc cref="Math.Round(double,MidpointRounding)"/>
+    public static double Round(
+      this double @this,
+      MidpointRounding mode)
+    {
+      return Math.Round(
+        @this,
+        mode);
+    }
+
+    /// <inheritdoc cref="Math.Round(double,int,MidpointRounding)"/>
+    public static double Round(
+      this double @this,
+      int digits,
+      MidpointRounding mode)
+    {
+      return Math.Round(
+        @this,
+        digits,
+        mode);
+    }
 
 
 
+    /// <inheritdoc cref="Math.Round(decimal)"/>
+    public static decimal Round(
+      this decimal @this)
+    {
+      return Math.Round(@this);
+    }
+
+    /// <inheritdoc cref="Math.Round(decimal,int)"/>
+    public static decimal Round(
+      this decimal @this,
+      int digits)
+    {
+      return Math.Round(@this);
+    }
+
+    /// <inheritdoc cref="Math.Round(decimal,MidpointRounding)"/>
+    public static decimal Round(
+      this decimal @this,
+      MidpointRounding mode)
+    {
+      return Math.Round(
+        @this,
+        mode);
+    }
+
+    /// <inheritdoc cref="Math.Round(decimal,int,MidpointRounding)"/>
+    public static decimal Round(
+      this decimal @this,
+      int digits,
+      MidpointRounding mode)
+    {
+      return Math.Round(
+        @this,
+        digits,
+        mode);
+    }
+
+
+    /// <inheritdoc cref="Math.Truncate(decimal)"/>
+    public static decimal Truncate(
+      this decimal @this)
+    {
+      return Math.Truncate(@this);
+    }
+
+    /// <inheritdoc cref="Math.Truncate(double)"/>
+    public static double Truncate(
+      this double @this)
+    {
+      return Math.Truncate(@this);
+    }
+
+
+    /// <inheritdoc cref="Math.Sqrt(double)"/>
+    public static double Sqrt(
+      this double @this)
+    {
+      return Math.Sqrt(@this);
+    }
+
+
+    /// <inheritdoc cref="Math.Log(double)"/>
+    public static double Log(
+      this double @this)
+    {
+      return Math.Log(@this);
+    }
+
+    /// <inheritdoc cref="Math.Log10(double)"/>
+    public static double Log10(
+      this double @this)
+    {
+      return Math.Log10(@this);
+    }
+
+    /// <inheritdoc cref="Math.Exp(double)"/>
+    public static double Exp(
+      this double @this)
+    {
+      return Math.Exp(@this);
+    }
+
+    /// <inheritdoc cref="Math.Pow(double,double)"/>
+    public static double Power(
+      this double @this,
+      double power)
+    {
+      return Math.Pow(
+        @this, 
+        power);
+    }
+
+    /// <inheritdoc cref="Math.IEEERemainder(double,double)"/>
+    public static double IEEERemainder(
+      this double @this,
+      double dividend)
+    {
+      return Math.IEEERemainder(
+        @this, 
+        dividend);
+    }
+    
 
     /// <inheritdoc cref="Math.Log(double,double)"/>
     public static double Log(
@@ -198,7 +336,5 @@ namespace Ccr.Core.Extensions
         value,
         out result);
     }
-
-
   }
 }

@@ -1,20 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
+using Ccr.Core.Extensions;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
-  public class DescriptorToBrushConverter : XamlConverter<Swatch, AbstractMaterialDescriptor, NullParam, Brush>
+  public class DescriptorToBrushConverter
+    : XamlConverter<
+      Swatch, 
+      AbstractMaterialDescriptor, 
+      NullParam, 
+      Brush>
   {
-    public override Brush Convert(Swatch materialSet, AbstractMaterialDescriptor descriptor, NullParam param)
+    public override Brush Convert(
+      Swatch materialSet, 
+      AbstractMaterialDescriptor descriptor, 
+      NullParam param)
     {
       //TODO dont return red. use transparent MaterialSet as default 
       if (materialSet == null || descriptor == null)
         return Brushes.Red;
+
       return descriptor.GetMaterial(materialSet);
     }
   }
@@ -45,17 +51,17 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
       if (!isHighConstrast)
         return originalBrush;
 
-      var invertedBrush = originalBrush.Invert();
+      var invertedBrush = originalBrush.Brush.Invert();
 
       //var originalBrushDelta = originalBrush.Differential(overlayedBackground);
       //var invertedBrushDelta = invertedBrush.Differential(overlayedBackground);
 
-      var originalHSL = originalBrush.Color.ToHSL();
-      var invertedHSL = invertedBrush.Color.ToHSL();
-      var overlayedHSL = overlayedBackground.Color.ToHSL();
+      var originalHSL = originalBrush.Color.ToHslColor();
+      var invertedHSL = invertedBrush.Color.ToHslColor();
+      var overlayedHSL = overlayedBackground.Color.ToHslColor();
 
-      var lightnessDifferenceToOriginal = Math.Abs(originalHSL.L - overlayedHSL.L);
-      var lightnessDifferenceToInverted = Math.Abs(invertedHSL.L - overlayedHSL.L);
+      var lightnessDifferenceToOriginal = (originalHSL.L - overlayedHSL.L).Abs();
+      var lightnessDifferenceToInverted = (invertedHSL.L - overlayedHSL.L).Abs();
 
       //if (lightnessDifferenceToInverted < lightnessDifferenceToOriginal)
       if (lightnessDifferenceToOriginal > highContrastBindingThreshold)
@@ -65,5 +71,4 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
       return invertedBrush;
     }
   }
-}
 }

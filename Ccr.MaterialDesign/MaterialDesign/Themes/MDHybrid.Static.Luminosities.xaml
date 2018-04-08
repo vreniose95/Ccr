@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:materialDesign="clr-namespace:Ccr.MaterialDesign">
-	<materialDesign:Luminosity x:Name="P050"></materialDesign:Luminosity>
+	<!--<materialDesign:Luminosity x:Key="P050">P050</materialDesign:Luminosity>-->
 </ResourceDictionary>

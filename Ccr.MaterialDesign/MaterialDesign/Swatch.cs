@@ -140,8 +140,8 @@ namespace Ccr.MaterialDesign
       var brushRange = GetRange(luminosity);
 
       var range = new DoubleRange(        
-        (double)brushRange.low.Identity.Luminosity.LuminosityIndex,
-        (double)brushRange.high.Identity.Luminosity.LuminosityIndex);
+        brushRange.low.Identity.Luminosity.LuminosityIndex,
+        brushRange.high.Identity.Luminosity.LuminosityIndex);
 
       var index = (double)luminosity.LuminosityIndex;
       //var progression = index.LinearMap(range, (0d, 1d));

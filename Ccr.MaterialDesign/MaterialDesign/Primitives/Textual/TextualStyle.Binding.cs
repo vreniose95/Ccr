@@ -6,6 +6,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
+using Ccr.MaterialDesign.Markup.ValueConverters;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using Ccr.Xaml.Infrastructure;
 using Ccr.Xaml.Markup.Extensions;
@@ -300,7 +301,7 @@ namespace Ccr.MaterialDesign.Primitives.Textual
           BindingOperations.SetBinding(@this, TextElement.ForegroundProperty,
             new MultiBinding
             {
-              Converter = MarkupSingleton.GetInstance<HighContrastDescriptorToBrushConverter>(),
+              Converter = new HighContrastDescriptorToBrushConverter(),//MarkupSingleton.GetInstance<>(),
               Bindings =
               {
                 new Binding

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.Core.Numerics.Ranges;
 using Ccr.PresentationCore.Media;
-using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
 {
@@ -173,9 +168,9 @@ namespace Ccr.Core.Extensions
       this Color @this,
       Color color)
     {
-      var r = (@this.R - color.R).Abs;
-      var g = Math.Abs(@this.G - color.G);
-      var b = Math.Abs(@this.B - color.B);
+      var r = (@this.R - color.R).Abs();
+      var g = (@this.G - color.G).Abs();
+      var b = (@this.B - color.B).Abs();
 
       return r + g + b;
     }

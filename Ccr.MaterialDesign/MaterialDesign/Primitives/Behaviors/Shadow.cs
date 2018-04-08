@@ -58,8 +58,10 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
       _type, new MetaBase<double?>(null, onShadowLevelChanged));
 
 
+    public static double GetLevel(DependencyObject i) => i.Get<double>(LevelProperty);
+    public static void SetLevel(DependencyObject i, double v) => i.Set(LevelProperty, v);
 
-    
+
     public static readonly DependencyProperty ShadowCacheModeProperty = DP.Attach(
       typeof(Shadow),
       new MetaBase<CacheMode>(
@@ -71,10 +73,10 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
         }, FrameworkPropertyMetadataOptions.Inherits));
 
 
-    public static double GetShadowCacheModeProperty(DependencyObject i
-      ) => i.Get<double>(LevelProperty);
+    public static CacheMode GetShadowCacheModeProperty(DependencyObject i
+      ) => i.Get<CacheMode>(LevelProperty);
 
-    public static void SetShadowCacheModeProperty(DependencyObject i, double v) 
+    public static void SetShadowCacheModeProperty(DependencyObject i, CacheMode v) 
       => i.Set(LevelProperty, v);
 
 

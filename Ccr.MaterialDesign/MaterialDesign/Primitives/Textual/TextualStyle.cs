@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
+using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
+using Ccr.MaterialDesign.Markup.TypeConverters;
 using Ccr.MaterialDesign.Primitives.Infrastructure;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 

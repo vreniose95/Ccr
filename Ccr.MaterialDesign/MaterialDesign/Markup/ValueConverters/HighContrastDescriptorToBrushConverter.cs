@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
@@ -35,14 +36,14 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
       if (!isHighConstrast)
         return originalBrush;
 
-      var invertedBrush = originalBrush.Invert();
+      var invertedBrush = originalBrush.Brush.Invert();
 
       //var originalBrushDelta = originalBrush.Differential(overlayedBackground);
       //var invertedBrushDelta = invertedBrush.Differential(overlayedBackground);
 
-      var originalHSL = originalBrush.Color.ToHSL();
-      var invertedHSL = invertedBrush.Color.ToHSL();
-      var overlayedHSL = overlayedBackground.Color.ToHSL();
+      var originalHSL = originalBrush.Color.ToHslColor();
+      var invertedHSL = invertedBrush.Color.ToHslColor();
+      var overlayedHSL = overlayedBackground.Color.ToHslColor();
 
       var lightnessDifferenceToOriginal = Math.Abs(originalHSL.L - overlayedHSL.L);
       var lightnessDifferenceToInverted = Math.Abs(invertedHSL.L - overlayedHSL.L);

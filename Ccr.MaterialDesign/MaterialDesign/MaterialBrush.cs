@@ -133,7 +133,7 @@ namespace Ccr.MaterialDesign
 	  {
 	    return @this.HsvColor;
 	  }
-
+    
 
 	  public static MaterialBrush Create(
       Color color,
@@ -155,6 +155,17 @@ namespace Ccr.MaterialDesign
 	    {
         Identity = identity,
         Color = color
+	    };
+	  }
+
+	  internal static MaterialBrush Create(
+	    Color color,
+	    MaterialIdentity materialIdentity)
+	  {
+	    return new MaterialBrush
+	    {
+	      Identity = materialIdentity,
+	      Color = color
 	    };
 	  }
   }

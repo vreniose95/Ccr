@@ -2,8 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
-using System.Text.RegularExpressions;
-using Ccr.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
@@ -96,15 +94,47 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       object value,
       Type destinationType)
     {
-      if (destinationType == typeof(string))
+      switch (value)
       {
-        var identity = value.As<MaterialIdentity>();
-        return identity.ToString();
+        case string @string:
+        {
+          if (destinationType == typeof(InstanceDescriptor))
+          {
+            return Luminosity.Parse(@string);
+          }
+          else if (destinationType == typeof(Luminosity))
+          {
+            return Luminosity.Parse(@string);
+          }
+          else if (destinationType == typeof(string))
+          {
+            return @string;
+          }
 
-        return (identity.IsAccent ? "A" : "") + identity.Luminosity.LuminosityIndex;
+          throw new NotSupportedException();
+        }
+        case Luminosity luminosity:
+        {
+          if (destinationType == typeof(InstanceDescriptor))
+          {
+            return luminosity;
+          }
+          else if (destinationType == typeof(Luminosity))
+          {
+            return luminosity;
+          }
+          else if (destinationType == typeof(string))
+          {
+            return luminosity.ToString();
+          }
+
+          throw new NotSupportedException();
+        }
+        default:
+        {
+          throw new NotSupportedException();
+        }
       }
-
-      return base.ConvertTo(context, culture, value, destinationType);
     }
   }
 }

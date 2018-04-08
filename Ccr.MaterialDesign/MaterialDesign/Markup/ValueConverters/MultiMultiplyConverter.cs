@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ccr.Xaml.Markup.Converters.Infrastructure;
+﻿using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class MultiMultiplyConverter : XamlConverter<
-    double, 
-    >
+  public class MultiplyConverter : XamlConverter<double, ConverterParam<double>, double>
   {
-
+    public override double Convert(double value, ConverterParam<double> param)
+    {
+      return value * param.Value;
+    }
+  }
+  public class MultiplyMultiConverter : XamlConverter<double, double, NullParam, double>
+  {
+    public override double Convert(double value, double value2, NullParam param)
+    {
+      return value * value2;
+    }
   }
 }

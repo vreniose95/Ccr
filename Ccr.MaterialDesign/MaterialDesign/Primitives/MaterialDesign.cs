@@ -38,7 +38,7 @@ namespace Ccr.MaterialDesign.Primitives
 			DPChangedEventArgs<SwatchClassifier> args)
 		{
       var swatch = GlobalResources
-		    .MaterialDesignPalette
+		    .Palette
 		    .GetSwatch(
 		      args.NewValue);
 

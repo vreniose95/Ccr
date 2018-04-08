@@ -57,7 +57,7 @@ namespace Ccr.MaterialDesign.Markup.Extensions
     {
       var swatch = Static
         .GlobalResources
-        .MaterialDesignPalette
+        .Palette
         .GetSwatch(
           args.NewValue);
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
-using Ccr.Std.Core.Extensions.NumericExtensions;
-using Ccr.Std.Core.Numerics.Ranges;
+using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Core.Numerics.Ranges;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions

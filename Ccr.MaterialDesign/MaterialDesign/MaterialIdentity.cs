@@ -1,5 +1,7 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
+using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Markup.TypeConverters;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 
@@ -22,7 +24,13 @@ namespace Ccr.MaterialDesign
 	  protected static readonly DependencyPropertyKey LuminosityPropertyKey = DP.RegisterReadOnly(
 	    new Meta<MaterialIdentity, Luminosity>());
     public static readonly DependencyProperty LuminosityProperty = LuminosityPropertyKey.DependencyProperty;
+    
 
+	  protected static readonly DependencyPropertyKey OpacityPropertyKey = DP.RegisterReadOnly(
+	    new Meta<MaterialIdentity, double>(1d), opacityPropertyValidator);
+
+	  public static readonly DependencyProperty OpacityProperty = OpacityPropertyKey.DependencyProperty;
+    
 
 
     public SwatchClassifier SwatchClassifier
@@ -40,21 +48,36 @@ namespace Ccr.MaterialDesign
 	    get => (Luminosity)GetValue(LuminosityProperty);
 	    protected set => SetValue(LuminosityPropertyKey, value);
 	  }
+	  public double Opacity
+	  {
+	    get => (double)GetValue(OpacityProperty);
+	    protected set => SetValue(OpacityPropertyKey, value);
+	  }
 
-    
+
     internal MaterialIdentity(
 			SwatchClassifier swatchClassifier,
 			bool isAccent,
-			Luminosity luminosity)
+			Luminosity luminosity,
+      double opacity = 1.0)
 		{
 			SwatchClassifier = swatchClassifier;
 			IsAccent = isAccent;
 			Luminosity = luminosity;
+		  Opacity = opacity;
 		}
 
-	  public override string ToString()
+
+	  private static bool opacityPropertyValidator(
+	    double value)
 	  {
-	    return (IsAccent ? "A" : "") 
+	    return value.IsWithin((0d, 1d));
+	  }
+
+
+    public override string ToString()
+	  {
+	    return (IsAccent ? "A" : "P") 
         + Luminosity.LuminosityIndex;
 	  }
 

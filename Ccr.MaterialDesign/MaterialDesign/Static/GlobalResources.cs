@@ -24,13 +24,12 @@ namespace Ccr.MaterialDesign.Static
 		private static readonly ResourceProvider _paletteResourceProvider;
 
 
-	  private static Palette _materialDesignPalette;
-	  public static Palette MaterialDesignPalette
+	  private static Palette _palette;
+	  public static Palette Palette
 		{
-			get => _materialDesignPalette 
-        ?? (
-          _materialDesignPalette = 
-            _paletteResourceProvider
+			get => _palette
+        ?? (_palette = 
+			       _paletteResourceProvider
               .Get<Palette>("MDH.Palette"));
 		}
 

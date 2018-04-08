@@ -10,7 +10,8 @@
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD720"
              Designer.Orientation="Landscape">
-	<Grid Background="Gray">
+	<Grid Background="Orange">
+		<Border Width="200" Height="200" Background="Black"/>
 		<Card HorizontalAlignment="Center"
 		      VerticalAlignment="Center"
 					Height="520"
@@ -18,7 +19,7 @@
 					Shadow.Level="4"
 					Margin="0"
 					CornerRadius="10"
-		      Background="{Binding Source={StaticResource MDH.Palette.Grey.050}}">
+		      Background="{Binding Source={StaticResource MDH.Palette.Blue.500}}">
 			<!--<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="120"/>
