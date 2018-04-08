@@ -4,9 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using Ccr.Core.Extensions;
-using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
-using Ccr.Introspective.Infrastructure.Context;
+using Ccr.Std.Introspective.Extensions;
+using Ccr.Std.Introspective.Infrastructure;
+using Ccr.Std.Introspective.Infrastructure.Context;
 
 namespace Ccr.Data.EntityFramework.Core
 {

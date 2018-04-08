@@ -53,6 +53,7 @@
     <Compile Include="Core\Extensions\EnumExtensions.cs" />
     <Compile Include="Core\Extensions\ExpressionExtensions.cs" />
     <Compile Include="Core\Extensions\LinqExtensions.cs" />
+    <Compile Include="Core\Extensions\MathExtensions.cs" />
     <Compile Include="Core\Extensions\NumericExtensions\DecimalExtensions.cs" />
     <Compile Include="Core\Extensions\NumericExtensions\DoubleExtensions.cs" />
     <Compile Include="Core\Extensions\NumericExtensions\Int16Extensions.cs" />

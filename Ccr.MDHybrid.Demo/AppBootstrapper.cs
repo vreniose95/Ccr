@@ -22,7 +22,7 @@ namespace Ccr.MDHybrid.Demo
           //{ "WindowStyle", WindowStyle.None }
         };
 
-      DisplayRootViewFor<CardDemoViewModel>(settings);
+      DisplayRootViewFor<RootViewModel>(settings);
     }
   }
 

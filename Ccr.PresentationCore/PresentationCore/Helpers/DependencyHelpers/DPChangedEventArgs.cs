@@ -71,5 +71,25 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		}
 
 		#endregion
-	}
+
+
+
+	  public static implicit operator DependencyPropertyChangedEventArgs(
+	    DPChangedEventArgs<TValue> args)
+	  {
+      return new DependencyPropertyChangedEventArgs(
+        args.Property,
+        args.OldValue,
+        args.NewValue);
+	  }
+
+	  public static DPChangedEventArgs<TValue> CastToGeneric(
+	    DependencyPropertyChangedEventArgs args)
+	  {
+	    return new DPChangedEventArgs<TValue>(
+	      args.Property,
+	      args.OldValue.As<TValue>(),
+	      args.NewValue.As<TValue>());
+	  }
+  }
 }

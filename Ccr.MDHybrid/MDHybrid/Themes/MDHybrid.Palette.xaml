@@ -24,4 +24,5 @@
     <StaticResource ResourceKey="MDH.Palette.Grey"/>
     <StaticResource ResourceKey="MDH.Palette.BlueGrey"/>
   </Palette>
+
 </ResourceDictionary>

@@ -25,7 +25,9 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
 			return Convert(arg1, (TParam)param);
 		}
 
-		public abstract TResult Convert(T1 arg1, TParam param);
+		public abstract TResult Convert(
+		  T1 arg1, 
+		  TParam param);
 
 		object IValueConverter.ConvertBack(
 			object value, 

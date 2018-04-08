@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using JetBrains.Annotations;
 
 namespace Ccr.Std.Core.Extensions
 {
@@ -25,29 +26,39 @@ namespace Ccr.Std.Core.Extensions
         // ReSharper restore BuiltInTypeReferenceStyle
       };
 
-    public static object CreateDefaultForType(
-      this Type @this)
+    //public static object CreateDefaultForType(
+    //  this Type @this)
+    //{
+    //  if (@this.IsGenericOf(typeof(Nullable<>)))
+    //  {
+    //    @this = @this
+    //            .GetGenericArguments()
+    //            .Single();
+    //  }
+
+    //  if (!_defaultTypeInstanceMap.TryGetValue(
+    //    @this,
+    //    out var typeInstance))
+    //  {
+    //    return typeInstance;
+    //  }
+
+    //  var _default = @this.GetDefaultValue();
+    //  _defaultTypeInstanceMap.Add(
+    //    @this,
+    //    _default);
+
+    //  return _default;
+    //}
+    public static object CreateDefaultValue(
+      [NotNull] this Type @this)
     {
-      if (@this.IsGenericOf(typeof(Nullable<>)))
-      {
-        @this = @this
-                .GetGenericArguments()
-                .Single();
-      }
+      @this.IsNotNull(nameof(@this));
 
-      if (!_defaultTypeInstanceMap.TryGetValue(
-        @this,
-        out var typeInstance))
-      {
-        return typeInstance;
-      }
+      if (!@this.IsValueType)
+        return null;
 
-      var _default = @this.GetDefaultValue();
-      _defaultTypeInstanceMap.Add(
-        @this,
-        _default);
-
-      return _default;
+      return Activator.CreateInstance(@this);
     }
   }
 }

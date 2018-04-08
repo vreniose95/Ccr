@@ -52,7 +52,7 @@ namespace Ccr.Data.Common.Constructs
     /// If the full middle name was not supplied, but the middle inital was,
     /// then the returned value will be a single, capitalized character  
     /// initial representing the person's middle name, followed by a period.
-    /// If neither of the two are provided, then <langword>null</langword>
+    /// If neither of the two are pryeahovided, then <langword>null</langword>
     /// will be returned.
     /// </summary>
     [CanBeNull]

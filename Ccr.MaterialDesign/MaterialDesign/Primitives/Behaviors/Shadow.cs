@@ -58,8 +58,25 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
       _type, new MetaBase<double?>(null, onShadowLevelChanged));
 
 
-    public static double GetLevel(DependencyObject i) => i.Get<double>(LevelProperty);
-    public static void SetLevel(DependencyObject i, double v) => i.Set(LevelProperty, v);
+
+    
+    public static readonly DependencyProperty ShadowCacheModeProperty = DP.Attach(
+      typeof(Shadow),
+      new MetaBase<CacheMode>(
+        new BitmapCache()
+        {
+          EnableClearType = false,
+          RenderAtScale = 1,
+          SnapsToDevicePixels = false
+        }, FrameworkPropertyMetadataOptions.Inherits));
+
+
+    public static double GetShadowCacheModeProperty(DependencyObject i
+      ) => i.Get<double>(LevelProperty);
+
+    public static void SetShadowCacheModeProperty(DependencyObject i, double v) 
+      => i.Set(LevelProperty, v);
+
 
 
     //private static bool shadowLevelPropertyValidator(
@@ -88,6 +105,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
         }
       }
     }
+
 
   }
 }

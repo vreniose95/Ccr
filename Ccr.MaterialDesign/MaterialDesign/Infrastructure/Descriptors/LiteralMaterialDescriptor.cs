@@ -11,7 +11,12 @@
 	  {
 	    return LiteralBrush;
 	  }
-	}
+
+	  public LiteralMaterialDescriptor(MaterialBrush brush)
+	  {
+	    LiteralBrush = brush;
+	  }
+  }
 }
 //private double _opacity = 1d;
 //public double Opacity

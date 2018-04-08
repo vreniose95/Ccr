@@ -1,12 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Ccr.Core.Extensions;
 using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
+using Ccr.Std.Core.Extensions;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
+using MemberDescriptor = Ccr.Introspective.Infrastructure.MemberDescriptor;
+using StringExtensions = Ccr.Core.Extensions.StringExtensions;
+using TypeExtensions = Ccr.Core.Extensions.TypeExtensions;
 
 namespace Ccr.Xaml
 {
@@ -27,7 +30,7 @@ namespace Ccr.Xaml
 					value,
 					cultureInfo);
 			}
-			if (parameterType.IsGenericOf(typeof(ConverterParam<>)))
+			if (TypeExtensions.IsGenericOf(parameterType, typeof(ConverterParam<>)))
 			{
 				var valueType = parameterType
 					.GetGenericArguments()
@@ -69,13 +72,18 @@ namespace Ccr.Xaml
 			object callingClass,
 			[CallerMemberName] string callerMemberName = null)
 		{
-			if (destinationValueType.IsGenericOf(typeof(Nullable<>)))
+		  if (destinationValueType.IsGenericOf(typeof(VeridicBinding<>)))
+		  {
+
+		  }
+			if (TypeExtensions.IsGenericOf(destinationValueType, typeof(Nullable<>)))
 			{
         if (value == DependencyProperty.UnsetValue ||
 				    value == null)
 				{
-					return null;
-				}
+          return destinationValueType.CreateDefaultValue();
+          //     return null;
+        }
 				try
 				{
 					destinationValueType = destinationValueType
@@ -92,15 +100,19 @@ namespace Ccr.Xaml
 					throw new InvalidCastException(
 						$"{callingClass.GetType().Name}." +
 						$"{callerMemberName} : Invalid cast from " +
-						$"{value.GetType().FormatName().SQuote()} " +
-						$"to {destinationValueType.FormatName().SQuote()}.");
+						$"{StringExtensions.SQuote(value.GetType().FormatName())} " +
+						$"to {StringExtensions.SQuote(destinationValueType.FormatName())}.");
 				}
 			}
 			if (value == DependencyProperty.UnsetValue ||
 			    value == null)
 			{
 				if (destinationValueType.IsValueType)
-					throw new NotSupportedException();
+				{
+				  return destinationValueType.CreateDefaultValue();
+
+				  //throw new NotSupportedException();
+				}
 
 				return null;
 			}

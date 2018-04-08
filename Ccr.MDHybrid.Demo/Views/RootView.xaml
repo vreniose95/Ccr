@@ -10,24 +10,47 @@
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD720"
              Designer.Orientation="Landscape">
-	<Grid Background="White">
-		<DockPanel HorizontalAlignment="Center"
+	<Grid Background="Gray">
+		<Card HorizontalAlignment="Center"
 		      VerticalAlignment="Center"
-					Height="300"
+					Height="520"
+					Width="600"
 					Shadow.Level="4"
-		      Background="{Binding Source={StaticResource MDH.Palette.Indigo.800}}">
-			
-			<Card DockPanel.Dock="Top"
-			      Background="{Binding Source={StaticResource MDH.Palette.Cyan.300}}">
-				<Label Style="{StaticResource _t18pLSubheadMed}"
-				       Content="John Doe"
-				       Padding="20 10"/>
-			</Card>
-			<Grid>
+					Margin="0"
+					CornerRadius="10"
+		      Background="{Binding Source={StaticResource MDH.Palette.Grey.050}}">
+			<!--<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="120"/>
+					<RowDefinition />
+				</Grid.RowDefinitions>
 
-			</Grid>
-		</DockPanel>
-		
+				<Grid Margin="0"
+				      Shadow.Level="2"
+				      Panel.ZIndex="1000">
+					
+					<Image Source="/Ccr.MDHybrid.Demo;component/Resources/snowy-forest.jpg" 
+					       Stretch="UniformToFill" 
+					       VerticalAlignment="Center">
+						<Image.RenderTransform>
+							<TranslateTransform Y="0"/>
+						</Image.RenderTransform>
+					</Image>
+					<Label Style="{StaticResource t24pHeadline}"
+					       Content="Card Main Title"
+								 FontWeight="Medium"
+								 HorizontalContentAlignment="Left"
+								 VerticalContentAlignment="Bottom"
+					       Padding="40 15"/>
+				</Grid>
+				<Grid Grid.Row="1" 
+				      Panel.ZIndex="0" Height="400">
+
+				</Grid>
+
+			</Grid>-->
+		</Card>
+
 
 		<!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>

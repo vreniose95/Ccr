@@ -15,5 +15,4 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
       return arg1.ToString().ToUpper();
     }
   }
-  
 }

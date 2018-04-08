@@ -10,10 +10,19 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
       NullParam,
       SolidColorBrush>
   {
-    public override SolidColorBrush Convert(SolidColorBrush background, NullParam param)
+    public override SolidColorBrush Convert(
+      SolidColorBrush background, 
+      NullParam param)
     {
-      var blackDifference = background.Color.Differential(Colors.Black);
-      var whiteDifference = background.Color.Differential(Colors.White);
+      var blackDifference = background
+                            .Color
+                            .Differential(
+                              Colors.Black);
+
+      var whiteDifference = background
+                            .Color
+                            .Differential(
+                              Colors.White);
 
       if (blackDifference > whiteDifference)
         return Brushes.Black;

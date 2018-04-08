@@ -53,6 +53,7 @@
     <Compile Include="Xaml\Collections\ReactiveDependencyObjectCollection.cs" />
     <Compile Include="Xaml\Infrastructure\AbstractSingletonFactory.cs" />
     <Compile Include="Xaml\Infrastructure\IAbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\Infrastructure\MarkupSingleton.cs" />
     <Compile Include="Xaml\LogicalTree\FrameworkContextualNode.cs" />
     <Compile Include="Xaml\LogicalTree\IVirtualDictionaryScope.cs" />
     <Compile Include="Xaml\LogicalTree\Propogation\Collections\TreeNodeCollectionBase.cs" />
@@ -66,10 +67,16 @@
     <Compile Include="Xaml\LogicalTree\TreeNodeBase.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\ConverterParam.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\NullParam.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\VeridicTemplate.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%271.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%272.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%273.cs" />
     <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%274.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%275.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%276.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%277.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%278.cs" />
+    <Compile Include="Xaml\Markup\Converters\Infrastructure\XamlConverter%279.cs" />
     <Compile Include="Xaml\Markup\Converters\Injection\XamlConverterTypeDescriptorProvider.cs" />
     <Compile Include="Xaml\Markup\Core\ObservableMarkupExtension.cs" />
     <Compile Include="Xaml\Markup\Extensions\MarkupExtensionAbstractSingletonFactory.cs" />
@@ -85,6 +92,10 @@
     <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
       <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
       <Name>Ccr.Introspective</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
+      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
+      <Name>Ccr.Std.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

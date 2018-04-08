@@ -67,6 +67,8 @@
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DependencyProperty.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DP.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPChangedEventArgs.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPExtensions.cs" />
+    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPExtOptions.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\Meta.cs" />
     <Compile Include="PresentationCore\Helpers\EventHelpers\EM.cs" />
     <Compile Include="PresentationCore\Helpers\ResourceProvider.cs" />
