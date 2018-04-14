@@ -19,7 +19,7 @@ namespace Ccr.MDHybrid.Demo
         {
           { "SizeToContent", SizeToContent.Manual },
           { "WindowState" , WindowState.Maximized },
-          //{ "WindowStyle", WindowStyle.None }
+          { "WindowStyle", WindowStyle.None }
         };
 
       DisplayRootViewFor<RootViewModel>(settings);

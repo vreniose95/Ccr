@@ -49,6 +49,7 @@
     <Compile Include="Core\Assurance\Assure.cs" />
     <Compile Include="Core\Extensions\AssertionExtensions.cs" />
     <Compile Include="Core\Extensions\CharExtensions.cs" />
+    <Compile Include="Core\Helpers\ParsingHelpers.cs" />
     <Compile Include="Core\Extensions\DoubleExtensions.cs" />
     <Compile Include="Core\Extensions\EnumExtensions.cs" />
     <Compile Include="Core\Extensions\ExpressionExtensions.cs" />

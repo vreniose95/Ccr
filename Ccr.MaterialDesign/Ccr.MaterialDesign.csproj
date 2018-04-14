@@ -110,6 +110,7 @@
     <Compile Include="MaterialDesign\MVVM\ViewModelBase.cs" />
     <Compile Include="MaterialDesign\Palette.cs" />
     <Compile Include="MaterialDesign\Parsers\TextualStyleParser.cs" />
+    <Compile Include="MaterialDesign\Primitives\Behaviors\Material.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Services\HintAssist.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\Ripple.cs" />
     <Compile Include="MaterialDesign\Primitives\Behaviors\RippleSurface.cs" />
@@ -148,10 +149,6 @@
       <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
       <Name>Ccr.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
-      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
-      <Name>Ccr.Introspective</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.Parsing\Ccr.Parsing.csproj">
       <Project>{41b1d9b2-10cb-46b5-a861-1ebfd1016a8c}</Project>
       <Name>Ccr.Parsing</Name>
@@ -163,6 +160,10 @@
     <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
       <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
       <Name>Ccr.Std.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj">
+      <Project>{93b9ac1d-756e-4533-8b8f-5213841c2aef}</Project>
+      <Name>Ccr.Std.Introspective</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj">
       <Project>{a61f3ed9-9c1e-4612-ba97-54be78a1a146}</Project>

@@ -1,25 +1,35 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Ccr.Core.TypeSystemInfo;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
 {
   public static class RegexExtensions
   {
-    public static Int16 Extract(
-      this Match @this,
-      [NotNull] string groupName)
-    {
-      var strValue = @this.Groups[groupName].Value;
+    //public static Int16 ExtractInt16(
+    //  this Match @this,
+    //  [NotNull] string groupName)
+    //{
+    //  var strValue = @this.Groups[groupName].Value;
       
-      if (!Int16.TryParse(strValue, out var value))
-        throw new FormatException(
-          $"Cannot parse {typeof(Int16).Name.SQuote()} object from " +
-          $"the string value {strValue.Quote()}.");
+    //  if (!Int16.TryParse(strValue, out var value))
+    //    throw new FormatException(
+    //      $"Cannot parse {typeof(Int16).FormatName().SQuote()} object from the string value " +
+    //      $"{strValue.Quote()}.");
 
-      return value;
-    }
+    //  return value;
+    //}
+
+    //public static TResult Extract<TResult>(
+    //  this Match @this,
+    //  int groupIndex)
+    //{
+    //  var strValue = @this.Groups[groupIndex].Value;
+
+    //  return 
+    //}
+
+
 
     //public static TValue Extract<TValue>(
     //  this Match @this,

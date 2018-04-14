@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Threading;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
@@ -74,6 +75,7 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 		public ICommand ChangeItCommand => new Command(
 			t =>
 			{
+        
 				TestProperty = "Yuppppppp";
 			});
 

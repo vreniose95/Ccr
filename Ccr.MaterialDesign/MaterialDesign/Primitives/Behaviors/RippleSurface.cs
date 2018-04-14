@@ -29,7 +29,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 
 
 		public static readonly DependencyProperty FeedbackProperty = DP.Register(
-			new Meta<RippleSurface, Material>());
+			new Meta<RippleSurface, MaterialBrush>());
 
 		public static readonly DependencyProperty RecognizesAccessKeyProperty = DP.Register(
 			new Meta<RippleSurface, bool>());
@@ -66,9 +66,9 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			get => (double) GetValue(RippleYProperty);
 			protected set => SetValue(RippleYPropertyKey, value);
 		}
-		public Material Feedback
+		public MaterialBrush Feedback
 		{
-			get => (Material) GetValue(FeedbackProperty);
+			get => (MaterialBrush) GetValue(FeedbackProperty);
 			set => SetValue(FeedbackProperty, value);
 		}
 		public bool RecognizesAccessKey

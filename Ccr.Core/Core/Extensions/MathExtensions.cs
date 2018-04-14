@@ -4,6 +4,7 @@ namespace Ccr.Core.Extensions
 {
   public static class MathExtensions
   {
+    #region Absolute Value Extension Methods
     /// <inheritdoc cref="Math.Abs(sbyte)"/>
     public static sbyte Abs(
       this sbyte @this)
@@ -53,12 +54,21 @@ namespace Ccr.Core.Extensions
       return Math.Abs(@this);
     }
 
+    #endregion
 
-    /// <inheritdoc cref="Math.Acos(double)"/>
-    public static double Acos(
+    #region Trigonometry Functions and Variants
+    /// <inheritdoc cref="Math.Sin(double)"/>
+    public static double Sin(
       this double @this)
     {
-      return Math.Acos(@this);
+      return Math.Sin(@this);
+    }
+
+    /// <inheritdoc cref="Math.Sinh(double)"/>
+    public static double HyperbolicSin(
+      this double @this)
+    {
+      return Math.Sinh(@this);
     }
 
     /// <inheritdoc cref="Math.Asin(double)"/>
@@ -66,29 +76,6 @@ namespace Ccr.Core.Extensions
       this double @this)
     {
       return Math.Asin(@this);
-    }
-
-    /// <inheritdoc cref="Math.Atan(double)"/>
-    public static double Atan(
-      this double @this)
-    {
-      return Math.Atan(@this);
-    }
-
-
-
-    /// <inheritdoc cref="Math.Ceiling(decimal)"/>
-    public static decimal Ceiling(
-      this decimal @this)
-    {
-      return Math.Ceiling(@this);
-    }
-
-    /// <inheritdoc cref="Math.Ceiling(double)"/>
-    public static double Ceiling(
-      this double @this)
-    {
-      return Math.Ceiling(@this);
     }
 
 
@@ -106,13 +93,51 @@ namespace Ccr.Core.Extensions
       return Math.Cosh(@this);
     }
 
+    /// <inheritdoc cref="Math.Acos(double)"/>
+    public static double Acos(
+      this double @this)
+    {
+      return Math.Acos(@this);
+    }
 
-    /// <inheritdoc cref="Math.Floor(decimal)"/>
-    public static decimal Floor(
+
+    /// <inheritdoc cref="Math.Tan(double)"/>
+    public static double Tan(
+      this double @this)
+    {
+      return Math.Tan(@this);
+    }
+    /// <inheritdoc cref="Math.Tanh(double)"/>
+    public static double HyperbolicTan(
+      this double @this)
+    {
+      return Math.Tanh(@this);
+    }
+
+    /// <inheritdoc cref="Math.Atan(double)"/>
+    public static double Atan(
+      this double @this)
+    {
+      return Math.Atan(@this);
+    }
+
+    #endregion
+
+    #region Floor and Ceiling Functions
+    /// <inheritdoc cref="Math.Ceiling(double)"/>
+    public static double Ceiling(
+      this double @this)
+    {
+      return Math.Ceiling(@this);
+    }
+
+    /// <inheritdoc cref="Math.Ceiling(decimal)"/>
+    public static decimal Ceiling(
       this decimal @this)
     {
-      return Math.Floor(@this);
+      return Math.Ceiling(@this);
     }
+
 
     /// <inheritdoc cref="Math.Floor(double)"/>
     public static double Floor(
@@ -121,36 +146,16 @@ namespace Ccr.Core.Extensions
       return Math.Floor(@this);
     }
 
-
-
-    /// <inheritdoc cref="Math.Sin(double)"/>
-    public static double Sin(
-      this double @this)
+    /// <inheritdoc cref="Math.Floor(decimal)"/>
+    public static decimal Floor(
+      this decimal @this)
     {
-      return Math.Sin(@this);
+      return Math.Floor(@this);
     }
 
-    /// <inheritdoc cref="Math.Tan(double)"/>
-    public static double Tan(
-      this double @this)
-    {
-      return Math.Tan(@this);
-    }
+    #endregion
 
-    /// <inheritdoc cref="Math.Sinh(double)"/>
-    public static double HyperbolicSin(
-      this double @this)
-    {
-      return Math.Sinh(@this);
-    }
-
-    /// <inheritdoc cref="Math.Tanh(double)"/>
-    public static double HyperbolicTan(
-      this double @this)
-    {
-      return Math.Tanh(@this);
-    }
-
+    #region Rounding Functions
     /// <inheritdoc cref="Math.Round(double)"/>
     public static double Round(
       this double @this)
@@ -187,7 +192,6 @@ namespace Ccr.Core.Extensions
         digits,
         mode);
     }
-
 
 
     /// <inheritdoc cref="Math.Round(decimal)"/>
@@ -227,7 +231,9 @@ namespace Ccr.Core.Extensions
         mode);
     }
 
+    #endregion
 
+    #region Truncation Functions
     /// <inheritdoc cref="Math.Truncate(decimal)"/>
     public static decimal Truncate(
       this decimal @this)
@@ -242,7 +248,25 @@ namespace Ccr.Core.Extensions
       return Math.Truncate(@this);
     }
 
+    #endregion
 
+    #region Exponentially Related Functions
+    /// <inheritdoc cref="Math.Exp(double)"/>
+    public static double Exp(
+      this double @this)
+    {
+      return Math.Exp(@this);
+    }
+
+    /// <inheritdoc cref="Math.Pow(double,double)"/>
+    public static double Power(
+      this double @this,
+      double power)
+    {
+      return Math.Pow(
+        @this,
+        power);
+    }
     /// <inheritdoc cref="Math.Sqrt(double)"/>
     public static double Sqrt(
       this double @this)
@@ -250,7 +274,9 @@ namespace Ccr.Core.Extensions
       return Math.Sqrt(@this);
     }
 
+    #endregion
 
+    #region Logarithmically Related Functions
     /// <inheritdoc cref="Math.Log(double)"/>
     public static double Log(
       this double @this)
@@ -265,34 +291,6 @@ namespace Ccr.Core.Extensions
       return Math.Log10(@this);
     }
 
-    /// <inheritdoc cref="Math.Exp(double)"/>
-    public static double Exp(
-      this double @this)
-    {
-      return Math.Exp(@this);
-    }
-
-    /// <inheritdoc cref="Math.Pow(double,double)"/>
-    public static double Power(
-      this double @this,
-      double power)
-    {
-      return Math.Pow(
-        @this, 
-        power);
-    }
-
-    /// <inheritdoc cref="Math.IEEERemainder(double,double)"/>
-    public static double IEEERemainder(
-      this double @this,
-      double dividend)
-    {
-      return Math.IEEERemainder(
-        @this, 
-        dividend);
-    }
-    
-
     /// <inheritdoc cref="Math.Log(double,double)"/>
     public static double Log(
       this double @this,
@@ -303,6 +301,9 @@ namespace Ccr.Core.Extensions
         newBase);
     }
 
+    #endregion
+
+    #region Integral Multiplication/Division and Remainder/Quotient Functions
     /// <inheritdoc cref="Math.BigMul(int,int)"/>
     public static long BigMul(
       this int @this,
@@ -336,5 +337,18 @@ namespace Ccr.Core.Extensions
         value,
         out result);
     }
+
+    /// <inheritdoc cref="Math.IEEERemainder(double,double)"/>
+    public static double IEEERemainder(
+      this double @this,
+      double dividend)
+    {
+      return Math.IEEERemainder(
+        @this,
+        dividend);
+    }
+
+    #endregion
+
   }
 }

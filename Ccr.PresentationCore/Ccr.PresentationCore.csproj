@@ -64,6 +64,7 @@
     <Compile Include="PresentationCore\Controls\PageOrientation.cs" />
     <Compile Include="PresentationCore\Controls\Viewport.cs" />
     <Compile Include="PresentationCore\Helpers\BoolBoxes.cs" />
+    <Compile Include="PresentationCore\Helpers\CcrVisualTreeHelpers.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\Callbacks.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DependencyProperty.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DP.cs" />

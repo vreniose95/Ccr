@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;

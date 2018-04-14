@@ -3,41 +3,41 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using JetBrains.Annotations;
+using static JetBrains.Annotations.AssertionConditionType;
 
 namespace Ccr.Std.Core.Extensions
 {
 	public static class StringExtensions
 	{
-	  public static bool IsNullOrWhiteSpace(
+    /// <inheritdoc cref="string.IsNullOrWhiteSpace"/>
+    public static bool IsNullOrWhiteSpace(
 	    this string @this)
 	  {
-	    return string.IsNullOrWhiteSpace(@this);
+	    return string.IsNullOrWhiteSpace(
+	      @this);
 	  }
 
-		/// <summary>
-		/// Assertion method that ensures that <paramref name="this"/> is not null
-		/// </summary>
-		/// <param name="this">
-		/// The object in which to ensure non-nullability upon
-		/// </param>
-		[ContractAnnotation("this:null => true"), AssertionMethod]
+    /// <inheritdoc cref="string.IsNullOrEmpty"/>
 		public static bool IsNullOrEmptyEx(
-			[AssertionCondition(AssertionConditionType.IS_NULL)] this string @this)
+			[AssertionCondition(IS_NULL)] this string @this)
 		{
-			return string.IsNullOrEmpty(@this);
+			return string.IsNullOrEmpty(
+			  @this);
 		}
 
-		/// <summary>
-		/// Assertion method that ensures that <paramref name="this"/> is not null
-		/// </summary>
-		/// <param name="this">
-		/// The object in which to ensure non-nullability upon
-		/// </param>
-		[ContractAnnotation("this:null => false"), AssertionMethod]
-		public static bool IsNotNullOrEmptyEx(
-			[AssertionCondition(AssertionConditionType.IS_NOT_NULL)] this string @this)
+    /// <summary>
+    ///   Extension method for the logical inverse of the <see cref="string.IsNullOrEmpty"/> 
+    ///   method. This is syntactic sugar for !string.IsNullOrEmpty(string)
+    /// </summary>
+    /// <param name="this">
+    /// The object in which to ensure non-nullability upon
+    /// </param>
+    [ContractAnnotation("this:null => false"), AssertionMethod]
+		public static bool IsNotNullOrEmpty(
+			[AssertionCondition(IS_NOT_NULL)] this string @this)
 		{
-			return !string.IsNullOrEmpty(@this);
+			return !string.IsNullOrEmpty(
+			  @this);
 		}
 
 		//IsNotNullOrEmptyEx

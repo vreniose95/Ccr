@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Markup.TypeConverters;
@@ -77,8 +76,8 @@ namespace Ccr.MaterialDesign
 
     public override string ToString()
 	  {
-	    return (IsAccent ? "A" : "P") 
-        + Luminosity.LuminosityIndex;
+	    return SwatchClassifier.ToString() + (IsAccent ? "A" : "P") 
+        + Luminosity.LuminosityIndex.ToString("000");
 	  }
 
 

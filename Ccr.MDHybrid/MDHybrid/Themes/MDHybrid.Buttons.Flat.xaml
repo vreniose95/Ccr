@@ -3,139 +3,109 @@
                     xmlns:valueConverters1="clr-namespace:Ccr.MaterialDesign.Markup.ValueConverters;assembly=Ccr.MaterialDesign">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml" />
+		<ResourceDictionary Source="MDHybrid.Text.xaml" />
 	</ResourceDictionary.MergedDictionaries>
-	
-	<ControlTemplate x:Key="ControlTemplate_FlatButton"
-									 TargetType="Button">
-		<Border Background="{TemplateBinding Background}">
-			<Grid x:Name="PART_Root" 
-						ClipToBounds="{TemplateBinding ClipToBounds}">
-				<Ripple.TrackingService>
-					<RippleMouseTracker EventName="Click">
-						<RippleMouseTracker.SourceObject>
-							<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}"/>
-						</RippleMouseTracker.SourceObject>
-					</RippleMouseTracker>
-				</Ripple.TrackingService>
-				<Grid.Background>
-					<SolidColorBrush Opacity="0" 
-													 Color="Black"/>
-				</Grid.Background>
-				<Canvas>
-					<Canvas.RenderTransform>
-						<TranslateTransform>
-							<Ripple.Placement>
-								<MultiBinding Converter="{valueConverters1:RipplePlacementConverter}">
-									<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
-									<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-									<Binding Path="ActualHeight" ElementName="PART_Ripple"/>
-									<Binding Path="(Ripple.MousePosition)" RelativeSource="{RelativeSource FindAncestor, AncestorType=Grid}"/>
-								</MultiBinding>
-							</Ripple.Placement>
-						</TranslateTransform>
-					</Canvas.RenderTransform>
-					<Ellipse x:Name="PART_Ripple"
-									 RenderTransformOrigin=".5,.5" 
-					         VerticalAlignment="Center" 
-									 HorizontalAlignment="Center"
-					         IsHitTestVisible="False">
-						<Ellipse.RenderTransform>
-							<ScaleTransform ScaleX="0" ScaleY="0"/>
-						</Ellipse.RenderTransform>
-						<Ellipse.Fill>
-							White
-							<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
-						</Ellipse.Fill>
-						<Ellipse.Height>
-							<MultiBinding Converter="{RippleDiameterConverter}" 
-														ConverterParameter="2">
-								<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
-								<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-								<Binding Path="(Ripple.MousePosition)" RelativeSource="{RelativeSource FindAncestor, AncestorType=Grid}"/>
-							</MultiBinding>
-						</Ellipse.Height>
-						<Ellipse.Width>
-							<Binding RelativeSource="{RelativeSource Self}" Path="ActualHeight" />
-						</Ellipse.Width>
-					</Ellipse>
-				</Canvas>
-				<ContentPresenter x:Name="PART_ContentPresenter" 
-				                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-				                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-				                  Margin="{TemplateBinding Padding}"/>
-			</Grid>
-		</Border>
-		<!--<ControlTemplate.Triggers>
-			<EventTrigger RoutedEvent="Click">
-				<BeginStoryboard>
-					<Storyboard SpeedRatio="2">
-						<DoubleAnimation Storyboard.TargetName="PART_Ripple"
-						                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-						                 From="0" To="1"
-						                 Duration="0:0:0.75" 
-						                 EasingFunction="{EaseOut Quad}"/>
 
-						<DoubleAnimation Storyboard.TargetName="PART_Ripple"
-						                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
-						                 From="0" To="1"
-						                 Duration="0:0:0.75" 
-						                 EasingFunction="{EaseOut Quad}"/>
-
-						<DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Ripple" 
-						                               Storyboard.TargetProperty="Opacity">
-							<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.00"/>
-							<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.10"/>
-							<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.60"/>
-							<SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.75"/>
-						</DoubleAnimationUsingKeyFrames>
-					</Storyboard>
-				</BeginStoryboard>
-			</EventTrigger>
-		</ControlTemplate.Triggers>-->
-		<!--<ControlTemplate.Triggers>
-						<Trigger Property="IsEnabled" Value="False">
-							-->
-		<!--<Setter TargetName="PART_mouseoverbrush" Property="Color" Value="Transparent"/>-->
-		<!--
-							<Setter TargetName="PART_ContentPresenter" Property="TextElement.Foreground" Value="{StaticResource mtGrey500}"/>
-						</Trigger>
-						<EventTrigger RoutedEvent="ListViewItem.Selected">
-							<BeginStoryboard>
-								<Storyboard SpeedRatio="1">
-									<DoubleAnimation Storyboard.TargetName="PART_Ripple" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" 
-																											From="0" To="1" Duration="0:0:0.6" EasingFunction="{Ease Out, Quad}"/>
-
-									<DoubleAnimation Storyboard.TargetName="PART_Ripple" Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" 
-																											From="0" To="1" Duration="0:0:0.6" EasingFunction="{Ease Out, Quad}"/>
-
-									<DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Ripple" Storyboard.TargetProperty="Opacity">
-										<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.00"/>
-										<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.05"/>
-										<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.60"/>
-										<SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.75"/>
-									</DoubleAnimationUsingKeyFrames>
-
-								</Storyboard>
-							</BeginStoryboard>
-						</EventTrigger>
-					</ControlTemplate.Triggers>-->
-	</ControlTemplate>
-
-
-	<Style x:Key="FlatButton" TargetType="Button">
+	<Style x:Key="FlatButton" TargetType="Button" BasedOn="{StaticResource t14pButton}">
 		<Style.Setters>
-			<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Teal.500}"/>
+			<Setter Property="Foreground" Value="{StaticResource MDH.Palette2.Teal.500}"/>
 			<Setter Property="Background" Value="Transparent"/>
+			<!--<Setter Property="MaterialDesign.VisualFeedback" Value="{StaticResource MDH.Palette2.Red.A400}"/>-->
 			<Setter Property="BorderThickness" Value="0"/>
 			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 			<Setter Property="Padding" Value="24 0"/>
 			<Setter Property="ClipToBounds" Value="True"/>
 			<Setter Property="MinWidth" Value="96"/>
 			<Setter Property="MinHeight" Value="72"/>
-			<Setter Property="Template" Value="{StaticResource ControlTemplate_FlatButton}"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border Background="{TemplateBinding Background}">
+							<Grid x:Name="PART_Root" ClipToBounds="{TemplateBinding ClipToBounds}">
+								<Ripple.TrackingService>
+									<RippleMouseTracker EventName="Click">
+										<RippleMouseTracker.SourceObject>
+											<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}"/>
+										</RippleMouseTracker.SourceObject>
+									</RippleMouseTracker>
+								</Ripple.TrackingService>
+								<Grid.Background>
+									<SolidColorBrush Opacity="0" Color="Black"/>
+								</Grid.Background>
+								<Canvas>
+									<Canvas.RenderTransform>
+										<TranslateTransform>
+											<Ripple.Placement>
+												<MultiBinding Converter="{valueConverters1:RipplePlacementConverter}">
+													<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+													<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+													<Binding ElementName="PART_Ripple" Path="ActualHeight"/>
+													<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
+												</MultiBinding>
+											</Ripple.Placement>
+										</TranslateTransform>
+									</Canvas.RenderTransform>
+									<Ellipse x:Name="PART_Ripple"
+									         RenderTransformOrigin=".5,.5" 
+									         VerticalAlignment="Center" 
+									         HorizontalAlignment="Center"
+									         IsHitTestVisible="False">
+										<Ellipse.RenderTransform>
+											<ScaleTransform ScaleX="0" ScaleY="0"/>
+										</Ellipse.RenderTransform>
+										<Ellipse.Fill>
+											<Binding RelativeSource="{RelativeSource TemplatedParent}" 
+											         Path="(MaterialDesign.VisualFeedback)"/>
+										</Ellipse.Fill>
+										<Ellipse.Height>
+											<MultiBinding Converter="{RippleDiameterConverter}" 
+											              ConverterParameter="2">
+												<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+												<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+												<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
+											</MultiBinding>
+										</Ellipse.Height>
+										<Ellipse.Width>
+											<Binding RelativeSource="{RelativeSource Self}" Path="ActualHeight" />
+										</Ellipse.Width>
+									</Ellipse>
+								</Canvas>
+								<ContentPresenter x:Name="PART_ContentPresenter"
+								                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+								                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+								                  Margin="{TemplateBinding Padding}"/>
+							</Grid>
+						</Border>
+						<ControlTemplate.Triggers>
+							<EventTrigger RoutedEvent="Button.Click">
+								<BeginStoryboard>
+									<Storyboard SpeedRatio="1">
+										<DoubleAnimation Storyboard.TargetName="PART_Ripple"
+										                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+										                 From="0" To="1"
+										                 Duration="0:0:0.75" 
+										                 EasingFunction="{EaseOut Quad}"/>
+
+										<DoubleAnimation Storyboard.TargetName="PART_Ripple"
+										                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+										                 From="0" To="1"
+										                 Duration="0:0:0.75" 
+										                 EasingFunction="{EaseOut Quad}"/>
+
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_Ripple" 
+										                               Storyboard.TargetProperty="Opacity">
+											<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.00"/>
+											<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.10"/>
+											<SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.60"/>
+											<SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.75"/>
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</BeginStoryboard>
+							</EventTrigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
 		</Style.Setters>
 	</Style>
-	
-	
-	
-</ResourceDictionary> 
+</ResourceDictionary>  

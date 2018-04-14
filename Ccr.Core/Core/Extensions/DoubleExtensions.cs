@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccr.Core.Extensions
+﻿namespace Ccr.Core.Extensions
 {
 	public static class DoubleExtensions
 	{

@@ -3,9 +3,17 @@ using System.Windows;
 using System.Windows.Media;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
+  public class TestC : XamlConverter<object, NullParam, object>
+  {
+    public override object Convert(object arg1, NullParam param)
+    {
+      return arg1;
+    }
+  }
 	public static class Ripple
 	{
 		private static readonly Type type = typeof(Ripple);

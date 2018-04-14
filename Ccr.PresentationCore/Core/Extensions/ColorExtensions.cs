@@ -244,7 +244,7 @@ namespace Ccr.Core.Extensions
     {
       @this.IsNotNull(nameof(@this));
 
-      if (opacity.IsNotWithin(new DoubleRange(0d, 1d)))
+      if (opacity.IsNotWithin((0d, 1d)))
         throw new ArgumentOutOfRangeException(
           nameof(opacity),
           opacity,

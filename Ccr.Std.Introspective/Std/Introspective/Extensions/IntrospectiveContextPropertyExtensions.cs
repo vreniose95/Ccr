@@ -79,42 +79,66 @@ namespace Ccr.Std.Introspective.Extensions
 	  }
 
 
-  }
+
+
+    public static void SetPropertyValue<TValue>(
+      [NotNull] this IntrospectiveContext @this,
+      [NotNull] MemberDescriptor memberDescriptor,
+      [NotNull] string propertyName,
+      [CanBeNull] TValue value)
+    {
+      @this.IsNotNull(nameof(@this));
+      memberDescriptor.IsNotNull(nameof(memberDescriptor));
+      propertyName.IsNotNull(nameof(propertyName));
+
+      var ownerType = @this.GetType();
+      var propertyInfo = ownerType.GetProperty(
+        propertyName,
+        memberDescriptor);
+
+      if (propertyInfo == null)
+        throw new MissingMemberException(
+          ownerType.Name, 
+          nameof(propertyInfo));
+
+      propertyInfo.SetValue(
+        @this, 
+        value);
+    }
+
+    public static object GetPropertyValue(
+      [NotNull] this IntrospectiveContext @this,
+      [NotNull] MemberDescriptor memberDescriptor,
+      [NotNull] string fieldName) 
+    {
+      return @this.GetFieldValue<object>(
+        memberDescriptor,
+        fieldName);
+    }
+
+	  public static TValue GetPropertyValue<TValue>(
+	    [NotNull] this IntrospectiveContext @this,
+	    [NotNull] MemberDescriptor memberDescriptor,
+	    [NotNull] string propertyName)
+	  {
+	    @this.IsNotNull(nameof(@this));
+	    memberDescriptor.IsNotNull(nameof(memberDescriptor));
+	    propertyName.IsNotNull(nameof(propertyName));
+
+	    var ownerType = @this.TargetType;
+	    var propertyInfo = ownerType.GetProperty(
+	      propertyName,
+	      memberDescriptor);
+
+	    if (propertyInfo == null)
+	      throw new MissingMemberException(
+	        ownerType.Name,
+	        nameof(propertyInfo));
+
+	    var boxedValue = propertyInfo.GetValue(
+	      @this.TargetObject);
+
+	    return (TValue) boxedValue;
+	  }
+	}
 }
-
-
-
-//public static TValue CreateInstance<TValue>(
-//	[NotNull] this IntrospectiveStaticContext @this,
-//	[NotNull] MemberDescriptor descriptor,
-//	[ItemCanBeNull] params object[] arguments)
-//{
-//	@this.ThrowIfNull();
-//	descriptor.ThrowIfNull();
-
-//	var parameterTypes = arguments
-//		.Select(t => t?.GetType())
-//		.ToArray();
-
-//	var constructorInfo = @this.TargetType.GetConstructor(
-//		descriptor,
-//		null,
-//		CallingConventions.Any,
-//		parameterTypes,
-//		new ParameterModifier[] { });
-
-//	if (constructorInfo == null)
-//		throw new TypeInitializationException(@this.TargetType.FullName, null);
-
-//	var instance = constructorInfo.Invoke(arguments);
-//	var valueType = typeof(TValue);
-
-//	if (!valueType.IsInstanceOfType(instance))
-//	{
-
-//	}
-//	return (TValue)instance;
-
-//	//throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");
-//}
-

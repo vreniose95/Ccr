@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Media;
 using System.Xaml;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
@@ -69,7 +70,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       var destinationTypeProvider =
         context.GetService(
             typeof(IDestinationTypeProvider))
-          as IDestinationTypeProvider;
+               .As<IDestinationTypeProvider>();
 
       if (destinationTypeProvider == null)
         throw new NullReferenceException(

@@ -57,8 +57,9 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
       var luminosity = new Luminosity(luminosityVal, isAccent);
 
       if (!Enum.TryParse(swatchName, out SwatchClassifier swatchClassifier))
-        throw new FormatException(
-          $"\"{swatchName}\" cannot be parsed into a \'SwatchClassifier\' enum object.");
+        swatchClassifier = SwatchClassifier.Blue;
+        //throw new FormatException(
+        //  $"\"{swatchName}\" cannot be parsed into a \'SwatchClassifier\' enum object.");
 
       return new MaterialIdentity(
         swatchClassifier,
@@ -78,7 +79,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
         var identity = value.As<MaterialIdentity>();
         return identity.ToString();
 
-        return (identity.IsAccent ? "A" : "") + identity.Luminosity.LuminosityIndex;
+        return identity.SwatchClassifier.ToString() + (identity.IsAccent ? "A" : "" + identity.Luminosity.LuminosityIndex);
       }
 
       return base.ConvertTo(context, culture, value, destinationType);

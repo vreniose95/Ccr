@@ -21,9 +21,15 @@ namespace Ccr.Std.Core.Extensions
 					t => Enum.GetName(_type, t));
 		}
 
-		public static IEnumerable<T> GetValues<T>()
+		public static IEnumerable<TEnum> GetValues<TEnum>()
 		{
-			return Enum.GetValues(typeof(T)).Cast<T>();
+		  var type = typeof(TEnum);
+      if (!type.IsEnum)
+        throw new NotSupportedException(
+          $"The type {typeof(TEnum).Name.SQuote()} provided by the generic type parameter " +
+          $"{nameof(TEnum).SQuote()} is not supported for this method as it is not an enum.");
+
+			return Enum.GetValues(type).Cast<TEnum>();
 		}
 
 		public static TUnderlyingType Add<TUnderlyingType>(
@@ -96,9 +102,12 @@ namespace Ccr.Std.Core.Extensions
 
 
 			public EnumRuntimeTypeManipulator(
-				Type enumType,
-				Type underlyingType)
+				[NotNull] Type enumType,
+				[NotNull] Type underlyingType)
 			{
+        enumType.IsNotNull(nameof(enumType));
+        underlyingType.IsNotNull(nameof(enumType));
+
 				EnumType = enumType;
 				UnderlyingType = underlyingType;
 			}
