@@ -1,15 +1,6 @@
-﻿using System;
-
-namespace Ccr.Xaml.Infrastructure
+﻿namespace Ccr.Xaml.Infrastructure
 {
-	public interface IAbstractSingletonFactoryBase
-	{
-		object GetInstanceBase(
-			Type type,
-			params object[] constructorArgs);
-	}
-
-	public interface IAbstractSingletonFactory<in TValue> :
+  public interface IAbstractSingletonFactory<in TValue> :
 		IAbstractSingletonFactoryBase
 	{
 		TResult GetInstance<TResult>(

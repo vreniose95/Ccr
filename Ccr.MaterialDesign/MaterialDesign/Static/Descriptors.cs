@@ -41,11 +41,11 @@ namespace Ccr.MaterialDesign.Static
     public static LuminosityMaterialDescriptor A400O50Descriptor = new LuminosityMaterialDescriptor(Luminosity.A400, .5);
     public static LuminosityMaterialDescriptor A700O50Descriptor = new LuminosityMaterialDescriptor(Luminosity.A700, .5);
 
-
-    public static LiteralMaterialDescriptor WhiteDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
-    public static LiteralMaterialDescriptor BlackDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_900);
-    public static LiteralMaterialDescriptor TransparentDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
-    public static LiteralMaterialDescriptor White000O10Descriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
-    public static LiteralMaterialDescriptor White000O05Descriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
+    //TODO fix these
+    //public static LiteralMaterialDescriptor WhiteDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
+    //public static LiteralMaterialDescriptor BlackDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_900);
+    //public static LiteralMaterialDescriptor TransparentDescriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
+    //public static LiteralMaterialDescriptor White000O10Descriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
+    //public static LiteralMaterialDescriptor White000O05Descriptor = new LiteralMaterialDescriptor(PaletteMock.Grey_050);
   }
 }

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Ccr</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Chromatics\Colors\Conversion\" />
+    <Folder Include="Chromatics\Colors\Difference\" />
+    <Folder Include="Chromatics\Colors\Models\" />
+    <Folder Include="Chromatics\Infrastructure\" />
+  </ItemGroup>
+
+</Project>

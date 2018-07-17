@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -17,17 +14,17 @@ using JetBrains.Annotations;
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
   [XamlSetMarkupExtension("XamlSetMarkupExtensiom")]
-  public class RippleMouseTracker
+  public class RippleMouseTrackingService
     : HostedElement<FrameworkElement>
   {
-    private static readonly Type type = typeof(RippleMouseTracker);
+    private static readonly Type type = typeof(RippleMouseTrackingService);
 
 
     public static readonly DependencyProperty SourceObjectProperty = DP.Register(
-      new Meta<RippleMouseTracker, object>(null, onSourceObjectChanged));
+      new Meta<RippleMouseTrackingService, object>(null, onSourceObjectChanged));
 
     public static readonly DependencyProperty EventNameProperty = DP.Register(
-      new Meta<RippleMouseTracker, string>(null, onEventNameChanged));
+      new Meta<RippleMouseTrackingService, string>(null, onEventNameChanged));
 
 
     public object SourceObject
@@ -35,7 +32,6 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       get => GetValue(SourceObjectProperty);
       set => SetValue(SourceObjectProperty, value);
     }
-
     public string EventName
     {
       get => (string)GetValue(EventNameProperty);
@@ -43,16 +39,15 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
     }
 
 
-
     private static void onSourceObjectChanged(
-      RippleMouseTracker @this,
+      RippleMouseTrackingService @this,
       DPChangedEventArgs<object> args)
     {
       @this.onTargetChanged();
     }
 
     private static void onEventNameChanged(
-      RippleMouseTracker @this,
+      RippleMouseTrackingService @this,
       DPChangedEventArgs<string> args)
     {
       @this.onTargetChanged();
@@ -84,8 +79,8 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
       if (eventInfo == null)
         throw new ArgumentException(
-          $"The {nameof(RippleMouseTracker).SQuote()} cannot find an event with the name " +
-          $"{eventName.Quote()} in the sourceObject type {sourceObjectType.Name.SQuote()}.",
+          $"The {nameof(RippleMouseTrackingService).SQuote()} cannot find an event with the " +
+          $"name {eventName.Quote()} in the sourceObject type {sourceObjectType.Name.SQuote()}.",
           nameof(eventName));
 
       if (!IsValidEvent(eventInfo))
@@ -101,7 +96,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
      if (eventHandlerMethodInfo == null)
        throw new InvalidOperationException(
-         $"Cannot find the method ");
+         $"Cannot find the method implementation target.");
 
       var handlerDelegate = Delegate.CreateDelegate(
         eventInfo.EventHandlerType,
@@ -139,13 +134,18 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
       return false;
     }
+    
 
-
-
-    protected void OnEventImpl(object sender, EventArgs args)
+    protected void OnEventImpl(
+      object sender, 
+      EventArgs args)
     {
-      var mousePos = Mouse.GetPosition(HostElement);
-      Ripple.SetMousePosition(HostElement, mousePos);
+      var mousePos = Mouse.GetPosition(
+        HostElement);
+
+      Ripple.SetMousePosition(
+        HostElement, 
+        mousePos);
     }
 
 

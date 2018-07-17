@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Ccr</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Std\Colorimetry\Color\Conversion\" />
+    <Folder Include="Std\Colorimetry\Color\Difference\" />
+    <Folder Include="Std\Colorimetry\Color\Models\" />
+    <Folder Include="Std\Colorimetry\Infrastructure\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+  </ItemGroup>
+
+</Project>

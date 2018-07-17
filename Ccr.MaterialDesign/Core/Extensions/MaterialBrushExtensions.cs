@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Net.NetworkInformation;
+using System.Windows.Media;
 using Ccr.MaterialDesign;
 using Ccr.Std.Core.Extensions.NumericExtensions;
-using Ccr.Std.Core.Numerics.Ranges;
 
 namespace Ccr.Core.Extensions
 {
   public static class MaterialBrushExtensions
   {
-
     /// <summary>
     /// 
     /// </summary>
@@ -20,27 +20,72 @@ namespace Ccr.Core.Extensions
     {
       @this.IsNotNull(nameof(@this));
 
-      if (opacity.IsNotWithin(new DoubleRange(0d, 1d)))
+      if (opacity.IsNotWithin((0d, 1d)))
         throw new ArgumentOutOfRangeException(
           nameof(opacity),
           opacity,
           "The opacity parameter must be between 0 and 1, inclusively.");
-      
+
       var color = @this
-                  .Brush
-                  .Color
-                  .WithOpacity(
-                    opacity);
+        .Brush
+        .Color
+        .WithOpacity(
+          opacity);
 
       var identity = new MaterialIdentity(
         @this.Identity.SwatchClassifier,
-        @this.Identity.IsAccent,
         @this.Identity.Luminosity,
         opacity);
 
-      return MaterialBrush.Create(
-        color,
-        identity);
+      return new MaterialBrush(color.ToSCB(), identity);
+      
+      //return MaterialBrush.Create(
+      //  color,
+      //  identity);
     }
+    ///// <summary>
+    ///// 
+    ///// </summary>
+    ///// <param name="this"></param>
+    ///// <param name="opacity"></param>
+    ///// <returns></returns>
+    //public static SolidColorBrush WithOpacity(
+    //  this SolidColorBrush @this,
+    //  double opacity)
+    //{
+    //  @this.IsNotNull(nameof(@this));
+
+    //  if (opacity.IsNotWithin((0d, 1d)))
+    //    throw new ArgumentOutOfRangeException(
+    //      nameof(opacity),
+    //      opacity,
+    //      $"The opacity parameter must be between 0 and 1, inclusively.");
+
+    //  var color = @this
+    //    .Color
+    //    .WithOpacity(
+    //      opacity);
+
+    //  var currentIdentity = @this
+    //    .GetIdentity();
+
+    //  MaterialIdentity identity;
+
+    //  if (currentIdentity == null)
+    //  {
+    //    identity = null;
+    //  }
+    //  else
+    //  {
+    //    identity = new MaterialIdentity(
+    //      currentIdentity.SwatchClassifier,
+    //      currentIdentity.Luminosity,
+    //      opacity);
+    //  }
+
+    //  return new SolidColorBrush(
+    //    color
+    //  ).SetIdentity(identity);
+    //}
   }
 }

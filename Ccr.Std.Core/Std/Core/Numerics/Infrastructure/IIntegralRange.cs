@@ -1,6 +1,4 @@
-﻿using System;
-
-// ReSharper disable BuiltInTypeReferenceStyle
+﻿// ReSharper disable BuiltInTypeReferenceStyle
 namespace Ccr.Std.Core.Numerics.Infrastructure
 {
   public interface IIntegralRange

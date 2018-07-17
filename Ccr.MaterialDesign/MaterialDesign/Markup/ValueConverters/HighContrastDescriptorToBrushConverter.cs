@@ -36,7 +36,7 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
       if (!isHighConstrast)
         return originalBrush;
 
-      var invertedBrush = originalBrush.Brush.Invert();
+      var invertedBrush = originalBrush.Invert();
 
       //var originalBrushDelta = originalBrush.Differential(overlayedBackground);
       //var invertedBrushDelta = invertedBrush.Differential(overlayedBackground);

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Ccr.Core.Extensions;
 using Ccr.Introspective.Infrastructure.Context;
 using JetBrains.Annotations;
@@ -111,16 +113,39 @@ namespace Ccr.Introspective.Extensions
 
 
 
+	  [NotNull]
+	  public static IEnumerable<(MethodInfo methodInfo, TAttributeType attribute)>
+	    GetMethodsWithAttribute<TAttributeType>(
+	      [NotNull] this Type @this,
+	      BindingFlags memberDescriptor,
+	      bool inheritAttributes = true)
+	        where TAttributeType
+	          : Attribute
+	  {
+	    @this.IsNotNull(nameof(@this));
+	    memberDescriptor.IsNotNull(nameof(memberDescriptor));
 
-		//var fieldType = fieldInfo.FieldType;
-		//var valueType = typeof(TValue);
+	    return @this
+	      .GetMethods(memberDescriptor)
+	      .Select(t => (
+	                propertyInfo: t,
+	                attribute: t.GetCustomAttribute<TAttributeType>(
+	                  inheritAttributes)))
+	      .Where(t => t.attribute != null);
+	  }
 
-		//var rawValue = fieldInfo.GetValue(@this.TargetObject);
-		//return (TValue)rawValue;
 
-		//if (!fieldType.IsAssignableFrom(valueType))
-		//var adjustedValue = value;
-		//throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");
 
-	}
+
+    //var fieldType = fieldInfo.FieldType;
+    //var valueType = typeof(TValue);
+
+    //var rawValue = fieldInfo.GetValue(@this.TargetObject);
+    //return (TValue)rawValue;
+
+    //if (!fieldType.IsAssignableFrom(valueType))
+    //var adjustedValue = value;
+    //throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");
+
+  }
 }

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -9,12 +12,18 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
   public static class Shadow
   {
+    private static IDictionary<double, DropShadowEffect> _cacheMap
+      = new Dictionary<double, DropShadowEffect>();
+
+
     internal static class ShadowInterpolator
     {
       private const double opacity = .42;
       private static readonly Color shadowColor = Colors.Black;
 
-      public static DropShadowEffect Interpolate(double level)
+   
+      public static DropShadowEffect Interpolate(
+        double level)
       {
         var blur = calculateBlur(level);
         var depth = calculateDepth(level);
@@ -29,7 +38,8 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
         };
       }
 
-      private static double calculateDepth(double x)
+      private static double calculateDepth(
+        double x)
       {
         const double a = .124;
         const double b = -1.5833333333;
@@ -40,7 +50,8 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
         return a * x.Power(4) + b * x.Power(3) + c * x.Power(2) + d * x + e;
       }
 
-      private static double calculateBlur(double x)
+      private static double calculateBlur(
+        double x)
       {
         const double a = -.333333333;
         const double b = 4.357142857;
@@ -49,7 +60,6 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 
         return a * x.Power(3) + b * x.Power(2) + c * x + d;
       }
-
 
     }
     private static readonly Type _type = typeof(Shadow);
@@ -65,7 +75,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
     public static readonly DependencyProperty ShadowCacheModeProperty = DP.Attach(
       typeof(Shadow),
       new MetaBase<CacheMode>(
-        new BitmapCache()
+        new BitmapCache
         {
           EnableClearType = false,
           RenderAtScale = 1,
@@ -98,7 +108,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
       {
         if (args.NewValue >= 0)
         {
-          var shadow = ShadowInterpolator.Interpolate(args.NewValue.Value);
+          var shadow = getDropShadowEffect(args.NewValue.Value);//ShadowInterpolator.Interpolate(args.NewValue.Value);
           uiElement.Effect = shadow;
         }
         else
@@ -108,6 +118,22 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
       }
     }
 
+    private static DropShadowEffect getDropShadowEffect(
+      double shadowLevel)
+    {
+      if (_cacheMap.TryGetValue(
+        shadowLevel, 
+        out var dropShadowEffect))
+        return dropShadowEffect;
 
+      dropShadowEffect = ShadowInterpolator
+        .Interpolate(shadowLevel);
+
+      _cacheMap.Add(
+        shadowLevel,
+        dropShadowEffect);
+
+      return dropShadowEffect;
+    }
   }
 }

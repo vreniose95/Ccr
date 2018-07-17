@@ -16,8 +16,11 @@
 
 	</Style>
 
-	<Style TargetType="FrameworkElement" x:Key="t14pButton" BasedOn="{StaticResource {x:Type FrameworkElement}}">
+	<Style TargetType="FrameworkElement" 
+	       x:Key="t14pButton" 
+	       BasedOn="{StaticResource {x:Type FrameworkElement}}">
 		<Setter Property="Control.FontWeight" Value="Medium"/>
+    <Setter Property="TextAssist.ForceCapitalizeText" Value="True"/>
 	</Style>
 
 	<Style TargetType="FrameworkElement" x:Key="t12pCaption" BasedOn="{StaticResource {x:Type FrameworkElement}}">

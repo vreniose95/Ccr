@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Std\Introspection\Tests\" />
+  </ItemGroup>
+
+</Project>

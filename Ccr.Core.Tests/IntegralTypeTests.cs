@@ -17,7 +17,7 @@ namespace Ccr.Core.Tests
       }
 	    byte value = 123;
 
-	    var g= value.IsNotWithin((12, 16));
+	    var g = value.IsNotWithin((12, 16));
 			Console.WriteLine();
     }	
 

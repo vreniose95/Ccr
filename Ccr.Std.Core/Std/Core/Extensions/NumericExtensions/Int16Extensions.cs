@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Ccr.Std.Core.Numerics.Infrastructure;
 using Ccr.Std.Core.Numerics.Ranges;
 using JetBrains.Annotations;
+using static Ccr.Std.Core.Numerics.Infrastructure.EndpointExclusivity;
+using static JetBrains.Annotations.AssertionConditionType;
 
 // ReSharper disable BuiltInTypeReferenceStyle
-
 namespace Ccr.Std.Core.Extensions.NumericExtensions
 {
 	public static class Int16Extensions
@@ -130,7 +132,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		public static bool IsWithin(
 			this Int16 @this,
 			[NotNull] Int16Range range,
-			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+			EndpointExclusivity exclusivity = Inclusive)
 		{
 			range.IsNotNull(nameof(range));
 
@@ -171,7 +173,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		public static bool IsNotWithin(
 			this Int16 @this,
 			[NotNull] Int16Range range,
-			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+			EndpointExclusivity exclusivity = Inclusive)
 		{
 			range.IsNotNull(nameof(range));
 
@@ -213,5 +215,48 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 				.Constrain(
 					@this);
 		}
-	}
+
+
+
+
+	  [ContractAnnotation("this:null => halt"), AssertionMethod]
+	  public static void ThrowIfWithin(
+	    [AssertionCondition(IS_NOT_NULL)] this Int16 @this,
+	    [NotNull] Int16Range range,
+	    [InvokerParameterName] string elementName,
+	    EndpointExclusivity exclusivity = Inclusive,
+	    [CallerMemberName] string callerMemberName = "")
+	  {
+	    range.IsNotNull(nameof(range));
+
+	    if (range
+	      .IsWithin(
+	        @this,
+	        exclusivity))
+	      throw new ArgumentOutOfRangeException(
+	        elementName,
+	        $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+	        $"cannot be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
+	  }
+
+	  [ContractAnnotation("this:null => halt"), AssertionMethod]
+	  public static void ThrowIfNotWithin(
+	    [AssertionCondition(IS_NOT_NULL)] this Int16 @this,
+	    [NotNull] Int16Range range,
+	    [InvokerParameterName] string elementName,
+	    EndpointExclusivity exclusivity = Inclusive,
+	    [CallerMemberName] string callerMemberName = "")
+	  {
+	    range.IsNotNull(nameof(range));
+
+	    if (range
+	      .IsNotWithin(
+	        @this,
+	        exclusivity))
+	      throw new ArgumentOutOfRangeException(
+	        elementName,
+	        $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+	        $"must be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
+	  }
+  }
 }

@@ -38,7 +38,7 @@ namespace Ccr.Introspective.Extensions
 	      .GetProperties(memberDescriptor)
 	      .Where(t => t.PropertyType == typeof(TPropertyType));
 	  }
-
+    
     [NotNull]
 	  public static IEnumerable<(PropertyInfo propertyInfo, TAttributeType attribute)> 
       GetPropertiesWithAttribute<TAttributeType>(
@@ -59,24 +59,8 @@ namespace Ccr.Introspective.Extensions
 	      .Where(t => t.attribute != null);
 	  }
 
-    [CanBeNull]
-	  public static PropertyInfo GetPropertyByName(
-	    [NotNull] this IntrospectiveStaticContext @this,
-	    [NotNull] MemberDescriptor memberDescriptor,
-      [NotNull] string propertyName)
-	  {
-	    @this.IsNotNull(nameof(@this));
-	    memberDescriptor.IsNotNull(nameof(memberDescriptor));
-	    propertyName.IsNotNull(nameof(propertyName));
 
-      var propertyInfo = @this
-	      .TargetType
-	      .GetProperty(
-	        propertyName,
-          memberDescriptor);
 
-	    return propertyInfo;
-	  }
 
 
   }

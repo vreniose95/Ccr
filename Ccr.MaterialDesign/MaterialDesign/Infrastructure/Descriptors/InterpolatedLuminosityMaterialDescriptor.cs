@@ -13,7 +13,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 		public double Progression { get; }
 
 
-		public override MaterialBrush GetMaterial(
+		public override SolidColorBrush GetMaterial(
 		  Swatch materialSet)
 		{
 			var material1 = materialSet.GetMaterial(Luminosity1); 
@@ -22,16 +22,23 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 		  var avgLumIndex = (Luminosity1.LuminosityIndex + Luminosity2.LuminosityIndex) / 2d;
 		  var finalLum = new Luminosity((int) avgLumIndex.Round(), Luminosity1.IsAccent);
 
-			var interpolatedMaterial = material1.Brush.Color.Blend(material2, Progression);
+			var interpolatedMaterial = material1.Brush.Color.Blend(material2.Brush.Color, Progression);
 
 		  var finalColor = interpolatedMaterial.WithOpacity(Opacity);
 
-		  var finalMaterial = MaterialBrush.Create(finalColor,
-		                                           new MaterialIdentity(
-		                                             material1.Identity.SwatchClassifier,
-		                                             material1.Identity.IsAccent,
-		                                             finalLum,
-		                                             Opacity));
+		  var m1Identity = material1.Identity;
+
+      //TODO should the finalLum's isAccent be m1Identity's or Luminosity1.Isaccent? was m1Identity.
+		  var finalIdentity = new MaterialIdentity(
+		    m1Identity.SwatchClassifier,
+		    finalLum,
+		    Opacity);
+
+		  var finalMaterial = new SolidColorBrush(
+		      finalColor)
+		    .SetIdentity(
+		      finalIdentity);
+
 		  return finalMaterial;
 		}
 

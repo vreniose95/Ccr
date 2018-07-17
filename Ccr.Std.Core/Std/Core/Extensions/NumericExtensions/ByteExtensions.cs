@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Ccr.Std.Core.Numerics.Infrastructure;
 using Ccr.Std.Core.Numerics.Ranges;
 using JetBrains.Annotations;
+using static Ccr.Std.Core.Numerics.Infrastructure.EndpointExclusivity;
+using static JetBrains.Annotations.AssertionConditionType;
 
 // ReSharper disable BuiltInTypeReferenceStyle
 namespace Ccr.Std.Core.Extensions.NumericExtensions
@@ -10,7 +14,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
   public static class ByteExtensions
   {
     /// <summary>
-    ///		Extension method that uses the non-generic <see cref="IComparer{T}"/> interface to 
+    ///		Extension method that uses the non-generic <see cref="IComparer{T}"/> <see cref="IComparer"/> interface to 
     /// compare the 
     ///		<see cref="Byte"/> subject with the provided <paramref name="value"/> parameter, and returns 
     ///		the largest numeric <see cref="Byte"/> value of the two.
@@ -130,7 +134,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
     public static bool IsWithin(
       this Byte @this,
       [NotNull] ByteRange range,
-      EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+      EndpointExclusivity exclusivity = Inclusive)
     {
       range.IsNotNull(nameof(range));
 
@@ -171,7 +175,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
     public static bool IsNotWithin(
       this Byte @this,
       [NotNull] ByteRange range,
-      EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+      EndpointExclusivity exclusivity = Inclusive)
     {
       range.IsNotNull(nameof(range));
 
@@ -219,15 +223,18 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
       this byte @this,
       double percent)
     {
-      var value = @this - @this * (percent / 1);
+      if (percent.IsNotWithin((0d, 100d)))
+        throw new ArgumentOutOfRangeException(
+          nameof(percent),
+          $"The {nameof(percent).SQuote()} parameter must be within 0 and 100, inclusively.");
 
-      if (value > byte.MaxValue)
-        value = byte.MaxValue;
+      var value = @this - @this * (percent / 1d);
 
-      if (value < byte.MinValue)
-        value = byte.MinValue;
+      var constrained = value
+        .Constrain(
+          (byte.MinValue, byte.MaxValue));
 
-      return Convert.ToByte(value);
+      return Convert.ToByte(constrained);
     }
 
     public static byte ScaleUp(
@@ -243,6 +250,47 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
         value = byte.MinValue;
 
       return Convert.ToByte(value);
+    }
+
+
+    [ContractAnnotation("this:null => halt"), AssertionMethod]
+    public static void ThrowIfWithin(
+      [AssertionCondition(IS_NOT_NULL)] this Byte @this,
+      [NotNull] ByteRange range,
+      [InvokerParameterName] string elementName,
+      EndpointExclusivity exclusivity = Inclusive,
+      [CallerMemberName] string callerMemberName = "")
+    {
+      range.IsNotNull(nameof(range));
+
+      if (range
+        .IsWithin(
+          @this,
+          exclusivity))
+        throw new ArgumentOutOfRangeException(
+          elementName,
+          $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+          $"cannot be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
+    }
+
+    [ContractAnnotation("this:null => halt"), AssertionMethod]
+    public static void ThrowIfNotWithin(
+      [AssertionCondition(IS_NOT_NULL)] this Byte @this,
+      [NotNull] ByteRange range,
+      [InvokerParameterName] string elementName,
+      EndpointExclusivity exclusivity = Inclusive,
+      [CallerMemberName] string callerMemberName = "")
+    {
+      range.IsNotNull(nameof(range));
+
+      if (range
+        .IsNotWithin(
+          @this,
+          exclusivity))
+        throw new ArgumentOutOfRangeException(
+          elementName,
+          $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+          $"must be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
     }
   }
 }

@@ -53,6 +53,7 @@
     <Compile Include="Xaml\Collections\ReactiveDependencyObjectCollection.cs" />
     <Compile Include="Xaml\Infrastructure\AbstractSingletonFactory.cs" />
     <Compile Include="Xaml\Infrastructure\IAbstractSingletonFactory.cs" />
+    <Compile Include="Xaml\Infrastructure\IAbstractSingletonFactoryBase.cs" />
     <Compile Include="Xaml\Infrastructure\MarkupSingleton.cs" />
     <Compile Include="Xaml\LogicalTree\FrameworkContextualNode.cs" />
     <Compile Include="Xaml\LogicalTree\IVirtualDictionaryScope.cs" />

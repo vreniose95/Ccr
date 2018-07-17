@@ -23,7 +23,7 @@ namespace Ccr.MaterialDesign.Primitives.Textual
     : Freezable
   {
     public static readonly DependencyProperty ForegroundDescriptorProperty = DP.Register(
-      new Meta<TextualStyle, AbstractMaterialDescriptor>(Static.Descriptors.WhiteDescriptor));
+      new Meta<TextualStyle, AbstractMaterialDescriptor>(Static.Descriptors.A100Descriptor));//WhiteDescriptor));
 
     public static readonly DependencyProperty FontFamilyProperty = TextElement.FontFamilyProperty.Add(new Meta<TextualStyle, FontFamily>(Static.Text.Fonts.Roboto));
 

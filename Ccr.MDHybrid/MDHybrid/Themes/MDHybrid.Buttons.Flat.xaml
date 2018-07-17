@@ -7,15 +7,15 @@
 	</ResourceDictionary.MergedDictionaries>
 
 	<Style x:Key="FlatButton" TargetType="Button" BasedOn="{StaticResource t14pButton}">
-		<Style.Setters>
-			<Setter Property="Foreground" Value="{StaticResource MDH.Palette2.Teal.500}"/>
+		<Style.Setters>	
+			<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Teal.500}"/>
 			<Setter Property="Background" Value="Transparent"/>
-			<!--<Setter Property="MaterialDesign.VisualFeedback" Value="{StaticResource MDH.Palette2.Red.A400}"/>-->
+			<!--<Setter Property="MaterialDesign.VisualFeedback" Value="{StaticResource MDH.Palette.Red.A400}"/>-->
 			<Setter Property="BorderThickness" Value="0"/>
 			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-			<Setter Property="Padding" Value="24 0"/>
+			<Setter Property="Padding" Value="16 0"/>
 			<Setter Property="ClipToBounds" Value="True"/>
-			<Setter Property="MinWidth" Value="96"/>
+			<Setter Property="MinWidth" Value="128"/>
 			<Setter Property="MinHeight" Value="72"/>
 			<Setter Property="Template">
 				<Setter.Value>
@@ -23,29 +23,29 @@
 						<Border Background="{TemplateBinding Background}">
 							<Grid x:Name="PART_Root" ClipToBounds="{TemplateBinding ClipToBounds}">
 								<Ripple.TrackingService>
-									<RippleMouseTracker EventName="Click">
-										<RippleMouseTracker.SourceObject>
+									<RippleMouseTrackingService EventName="Click">
+										<RippleMouseTrackingService.SourceObject>
 											<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}"/>
-										</RippleMouseTracker.SourceObject>
-									</RippleMouseTracker>
+										</RippleMouseTrackingService.SourceObject>
+									</RippleMouseTrackingService>
 								</Ripple.TrackingService>
 								<Grid.Background>
 									<SolidColorBrush Opacity="0" Color="Black"/>
 								</Grid.Background>
 								<Canvas>
-									<Canvas.RenderTransform>
-										<TranslateTransform>
-											<Ripple.Placement>
-												<MultiBinding Converter="{valueConverters1:RipplePlacementConverter}">
-													<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
-													<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-													<Binding ElementName="PART_Ripple" Path="ActualHeight"/>
-													<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
-												</MultiBinding>
-											</Ripple.Placement>
-										</TranslateTransform>
-									</Canvas.RenderTransform>
-									<Ellipse x:Name="PART_Ripple"
+                  <Canvas.RenderTransform>
+                    <TranslateTransform>
+                      <Ripple.Placement>
+                        <MultiBinding Converter="{valueConverters1:RipplePlacementConverter}">
+                          <Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+                          <Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
+                          <Binding ElementName="PART_Ripple" Path="ActualHeight"/>
+                          <Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
+                        </MultiBinding>
+                      </Ripple.Placement>
+                    </TranslateTransform>
+                  </Canvas.RenderTransform>
+                  <Ellipse x:Name="PART_Ripple"
 									         RenderTransformOrigin=".5,.5" 
 									         VerticalAlignment="Center" 
 									         HorizontalAlignment="Center"
@@ -81,13 +81,13 @@
 								<BeginStoryboard>
 									<Storyboard SpeedRatio="1">
 										<DoubleAnimation Storyboard.TargetName="PART_Ripple"
-										                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+										                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)"
 										                 From="0" To="1"
 										                 Duration="0:0:0.75" 
 										                 EasingFunction="{EaseOut Quad}"/>
 
 										<DoubleAnimation Storyboard.TargetName="PART_Ripple"
-										                 Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+										                 Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)"
 										                 From="0" To="1"
 										                 Duration="0:0:0.75" 
 										                 EasingFunction="{EaseOut Quad}"/>

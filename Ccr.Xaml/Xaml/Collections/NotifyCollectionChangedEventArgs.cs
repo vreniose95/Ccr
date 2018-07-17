@@ -7,6 +7,7 @@ using System.Linq;
 using Ccr.Core.Extensions;
 // ReSharper disable ConvertToAutoPropertyWithPrivateSetter
 // ReSharper disable ArrangeAccessorOwnerBody
+
 namespace Ccr.Xaml.Collections
 {
 	public class NotifyCollectionChangedEventArgs<TValue>
@@ -17,55 +18,41 @@ namespace Ccr.Xaml.Collections
 		private NotifyCollectionChangedAction _action;
 		private IList<TValue> _newItems;
 		private IList<TValue> _oldItems;
+    
 
 		/// <summary>Gets the action that caused the event. </summary>
 		/// <returns>A <see cref="T:System.Collections.Specialized.NotifyCollectionChangedAction" /> value that describes the action that caused the event.</returns>
 		public NotifyCollectionChangedAction Action
 		{
-			get
-			{
-				return _action;
-			}
+		  get => _action;
 		}
 
 		/// <summary>Gets the list of new items involved in the change.</summary>
 		/// <returns>The list of new items involved in the change.</returns>
 		public IList<TValue> NewItems
 		{
-			get
-			{
-				return _newItems;
-			}
+		  get => _newItems;
 		}
 
 		/// <summary>Gets the list of items affected by a <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Replace" />, Remove, or Move action.</summary>
 		/// <returns>The list of items affected by a <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Replace" />, Remove, or Move action.</returns>
 		public IList<TValue> OldItems
 		{
-			get
-			{
-				return _oldItems;
-			}
+		  get => _oldItems;
 		}
 
 		/// <summary>Gets the index at which the change occurred.</summary>
 		/// <returns>The zero-based index at which the change occurred.</returns>
 		public int NewStartingIndex
 		{
-			get
-			{
-				return _newStartingIndex;
-			}
+		  get => _newStartingIndex;
 		}
 
 		/// <summary>Gets the index at which a <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Move" />, Remove, or Replace action occurred.</summary>
 		/// <returns>The zero-based index at which a <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Move" />, Remove, or Replace action occurred.</returns>
 		public int OldStartingIndex
 		{
-			get
-			{
-				return _oldStartingIndex;
-			}
+		  get => _oldStartingIndex;
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Reset" /> change.</summary>
@@ -78,7 +65,10 @@ namespace Ccr.Xaml.Collections
 					"Wrong Action For Ctor (Reset)",
 					nameof(action));
 
-			InitializeAdd(action, null, -1);
+			InitializeAdd(
+			  action, 
+			  null, 
+			  -1);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a one-item change.</summary>
@@ -103,13 +93,16 @@ namespace Ccr.Xaml.Collections
 						"ResetActionRequiresNullItem",
 						nameof(action));
 
-				InitializeAdd(action, null, -1);
+				InitializeAdd(
+				  action,
+				  null,
+				  -1);
 			}
 			else
-				InitializeAddOrRemove(action, new[]
-				{
-					changedItem
-				}, -1);
+				InitializeAddOrRemove(
+				    action, 
+				    new[] { changedItem }, 
+				    -1);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a one-item change.</summary>
@@ -141,13 +134,16 @@ namespace Ccr.Xaml.Collections
 						"Reset Action Requires Index Minus 1",
 						nameof(action));
 
-				InitializeAdd(action, null, -1);
+				InitializeAdd(
+				  action,
+				  null, 
+				  -1);
 			}
 			else
-				InitializeAddOrRemove(action, new[]
-				{
-					changedItem
-				}, index);
+				InitializeAddOrRemove(
+				    action,
+				    new[] { changedItem },
+				    index);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a multi-item change.</summary>
@@ -163,6 +159,7 @@ namespace Ccr.Xaml.Collections
 				throw new ArgumentException(
 					"Must Be Reset Add Or Remove Action For Ctor",
 					nameof(action));
+
 			if (action == NotifyCollectionChangedAction.Reset)
 			{
 				if (changedItems != null)
@@ -170,14 +167,19 @@ namespace Ccr.Xaml.Collections
 						"Reset Action Requires Null Item",
 						nameof(action));
 
-				InitializeAdd(action, null, -1);
+				InitializeAdd(
+				  action, 
+				  null, 
+				  -1);
 			}
 			else
 			{
-				if (changedItems == null)
-					throw new ArgumentNullException(nameof(changedItems));
+        changedItems.IsNotNull(nameof(changedItems));
 
-				InitializeAddOrRemove(action, changedItems, -1);
+				InitializeAddOrRemove(
+				  action, 
+				  changedItems, 
+				  -1);
 			}
 		}
 
@@ -198,7 +200,7 @@ namespace Ccr.Xaml.Collections
 				throw new ArgumentException(
 					"Must Be Reset Add Or Remove Action For Ctor",
 					nameof(action));
-
+      
 			if (action == NotifyCollectionChangedAction.Reset)
 			{
 				if (changedItems != null)
@@ -211,7 +213,10 @@ namespace Ccr.Xaml.Collections
 						"Reset Action Requires Index Minus 1",
 						nameof(action));
 
-				InitializeAdd(action, null, -1);
+				InitializeAdd(
+				  action, 
+				  null, 
+				  -1);
 			}
 			else
 			{
@@ -224,7 +229,7 @@ namespace Ccr.Xaml.Collections
 						"Index Cannot Be Negative",
 						nameof(startingIndex));
 
-				this.InitializeAddOrRemove(
+				InitializeAddOrRemove(
 					action,
 					changedItems,
 					startingIndex);
@@ -246,13 +251,12 @@ namespace Ccr.Xaml.Collections
 					"Wrong Action For Ctor (Replace)",
 					nameof(action));
 
-			InitializeMoveOrReplace(action, new[]
-			{
-				newItem
-			}, new[]
-			{
-				oldItem
-			}, -1, -1);
+			InitializeMoveOrReplace(
+			  action,
+			  new[] { newItem }, 
+			  new[] { oldItem }, 
+			  -1, 
+			  -1);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a one-item <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Replace" /> change.</summary>
@@ -272,14 +276,13 @@ namespace Ccr.Xaml.Collections
 					"Wrong Action For Ctor (Replace)",
 					nameof(action));
 
-			int oldStartingIndex = index;
-			InitializeMoveOrReplace(action, new[]
-			{
-				newItem
-			}, new[]
-			{
-				oldItem
-			}, index, oldStartingIndex);
+			var oldStartingIndex = index;
+			InitializeMoveOrReplace(
+			  action, 
+			  new[] { newItem }, 
+			  new[] { oldItem },
+			  index,
+			  oldStartingIndex);
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> class that describes a multi-item <see cref="F:System.Collections.Specialized.NotifyCollectionChangedAction.Replace" /> change.</summary>
@@ -426,15 +429,16 @@ namespace Ccr.Xaml.Collections
 						@this.Action,
 						@this.NewItems as IList,
 						@this.NewStartingIndex);
+
 				case NotifyCollectionChangedAction.Replace:
 					return new NotifyCollectionChangedEventArgs(
 						@this.Action,
 						@this.NewItems,
 						@this.OldItems);
+
 				default:
 					throw new InvalidEnumArgumentException();
 			}
-			
 		}
 
 		public static implicit operator NotifyCollectionChangedEventArgs<TValue>(
@@ -456,14 +460,20 @@ namespace Ccr.Xaml.Collections
 		{
 			if (action == NotifyCollectionChangedAction.Add)
 			{
-				InitializeAdd(action, changedItems, startingIndex);
+				InitializeAdd(
+				  action,
+				  changedItems,
+				  startingIndex);
 			}
 			else
 			{
 				if (action != NotifyCollectionChangedAction.Remove)
 					return;
 
-				InitializeRemove(action, changedItems, startingIndex);
+				InitializeRemove(
+				  action, 
+				  changedItems, 
+				  startingIndex);
 			}
 		}
 

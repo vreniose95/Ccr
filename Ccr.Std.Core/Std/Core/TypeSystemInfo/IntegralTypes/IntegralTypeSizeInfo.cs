@@ -7,8 +7,6 @@ namespace Ccr.Std.Core.TypeSystemInfo.IntegralTypes
 	public class IntegralTypeSizeInfo
 		: ReferenceTypeSize
 	{
-		
-
 		public IntegralTypeSizeInfo(
 			Signedness signedness,
 			int bits) : base(
@@ -17,8 +15,7 @@ namespace Ccr.Std.Core.TypeSystemInfo.IntegralTypes
 		{
 		}
 
-
-		public override string ToString()
+	  public override string ToString()
 		{
 			return $"{Signedness} {Bits}-bit integer";
 		}

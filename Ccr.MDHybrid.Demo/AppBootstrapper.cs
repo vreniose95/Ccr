@@ -1,7 +1,7 @@
-﻿using Ccr.MDHybrid.Demo.ViewModels;
+﻿using Caliburn.Micro;
+using Ccr.MDHybrid.Demo.ViewModels;
 using System.Collections.Generic;
 using System.Windows;
-using Caliburn.Micro;
 
 namespace Ccr.MDHybrid.Demo
 {
@@ -18,12 +18,10 @@ namespace Ccr.MDHybrid.Demo
       var settings = new Dictionary<string, object>
         {
           { "SizeToContent", SizeToContent.Manual },
-          { "WindowState" , WindowState.Maximized },
-          { "WindowStyle", WindowStyle.None }
+          { "WindowState" , WindowState.Maximized }
         };
 
       DisplayRootViewFor<RootViewModel>(settings);
     }
   }
-
 }

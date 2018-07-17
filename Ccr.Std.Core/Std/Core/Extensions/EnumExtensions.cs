@@ -115,7 +115,7 @@ namespace Ccr.Std.Core.Extensions
 
 		internal class EnumRuntimeTypeManipulator<TEnumType>
 			: EnumRuntimeTypeManipulator
-		{
+		{ 
 			public EnumRuntimeTypeManipulator() : base(
 				typeof(TEnumType),
 				Enum.GetUnderlyingType(typeof(TEnumType)))

@@ -1,554 +1,282 @@
 ﻿<ResourceDictionary 
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="MDHybrid.Palette.Colors.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
 
-	<MaterialBrush x:Key="MDH.Palette.Red.050" Identity="Red.050" Color="#FFEBEE"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.100" Identity="Red.100" Color="#FFCDD2"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.200" Identity="Red.200" Color="#EF9A9A"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.300" Identity="Red.300" Color="#E57373"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.400" Identity="Red.400" Color="#EF5350"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.500" Identity="Red.500" Color="#F44336"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.600" Identity="Red.600" Color="#E53935"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.700" Identity="Red.700" Color="#D32F2F"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.800" Identity="Red.800" Color="#C62828"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.900" Identity="Red.900" Color="#B71C1C"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.A100" Identity="Red.A100" Color="#FF8A80"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.A200" Identity="Red.A200" Color="#FF5252"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.A400" Identity="Red.A400" Color="#FF1744"/>
-	<MaterialBrush x:Key="MDH.Palette.Red.A700" Identity="Red.A700" Color="#D50000"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.050" MDH.Identity="Red.050" Color="{StaticResource MDH.Palette.Colors.Red.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.100" MDH.Identity="Red.100" Color="{StaticResource MDH.Palette.Colors.Red.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.200" MDH.Identity="Red.200" Color="{StaticResource MDH.Palette.Colors.Red.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.300" MDH.Identity="Red.300" Color="{StaticResource MDH.Palette.Colors.Red.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.400" MDH.Identity="Red.400" Color="{StaticResource MDH.Palette.Colors.Red.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.500" MDH.Identity="Red.500" Color="{StaticResource MDH.Palette.Colors.Red.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.600" MDH.Identity="Red.600" Color="{StaticResource MDH.Palette.Colors.Red.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.700" MDH.Identity="Red.700" Color="{StaticResource MDH.Palette.Colors.Red.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.800" MDH.Identity="Red.800" Color="{StaticResource MDH.Palette.Colors.Red.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.900" MDH.Identity="Red.900" Color="{StaticResource MDH.Palette.Colors.Red.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.A100" MDH.Identity="Red.A100" Color="{StaticResource MDH.Palette.Colors.Red.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.A200" MDH.Identity="Red.A200" Color="{StaticResource MDH.Palette.Colors.Red.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.A400" MDH.Identity="Red.A400" Color="{StaticResource MDH.Palette.Colors.Red.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Red.A700" MDH.Identity="Red.A700" Color="{StaticResource MDH.Palette.Colors.Red.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Pink.050" Identity="Pink.050" Color="#FCE4EC"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.100" Identity="Pink.100" Color="#F8BBD0"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.200" Identity="Pink.200" Color="#F48FB1"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.300" Identity="Pink.300" Color="#F06292"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.400" Identity="Pink.400" Color="#EC407A"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.500" Identity="Pink.500" Color="#E91E63"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.600" Identity="Pink.600" Color="#D81B60"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.700" Identity="Pink.700" Color="#C2185B"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.800" Identity="Pink.800" Color="#AD1457"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.900" Identity="Pink.900" Color="#880E4F"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.A100" Identity="Pink.A100" Color="#FF80AB"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.A200" Identity="Pink.A200" Color="#FF4081"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.A400" Identity="Pink.A400" Color="#F50057"/>
-	<MaterialBrush x:Key="MDH.Palette.Pink.A700" Identity="Pink.A700" Color="#C51162"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.050" MDH.Identity="Pink.050" Color="{StaticResource MDH.Palette.Colors.Pink.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.100" MDH.Identity="Pink.100" Color="{StaticResource MDH.Palette.Colors.Pink.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.200" MDH.Identity="Pink.200" Color="{StaticResource MDH.Palette.Colors.Pink.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.300" MDH.Identity="Pink.300" Color="{StaticResource MDH.Palette.Colors.Pink.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.400" MDH.Identity="Pink.400" Color="{StaticResource MDH.Palette.Colors.Pink.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.500" MDH.Identity="Pink.500" Color="{StaticResource MDH.Palette.Colors.Pink.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.600" MDH.Identity="Pink.600" Color="{StaticResource MDH.Palette.Colors.Pink.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.700" MDH.Identity="Pink.700" Color="{StaticResource MDH.Palette.Colors.Pink.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.800" MDH.Identity="Pink.800" Color="{StaticResource MDH.Palette.Colors.Pink.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.900" MDH.Identity="Pink.900" Color="{StaticResource MDH.Palette.Colors.Pink.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.A100" MDH.Identity="Pink.A100" Color="{StaticResource MDH.Palette.Colors.Pink.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.A200" MDH.Identity="Pink.A200" Color="{StaticResource MDH.Palette.Colors.Pink.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.A400" MDH.Identity="Pink.A400" Color="{StaticResource MDH.Palette.Colors.Pink.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Pink.A700" MDH.Identity="Pink.A700" Color="{StaticResource MDH.Palette.Colors.Pink.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Purple.050" Identity="Purple.050" Color="#F3E5F5"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.100" Identity="Purple.100" Color="#E1BEE7"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.200" Identity="Purple.200" Color="#CE93D8"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.300" Identity="Purple.300" Color="#BA68C8"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.400" Identity="Purple.400" Color="#AB47BC"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.500" Identity="Purple.500" Color="#9C27B0"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.600" Identity="Purple.600" Color="#8E24AA"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.700" Identity="Purple.700" Color="#7B1FA2"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.800" Identity="Purple.800" Color="#6A1B9A"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.900" Identity="Purple.900" Color="#4A148C"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.A100" Identity="Purple.A100" Color="#EA80FC"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.A200" Identity="Purple.A200" Color="#E040FB"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.A400" Identity="Purple.A400" Color="#D500F9"/>
-	<MaterialBrush x:Key="MDH.Palette.Purple.A700" Identity="Purple.A700" Color="#AA00FF"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.050" MDH.Identity="Purple.050" Color="{StaticResource MDH.Palette.Colors.Purple.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.100" MDH.Identity="Purple.100" Color="{StaticResource MDH.Palette.Colors.Purple.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.200" MDH.Identity="Purple.200" Color="{StaticResource MDH.Palette.Colors.Purple.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.300" MDH.Identity="Purple.300" Color="{StaticResource MDH.Palette.Colors.Purple.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.400" MDH.Identity="Purple.400" Color="{StaticResource MDH.Palette.Colors.Purple.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.500" MDH.Identity="Purple.500" Color="{StaticResource MDH.Palette.Colors.Purple.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.600" MDH.Identity="Purple.600" Color="{StaticResource MDH.Palette.Colors.Purple.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.700" MDH.Identity="Purple.700" Color="{StaticResource MDH.Palette.Colors.Purple.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.800" MDH.Identity="Purple.800" Color="{StaticResource MDH.Palette.Colors.Purple.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.900" MDH.Identity="Purple.900" Color="{StaticResource MDH.Palette.Colors.Purple.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.A100" MDH.Identity="Purple.A100" Color="{StaticResource MDH.Palette.Colors.Purple.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.A200" MDH.Identity="Purple.A200" Color="{StaticResource MDH.Palette.Colors.Purple.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.A400" MDH.Identity="Purple.A400" Color="{StaticResource MDH.Palette.Colors.Purple.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Purple.A700" MDH.Identity="Purple.A700" Color="{StaticResource MDH.Palette.Colors.Purple.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.050" Identity="DeepPurple.050" Color="#EDE7F6"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.100" Identity="DeepPurple.100" Color="#D1C4E9"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.200" Identity="DeepPurple.200" Color="#B39DDB"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.300" Identity="DeepPurple.300" Color="#9575CD"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.400" Identity="DeepPurple.400" Color="#7E57C2"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.500" Identity="DeepPurple.500" Color="#673AB7"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.600" Identity="DeepPurple.600" Color="#5E35B1"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.700" Identity="DeepPurple.700" Color="#512DA8"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.800" Identity="DeepPurple.800" Color="#4527A0"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.900" Identity="DeepPurple.900" Color="#311B92"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.A100" Identity="DeepPurple.A100" Color="#B388FF"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.A200" Identity="DeepPurple.A200" Color="#7C4DFF"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.A400" Identity="DeepPurple.A400" Color="#651FFF"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepPurple.A700" Identity="DeepPurple.A700" Color="#6200EA"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.050" MDH.Identity="DeepPurple.050" Color="{StaticResource MDH.Palette.Colors.DeepPurple.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.100" MDH.Identity="DeepPurple.100" Color="{StaticResource MDH.Palette.Colors.DeepPurple.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.200" MDH.Identity="DeepPurple.200" Color="{StaticResource MDH.Palette.Colors.DeepPurple.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.300" MDH.Identity="DeepPurple.300" Color="{StaticResource MDH.Palette.Colors.DeepPurple.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.400" MDH.Identity="DeepPurple.400" Color="{StaticResource MDH.Palette.Colors.DeepPurple.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.500" MDH.Identity="DeepPurple.500" Color="{StaticResource MDH.Palette.Colors.DeepPurple.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.600" MDH.Identity="DeepPurple.600" Color="{StaticResource MDH.Palette.Colors.DeepPurple.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.700" MDH.Identity="DeepPurple.700" Color="{StaticResource MDH.Palette.Colors.DeepPurple.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.800" MDH.Identity="DeepPurple.800" Color="{StaticResource MDH.Palette.Colors.DeepPurple.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.900" MDH.Identity="DeepPurple.900" Color="{StaticResource MDH.Palette.Colors.DeepPurple.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.A100" MDH.Identity="DeepPurple.A100" Color="{StaticResource MDH.Palette.Colors.DeepPurple.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.A200" MDH.Identity="DeepPurple.A200" Color="{StaticResource MDH.Palette.Colors.DeepPurple.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.A400" MDH.Identity="DeepPurple.A400" Color="{StaticResource MDH.Palette.Colors.DeepPurple.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepPurple.A700" MDH.Identity="DeepPurple.A700" Color="{StaticResource MDH.Palette.Colors.DeepPurple.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Indigo.050" Identity="Indigo.050" Color="#E8EAF6"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.100" Identity="Indigo.100" Color="#C5CAE9"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.200" Identity="Indigo.200" Color="#9FA8DA"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.300" Identity="Indigo.300" Color="#7986CB"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.400" Identity="Indigo.400" Color="#5C6BC0"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.500" Identity="Indigo.500" Color="#3F51B5"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.600" Identity="Indigo.600" Color="#3949AB"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.700" Identity="Indigo.700" Color="#303F9F"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.800" Identity="Indigo.800" Color="#283593"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.900" Identity="Indigo.900" Color="#1A237E"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.A100" Identity="Indigo.A100" Color="#8C9EFF"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.A200" Identity="Indigo.A200" Color="#536DFE"/>
-	<MaterialBrush x:Key="MDH.Palette.Indigo.A400" Identity="Indigo.A400" Color="#3D5AFE"/>
-  <MaterialBrush x:Key="MDH.Palette.Indigo.A700" Identity="Indigo.A700" Color="#304FFE"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.050" MDH.Identity="Indigo.050" Color="{StaticResource MDH.Palette.Colors.Indigo.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.100" MDH.Identity="Indigo.100" Color="{StaticResource MDH.Palette.Colors.Indigo.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.200" MDH.Identity="Indigo.200" Color="{StaticResource MDH.Palette.Colors.Indigo.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.300" MDH.Identity="Indigo.300" Color="{StaticResource MDH.Palette.Colors.Indigo.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.400" MDH.Identity="Indigo.400" Color="{StaticResource MDH.Palette.Colors.Indigo.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.500" MDH.Identity="Indigo.500" Color="{StaticResource MDH.Palette.Colors.Indigo.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.600" MDH.Identity="Indigo.600" Color="{StaticResource MDH.Palette.Colors.Indigo.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.700" MDH.Identity="Indigo.700" Color="{StaticResource MDH.Palette.Colors.Indigo.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.800" MDH.Identity="Indigo.800" Color="{StaticResource MDH.Palette.Colors.Indigo.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.900" MDH.Identity="Indigo.900" Color="{StaticResource MDH.Palette.Colors.Indigo.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.A100" MDH.Identity="Indigo.A100" Color="{StaticResource MDH.Palette.Colors.Indigo.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.A200" MDH.Identity="Indigo.A200" Color="{StaticResource MDH.Palette.Colors.Indigo.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Indigo.A400" MDH.Identity="Indigo.A400" Color="{StaticResource MDH.Palette.Colors.Indigo.A400}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Indigo.A700" MDH.Identity="Indigo.A700" Color="{StaticResource MDH.Palette.Colors.Indigo.A700}"/>
   
-  <MaterialBrush x:Key="MDH.Palette.Blue.050" Identity="Blue.050" Color="#E3F2FD"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.100" Identity="Blue.100" Color="#BBDEFB"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.200" Identity="Blue.200" Color="#90CAF9"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.300" Identity="Blue.300" Color="#64B5F6"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.400" Identity="Blue.400" Color="#42A5F5"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.500" Identity="Blue.500" Color="#2196F3"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.600" Identity="Blue.600" Color="#1E88E5"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.700" Identity="Blue.700" Color="#1976D2"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.800" Identity="Blue.800" Color="#1565C0"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.900" Identity="Blue.900" Color="#0D47A1"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.A100" Identity="Blue.A100" Color="#82B1FF"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.A200" Identity="Blue.A200" Color="#448AFF"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.A400" Identity="Blue.A400" Color="#2979FF"/>
-	<MaterialBrush x:Key="MDH.Palette.Blue.A700" Identity="Blue.A700" Color="#2962FF"/>
+  <SolidColorBrush x:Key="MDH.Palette.Blue.050" MDH.Identity="Blue.050" Color="{StaticResource MDH.Palette.Colors.Blue.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.100" MDH.Identity="Blue.100" Color="{StaticResource MDH.Palette.Colors.Blue.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.200" MDH.Identity="Blue.200" Color="{StaticResource MDH.Palette.Colors.Blue.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.300" MDH.Identity="Blue.300" Color="{StaticResource MDH.Palette.Colors.Blue.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.400" MDH.Identity="Blue.400" Color="{StaticResource MDH.Palette.Colors.Blue.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.500" MDH.Identity="Blue.500" Color="{StaticResource MDH.Palette.Colors.Blue.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.600" MDH.Identity="Blue.600" Color="{StaticResource MDH.Palette.Colors.Blue.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.700" MDH.Identity="Blue.700" Color="{StaticResource MDH.Palette.Colors.Blue.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.800" MDH.Identity="Blue.800" Color="{StaticResource MDH.Palette.Colors.Blue.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.900" MDH.Identity="Blue.900" Color="{StaticResource MDH.Palette.Colors.Blue.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.A100" MDH.Identity="Blue.A100" Color="{StaticResource MDH.Palette.Colors.Blue.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.A200" MDH.Identity="Blue.A200" Color="{StaticResource MDH.Palette.Colors.Blue.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.A400" MDH.Identity="Blue.A400" Color="{StaticResource MDH.Palette.Colors.Blue.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Blue.A700" MDH.Identity="Blue.A700" Color="{StaticResource MDH.Palette.Colors.Blue.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.050" Identity="LightBlue.050" Color="#E1F5FE"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.100" Identity="LightBlue.100" Color="#B3E5FC"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.200" Identity="LightBlue.200" Color="#81D4FA"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.300" Identity="LightBlue.300" Color="#4FC3F7"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.400" Identity="LightBlue.400" Color="#29B6F6"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.500" Identity="LightBlue.500" Color="#03A9F4"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.600" Identity="LightBlue.600" Color="#039BE5"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.700" Identity="LightBlue.700" Color="#0288D1"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.800" Identity="LightBlue.800" Color="#0277BD"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.900" Identity="LightBlue.900" Color="#01579B"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.A100" Identity="LightBlue.A100" Color="#80D8FF"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.A200" Identity="LightBlue.A200" Color="#40C4FF"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.A400" Identity="LightBlue.A400" Color="#00B0FF"/>
-	<MaterialBrush x:Key="MDH.Palette.LightBlue.A700" Identity="LightBlue.A700" Color="#0091EA"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.050" MDH.Identity="LightBlue.050" Color="{StaticResource MDH.Palette.Colors.LightBlue.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.100" MDH.Identity="LightBlue.100" Color="{StaticResource MDH.Palette.Colors.LightBlue.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.200" MDH.Identity="LightBlue.200" Color="{StaticResource MDH.Palette.Colors.LightBlue.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.300" MDH.Identity="LightBlue.300" Color="{StaticResource MDH.Palette.Colors.LightBlue.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.400" MDH.Identity="LightBlue.400" Color="{StaticResource MDH.Palette.Colors.LightBlue.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.500" MDH.Identity="LightBlue.500" Color="{StaticResource MDH.Palette.Colors.LightBlue.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.600" MDH.Identity="LightBlue.600" Color="{StaticResource MDH.Palette.Colors.LightBlue.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.700" MDH.Identity="LightBlue.700" Color="{StaticResource MDH.Palette.Colors.LightBlue.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.800" MDH.Identity="LightBlue.800" Color="{StaticResource MDH.Palette.Colors.LightBlue.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.900" MDH.Identity="LightBlue.900" Color="{StaticResource MDH.Palette.Colors.LightBlue.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.A100" MDH.Identity="LightBlue.A100" Color="{StaticResource MDH.Palette.Colors.LightBlue.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.A200" MDH.Identity="LightBlue.A200" Color="{StaticResource MDH.Palette.Colors.LightBlue.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.A400" MDH.Identity="LightBlue.A400" Color="{StaticResource MDH.Palette.Colors.LightBlue.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightBlue.A700" MDH.Identity="LightBlue.A700" Color="{StaticResource MDH.Palette.Colors.LightBlue.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Cyan.050" Identity="Cyan.050" Color="#E0F7FA"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.100" Identity="Cyan.100" Color="#B2EBF2"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.200" Identity="Cyan.200" Color="#80DEEA"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.300" Identity="Cyan.300" Color="#4DD0E1"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.400" Identity="Cyan.400" Color="#26C6DA"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.500" Identity="Cyan.500" Color="#00BCD4"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.600" Identity="Cyan.600" Color="#00ACC1"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.700" Identity="Cyan.700" Color="#0097A7"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.800" Identity="Cyan.800" Color="#00838F"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.900" Identity="Cyan.900" Color="#006064"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.A100" Identity="Cyan.A100" Color="#84FFFF"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.A200" Identity="Cyan.A200" Color="#18FFFF"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.A400" Identity="Cyan.A400" Color="#00E5FF"/>
-	<MaterialBrush x:Key="MDH.Palette.Cyan.A700" Identity="Cyan.A700" Color="#00B8D4"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.050" MDH.Identity="Cyan.050" Color="{StaticResource MDH.Palette.Colors.Cyan.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.100" MDH.Identity="Cyan.100" Color="{StaticResource MDH.Palette.Colors.Cyan.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.200" MDH.Identity="Cyan.200" Color="{StaticResource MDH.Palette.Colors.Cyan.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.300" MDH.Identity="Cyan.300" Color="{StaticResource MDH.Palette.Colors.Cyan.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.400" MDH.Identity="Cyan.400" Color="{StaticResource MDH.Palette.Colors.Cyan.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.500" MDH.Identity="Cyan.500" Color="{StaticResource MDH.Palette.Colors.Cyan.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.600" MDH.Identity="Cyan.600" Color="{StaticResource MDH.Palette.Colors.Cyan.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.700" MDH.Identity="Cyan.700" Color="{StaticResource MDH.Palette.Colors.Cyan.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.800" MDH.Identity="Cyan.800" Color="{StaticResource MDH.Palette.Colors.Cyan.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.900" MDH.Identity="Cyan.900" Color="{StaticResource MDH.Palette.Colors.Cyan.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.A100" MDH.Identity="Cyan.A100" Color="{StaticResource MDH.Palette.Colors.Cyan.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.A200" MDH.Identity="Cyan.A200" Color="{StaticResource MDH.Palette.Colors.Cyan.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.A400" MDH.Identity="Cyan.A400" Color="{StaticResource MDH.Palette.Colors.Cyan.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Cyan.A700" MDH.Identity="Cyan.A700" Color="{StaticResource MDH.Palette.Colors.Cyan.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Teal.050" Identity="Teal.050" Color="#E0F2F1"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.100" Identity="Teal.100" Color="#B2DFDB"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.200" Identity="Teal.200" Color="#80CBC4"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.300" Identity="Teal.300" Color="#4DB6AC"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.400" Identity="Teal.400" Color="#26A69A"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.500" Identity="Teal.500" Color="#009688"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.600" Identity="Teal.600" Color="#00897B"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.700" Identity="Teal.700" Color="#00796B"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.800" Identity="Teal.800" Color="#00695C"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.900" Identity="Teal.900" Color="#004D40"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.A100" Identity="Teal.A100" Color="#A7FFEB"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.A200" Identity="Teal.A200" Color="#64FFDA"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.A400" Identity="Teal.A400" Color="#1DE9B6"/>
-	<MaterialBrush x:Key="MDH.Palette.Teal.A700" Identity="Teal.A700" Color="#00BFA5"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.050" MDH.Identity="Teal.050" Color="{StaticResource MDH.Palette.Colors.Teal.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.100" MDH.Identity="Teal.100" Color="{StaticResource MDH.Palette.Colors.Teal.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.200" MDH.Identity="Teal.200" Color="{StaticResource MDH.Palette.Colors.Teal.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.300" MDH.Identity="Teal.300" Color="{StaticResource MDH.Palette.Colors.Teal.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.400" MDH.Identity="Teal.400" Color="{StaticResource MDH.Palette.Colors.Teal.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.500" MDH.Identity="Teal.500" Color="{StaticResource MDH.Palette.Colors.Teal.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.600" MDH.Identity="Teal.600" Color="{StaticResource MDH.Palette.Colors.Teal.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.700" MDH.Identity="Teal.700" Color="{StaticResource MDH.Palette.Colors.Teal.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.800" MDH.Identity="Teal.800" Color="{StaticResource MDH.Palette.Colors.Teal.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.900" MDH.Identity="Teal.900" Color="{StaticResource MDH.Palette.Colors.Teal.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.A100" MDH.Identity="Teal.A100" Color="{StaticResource MDH.Palette.Colors.Teal.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.A200" MDH.Identity="Teal.A200" Color="{StaticResource MDH.Palette.Colors.Teal.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.A400" MDH.Identity="Teal.A400" Color="{StaticResource MDH.Palette.Colors.Teal.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Teal.A700" MDH.Identity="Teal.A700" Color="{StaticResource MDH.Palette.Colors.Teal.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Green.050" Identity="Green.050" Color="#E8F5E9"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.100" Identity="Green.100" Color="#C8E6C9"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.200" Identity="Green.200" Color="#A5D6A7"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.300" Identity="Green.300" Color="#81C784"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.400" Identity="Green.400" Color="#66BB6A"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.500" Identity="Green.500" Color="#4CAF50"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.600" Identity="Green.600" Color="#43A047"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.700" Identity="Green.700" Color="#388E3C"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.800" Identity="Green.800" Color="#2E7D32"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.900" Identity="Green.900" Color="#1B5E20"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.A100" Identity="Green.A100" Color="#B9F6CA"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.A200" Identity="Green.A200" Color="#69F0AE"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.A400" Identity="Green.A400" Color="#00E676"/>
-	<MaterialBrush x:Key="MDH.Palette.Green.A700" Identity="Green.A700" Color="#00C853"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.050" MDH.Identity="Green.050" Color="{StaticResource MDH.Palette.Colors.Green.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.100" MDH.Identity="Green.100" Color="{StaticResource MDH.Palette.Colors.Green.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.200" MDH.Identity="Green.200" Color="{StaticResource MDH.Palette.Colors.Green.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.300" MDH.Identity="Green.300" Color="{StaticResource MDH.Palette.Colors.Green.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.400" MDH.Identity="Green.400" Color="{StaticResource MDH.Palette.Colors.Green.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.500" MDH.Identity="Green.500" Color="{StaticResource MDH.Palette.Colors.Green.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.600" MDH.Identity="Green.600" Color="{StaticResource MDH.Palette.Colors.Green.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.700" MDH.Identity="Green.700" Color="{StaticResource MDH.Palette.Colors.Green.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.800" MDH.Identity="Green.800" Color="{StaticResource MDH.Palette.Colors.Green.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.900" MDH.Identity="Green.900" Color="{StaticResource MDH.Palette.Colors.Green.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.A100" MDH.Identity="Green.A100" Color="{StaticResource MDH.Palette.Colors.Green.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.A200" MDH.Identity="Green.A200" Color="{StaticResource MDH.Palette.Colors.Green.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.A400" MDH.Identity="Green.A400" Color="{StaticResource MDH.Palette.Colors.Green.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Green.A700" MDH.Identity="Green.A700" Color="{StaticResource MDH.Palette.Colors.Green.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.050" Identity="LightGreen.050" Color="#F1F8E9"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.100" Identity="LightGreen.100" Color="#DCEDC8"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.200" Identity="LightGreen.200" Color="#C5E1A5"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.300" Identity="LightGreen.300" Color="#AED581"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.400" Identity="LightGreen.400" Color="#9CCC65"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.500" Identity="LightGreen.500" Color="#8BC34A"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.600" Identity="LightGreen.600" Color="#7CB342"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.700" Identity="LightGreen.700" Color="#689F38"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.800" Identity="LightGreen.800" Color="#558B2F"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.900" Identity="LightGreen.900" Color="#33691E"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.A100" Identity="LightGreen.A100" Color="#CCFF90"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.A200" Identity="LightGreen.A200" Color="#B2FF59"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.A400" Identity="LightGreen.A400" Color="#76FF03"/>
-	<MaterialBrush x:Key="MDH.Palette.LightGreen.A700" Identity="LightGreen.A700" Color="#64DD17"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.050" MDH.Identity="LightGreen.050" Color="{StaticResource MDH.Palette.Colors.LightGreen.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.100" MDH.Identity="LightGreen.100" Color="{StaticResource MDH.Palette.Colors.LightGreen.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.200" MDH.Identity="LightGreen.200" Color="{StaticResource MDH.Palette.Colors.LightGreen.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.300" MDH.Identity="LightGreen.300" Color="{StaticResource MDH.Palette.Colors.LightGreen.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.400" MDH.Identity="LightGreen.400" Color="{StaticResource MDH.Palette.Colors.LightGreen.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.500" MDH.Identity="LightGreen.500" Color="{StaticResource MDH.Palette.Colors.LightGreen.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.600" MDH.Identity="LightGreen.600" Color="{StaticResource MDH.Palette.Colors.LightGreen.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.700" MDH.Identity="LightGreen.700" Color="{StaticResource MDH.Palette.Colors.LightGreen.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.800" MDH.Identity="LightGreen.800" Color="{StaticResource MDH.Palette.Colors.LightGreen.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.900" MDH.Identity="LightGreen.900" Color="{StaticResource MDH.Palette.Colors.LightGreen.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.A100" MDH.Identity="LightGreen.A100" Color="{StaticResource MDH.Palette.Colors.LightGreen.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.A200" MDH.Identity="LightGreen.A200" Color="{StaticResource MDH.Palette.Colors.LightGreen.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.A400" MDH.Identity="LightGreen.A400" Color="{StaticResource MDH.Palette.Colors.LightGreen.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.LightGreen.A700" MDH.Identity="LightGreen.A700" Color="{StaticResource MDH.Palette.Colors.LightGreen.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Lime.050" Identity="Lime.050" Color="#F9FBE7"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.100" Identity="Lime.100" Color="#F0F4C3"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.200" Identity="Lime.200" Color="#E6EE9C"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.300" Identity="Lime.300" Color="#DCE775"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.400" Identity="Lime.400" Color="#D4E157"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.500" Identity="Lime.500" Color="#CDDC39"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.600" Identity="Lime.600" Color="#C0CA33"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.700" Identity="Lime.700" Color="#AFB42B"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.800" Identity="Lime.800" Color="#9E9D24"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.900" Identity="Lime.900" Color="#827717"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.A100" Identity="Lime.A100" Color="#F4FF81"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.A200" Identity="Lime.A200" Color="#EEFF41"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.A400" Identity="Lime.A400" Color="#C6FF00"/>
-	<MaterialBrush x:Key="MDH.Palette.Lime.A700" Identity="Lime.A700" Color="#AEEA00"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.050" MDH.Identity="Lime.050" Color="{StaticResource MDH.Palette.Colors.Lime.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.100" MDH.Identity="Lime.100" Color="{StaticResource MDH.Palette.Colors.Lime.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.200" MDH.Identity="Lime.200" Color="{StaticResource MDH.Palette.Colors.Lime.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.300" MDH.Identity="Lime.300" Color="{StaticResource MDH.Palette.Colors.Lime.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.400" MDH.Identity="Lime.400" Color="{StaticResource MDH.Palette.Colors.Lime.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.500" MDH.Identity="Lime.500" Color="{StaticResource MDH.Palette.Colors.Lime.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.600" MDH.Identity="Lime.600" Color="{StaticResource MDH.Palette.Colors.Lime.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.700" MDH.Identity="Lime.700" Color="{StaticResource MDH.Palette.Colors.Lime.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.800" MDH.Identity="Lime.800" Color="{StaticResource MDH.Palette.Colors.Lime.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.900" MDH.Identity="Lime.900" Color="{StaticResource MDH.Palette.Colors.Lime.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.A100" MDH.Identity="Lime.A100" Color="{StaticResource MDH.Palette.Colors.Lime.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.A200" MDH.Identity="Lime.A200" Color="{StaticResource MDH.Palette.Colors.Lime.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.A400" MDH.Identity="Lime.A400" Color="{StaticResource MDH.Palette.Colors.Lime.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Lime.A700" MDH.Identity="Lime.A700" Color="{StaticResource MDH.Palette.Colors.Lime.A700}"/>
   
-  <MaterialBrush x:Key="MDH.Palette.Yellow.050" Identity="Yellow.050" Color="#FFF8E1"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.100" Identity="Yellow.100" Color="#FFECB3"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.200" Identity="Yellow.200" Color="#FFE082"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.300" Identity="Yellow.300" Color="#FFD54F"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.400" Identity="Yellow.400" Color="#FFCA28"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.500" Identity="Yellow.500" Color="#FFC107"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.600" Identity="Yellow.600" Color="#FFB300"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.700" Identity="Yellow.700" Color="#FFA000"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.800" Identity="Yellow.800" Color="#FF8F00"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.900" Identity="Yellow.900" Color="#FF6F00"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.A100" Identity="Yellow.A100" Color="#FFE57F"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.A200" Identity="Yellow.A200" Color="#FFD740"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.A400" Identity="Yellow.A400" Color="#FFC400"/>
-  <MaterialBrush x:Key="MDH.Palette.Yellow.A700" Identity="Yellow.A700" Color="#FFAB00"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.050" MDH.Identity="Yellow.050" Color="{StaticResource MDH.Palette.Colors.Yellow.050}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.100" MDH.Identity="Yellow.100" Color="{StaticResource MDH.Palette.Colors.Yellow.100}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.200" MDH.Identity="Yellow.200" Color="{StaticResource MDH.Palette.Colors.Yellow.200}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.300" MDH.Identity="Yellow.300" Color="{StaticResource MDH.Palette.Colors.Yellow.300}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.400" MDH.Identity="Yellow.400" Color="{StaticResource MDH.Palette.Colors.Yellow.400}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.500" MDH.Identity="Yellow.500" Color="{StaticResource MDH.Palette.Colors.Yellow.500}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.600" MDH.Identity="Yellow.600" Color="{StaticResource MDH.Palette.Colors.Yellow.600}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.700" MDH.Identity="Yellow.700" Color="{StaticResource MDH.Palette.Colors.Yellow.700}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.800" MDH.Identity="Yellow.800" Color="{StaticResource MDH.Palette.Colors.Yellow.800}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.900" MDH.Identity="Yellow.900" Color="{StaticResource MDH.Palette.Colors.Yellow.900}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.A100" MDH.Identity="Yellow.A100" Color="{StaticResource MDH.Palette.Colors.Yellow.A100}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.A200" MDH.Identity="Yellow.A200" Color="{StaticResource MDH.Palette.Colors.Yellow.A200}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.A400" MDH.Identity="Yellow.A400" Color="{StaticResource MDH.Palette.Colors.Yellow.A400}"/>
+  <SolidColorBrush x:Key="MDH.Palette.Yellow.A700" MDH.Identity="Yellow.A700" Color="{StaticResource MDH.Palette.Colors.Yellow.A700}"/>
   
-  <MaterialBrush x:Key="MDH.Palette.Amber.050" Identity="Amber.050" Color="#FFF8E1"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.100" Identity="Amber.100" Color="#FFECB3"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.200" Identity="Amber.200" Color="#FFE082"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.300" Identity="Amber.300" Color="#FFD54F"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.400" Identity="Amber.400" Color="#FFCA28"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.500" Identity="Amber.500" Color="#FFC107"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.600" Identity="Amber.600" Color="#FFB300"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.700" Identity="Amber.700" Color="#FFA000"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.800" Identity="Amber.800" Color="#FF8F00"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.900" Identity="Amber.900" Color="#FF6F00"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.A100" Identity="Amber.A100" Color="#FFE57F"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.A200" Identity="Amber.A200" Color="#FFD740"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.A400" Identity="Amber.A400" Color="#FFC400"/>
-	<MaterialBrush x:Key="MDH.Palette.Amber.A700" Identity="Amber.A700" Color="#FFAB00"/>
+  <SolidColorBrush x:Key="MDH.Palette.Amber.050" MDH.Identity="Amber.050" Color="{StaticResource MDH.Palette.Colors.Amber.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.100" MDH.Identity="Amber.100" Color="{StaticResource MDH.Palette.Colors.Amber.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.200" MDH.Identity="Amber.200" Color="{StaticResource MDH.Palette.Colors.Amber.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.300" MDH.Identity="Amber.300" Color="{StaticResource MDH.Palette.Colors.Amber.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.400" MDH.Identity="Amber.400" Color="{StaticResource MDH.Palette.Colors.Amber.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.500" MDH.Identity="Amber.500" Color="{StaticResource MDH.Palette.Colors.Amber.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.600" MDH.Identity="Amber.600" Color="{StaticResource MDH.Palette.Colors.Amber.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.700" MDH.Identity="Amber.700" Color="{StaticResource MDH.Palette.Colors.Amber.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.800" MDH.Identity="Amber.800" Color="{StaticResource MDH.Palette.Colors.Amber.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.900" MDH.Identity="Amber.900" Color="{StaticResource MDH.Palette.Colors.Amber.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.A100" MDH.Identity="Amber.A100" Color="{StaticResource MDH.Palette.Colors.Amber.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.A200" MDH.Identity="Amber.A200" Color="{StaticResource MDH.Palette.Colors.Amber.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.A400" MDH.Identity="Amber.A400" Color="{StaticResource MDH.Palette.Colors.Amber.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Amber.A700" MDH.Identity="Amber.A700" Color="{StaticResource MDH.Palette.Colors.Amber.A700}"/>
   
-	<MaterialBrush x:Key="MDH.Palette.Orange.050" Identity="Orange.050" Color="#FFF3E0"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.100" Identity="Orange.100" Color="#FFE0B2"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.200" Identity="Orange.200" Color="#FFCC80"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.300" Identity="Orange.300" Color="#FFB74D"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.400" Identity="Orange.400" Color="#FFA726"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.500" Identity="Orange.500" Color="#FF9800"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.600" Identity="Orange.600" Color="#FB8C00"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.700" Identity="Orange.700" Color="#F57C00"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.800" Identity="Orange.800" Color="#EF6C00"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.900" Identity="Orange.900" Color="#E65100"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.A100" Identity="Orange.A100" Color="#FFD180"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.A200" Identity="Orange.A200" Color="#FFAB40"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.A400" Identity="Orange.A400" Color="#FF9100"/>
-	<MaterialBrush x:Key="MDH.Palette.Orange.A700" Identity="Orange.A700" Color="#FF6D00"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.050" MDH.Identity="Orange.050" Color="{StaticResource MDH.Palette.Colors.Orange.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.100" MDH.Identity="Orange.100" Color="{StaticResource MDH.Palette.Colors.Orange.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.200" MDH.Identity="Orange.200" Color="{StaticResource MDH.Palette.Colors.Orange.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.300" MDH.Identity="Orange.300" Color="{StaticResource MDH.Palette.Colors.Orange.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.400" MDH.Identity="Orange.400" Color="{StaticResource MDH.Palette.Colors.Orange.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.500" MDH.Identity="Orange.500" Color="{StaticResource MDH.Palette.Colors.Orange.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.600" MDH.Identity="Orange.600" Color="{StaticResource MDH.Palette.Colors.Orange.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.700" MDH.Identity="Orange.700" Color="{StaticResource MDH.Palette.Colors.Orange.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.800" MDH.Identity="Orange.800" Color="{StaticResource MDH.Palette.Colors.Orange.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.900" MDH.Identity="Orange.900" Color="{StaticResource MDH.Palette.Colors.Orange.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.A100" MDH.Identity="Orange.A100" Color="{StaticResource MDH.Palette.Colors.Orange.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.A200" MDH.Identity="Orange.A200" Color="{StaticResource MDH.Palette.Colors.Orange.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.A400" MDH.Identity="Orange.A400" Color="{StaticResource MDH.Palette.Colors.Orange.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Orange.A700" MDH.Identity="Orange.A700" Color="{StaticResource MDH.Palette.Colors.Orange.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.050" Identity="DeepOrange.050" Color="#FBE9E7"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.100" Identity="DeepOrange.100" Color="#FFCCBC"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.200" Identity="DeepOrange.200" Color="#FFAB91"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.300" Identity="DeepOrange.300" Color="#FF8A65"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.400" Identity="DeepOrange.400" Color="#FF7043"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.500" Identity="DeepOrange.500" Color="#FF5722"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.600" Identity="DeepOrange.600" Color="#F4511E"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.700" Identity="DeepOrange.700" Color="#E64A19"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.800" Identity="DeepOrange.800" Color="#D84315"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.900" Identity="DeepOrange.900" Color="#BF360C"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.A100" Identity="DeepOrange.A100" Color="#FF9E80"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.A200" Identity="DeepOrange.A200" Color="#FF6E40"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.A400" Identity="DeepOrange.A400" Color="#FF3D00"/>
-	<MaterialBrush x:Key="MDH.Palette.DeepOrange.A700" Identity="DeepOrange.A700" Color="#DD2C00"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.050" MDH.Identity="DeepOrange.050" Color="{StaticResource MDH.Palette.Colors.DeepOrange.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.100" MDH.Identity="DeepOrange.100" Color="{StaticResource MDH.Palette.Colors.DeepOrange.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.200" MDH.Identity="DeepOrange.200" Color="{StaticResource MDH.Palette.Colors.DeepOrange.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.300" MDH.Identity="DeepOrange.300" Color="{StaticResource MDH.Palette.Colors.DeepOrange.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.400" MDH.Identity="DeepOrange.400" Color="{StaticResource MDH.Palette.Colors.DeepOrange.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.500" MDH.Identity="DeepOrange.500" Color="{StaticResource MDH.Palette.Colors.DeepOrange.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.600" MDH.Identity="DeepOrange.600" Color="{StaticResource MDH.Palette.Colors.DeepOrange.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.700" MDH.Identity="DeepOrange.700" Color="{StaticResource MDH.Palette.Colors.DeepOrange.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.800" MDH.Identity="DeepOrange.800" Color="{StaticResource MDH.Palette.Colors.DeepOrange.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.900" MDH.Identity="DeepOrange.900" Color="{StaticResource MDH.Palette.Colors.DeepOrange.900}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.A100" MDH.Identity="DeepOrange.A100" Color="{StaticResource MDH.Palette.Colors.DeepOrange.A100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.A200" MDH.Identity="DeepOrange.A200" Color="{StaticResource MDH.Palette.Colors.DeepOrange.A200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.A400" MDH.Identity="DeepOrange.A400" Color="{StaticResource MDH.Palette.Colors.DeepOrange.A400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.DeepOrange.A700" MDH.Identity="DeepOrange.A700" Color="{StaticResource MDH.Palette.Colors.DeepOrange.A700}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Brown.050" Identity="Brown.050" Color="#EFEBE9"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.100" Identity="Brown.100" Color="#D7CCC8"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.200" Identity="Brown.200" Color="#BCAAA4"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.300" Identity="Brown.300" Color="#A1887F"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.400" Identity="Brown.400" Color="#8D6E63"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.500" Identity="Brown.500" Color="#795548"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.600" Identity="Brown.600" Color="#6D4C41"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.700" Identity="Brown.700" Color="#5D4037"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.800" Identity="Brown.800" Color="#4E342E"/>
-	<MaterialBrush x:Key="MDH.Palette.Brown.900" Identity="Brown.900" Color="#3E2723"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.050" MDH.Identity="Brown.050" Color="{StaticResource MDH.Palette.Colors.Brown.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.100" MDH.Identity="Brown.100" Color="{StaticResource MDH.Palette.Colors.Brown.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.200" MDH.Identity="Brown.200" Color="{StaticResource MDH.Palette.Colors.Brown.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.300" MDH.Identity="Brown.300" Color="{StaticResource MDH.Palette.Colors.Brown.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.400" MDH.Identity="Brown.400" Color="{StaticResource MDH.Palette.Colors.Brown.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.500" MDH.Identity="Brown.500" Color="{StaticResource MDH.Palette.Colors.Brown.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.600" MDH.Identity="Brown.600" Color="{StaticResource MDH.Palette.Colors.Brown.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.700" MDH.Identity="Brown.700" Color="{StaticResource MDH.Palette.Colors.Brown.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.800" MDH.Identity="Brown.800" Color="{StaticResource MDH.Palette.Colors.Brown.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Brown.900" MDH.Identity="Brown.900" Color="{StaticResource MDH.Palette.Colors.Brown.900}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.Grey.050" Identity="Grey.050" Color="#FAFAFA"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.100" Identity="Grey.100" Color="#F5F5F5"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.200" Identity="Grey.200" Color="#EEEEEE"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.300" Identity="Grey.300" Color="#E0E0E0"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.400" Identity="Grey.400" Color="#BDBDBD"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.500" Identity="Grey.500" Color="#9E9E9E"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.600" Identity="Grey.600" Color="#757575"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.700" Identity="Grey.700" Color="#616161"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.800" Identity="Grey.800" Color="#424242"/>
-	<MaterialBrush x:Key="MDH.Palette.Grey.900" Identity="Grey.900" Color="#212121"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.050" MDH.Identity="Grey.050" Color="{StaticResource MDH.Palette.Colors.Grey.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.100" MDH.Identity="Grey.100" Color="{StaticResource MDH.Palette.Colors.Grey.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.200" MDH.Identity="Grey.200" Color="{StaticResource MDH.Palette.Colors.Grey.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.300" MDH.Identity="Grey.300" Color="{StaticResource MDH.Palette.Colors.Grey.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.400" MDH.Identity="Grey.400" Color="{StaticResource MDH.Palette.Colors.Grey.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.500" MDH.Identity="Grey.500" Color="{StaticResource MDH.Palette.Colors.Grey.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.600" MDH.Identity="Grey.600" Color="{StaticResource MDH.Palette.Colors.Grey.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.700" MDH.Identity="Grey.700" Color="{StaticResource MDH.Palette.Colors.Grey.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.800" MDH.Identity="Grey.800" Color="{StaticResource MDH.Palette.Colors.Grey.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.Grey.900" MDH.Identity="Grey.900" Color="{StaticResource MDH.Palette.Colors.Grey.900}"/>
 
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.050" Identity="BlueGrey.050" Color="#ECEFF1"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.100" Identity="BlueGrey.100" Color="#CFD8DC"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.200" Identity="BlueGrey.200" Color="#B0BEC5"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.300" Identity="BlueGrey.300" Color="#90A4AE"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.400" Identity="BlueGrey.400" Color="#78909C"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.500" Identity="BlueGrey.500" Color="#607D8B"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.600" Identity="BlueGrey.600" Color="#546E7A"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.700" Identity="BlueGrey.700" Color="#455A64"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.800" Identity="BlueGrey.800" Color="#37474F"/>
-	<MaterialBrush x:Key="MDH.Palette.BlueGrey.900" Identity="BlueGrey.900" Color="#263238"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.050" MDH.Identity="BlueGrey.050" Color="{StaticResource MDH.Palette.Colors.BlueGrey.050}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.100" MDH.Identity="BlueGrey.100" Color="{StaticResource MDH.Palette.Colors.BlueGrey.100}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.200" MDH.Identity="BlueGrey.200" Color="{StaticResource MDH.Palette.Colors.BlueGrey.200}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.300" MDH.Identity="BlueGrey.300" Color="{StaticResource MDH.Palette.Colors.BlueGrey.300}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.400" MDH.Identity="BlueGrey.400" Color="{StaticResource MDH.Palette.Colors.BlueGrey.400}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.500" MDH.Identity="BlueGrey.500" Color="{StaticResource MDH.Palette.Colors.BlueGrey.500}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.600" MDH.Identity="BlueGrey.600" Color="{StaticResource MDH.Palette.Colors.BlueGrey.600}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.700" MDH.Identity="BlueGrey.700" Color="{StaticResource MDH.Palette.Colors.BlueGrey.700}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.800" MDH.Identity="BlueGrey.800" Color="{StaticResource MDH.Palette.Colors.BlueGrey.800}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.900" MDH.Identity="BlueGrey.900" Color="{StaticResource MDH.Palette.Colors.BlueGrey.900}"/>
 
-	
-	
-	
-	<SolidColorBrush x:Key="MDH.Palette2.Red.050" MaterialDesign.Identity="Red.050" Color="#FFEBEE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.100" MaterialDesign.Identity="Red.100" Color="#FFCDD2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.200" MaterialDesign.Identity="Red.200" Color="#EF9A9A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.300" MaterialDesign.Identity="Red.300" Color="#E57373"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.400" MaterialDesign.Identity="Red.400" Color="#EF5350"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.500" MaterialDesign.Identity="Red.500" Color="#F44336"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.600" MaterialDesign.Identity="Red.600" Color="#E53935"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.700" MaterialDesign.Identity="Red.700" Color="#D32F2F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.800" MaterialDesign.Identity="Red.800" Color="#C62828"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.900" MaterialDesign.Identity="Red.900" Color="#B71C1C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.A100" MaterialDesign.Identity="Red.A100" Color="#FF8A80"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.A200" MaterialDesign.Identity="Red.A200" Color="#FF5252"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.A400" MaterialDesign.Identity="Red.A400" Color="#FF1744"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Red.A700" MaterialDesign.Identity="Red.A700" Color="#D50000"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.050" MaterialDesign.Identity="Pink.050" Color="#FCE4EC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.100" MaterialDesign.Identity="Pink.100" Color="#F8BBD0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.200" MaterialDesign.Identity="Pink.200" Color="#F48FB1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.300" MaterialDesign.Identity="Pink.300" Color="#F06292"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.400" MaterialDesign.Identity="Pink.400" Color="#EC407A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.500" MaterialDesign.Identity="Pink.500" Color="#E91E63"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.600" MaterialDesign.Identity="Pink.600" Color="#D81B60"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.700" MaterialDesign.Identity="Pink.700" Color="#C2185B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.800" MaterialDesign.Identity="Pink.800" Color="#AD1457"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.900" MaterialDesign.Identity="Pink.900" Color="#880E4F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.A100" MaterialDesign.Identity="Pink.A100" Color="#FF80AB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.A200" MaterialDesign.Identity="Pink.A200" Color="#FF4081"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.A400" MaterialDesign.Identity="Pink.A400" Color="#F50057"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Pink.A700" MaterialDesign.Identity="Pink.A700" Color="#C51162"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.050" MaterialDesign.Identity="Purple.050" Color="#F3E5F5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.100" MaterialDesign.Identity="Purple.100" Color="#E1BEE7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.200" MaterialDesign.Identity="Purple.200" Color="#CE93D8"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.300" MaterialDesign.Identity="Purple.300" Color="#BA68C8"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.400" MaterialDesign.Identity="Purple.400" Color="#AB47BC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.500" MaterialDesign.Identity="Purple.500" Color="#9C27B0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.600" MaterialDesign.Identity="Purple.600" Color="#8E24AA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.700" MaterialDesign.Identity="Purple.700" Color="#7B1FA2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.800" MaterialDesign.Identity="Purple.800" Color="#6A1B9A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.900" MaterialDesign.Identity="Purple.900" Color="#4A148C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.A100" MaterialDesign.Identity="Purple.A100" Color="#EA80FC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.A200" MaterialDesign.Identity="Purple.A200" Color="#E040FB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.A400" MaterialDesign.Identity="Purple.A400" Color="#D500F9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Purple.A700" MaterialDesign.Identity="Purple.A700" Color="#AA00FF"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.050" MaterialDesign.Identity="DeepPurple.050" Color="#EDE7F6"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.100" MaterialDesign.Identity="DeepPurple.100" Color="#D1C4E9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.200" MaterialDesign.Identity="DeepPurple.200" Color="#B39DDB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.300" MaterialDesign.Identity="DeepPurple.300" Color="#9575CD"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.400" MaterialDesign.Identity="DeepPurple.400" Color="#7E57C2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.500" MaterialDesign.Identity="DeepPurple.500" Color="#673AB7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.600" MaterialDesign.Identity="DeepPurple.600" Color="#5E35B1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.700" MaterialDesign.Identity="DeepPurple.700" Color="#512DA8"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.800" MaterialDesign.Identity="DeepPurple.800" Color="#4527A0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.900" MaterialDesign.Identity="DeepPurple.900" Color="#311B92"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.A100" MaterialDesign.Identity="DeepPurple.A100" Color="#B388FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.A200" MaterialDesign.Identity="DeepPurple.A200" Color="#7C4DFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.A400" MaterialDesign.Identity="DeepPurple.A400" Color="#651FFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepPurple.A700" MaterialDesign.Identity="DeepPurple.A700" Color="#6200EA"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.050" MaterialDesign.Identity="Indigo.050" Color="#E8EAF6"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.100" MaterialDesign.Identity="Indigo.100" Color="#C5CAE9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.200" MaterialDesign.Identity="Indigo.200" Color="#9FA8DA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.300" MaterialDesign.Identity="Indigo.300" Color="#7986CB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.400" MaterialDesign.Identity="Indigo.400" Color="#5C6BC0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.500" MaterialDesign.Identity="Indigo.500" Color="#3F51B5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.600" MaterialDesign.Identity="Indigo.600" Color="#3949AB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.700" MaterialDesign.Identity="Indigo.700" Color="#303F9F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.800" MaterialDesign.Identity="Indigo.800" Color="#283593"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.900" MaterialDesign.Identity="Indigo.900" Color="#1A237E"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.A100" MaterialDesign.Identity="Indigo.A100" Color="#8C9EFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.A200" MaterialDesign.Identity="Indigo.A200" Color="#536DFE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Indigo.A400" MaterialDesign.Identity="Indigo.A400" Color="#3D5AFE"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Indigo.A700" MaterialDesign.Identity="Indigo.A700" Color="#304FFE"/>
-  
-  <SolidColorBrush x:Key="MDH.Palette2.Blue.050" MaterialDesign.Identity="Blue.050" Color="#E3F2FD"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.100" MaterialDesign.Identity="Blue.100" Color="#BBDEFB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.200" MaterialDesign.Identity="Blue.200" Color="#90CAF9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.300" MaterialDesign.Identity="Blue.300" Color="#64B5F6"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.400" MaterialDesign.Identity="Blue.400" Color="#42A5F5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.500" MaterialDesign.Identity="Blue.500" Color="#2196F3"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.600" MaterialDesign.Identity="Blue.600" Color="#1E88E5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.700" MaterialDesign.Identity="Blue.700" Color="#1976D2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.800" MaterialDesign.Identity="Blue.800" Color="#1565C0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.900" MaterialDesign.Identity="Blue.900" Color="#0D47A1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.A100" MaterialDesign.Identity="Blue.A100" Color="#82B1FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.A200" MaterialDesign.Identity="Blue.A200" Color="#448AFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.A400" MaterialDesign.Identity="Blue.A400" Color="#2979FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Blue.A700" MaterialDesign.Identity="Blue.A700" Color="#2962FF"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.050" MaterialDesign.Identity="LightBlue.050" Color="#E1F5FE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.100" MaterialDesign.Identity="LightBlue.100" Color="#B3E5FC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.200" MaterialDesign.Identity="LightBlue.200" Color="#81D4FA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.300" MaterialDesign.Identity="LightBlue.300" Color="#4FC3F7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.400" MaterialDesign.Identity="LightBlue.400" Color="#29B6F6"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.500" MaterialDesign.Identity="LightBlue.500" Color="#03A9F4"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.600" MaterialDesign.Identity="LightBlue.600" Color="#039BE5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.700" MaterialDesign.Identity="LightBlue.700" Color="#0288D1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.800" MaterialDesign.Identity="LightBlue.800" Color="#0277BD"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.900" MaterialDesign.Identity="LightBlue.900" Color="#01579B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.A100" MaterialDesign.Identity="LightBlue.A100" Color="#80D8FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.A200" MaterialDesign.Identity="LightBlue.A200" Color="#40C4FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.A400" MaterialDesign.Identity="LightBlue.A400" Color="#00B0FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightBlue.A700" MaterialDesign.Identity="LightBlue.A700" Color="#0091EA"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.050" MaterialDesign.Identity="Cyan.050" Color="#E0F7FA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.100" MaterialDesign.Identity="Cyan.100" Color="#B2EBF2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.200" MaterialDesign.Identity="Cyan.200" Color="#80DEEA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.300" MaterialDesign.Identity="Cyan.300" Color="#4DD0E1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.400" MaterialDesign.Identity="Cyan.400" Color="#26C6DA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.500" MaterialDesign.Identity="Cyan.500" Color="#00BCD4"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.600" MaterialDesign.Identity="Cyan.600" Color="#00ACC1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.700" MaterialDesign.Identity="Cyan.700" Color="#0097A7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.800" MaterialDesign.Identity="Cyan.800" Color="#00838F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.900" MaterialDesign.Identity="Cyan.900" Color="#006064"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.A100" MaterialDesign.Identity="Cyan.A100" Color="#84FFFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.A200" MaterialDesign.Identity="Cyan.A200" Color="#18FFFF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.A400" MaterialDesign.Identity="Cyan.A400" Color="#00E5FF"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Cyan.A700" MaterialDesign.Identity="Cyan.A700" Color="#00B8D4"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.050" MaterialDesign.Identity="Teal.050" Color="#E0F2F1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.100" MaterialDesign.Identity="Teal.100" Color="#B2DFDB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.200" MaterialDesign.Identity="Teal.200" Color="#80CBC4"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.300" MaterialDesign.Identity="Teal.300" Color="#4DB6AC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.400" MaterialDesign.Identity="Teal.400" Color="#26A69A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.500" MaterialDesign.Identity="Teal.500" Color="#009688"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.600" MaterialDesign.Identity="Teal.600" Color="#00897B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.700" MaterialDesign.Identity="Teal.700" Color="#00796B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.800" MaterialDesign.Identity="Teal.800" Color="#00695C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.900" MaterialDesign.Identity="Teal.900" Color="#004D40"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.A100" MaterialDesign.Identity="Teal.A100" Color="#A7FFEB"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.A200" MaterialDesign.Identity="Teal.A200" Color="#64FFDA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.A400" MaterialDesign.Identity="Teal.A400" Color="#1DE9B6"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Teal.A700" MaterialDesign.Identity="Teal.A700" Color="#00BFA5"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Green.050" MaterialDesign.Identity="Green.050" Color="#E8F5E9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.100" MaterialDesign.Identity="Green.100" Color="#C8E6C9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.200" MaterialDesign.Identity="Green.200" Color="#A5D6A7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.300" MaterialDesign.Identity="Green.300" Color="#81C784"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.400" MaterialDesign.Identity="Green.400" Color="#66BB6A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.500" MaterialDesign.Identity="Green.500" Color="#4CAF50"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.600" MaterialDesign.Identity="Green.600" Color="#43A047"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.700" MaterialDesign.Identity="Green.700" Color="#388E3C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.800" MaterialDesign.Identity="Green.800" Color="#2E7D32"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.900" MaterialDesign.Identity="Green.900" Color="#1B5E20"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.A100" MaterialDesign.Identity="Green.A100" Color="#B9F6CA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.A200" MaterialDesign.Identity="Green.A200" Color="#69F0AE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.A400" MaterialDesign.Identity="Green.A400" Color="#00E676"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Green.A700" MaterialDesign.Identity="Green.A700" Color="#00C853"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.050" MaterialDesign.Identity="LightGreen.050" Color="#F1F8E9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.100" MaterialDesign.Identity="LightGreen.100" Color="#DCEDC8"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.200" MaterialDesign.Identity="LightGreen.200" Color="#C5E1A5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.300" MaterialDesign.Identity="LightGreen.300" Color="#AED581"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.400" MaterialDesign.Identity="LightGreen.400" Color="#9CCC65"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.500" MaterialDesign.Identity="LightGreen.500" Color="#8BC34A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.600" MaterialDesign.Identity="LightGreen.600" Color="#7CB342"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.700" MaterialDesign.Identity="LightGreen.700" Color="#689F38"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.800" MaterialDesign.Identity="LightGreen.800" Color="#558B2F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.900" MaterialDesign.Identity="LightGreen.900" Color="#33691E"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.A100" MaterialDesign.Identity="LightGreen.A100" Color="#CCFF90"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.A200" MaterialDesign.Identity="LightGreen.A200" Color="#B2FF59"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.A400" MaterialDesign.Identity="LightGreen.A400" Color="#76FF03"/>
-	<SolidColorBrush x:Key="MDH.Palette2.LightGreen.A700" MaterialDesign.Identity="LightGreen.A700" Color="#64DD17"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.050" MaterialDesign.Identity="Lime.050" Color="#F9FBE7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.100" MaterialDesign.Identity="Lime.100" Color="#F0F4C3"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.200" MaterialDesign.Identity="Lime.200" Color="#E6EE9C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.300" MaterialDesign.Identity="Lime.300" Color="#DCE775"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.400" MaterialDesign.Identity="Lime.400" Color="#D4E157"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.500" MaterialDesign.Identity="Lime.500" Color="#CDDC39"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.600" MaterialDesign.Identity="Lime.600" Color="#C0CA33"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.700" MaterialDesign.Identity="Lime.700" Color="#AFB42B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.800" MaterialDesign.Identity="Lime.800" Color="#9E9D24"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.900" MaterialDesign.Identity="Lime.900" Color="#827717"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.A100" MaterialDesign.Identity="Lime.A100" Color="#F4FF81"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.A200" MaterialDesign.Identity="Lime.A200" Color="#EEFF41"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.A400" MaterialDesign.Identity="Lime.A400" Color="#C6FF00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Lime.A700" MaterialDesign.Identity="Lime.A700" Color="#AEEA00"/>
-  
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.050" MaterialDesign.Identity="Yellow.050" Color="#FFF8E1"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.100" MaterialDesign.Identity="Yellow.100" Color="#FFECB3"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.200" MaterialDesign.Identity="Yellow.200" Color="#FFE082"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.300" MaterialDesign.Identity="Yellow.300" Color="#FFD54F"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.400" MaterialDesign.Identity="Yellow.400" Color="#FFCA28"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.500" MaterialDesign.Identity="Yellow.500" Color="#FFC107"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.600" MaterialDesign.Identity="Yellow.600" Color="#FFB300"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.700" MaterialDesign.Identity="Yellow.700" Color="#FFA000"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.800" MaterialDesign.Identity="Yellow.800" Color="#FF8F00"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.900" MaterialDesign.Identity="Yellow.900" Color="#FF6F00"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.A100" MaterialDesign.Identity="Yellow.A100" Color="#FFE57F"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.A200" MaterialDesign.Identity="Yellow.A200" Color="#FFD740"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.A400" MaterialDesign.Identity="Yellow.A400" Color="#FFC400"/>
-  <SolidColorBrush x:Key="MDH.Palette2.Yellow.A700" MaterialDesign.Identity="Yellow.A700" Color="#FFAB00"/>
-  
-  <SolidColorBrush x:Key="MDH.Palette2.Amber.050" MaterialDesign.Identity="Amber.050" Color="#FFF8E1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.100" MaterialDesign.Identity="Amber.100" Color="#FFECB3"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.200" MaterialDesign.Identity="Amber.200" Color="#FFE082"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.300" MaterialDesign.Identity="Amber.300" Color="#FFD54F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.400" MaterialDesign.Identity="Amber.400" Color="#FFCA28"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.500" MaterialDesign.Identity="Amber.500" Color="#FFC107"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.600" MaterialDesign.Identity="Amber.600" Color="#FFB300"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.700" MaterialDesign.Identity="Amber.700" Color="#FFA000"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.800" MaterialDesign.Identity="Amber.800" Color="#FF8F00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.900" MaterialDesign.Identity="Amber.900" Color="#FF6F00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.A100" MaterialDesign.Identity="Amber.A100" Color="#FFE57F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.A200" MaterialDesign.Identity="Amber.A200" Color="#FFD740"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.A400" MaterialDesign.Identity="Amber.A400" Color="#FFC400"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Amber.A700" MaterialDesign.Identity="Amber.A700" Color="#FFAB00"/>
-  
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.050" MaterialDesign.Identity="Orange.050" Color="#FFF3E0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.100" MaterialDesign.Identity="Orange.100" Color="#FFE0B2"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.200" MaterialDesign.Identity="Orange.200" Color="#FFCC80"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.300" MaterialDesign.Identity="Orange.300" Color="#FFB74D"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.400" MaterialDesign.Identity="Orange.400" Color="#FFA726"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.500" MaterialDesign.Identity="Orange.500" Color="#FF9800"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.600" MaterialDesign.Identity="Orange.600" Color="#FB8C00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.700" MaterialDesign.Identity="Orange.700" Color="#F57C00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.800" MaterialDesign.Identity="Orange.800" Color="#EF6C00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.900" MaterialDesign.Identity="Orange.900" Color="#E65100"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.A100" MaterialDesign.Identity="Orange.A100" Color="#FFD180"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.A200" MaterialDesign.Identity="Orange.A200" Color="#FFAB40"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.A400" MaterialDesign.Identity="Orange.A400" Color="#FF9100"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Orange.A700" MaterialDesign.Identity="Orange.A700" Color="#FF6D00"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.050" MaterialDesign.Identity="DeepOrange.050" Color="#FBE9E7"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.100" MaterialDesign.Identity="DeepOrange.100" Color="#FFCCBC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.200" MaterialDesign.Identity="DeepOrange.200" Color="#FFAB91"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.300" MaterialDesign.Identity="DeepOrange.300" Color="#FF8A65"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.400" MaterialDesign.Identity="DeepOrange.400" Color="#FF7043"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.500" MaterialDesign.Identity="DeepOrange.500" Color="#FF5722"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.600" MaterialDesign.Identity="DeepOrange.600" Color="#F4511E"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.700" MaterialDesign.Identity="DeepOrange.700" Color="#E64A19"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.800" MaterialDesign.Identity="DeepOrange.800" Color="#D84315"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.900" MaterialDesign.Identity="DeepOrange.900" Color="#BF360C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.A100" MaterialDesign.Identity="DeepOrange.A100" Color="#FF9E80"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.A200" MaterialDesign.Identity="DeepOrange.A200" Color="#FF6E40"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.A400" MaterialDesign.Identity="DeepOrange.A400" Color="#FF3D00"/>
-	<SolidColorBrush x:Key="MDH.Palette2.DeepOrange.A700" MaterialDesign.Identity="DeepOrange.A700" Color="#DD2C00"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.050" MaterialDesign.Identity="Brown.050" Color="#EFEBE9"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.100" MaterialDesign.Identity="Brown.100" Color="#D7CCC8"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.200" MaterialDesign.Identity="Brown.200" Color="#BCAAA4"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.300" MaterialDesign.Identity="Brown.300" Color="#A1887F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.400" MaterialDesign.Identity="Brown.400" Color="#8D6E63"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.500" MaterialDesign.Identity="Brown.500" Color="#795548"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.600" MaterialDesign.Identity="Brown.600" Color="#6D4C41"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.700" MaterialDesign.Identity="Brown.700" Color="#5D4037"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.800" MaterialDesign.Identity="Brown.800" Color="#4E342E"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Brown.900" MaterialDesign.Identity="Brown.900" Color="#3E2723"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.050" MaterialDesign.Identity="Grey.050" Color="#FAFAFA"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.100" MaterialDesign.Identity="Grey.100" Color="#F5F5F5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.200" MaterialDesign.Identity="Grey.200" Color="#EEEEEE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.300" MaterialDesign.Identity="Grey.300" Color="#E0E0E0"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.400" MaterialDesign.Identity="Grey.400" Color="#BDBDBD"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.500" MaterialDesign.Identity="Grey.500" Color="#9E9E9E"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.600" MaterialDesign.Identity="Grey.600" Color="#757575"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.700" MaterialDesign.Identity="Grey.700" Color="#616161"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.800" MaterialDesign.Identity="Grey.800" Color="#424242"/>
-	<SolidColorBrush x:Key="MDH.Palette2.Grey.900" MaterialDesign.Identity="Grey.900" Color="#212121"/>
-
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.050" MaterialDesign.Identity="BlueGrey.050" Color="#ECEFF1"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.100" MaterialDesign.Identity="BlueGrey.100" Color="#CFD8DC"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.200" MaterialDesign.Identity="BlueGrey.200" Color="#B0BEC5"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.300" MaterialDesign.Identity="BlueGrey.300" Color="#90A4AE"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.400" MaterialDesign.Identity="BlueGrey.400" Color="#78909C"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.500" MaterialDesign.Identity="BlueGrey.500" Color="#607D8B"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.600" MaterialDesign.Identity="BlueGrey.600" Color="#546E7A"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.700" MaterialDesign.Identity="BlueGrey.700" Color="#455A64"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.800" MaterialDesign.Identity="BlueGrey.800" Color="#37474F"/>
-	<SolidColorBrush x:Key="MDH.Palette2.BlueGrey.900" MaterialDesign.Identity="BlueGrey.900" Color="#263238"/>
 
 </ResourceDictionary>

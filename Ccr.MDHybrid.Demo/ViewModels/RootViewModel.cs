@@ -1,5 +1,4 @@
-﻿using System.Windows.Controls;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using System.Windows.Threading;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
@@ -9,12 +8,22 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 	public class RootViewModel
 		: ViewModelBase
 	{
-	  public static DispatcherTimer _dispatcherTimer;
-
 	  public RootViewModel()
 	  {
+	    CardDemoView = new CardDemoViewModel();
     }
 
+	  private CardDemoViewModel cardDemoView;
+	  public CardDemoViewModel CardDemoView
+	  {
+	    get => cardDemoView;
+	    set
+	    {
+	      cardDemoView = value;
+	      NotifyOfPropertyChange(() => CardDemoView);
+	    }
+	  }
+    
 
 
     private string testProperty = "Some Nonsense";
@@ -75,8 +84,7 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 		public ICommand ChangeItCommand => new Command(
 			t =>
 			{
-        
-				TestProperty = "Yuppppppp";
+
 			});
 
 	}

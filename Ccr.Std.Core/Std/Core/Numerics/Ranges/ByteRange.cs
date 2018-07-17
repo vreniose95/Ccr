@@ -4,14 +4,19 @@ using Ccr.Std.Core.Numerics.Infrastructure;
 // ReSharper disable BuiltInTypeReferenceStyle
 namespace Ccr.Std.Core.Numerics.Ranges
 {
+  /// <summary>
+  ///   Represents a numeric range using a pair of <see cref="Byte"/> objects, one representing 
+  ///   the Minimum, the other the Maximum.
+  /// </summary>
   public class ByteRange
-    : IntegralRangeBase<byte>
+    : IntegralRangeBase<Byte>
   {
+
     public ByteRange(
       Byte minimum,
       Byte maximum) : base(
-      minimum,
-      maximum)
+        minimum,
+        maximum)
     {
     }
 

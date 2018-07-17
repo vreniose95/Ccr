@@ -33,5 +33,17 @@ namespace Ccr.Core.Extensions
           new FrameworkPropertyMetadata(
             typeof(TOwner)));
     }
+
+
+    public static void GoToVisualState(
+      this FrameworkElement @this, 
+      string state,
+      bool withTransitions = true)
+    {
+      VisualStateManager.GoToState(
+        @this, 
+        state,
+        withTransitions);
+    }
   }
 }

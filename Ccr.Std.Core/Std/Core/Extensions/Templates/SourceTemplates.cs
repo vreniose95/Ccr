@@ -18,7 +18,8 @@ namespace Ccr.Std.Core.Extensions.Templates
     }
    
     /// <summary>
-    ///   ReSharper dependency property registration and accessor template using the
+    ///   ReSharper standard <see cref="DependencyProperty"/> ependency property registration and accessor template using the Ccr library
+    ///   Generic Dependency Property Registration system 
     ///   
     /// </summary>
     /// <param name="name"></param>
@@ -39,5 +40,27 @@ namespace Ccr.Std.Core.Extensions.Templates
         } */
     }
 
+    [SourceTemplate]
+    public static void att(
+      this Type containerType,
+      Type type,
+      string name)
+    {
+      /*$public static readonly DependencyProperty $name$Property = DP.Attach(_type, 
+        new MetaBase<$type$>());
+
+      public static $type$ Get$name$(
+        DependencyObject @this)
+      {
+        return @this.Get<$type$>($name$Property);
+      }
+      public static void Set$name$(
+        DependencyObject @this,
+        $type$ value)
+      {
+        @this.Set($name$Property, value);
+      }
+       */
+    }
   }
 }

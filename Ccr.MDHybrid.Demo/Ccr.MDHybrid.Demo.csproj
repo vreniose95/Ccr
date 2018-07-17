@@ -60,6 +60,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IsNullOrEmptyToVisibilityConverter.cs" />
     <Compile Include="ViewModels\CardDemoViewModel.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
     <Compile Include="Views\CardDemoView.xaml.cs">

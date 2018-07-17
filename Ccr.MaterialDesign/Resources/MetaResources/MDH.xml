@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MDH xmlns="http://ccr.org/types.xsd"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="
+     http://ccr.org/types 
+     ../Schemas/types.xsd">
+
+  <Palette>
+    <Swatch SwatchIdentifier="Cyan">
+      <Brush Luminosity="P050" Color="#E0F7FA"/>
+      <Brush Luminosity="P100" Color="#B2EBF2"/>
+      <Brush Luminosity="P200" Color="#80DEEA"/>
+      <Brush Luminosity="P300" Color="#4DD0E1"/>
+      <Brush Luminosity="P400" Color="#26C6DA"/>
+      <Brush Luminosity="P500" Color="#00BCD4"/>
+      <Brush Luminosity="P600" Color="#00ACC1"/>
+      <Brush Luminosity="P700" Color="#0097A7"/>
+      <Brush Luminosity="P800" Color="#00838F"/>
+      <Brush Luminosity="P900" Color="#006064"/>
+      <Brush Luminosity="A100" Color="#84FFFF"/>
+      <Brush Luminosity="A200" Color="#18FFFF"/>
+      <Brush Luminosity="A400" Color="#00E5FF"/>
+      <Brush Luminosity="A700" Color="#00B8D4"/>
+    </Swatch>
+    <Swatch SwatchIdentifier="Blue">
+      <Brush Luminosity="P050" Color="#E0F7FA"/>
+      <Brush Luminosity="P100" Color="#B2EBF2"/>
+      <Brush Luminosity="P200" Color="#80DEEA"/>
+      <Brush Luminosity="P300" Color="#4DD0E1"/>
+      <Brush Luminosity="P400" Color="#26C6DA"/>
+      <Brush Luminosity="P500" Color="#00BCD4"/>
+      <Brush Luminosity="P600" Color="#00ACC1"/>
+      <Brush Luminosity="P700" Color="#0097A7"/>
+      <Brush Luminosity="P800" Color="#00838F"/>
+      <Brush Luminosity="P900" Color="#006064"/>
+      <Brush Luminosity="A100" Color="#84FFFF"/>
+      <Brush Luminosity="A200" Color="#18FFFF"/>
+      <Brush Luminosity="A400" Color="#00E5FF"/>
+      <Brush Luminosity="A700" Color="#00B8D4"/>
+    </Swatch>
+  </Palette>
+
+
+</MDH>

@@ -3,41 +3,33 @@ using System.Windows;
 using System.Windows.Media;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
-using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
-  public class TestC : XamlConverter<object, NullParam, object>
-  {
-    public override object Convert(object arg1, NullParam param)
-    {
-      return arg1;
-    }
-  }
 	public static class Ripple
 	{
-		private static readonly Type type = typeof(Ripple);
+		private static readonly Type _type = typeof(Ripple);
 
 
-		public static readonly DependencyProperty TrackingServiceProperty = DP.Attach(type, 
-			new MetaBase<RippleMouseTracker>(onTrackingServiceChanged));
+		public static readonly DependencyProperty TrackingServiceProperty = DP.Attach(
+		  _type, new MetaBase<RippleMouseTrackingService>(onTrackingServiceChanged));
 
-		public static readonly DependencyProperty MousePositionProperty = DP.Attach(type,
-			new MetaBase<Point>(new Point(0, 0)));
+		public static readonly DependencyProperty MousePositionProperty = DP.Attach(
+		  _type, new MetaBase<Point>(new Point(0, 0)));
 
-		public static readonly DependencyProperty PlacementProperty = DP.Attach(type,
-			new MetaBase<Point>(new Point(0, 0), onPlacementChanged));
+		public static readonly DependencyProperty PlacementProperty = DP.Attach(
+		  _type, new MetaBase<Point>(new Point(0, 0), onPlacementChanged));
 
 
 
-		public static RippleMouseTracker GetTrackingService(
+		public static RippleMouseTrackingService GetTrackingService(
 			DependencyObject @this)
 		{
-			return @this.Get<RippleMouseTracker>(TrackingServiceProperty);
+			return @this.Get<RippleMouseTrackingService>(TrackingServiceProperty);
 		}
 		public static void SetTrackingService(
 			DependencyObject @this,
-			RippleMouseTracker value)
+			RippleMouseTrackingService value)
 		{
 			@this.Set(TrackingServiceProperty, value);
 		}
@@ -65,17 +57,16 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 		{
 			@this.Set(PlacementProperty, value);
 		}
-		
-		
 
-		private static void onTrackingServiceChanged(
+
+	  private static void onTrackingServiceChanged(
 			DependencyObject @this,
-			DPChangedEventArgs<RippleMouseTracker> args)
+			DPChangedEventArgs<RippleMouseTrackingService> args)
 		{
 			var frameworkElement = @this as FrameworkElement;
 			if (frameworkElement == null)
 				throw new NotSupportedException(
-					$"The \'RippleAssist.InputTrackingService\' property cannot be set on the " +
+					$"The \'Ripple.InputTrackingService\' property cannot be set on the " +
 					$"element type \'{@this.GetType().Name}\' because \'HostedElement<TElement>\'-based " +
 					$"services require the host element to derive from \'FrameworkElement\'.");
 

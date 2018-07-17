@@ -5,39 +5,54 @@ using System.Windows.Markup;
 
 namespace Ccr.Xaml.Infrastructure
 {
-  public class MarkupSingleton : MarkupExtension
+  public class MarkupSingleton 
+    : MarkupExtension
   {
-    private static readonly Dictionary<Type, object> cache = new Dictionary<Type, object>();
+    private static readonly Dictionary<Type, object> _cache 
+      = new Dictionary<Type, object>();
 
 
-    public override object ProvideValue(IServiceProvider serviceProvider)
+    public override object ProvideValue(
+      IServiceProvider serviceProvider)
     {
       var type = GetType();
-      if (!cache.ContainsKey(type))
+      if (!_cache.ContainsKey(type))
       {
         var constructors = type.GetConstructors();
-        var instance = constructors.First().Invoke(null);
-        cache.Add(type, instance);
+        var instance = constructors
+          .First()
+          .Invoke(
+            null);
+
+        _cache.Add(type, instance);
       }
-      return cache[type];
+      return _cache[type];
     }
 
     public static T GetInstance<T>()
       where T 
        : MarkupSingleton
     {
-      return (T)GetInstanceImpl(typeof(T));
+      return (T)GetInstanceImpl(
+        typeof(T));
     }
 
-    protected static object GetInstanceImpl(Type type)
+    protected static object GetInstanceImpl(
+      Type type)
     {
-      if (!cache.ContainsKey(type))
+      if (!_cache.ContainsKey(type))
       {
         var constructors = type.GetConstructors();
-        var instance = constructors.First().Invoke(null);
-        cache.Add(type, instance);
+        var instance = constructors
+          .First()
+          .Invoke(
+            null);
+
+        _cache.Add(
+          type, 
+          instance);
       }
-      return cache[type];
+      return _cache[type];
     }
   }
 }

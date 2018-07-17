@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using Ccr.Std.Core.Numerics.Infrastructure;
 using Ccr.Std.Core.Numerics.Ranges;
 using JetBrains.Annotations;
+using static Ccr.Std.Core.Numerics.Infrastructure.EndpointExclusivity;
+using static JetBrains.Annotations.AssertionConditionType;
 
 // ReSharper disable BuiltInTypeReferenceStyle
 namespace Ccr.Std.Core.Extensions.NumericExtensions
@@ -10,20 +13,21 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 	public static class DecimalExtensions
 	{
 		/// <summary>
-		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare the 
-		///		<see cref="Decimal"/> subject with the provided <paramref name="value"/> parameter, and returns 
-		///		the largest numeric <see cref="Decimal"/> value of the two.
+		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare 
+		///   the <see cref="Decimal"/> subject with the provided <paramref name="value"/> parameter, 
+		///   and returns the largest numeric <see cref="Decimal"/> value of the two.
 		/// </summary>
 		/// <param name="this">
 		///		The subject <see cref="Decimal"/> to perform the comparison upon.
 		/// </param>
 		/// <param name="value">
-		///		The value of type <see cref="Decimal"/> in which to perform the comparison against the extension 
-		///		method's subject, the <paramref name="this"/> parameter.
+		///		The value of type <see cref="Decimal"/> in which to perform the comparison against the 
+		///   extension method's subject, the <paramref name="this"/> parameter.
 		/// </param>
 		/// <returns>
-		///		Compares the extention method's <see cref="Decimal"/> subject and the <paramref name="value"/> 
-		///		parameter, and returns the largest numeric <see cref="Decimal"/> value of the two. 
+		///		Compares the extention method's <see cref="Decimal"/> subject and the <paramref 
+		///   name="value"/> parameter, and returns the largest numeric  <see cref="Decimal"/> value 
+		///   of the two. 
 		/// </returns>
 		public static Decimal Smallest(
 			this Decimal @this,
@@ -35,20 +39,21 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		}
 
 		/// <summary>
-		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare the 
-		///		<see cref="Decimal"/> subject with the provided <paramref name="value"/> parameter, and returns 
-		///		the largest numeric <see cref="Decimal"/> value of the two.
+		///		Extension method that uses the non-generic <see cref="IComparer"/> interface to compare 
+		///   the <see cref="Decimal"/> subject with the provided <paramref name="value"/> parameter, 
+		///   and returns the largest numeric <see cref="Decimal"/> value of the two.
 		/// </summary>
 		/// <param name="this">
 		///		The subject <see cref="Decimal"/> to perform the comparison upon.
 		/// </param>
 		/// <param name="value">
-		///		The value of type <see cref="Decimal"/> in which to perform the comparison against the extension 
-		///		method's subject, the <paramref name="this"/> parameter.
+		///		The value of type <see cref="Decimal"/> in which to perform the comparison against the 
+		///   extension method's subject, the <paramref name="this"/> parameter.
 		/// </param>
 		/// <returns>
-		///		Compares the extention method's <see cref="Decimal"/> subject and the <paramref name="value"/> 
-		///		parameter, and returns the largest numeric <see cref="Decimal"/> value of the two. 
+		///		Compares the extention method's <see cref="Decimal"/> subject and the <paramref 
+		///   name="value"/> parameter, and returns the largest numeric <see cref="Decimal"/> value 
+		///   of the two. 
 		/// </returns>
 		public static Decimal Largest(
 			this Decimal @this,
@@ -60,8 +65,8 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		}
 
 		/// <summary>
-		///		Extension method that performs a transformation on the <see cref="Decimal"/> subject using
-		///		linear mapping to re-map from the provided initial range <paramref name="startRange"/> 
+		///		Extension method that performs a transformation on the <see cref="Decimal"/> subject 
+		///   using linear mapping to re-map from the provided initial range <paramref name="startRange"/> 
 		///		to the target range <paramref name="endRange"/>.
 		/// </summary>
 		/// <param name="this">
@@ -129,7 +134,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		public static bool IsWithin(
 			this Decimal @this,
 			[NotNull] DecimalRange range,
-			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+			EndpointExclusivity exclusivity = Inclusive)
 		{
 			range.IsNotNull(nameof(range));
 
@@ -170,7 +175,7 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 		public static bool IsNotWithin(
 			this Decimal @this,
 			[NotNull] DecimalRange range,
-			EndpointExclusivity exclusivity = EndpointExclusivity.Inclusive)
+			EndpointExclusivity exclusivity = Inclusive)
 		{
 			range.IsNotNull(nameof(range));
 
@@ -212,6 +217,46 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
 				.Constrain(
 					@this);
 		}
-		
-	}
+
+
+	  [ContractAnnotation("this:null => halt"), AssertionMethod]
+	  public static void ThrowIfWithin(
+	    [AssertionCondition(IS_NOT_NULL)] this Decimal @this,
+	    [NotNull] DecimalRange range,
+	    [InvokerParameterName] string elementName,
+	    EndpointExclusivity exclusivity = Inclusive,
+	    [CallerMemberName] string callerMemberName = "")
+	  {
+	    range.IsNotNull(nameof(range));
+
+	    if (range
+	      .IsWithin(
+	        @this,
+	        exclusivity))
+	      throw new ArgumentOutOfRangeException(
+	        elementName,
+	        $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+	        $"cannot be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
+	  }
+
+	  [ContractAnnotation("this:null => halt"), AssertionMethod]
+	  public static void ThrowIfNotWithin(
+	    [AssertionCondition(IS_NOT_NULL)] this Decimal @this,
+	    [NotNull] DecimalRange range,
+	    [InvokerParameterName] string elementName,
+	    EndpointExclusivity exclusivity = Inclusive,
+	    [CallerMemberName] string callerMemberName = "")
+	  {
+	    range.IsNotNull(nameof(range));
+
+	    if (range
+	      .IsNotWithin(
+	        @this,
+	        exclusivity))
+	      throw new ArgumentOutOfRangeException(
+	        elementName,
+	        $"Parameter {elementName.SQuote()} passed to the method {callerMemberName.SQuote()} " +
+	        $"must be within [{range.Minimum} and {range.Maximum}], {exclusivity}ly.");
+	  }
+  }
 }

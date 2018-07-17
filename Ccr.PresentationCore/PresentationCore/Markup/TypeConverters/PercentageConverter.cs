@@ -11,24 +11,32 @@ namespace Ccr.PresentationCore.Markup.TypeConverters
 	{
 		public Type TargetType => typeof(Percentage);
 
-		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+		public override bool CanConvertFrom(
+		  ITypeDescriptorContext context, 
+		  Type sourceType)
 		{
-			if (sourceType == typeof(string) || TargetType.IsAssignableFrom(sourceType))
+			if (sourceType == typeof(string) 
+			    || TargetType.IsAssignableFrom(sourceType))
 				return true;
 			return false;
 		}
 
-		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+		public override bool CanConvertTo(
+		  ITypeDescriptorContext context,
+		  Type destinationType)
 		{
-			if (destinationType == typeof(InstanceDescriptor) || destinationType == TargetType)
+			if (destinationType == typeof(InstanceDescriptor)
+			    || destinationType == TargetType)
 				return true;
 			return false;
 		}
 
-		public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
+		public override object ConvertFrom(
+		  ITypeDescriptorContext context, 
+		  CultureInfo culture, 
+		  object value)
 		{
-
-			if (value == null)
+      if (value == null)
 				return null;
 
 			var stringValue = value.ToString().Trim().ToLower();

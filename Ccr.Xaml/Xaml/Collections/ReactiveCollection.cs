@@ -59,9 +59,12 @@ namespace Ccr.Xaml.Collections
 		/// The <paramref name="list" /> parameter cannot be <see langword="null" />
 		/// </exception>
 		public ReactiveCollection(
-			[CanBeNull] List<TValue> list) : base(
-				list == null ? new List<TValue>()
-				: new List<TValue>(list.Count))
+			[CanBeNull] List<TValue> list) 
+		    : base(
+		      list == null 
+		        ? new List<TValue>()
+		        : new List<TValue>(
+		          list.Count))
 		{
 			CopyFrom(list);
 		}
@@ -79,6 +82,7 @@ namespace Ccr.Xaml.Collections
 			[NotNull] IEnumerable<TValue> collection)
 		{
 			collection.IsNotNull(nameof(collection));
+
 			CopyFrom(collection);
 		}
 
@@ -102,9 +106,13 @@ namespace Ccr.Xaml.Collections
 		/// <param name="newIndex">
 		/// The zero-based index specifying the new location of the item.
 		/// </param>
-		public void Move(int oldIndex, int newIndex)
+		public void Move(
+		  int oldIndex, 
+		  int newIndex)
 		{
-			MoveItem(oldIndex, newIndex);
+			MoveItem(
+			  oldIndex, 
+			  newIndex);
 		}
 
 
@@ -125,6 +133,7 @@ namespace Ccr.Xaml.Collections
 		{
 			CheckReentrancy();
 			base.ClearItems();
+
 			TriggerPropertyChanges();
 			OnCollectionReset();
 		}
@@ -135,12 +144,15 @@ namespace Ccr.Xaml.Collections
 		/// <param name="index">
 		/// The zero-based index of the element to remove.
 		/// </param>
-		protected override void RemoveItem(int index)
+		protected override void RemoveItem(
+		  int index)
 		{
 			CheckReentrancy();
 			var obj = this[index];
 			base.RemoveItem(index);
+
 			TriggerPropertyChanges();
+
 			OnCollectionChangedGeneric(
 				NotifyCollectionChangedAction.Remove,
 				obj,
@@ -160,6 +172,7 @@ namespace Ccr.Xaml.Collections
 		{
 			CheckReentrancy();
 			base.InsertItem(index, item);
+
 			TriggerPropertyChanges();
 			OnCollectionChangedGeneric(
 				NotifyCollectionChangedAction.Add,
@@ -176,11 +189,14 @@ namespace Ccr.Xaml.Collections
 		/// <param name="item">
 		/// The new value for the element at the specified index.
 		/// </param>
-		protected override void SetItem(int index, TValue item)
+		protected override void SetItem(
+		  int index,
+		  TValue item)
 		{
 			CheckReentrancy();
 			var obj = this[index];
 			base.SetItem(index, item);
+
 			OnPropertyChanged(indexerName);
 			OnCollectionChangedGeneric(
 				NotifyCollectionChangedAction.Replace,
@@ -198,12 +214,15 @@ namespace Ccr.Xaml.Collections
 		/// <param name="newIndex">
 		/// The zero-based index specifying the new location of the item.
 		/// </param>
-		protected virtual void MoveItem(int oldIndex, int newIndex)
+		protected virtual void MoveItem(
+		  int oldIndex, 
+		  int newIndex)
 		{
 			CheckReentrancy();
 			var obj = this[oldIndex];
 			base.RemoveItem(oldIndex);
-			base.InsertItem(newIndex, obj);
+      base.InsertItem(newIndex, obj);
+
 			OnPropertyChanged(indexerName);
 			OnCollectionChangedGeneric(
 				NotifyCollectionChangedAction.Move,
@@ -392,7 +411,8 @@ namespace Ccr.Xaml.Collections
 					NotifyCollectionChangedAction.Reset));
 		}
 
-		private class SimpleMonitor : IDisposable
+		private class SimpleMonitor 
+		  : IDisposable
 		{
 			private int _busyCount;
 
@@ -400,6 +420,7 @@ namespace Ccr.Xaml.Collections
 			{
 				get => _busyCount > 0;
 			}
+
 
 			public void Enter()
 			{

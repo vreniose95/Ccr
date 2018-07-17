@@ -7,63 +7,63 @@ using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Markup.Extensions
 {
-  [MarkupExtensionReturnType(typeof(object))]
-  [Localizability(LocalizationCategory.NeverLocalize)]
-  public class MDHResourceExtension
-    : StaticResourceExtension
-  {
+//  [MarkupExtensionReturnType(typeof(object))]
+//  [Localizability(LocalizationCategory.NeverLocalize)]
+//  public class MDHResourceExtension
+//    : StaticResourceExtension
+//  {
 
-    public MDHResourceExtension()
-    {
-    }
-    public MDHResourceExtension(
-      [NotNull] object resourceKey) : base(
-        resourceKey)
-    {
-    }
-
-
-    public override object ProvideValue(
-      IServiceProvider serviceProvider)
-    {
-      var definedResourceValue = base.ProvideValue(serviceProvider);
-
-      if (definedResourceValue == null)
-        throw new InvalidOperationException(
-          $"The StaticResource value cannot be null");
-
-      
-      var xamlSchemaContextProvider = serviceProvider
-        .GetService<IXamlSchemaContextProvider>();
-
-      var provideValueTarget = serviceProvider
-        .GetService<IProvideValueTarget>();
+//    public MDHResourceExtension()
+//    {
+//    }
+//    public MDHResourceExtension(
+//      [NotNull] object resourceKey) : base(
+//        resourceKey)
+//    {
+//    }
 
 
-      var definedResourceType = definedResourceValue.GetType();
+//    public override object ProvideValue(
+//      IServiceProvider serviceProvider)
+//    {
+//      var definedResourceValue = base.ProvideValue(serviceProvider);
 
-      var targetType = provideValueTarget
-        .TargetProperty
-        .As<DependencyProperty>()
-        .PropertyType;
+//      if (definedResourceValue == null)
+//        throw new InvalidOperationException(
+//          $"The StaticResource value cannot be null");
 
-      var initialXamlType = xamlSchemaContextProvider
-        .SchemaContext
-        .GetXamlType(definedResourceType);
 
-      var typeConverterInstance = initialXamlType
-        .TypeConverter
-        .ConverterInstance;
-      
+//      var xamlSchemaContextProvider = serviceProvider
+//        .GetService<IXamlSchemaContextProvider>();
 
-      var convertedValue = typeConverterInstance.ConvertTo(
-        definedResourceValue,
-        targetType);
+//      var provideValueTarget = serviceProvider
+//        .GetService<IProvideValueTarget>();
 
-      return convertedValue;
-    }
-  }
-}
+
+//      var definedResourceType = definedResourceValue.GetType();
+
+//      var targetType = provideValueTarget
+//        .TargetProperty
+//        .As<DependencyProperty>()
+//        .PropertyType;
+
+//      var initialXamlType = xamlSchemaContextProvider
+//        .SchemaContext
+//        .GetXamlType(definedResourceType);
+
+//      var typeConverterInstance = initialXamlType
+//        .TypeConverter
+//        .ConverterInstance;
+
+
+//      var convertedValue = typeConverterInstance.ConvertTo(
+//        definedResourceValue,
+//        targetType);
+
+//      return convertedValue;
+//    }
+//  }
+//}
 
 //var assemblyName = AssemblyName.GetAssemblyName(
 //  "PresentationFramework, " +
@@ -91,3 +91,4 @@ namespace Ccr.MaterialDesign.Markup.Extensions
 
 //  if (ResourceKey is SystemResourceKey)
 //  return (ResourceKey as SystemResourceKey).Resource;
+}

@@ -1,8 +1,10 @@
-﻿namespace Ccr.MaterialDesign.Infrastructure.Descriptors
+﻿using System.Windows.Media;
+
+namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
   public interface IMaterialDescriptor
   {
-    MaterialBrush GetMaterial(
+    SolidColorBrush GetMaterial(
       Swatch swatch);
   }
 }

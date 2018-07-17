@@ -63,7 +63,6 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 
       return new MaterialIdentity(
         swatchClassifier,
-        isAccent,
         luminosity);
     }
 

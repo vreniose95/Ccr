@@ -6,7 +6,7 @@
 	<Style TargetType="Card">
 		<Setter Property="Shadow.Level" Value="2"/>
 		<Setter Property="Background"
-        Value="{StaticResource MDH.Palette2.Grey.050}"/>
+		        Value="{StaticResource MDH.Palette.Grey.050}"/>
 		<Setter Property="Margin" Value="10"/>
 		<Setter Property="Template">
 			<Setter.Value>

@@ -1,35 +1,42 @@
 ﻿using System.Diagnostics;
 using System.Windows;
+using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using JetBrains.Annotations;
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
 	public class HostedElement<TElement> 
 		: DependencyObject
-			where TElement : DependencyObject
+			where TElement 
+			  : DependencyObject
 	{
 		protected TElement _hostElement;
+
 		public TElement HostElement
 		{
-			get
-			{
-				return _hostElement;
-			}
+			get => _hostElement;
 		}
+
+
+	  public static readonly DependencyProperty InheritanceContextModeProperty = DP.Register(
+	    new Meta<HostedElement<TElement>, bool>());
+
+	  public bool InheritanceContextMode
+	  {
+	    get => (bool) GetValue(InheritanceContextModeProperty);
+	    set => SetValue(InheritanceContextModeProperty, value);
+	  }
 
 		public bool IsHosted
 		{
-			get
-			{
-				return _hostElement != null;
-			}
+			get => _hostElement != null;
 		}
 
 
 		public void AttachHost(
 			[NotNull] TElement hostElement)
 		{
-			if (_hostElement != null)
+			if (IsHosted)
 				Debug.WriteLine("already has a host element");
 
 			_hostElement = hostElement;
@@ -49,11 +56,13 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 		}
 
 
-		protected virtual void OnHostAttached(DependencyObject host)
+		protected virtual void OnHostAttached(
+		  DependencyObject host)
 		{
 		}
 
-		protected virtual void OnHostDetaching(DependencyObject host)
+		protected virtual void OnHostDetaching(
+		  DependencyObject host)
 		{
 		}
 

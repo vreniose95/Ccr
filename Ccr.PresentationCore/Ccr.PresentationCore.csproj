@@ -51,6 +51,7 @@
     <Compile Include="Core\Extensions\ControlExtensions.cs" />
     <Compile Include="Core\Extensions\InvocationExtensions.cs" />
     <Compile Include="Core\Extensions\PointExtensions.cs" />
+    <Compile Include="Core\Extensions\Templates\SourceTemplates.cs" />
     <Compile Include="PresentationCore\Animation\AnimationHelpers.cs" />
     <Compile Include="PresentationCore\Animation\AnimationMode.cs" />
     <Compile Include="PresentationCore\Animation\Timelines\BrushAnimation.cs" />

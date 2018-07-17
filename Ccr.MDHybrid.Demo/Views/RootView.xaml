@@ -5,39 +5,69 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
+             xmlns:demo="clr-namespace:Ccr.MDHybrid.Demo"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD720"
              Designer.Orientation="Landscape">
-	<Grid Background="{StaticResource MDH.Palette2.Grey.500}">
-		<Border Background="{StaticResource MDH.Palette2.Grey.050}"
+  <Grid Background="{StaticResource MDH.Palette.BlueGrey.600}"
+        Height="400"
+        Width="600">
+
+    <StackPanel Margin="40 20" Orientation="Vertical" HorizontalAlignment="Left">
+      <Button Style="{StaticResource MDH.Controls.Buttons.FlatButton.LightSurface}"
+               Content="Test"></Button>
+    </StackPanel>
+    <!--<Border Background="{StaticResource MDH.Palette.Grey.050}"
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
 		        Height="400"
 		        Width="600">
-			<Grid>
-				<Grid.RowDefinitions>
-					<RowDefinition />
-					<RowDefinition Height="72"/>
-				</Grid.RowDefinitions>
-				<Grid Row="1">
-					<StackPanel Orientation="Horizontal"
-					            HorizontalAlignment="Right">
-						<Button Style="{StaticResource FlatButton}"
-						        Content="OKAY"
-						        />
-						<Button Style="{StaticResource FlatButton}"
-						        Content="CANCEL"
-										Foreground="{StaticResource MDH.Palette2.Red.A400}"
-						/>
-					</StackPanel>
-				</Grid>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition Height="72"/>
+        </Grid.RowDefinitions>
+        <Grid>
 
-			</Grid>
-		</Border>
-		
-		<!--<Border Width="200" Height="200" Background="Black"/>
+
+          --><!--<ContentControl x:Name="CardDemoView"/>-->
+
+          <!--<StackPanel Margin="40 20">
+            <TextBox Style="{StaticResource HintedFlatTextBox}"
+                     HintAssist.Hint="Type Something"></TextBox>
+          </StackPanel>-->
+          <!--<Button Style="{StaticResource MaterialDesignRaisedButton}"
+                  Content="OKAY">
+
+          </Button>--><!--
+          <TextBox Style="{StaticResource HintedFlatTextBox}"
+                   VerticalAlignment="Top"
+                   HintAssist.Hint="Enter some text"></TextBox>
+        </Grid>
+        <Grid Row="1">
+          <StackPanel Orientation="Horizontal"
+					            HorizontalAlignment="Right">
+            --><!--<Button Style="{StaticResource FlatButton}"
+                    Content="OKAY">
+              --><!--<Button.Visibility>
+    <Binding Converter="{StaticResource inoetvc}"
+              ElementName="PART_tb" 
+              Path="Text"/>
+  </Button.Visibility>--><!--
+            </Button>-->
+            <!--<TextBox x:Name="PART_tb"></TextBox>--><!--
+            <Button Style="{StaticResource FlatButton}"
+						        Content="CANCEL"
+										Foreground="{StaticResource MDH.Palette.Red.A400}"
+						/>
+          </StackPanel>
+        </Grid>
+      </Grid>
+    </Border>-->
+
+    <!--<Border Width="200" Height="200" Background="Black"/>
 		<Card HorizontalAlignment="Center"
 		      VerticalAlignment="Center"
 					Height="520"
@@ -46,7 +76,8 @@
 					Margin="0"
 					CornerRadius="10"
 		      Background="{StaticResource MDH.Palette2.Blue.500}">
-			--><!--<Grid>
+			-->
+    <!--<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="120"/>
 					<RowDefinition />
@@ -75,15 +106,16 @@
 
 				</Grid>
 
-			</Grid>--><!--
+			</Grid>-->
+    <!--
 		</Card>-->
 
 
-		<!--<StackPanel Orientation="Vertical ">
+    <!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 			<Label Content="IM TESTING MORE STUFF" FontSize="28pt" Foreground="{MDH Swatch=DeepOrange}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 		</StackPanel>-->
-		<!--<ListView Background="Transparent"
+    <!--<ListView Background="Transparent"
 							BorderBrush="Transparent"
 							BorderThickness="0">
 			<ListView.ItemsSource>
@@ -246,7 +278,7 @@
 				</ItemsPanelTemplate>
 			</ListView.ItemsPanel>
 		</ListView>-->
-		<!--<Button Content="Hello"
+    <!--<Button Content="Hello"
 						HorizontalAlignment="Center"
 						VerticalAlignment="Center"
 						Height="60"
@@ -291,8 +323,8 @@
 									<Ellipse.Fill>
 										White
 										-->
-		<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
-		<!--
+    <!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
+    <!--
 									</Ellipse.Fill>
 									<Ellipse.Height>
 										<MultiBinding Converter="{RippleDiameterConverter}" 
@@ -316,6 +348,6 @@
 				</ControlTemplate>
 			</Button.Template>
 		</Button>-->
-	</Grid>
+  </Grid>
 
 </UserControl>

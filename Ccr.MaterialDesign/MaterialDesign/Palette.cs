@@ -9,7 +9,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Ccr.MaterialDesign.DesignTime.Infrastructure;
 using Ccr.PresentationCore.Layout;
 
 namespace Ccr.MaterialDesign
@@ -26,14 +25,40 @@ namespace Ccr.MaterialDesign
 
     public ReactiveCollection<Swatch> Swatches
     {
-      get => (ReactiveCollection<Swatch>)GetValue(SwatchesProperty);
+      get
+      {
+        var currentValue = GetValue(SwatchesProperty) as ReactiveCollection<Swatch>;
+        if (currentValue != null)
+          return currentValue;
+
+        var newValue = new ReactiveCollection<Swatch>();
+        newValue.CollectionChangedGeneric += onSwatchCollectionChange;
+        SetValue(SwatchesProperty, newValue);
+
+        return newValue;
+      }
       set => SetValue(SwatchesProperty, value);
     }
 
+
     public Palette()
     {
-      Swatches = new ReactiveCollection<Swatch>();
-      Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
+      //Swatches = new ReactiveCollection<Swatch>();
+      //Swatches.CollectionChangedGeneric += onSwatchCollectionChange;
+    }
+
+
+    public void Proc()
+    {
+      foreach (var swatch in Swatches)
+      {
+        foreach (var primary in swatch.Primaries)
+        {
+          //var color = primary.Color;
+
+        }
+
+      }
     }
 
     public static Swatch Interpolate(
@@ -41,6 +66,7 @@ namespace Ccr.MaterialDesign
     {
       throw new Exception();
     }
+
     public MaterialBrush LookupNearestVector(
       SolidColorBrush solidColorBrush)
     {

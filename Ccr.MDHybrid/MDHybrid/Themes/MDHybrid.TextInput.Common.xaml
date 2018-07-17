@@ -1,0 +1,57 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:a="clr-namespace:Ccr.MaterialDesign.Adapters;assembly=Ccr.MaterialDesign"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="MDHybrid.Text.xaml"/>
+    <ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+
+  <TextFieldInputVisualStateService x:Key="MDHybrid.TextInput.HintVisualStateManagerService"/>
+  
+  <!--<a:TextFieldInputDataAdapter x:Key="MDHybrid.TextInput.TextFieldInputDataAdapter"/>-->
+
+
+  <SolidColorBrush x:Key="MDHybrid.TextInput.ElementBorderBrush" 
+                   Color="{StaticResource MDH.Palette.Colors.Grey.600}"/>
+
+  <SolidColorBrush x:Key="MDHybrid.TextInput.ElementCaretBrush" 
+                   Color="{StaticResource MDH.Palette.Colors.BlueGrey.800}"/>
+
+
+  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.None" 
+                   Color="{StaticResource MDH.Palette.Colors.Grey.500}"/>
+
+  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.Failed" 
+                   Color="{StaticResource MDH.Palette.Colors.Red.A400}"/>
+
+  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.Valid" 
+                   Color="{StaticResource MDH.Palette.Colors.Teal.500}"/>
+			
+			
+  <Thickness x:Key="MDHybrid.TextInput.ElementMargin">5 3</Thickness>
+
+  <Thickness x:Key="MDHybrid.TextInput.InternalPadding">2 8 2 0</Thickness>
+
+  <system:Double x:Key="MDHybrid.TextInput.Validation.HeightAllocation">20</system:Double>
+
+  <system:Double x:Key="MDHybrid.TextInput.Validation.HintTranslation.Y">-20</system:Double>
+
+
+  <Style TargetType="FrameworkElement" 
+         BasedOn="{StaticResource t15pSubhead}" 
+         x:Key="HintedFormsElement">
+    <Setter Property="Control.BorderBrush"
+            Value="{StaticResource MDHybrid.TextInput.ElementBorderBrush}"/>
+    <Setter Property="TextBoxBase.CaretBrush" 
+            Value="{StaticResource MDHybrid.TextInput.ElementCaretBrush}"/>
+    <Setter Property="Control.HorizontalContentAlignment" 
+            Value="Left"/>
+    <Setter Property="Margin"
+            Value="{StaticResource MDHybrid.TextInput.ElementMargin}"/>
+    <!--<Setter Property="HintAssist.InputDataAdapter" 
+    Value="{StaticResource MDHybrid.TextInput.TextFieldInputDataAdapter}"/>-->
+    <Setter Property="HintAssist.TextFieldInputVisualStateService" 
+            Value="{StaticResource MDHybrid.TextInput.HintVisualStateManagerService}"/>
+  </Style>
+</ResourceDictionary>

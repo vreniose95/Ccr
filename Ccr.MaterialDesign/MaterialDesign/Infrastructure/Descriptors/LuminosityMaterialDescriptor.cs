@@ -9,7 +9,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
     public Luminosity Luminosity { get; set; }
 
 
-    public override MaterialBrush GetMaterial(
+    public override SolidColorBrush GetMaterial(
       Swatch swatch)
     {
       var material = swatch.GetMaterial(Luminosity);

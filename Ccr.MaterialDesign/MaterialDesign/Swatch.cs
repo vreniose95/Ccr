@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using System.Windows.Media;
-using Ccr.Algorithms.Collections;
 using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.Core.Numerics.Ranges;
@@ -22,19 +20,50 @@ namespace Ccr.MaterialDesign
     : HostedElement<Palette>,
       IList,
       IList<MaterialBrush>,
+      IReadOnlyDictionary<Luminosity, MaterialBrush>,
       ISupportInitialize
   {
-
+    #region Inner Collections
     private readonly ReactiveCollection<MaterialBrush> _primaries
       = new ReactiveCollection<MaterialBrush>();
 
     private readonly ReactiveCollection<MaterialBrush> _accents
       = new ReactiveCollection<MaterialBrush>();
 
-    private List<MaterialBrush> _materials;
+    private readonly List<MaterialBrush> _materials;
+
+    #endregion
 
 
+    #region Fields
+    internal MaterialBrush LowPrimaryBounds = new MaterialBrush(
+      Brushes.Black,
+      new MaterialIdentity(
+        SwatchClassifier.Grey,
+        new Luminosity(000, false)));
 
+    internal MaterialBrush LowAccentBounds = new MaterialBrush(
+      Brushes.Black,
+      new MaterialIdentity(
+        SwatchClassifier.Grey,
+        new Luminosity(000, true)));
+
+    internal MaterialBrush HighPrimaryBounds = new MaterialBrush(
+      Brushes.White,
+      new MaterialIdentity(
+        SwatchClassifier.Grey,
+        new Luminosity(999, false)));
+
+    internal MaterialBrush HighAccentBounds = new MaterialBrush(
+      Brushes.White,
+      new MaterialIdentity(
+        SwatchClassifier.Grey,
+        new Luminosity(999, true)));
+
+    #endregion
+
+
+    #region Properties
     public MaterialBrush ExemplarHue
     {
       get
@@ -51,12 +80,12 @@ namespace Ccr.MaterialDesign
 
     public IReadOnlyCollection<MaterialBrush> Primaries
     {
-      get { return _primaries; }
+      get => _primaries;
     }
 
     public IReadOnlyCollection<MaterialBrush> Accents
     {
-      get { return _accents; }
+      get => _accents;
     }
 
     public IReadOnlyCollection<MaterialBrush> Materials
@@ -72,52 +101,18 @@ namespace Ccr.MaterialDesign
       }
     }
 
-    private MaterialBrush _lowPrimaryBounds;
-    internal MaterialBrush LowPrimaryBounds
+    public IReadOnlyDictionary<Luminosity, MaterialBrush> LuminosityMaterialMap
     {
-      get => _lowPrimaryBounds
-             ?? (_lowPrimaryBounds = new MaterialBrush
-             {
-               Identity = new MaterialIdentity(SwatchClassifier, false, new Luminosity(0, false)),
-               Color = Colors.Black
-             });
+      get => Materials
+        .ToDictionary(
+          t => t.Identity.Luminosity,
+          t => t);
     }
 
-    private MaterialBrush _highPrimaryBounds;
-    internal MaterialBrush HighPrimaryBounds
-    {
-      get => _highPrimaryBounds
-             ?? (_highPrimaryBounds = new MaterialBrush
-             {
-               Identity = new MaterialIdentity(SwatchClassifier, false, new Luminosity(1000, false)),
-               Color = Colors.White
-             });
-    }
-
-    private MaterialBrush _lowAccentBounds;
-    internal MaterialBrush LowAccentBounds
-    {
-      get => _lowAccentBounds
-             ?? (_lowAccentBounds = new MaterialBrush
-             {
-               Identity = new MaterialIdentity(SwatchClassifier, true, new Luminosity(0, true)),
-               Color = Colors.Black
-             });
-    }
-
-    private MaterialBrush _highAccentBounds;
-    internal MaterialBrush HighAccentBounds
-    {
-      get => _highAccentBounds
-             ?? (_highAccentBounds = new MaterialBrush
-             {
-               Identity = new MaterialIdentity(SwatchClassifier, true, new Luminosity(1000, true)),
-               Color = Colors.White
-             });
-    }
+    #endregion
 
 
-
+    #region Constructors
     public Swatch()
     {
       _primaries.CollectionChangedGeneric += onPrimariesCollectionChanged;
@@ -125,7 +120,8 @@ namespace Ccr.MaterialDesign
     }
 
     internal Swatch(
-      IEnumerable<MaterialBrush> brushes) : this()
+      IEnumerable<MaterialBrush> brushes)
+        : this()
     {
       foreach (var brush in brushes)
       {
@@ -133,29 +129,48 @@ namespace Ccr.MaterialDesign
       }
     }
 
+    #endregion
+
 
     public MaterialBrush GetMaterial(
       Luminosity luminosity)
     {
+      //throw new NotImplementedException();
       var brushRange = GetRange(luminosity);
 
-      var range = new DoubleRange(        
-        brushRange.low.Identity.Luminosity.LuminosityIndex,
-        brushRange.high.Identity.Luminosity.LuminosityIndex);
+      var range = new DoubleRange(
+        brushRange
+          .low
+          .Identity
+          .Luminosity
+          .LuminosityIndex,
+        brushRange
+          .high
+          .Identity
+          .Luminosity
+          .LuminosityIndex);
 
       var index = (double)luminosity.LuminosityIndex;
-      //var progression = index.LinearMap(range, (0d, 1d));
-      var progression = index.LinearMap(range, new DoubleRange(0d, 1d));
+
+      var progression = index.LinearMap(range, (0d, 1d));
       //var s = new SequentialQuad<MaterialBrush>()
 
+      var interpolated = brushRange
+        .low
+        .Brush
+        .Interpolate(
+          brushRange
+            .high
+            .Brush,
+          progression);
 
-      var interpolated = brushRange.low.Color.Interpolate(brushRange.high.Color, progression);
+      throw new NotImplementedException();
 
-      return new MaterialBrush
-      {
-        Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
-        Color = interpolated
-      };
+      //if (!MaterialBrush.TryCreateFromBrush(interpolated, out var materialBrush))
+      //{
+      //	Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
+      //  Color = interpolated
+      //};
     }
 
 
@@ -167,15 +182,16 @@ namespace Ccr.MaterialDesign
         var lowBounds = LowAccentBounds;
 
         foreach (var accentBrush in Accents
-          .OrderBy(t => t.Identity.Luminosity))
-          //.Pair())
+            .OrderBy(t => t.Identity.Luminosity))
         {
           if (luminosity < accentBrush.Identity.Luminosity)
           {
             return (lowBounds, accentBrush);
           }
+
           lowBounds = accentBrush;
         }
+
         return (lowBounds, HighAccentBounds);
       }
       else
@@ -189,8 +205,10 @@ namespace Ccr.MaterialDesign
           {
             return (lowBounds, primaryBrush);
           }
+
           lowBounds = primaryBrush;
         }
+
         return (lowBounds, HighPrimaryBounds);
       }
     }
@@ -204,32 +222,37 @@ namespace Ccr.MaterialDesign
       {
         case NotifyCollectionChangedAction.Add:
           {
-            args.NewItems.ForEach(t => t.AttachHost(this));
+            args.NewItems.ForEach(
+                t => t.AttachHost(this));
 
             var newItemsCount = args.NewItems.Count;
             var targetPrimariesCount = Primaries.Count;
             var insertionPosition = targetPrimariesCount - newItemsCount;
 
             _materials.InsertRange(insertionPosition, args.NewItems);
-
             break;
           }
         case NotifyCollectionChangedAction.Remove:
           {
-            args.OldItems.ForEach(t => t.DetachHost());
-            args.NewItems.ForEach(t => t.AttachHost(this));
+            args.OldItems.ForEach(
+              t => t.DetachHost());
+
+            args.NewItems.ForEach(
+              t => t.AttachHost(this));
 
             var oldItemsCount = args.OldItems.Count;
             var targetPrimariesCount = Primaries.Count;
 
             _materials.RemoveRange(targetPrimariesCount, oldItemsCount);
-
             break;
           }
         case NotifyCollectionChangedAction.Replace:
           {
-            args.OldItems.ForEach(t => t.DetachHost());
-            args.NewItems.ForEach(t => t.AttachHost(this));
+            args.OldItems.ForEach(
+              t => t.DetachHost());
+
+            args.NewItems.ForEach(
+              t => t.AttachHost(this));
 
             var newItemsCount = args.NewItems.Count;
             var oldItemsCount = args.OldItems.Count;
@@ -248,7 +271,8 @@ namespace Ccr.MaterialDesign
           }
         case NotifyCollectionChangedAction.Reset:
           {
-            args.OldItems.ForEach(t => t.DetachHost());
+            args.OldItems.ForEach(
+              t => t.DetachHost());
 
             _materials.Clear();
             break;
@@ -257,6 +281,8 @@ namespace Ccr.MaterialDesign
           throw new InvalidEnumArgumentException();
       }
     }
+
+
 
     public IEnumerator<MaterialBrush> GetEnumerator()
     {
@@ -292,37 +318,13 @@ namespace Ccr.MaterialDesign
 
     bool ICollection<MaterialBrush>.IsReadOnly
     {
-      get { return false; }
-    }
-    int ICollection.Count
-    {
-      get => Materials.Count;
-    }
-    object ICollection.SyncRoot
-    {
-      get => Materials.ToArray().SyncRoot;
-    }
-    bool ICollection.IsSynchronized
-    {
-      get => true;
-    }
-    int IList.Add(object value)
-    {
-      Add(value.As<MaterialBrush>());
-      return Count;
+      get => !_isInitializing;
     }
 
-    bool IList.Contains(object value)
-    {
-      return Contains(value.As<MaterialBrush>());
-    }
 
     public void Add(MaterialBrush item)
     {
-      if (item == null)
-        throw new ArgumentNullException(nameof(item));
-
-      item.AttachHost(this);
+      item.IsNotNull(nameof(item));
 
       if (item.Identity.IsAccent)
         _accents.Add(item);
@@ -335,7 +337,8 @@ namespace Ccr.MaterialDesign
       throw new NotSupportedException();
     }
 
-    public bool Contains(MaterialBrush item)
+    public bool Contains(
+      MaterialBrush item)
     {
       return Materials.Contains(item);
     }
@@ -347,6 +350,88 @@ namespace Ccr.MaterialDesign
       Materials
         .ToArray()
         .CopyTo(array, arrayIndex);
+    }
+
+    public int IndexOf(MaterialBrush item)
+    {
+      return _materials.IndexOf(item);
+    }
+
+    void IList<MaterialBrush>.Insert(int index, MaterialBrush item)
+    {
+      throw new NotSupportedException();
+    }
+
+    void IList<MaterialBrush>.RemoveAt(int index)
+    {
+      throw new NotSupportedException();
+    }
+
+    public MaterialBrush this[int index]
+    {
+      get => _materials[index];
+      set { throw new NotImplementedException(); }
+    }
+
+
+    #region IReadOnlyDictionary implementation
+    IEnumerator<KeyValuePair<Luminosity, MaterialBrush>> IEnumerable<KeyValuePair<Luminosity, MaterialBrush>>.GetEnumerator()
+    {
+      return LuminosityMaterialMap.GetEnumerator();
+    }
+    public bool ContainsKey(Luminosity key)
+    {
+      throw new NotImplementedException();
+    }
+
+    public bool TryGetValue(Luminosity key, out MaterialBrush value)
+    {
+      throw new NotImplementedException();
+    }
+
+    public IEnumerable<Luminosity> Keys
+    {
+      get => Materials.Select(t => t.Identity.Luminosity);
+    }
+    public IEnumerable<MaterialBrush> Values
+    {
+      get => Materials;
+    }
+
+    public MaterialBrush this[Luminosity luminosity]
+    {
+      get
+      {
+        if (!LuminosityMaterialMap.TryGetValue(luminosity, out var materialBrush))
+          throw new NotSupportedException();
+
+        return materialBrush;
+      }
+    }
+
+    #endregion
+
+
+    #region IList implementation
+    void IList.RemoveAt(int index)
+    {
+      throw new NotSupportedException();
+    }
+
+    object IList.this[int index]
+    {
+      get => this[index];
+      set { throw new NotSupportedException(); }
+    }
+
+    bool IList.IsReadOnly
+    {
+      get => !_isInitializing;
+    }
+
+    bool IList.IsFixedSize
+    {
+      get => false;
     }
 
     void IList.Clear()
@@ -369,57 +454,50 @@ namespace Ccr.MaterialDesign
       throw new NotSupportedException();
     }
 
-    public int IndexOf(MaterialBrush item)
+    int ICollection.Count
     {
-      return _materials.IndexOf(item);
+      get => Materials.Count;
     }
 
-    void IList<MaterialBrush>.Insert(int index, MaterialBrush item)
+    object ICollection.SyncRoot
     {
-      throw new NotSupportedException();
+      get => Materials.ToArray().SyncRoot;
     }
 
-    void IList<MaterialBrush>.RemoveAt(int index)
+    bool ICollection.IsSynchronized
     {
-      throw new NotSupportedException();
+      get => true;
     }
 
-    public MaterialBrush this[int index]
+    int IList.Add(object value)
     {
-      get { return _materials[index]; }
-      set { throw new NotImplementedException(); }
+      Add(value.As<MaterialBrush>());
+      return Count;
     }
 
-    void IList.RemoveAt(int index)
+    bool IList.Contains(object value)
     {
-      throw new NotSupportedException();
+      return Contains(value.As<MaterialBrush>());
     }
 
-    object IList.this[int index]
-    {
-      get { return this[index]; }
-      set { throw new NotSupportedException(); }
-    }
+    #endregion
 
-    bool IList.IsReadOnly
-    {
-      get => !_isInitializing;
-    }
 
-    bool IList.IsFixedSize
-    {
-      get => false;
-    }
-
+    #region ISupportInitialize implementation
     private bool _isInitializing;
+
     void ISupportInitialize.BeginInit()
     {
       _isInitializing = true;
     }
+
     void ISupportInitialize.EndInit()
     {
       _isInitializing = false;
     }
+
+    #endregion
+
 
     public static Swatch Create(
       params MaterialBrush[] _materials)
@@ -427,11 +505,12 @@ namespace Ccr.MaterialDesign
       var _classifier = _materials[0]
         .Identity
         .SwatchClassifier;
-      
+
       return new Swatch(_materials)
       {
         SwatchClassifier = _classifier,
       };
     }
+
   }
 }

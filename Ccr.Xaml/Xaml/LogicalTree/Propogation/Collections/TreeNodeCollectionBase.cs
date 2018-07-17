@@ -35,6 +35,7 @@ namespace Ccr.Xaml.LogicalTree.Propogation.Collections
       get => _parentBase;
     }
 
+
     public event ParentChangedBaseHandler ParentChangedBase;
 
     public void RegisterParentBase(ITreeNodeBase parent)

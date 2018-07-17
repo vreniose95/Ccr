@@ -8,11 +8,101 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:CardDemoViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
-             Designer.Viewport="HD720"
-             Designer.Orientation="Landscape">
-	<Grid Background="Gray">
-		<Card Width="350" Height="350">
+             Designer.Viewport="HD1080"
+             Designer.Orientation="Landscape"
+             d:DesignWidth="1920"
+             d:DesignHeight="1080">
+  <Grid Background="#dcdcdc">
+    <!--<Card>
 
-		</Card>
-	</Grid>
+    </Card>-->
+    <StackPanel Orientation="Vertical"
+                Margin="50 30">
+      <Border Background="#c8c8c8"
+              BorderBrush="#6200ee"
+              BorderThickness="0 0 0 2"
+              Height="56"
+              Width="288"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              CornerRadius="2">
+
+        <!--<StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center">
+          <Label Content="Label" 
+                 Style="{StaticResource t13pBody1}"
+                 FontSize="8pt"
+                 Foreground="#6200ee"
+                 HorizontalContentAlignment="Left"
+                 Padding="12 0"/>
+
+          <Label Content="Input" 
+                 Style="{StaticResource t13pBody1}"
+                 FontWeight="Normal"
+                 FontSize="14pt"
+                 Foreground="#000000"
+                 HorizontalContentAlignment="Left"
+                 Padding="12 0"/>
+        </StackPanel>-->
+        <Grid Margin="12 0">
+          <Label x:Name="PART_Hint" 
+                 Style="{StaticResource t13pBody1}"
+                 HorizontalContentAlignment="Left"
+                 RenderTransformOrigin="0,0" 
+                 IsHitTestVisible="False"
+                 Padding="0"
+                 Foreground="#000000">
+            <Label.Content>
+              <Binding Path="(HintAssist.Hint)" 
+                       FallbackValue="Label"
+                       RelativeSource="{RelativeSource TemplatedParent}"/>
+            </Label.Content>
+            <Label.Opacity>
+              <Binding Path="(HintAssist.HintOpacity)" 
+                       RelativeSource="{RelativeSource TemplatedParent}"/>
+            </Label.Opacity>
+            <Label.RenderTransform>
+              <TransformGroup>
+                <ScaleTransform x:Name="PART_HintScaleTransform"
+                                ScaleX=".6" 
+                                ScaleY=".6"/>
+                <TranslateTransform x:Name="PART_HintTranslateTransform" 
+                                    X="0" 
+                                    Y="0"/>
+              </TransformGroup>
+            </Label.RenderTransform>
+          </Label>
+          <Label Content="Input" 
+                 Style="{StaticResource t13pBody1}"
+                 FontWeight="Normal"
+                 Padding="0"
+                 RenderTransformOrigin="0,1" 
+                 FontSize="14pt"
+                 Foreground="#000000"
+                 HorizontalContentAlignment="Left">
+            <Label.RenderTransform>
+              <TransformGroup>
+                <ScaleTransform ScaleX="1" 
+                                ScaleY="1"/>
+                <TranslateTransform X="0" 
+                                    Y="7"/>
+              </TransformGroup>
+            </Label.RenderTransform>
+          </Label>
+        </Grid>
+      </Border>
+      <Label Content="Helper Text" 
+             Style="{StaticResource t13pBody1}"
+             FontSize="8pt"
+             Foreground="#000000"
+             Opacity=".5"
+             FontWeight="Medium"
+             HorizontalContentAlignment="Left"
+             Padding="12 4 12 2">
+
+      </Label>
+    </StackPanel>
+
+
+  </Grid>
 </UserControl>

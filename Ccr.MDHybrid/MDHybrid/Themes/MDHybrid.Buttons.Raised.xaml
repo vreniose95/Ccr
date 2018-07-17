@@ -7,10 +7,10 @@
 	<Brush x:Key="PrimaryHueMidForegroundBrush">White</Brush>
 	
 	<SolidColorBrush x:Key="PrimaryHueMidBrush" 
-									 Color="{Binding Source={StaticResource Blue600}, Path=Color}"/>
+									 Color="{Binding Source={StaticResource MDH.Palette.Blue.600}, Path=Color}"/>
 	
 	<SolidColorBrush x:Key="MaterialDesignBackground" 
-	                 Color="{Binding Source={StaticResource BlueGrey900}, Path=Color}"/>
+	                 Color="{Binding Source={StaticResource  MDH.Palette.BlueGrey.900}, Path=Color}"/>
 	
 	
 	

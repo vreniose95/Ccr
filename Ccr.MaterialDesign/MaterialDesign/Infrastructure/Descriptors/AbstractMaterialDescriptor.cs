@@ -27,7 +27,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
       }
     }
 
-		public abstract MaterialBrush GetMaterial(
+		public abstract SolidColorBrush GetMaterial(
 		  Swatch swatch);
 	}
 }

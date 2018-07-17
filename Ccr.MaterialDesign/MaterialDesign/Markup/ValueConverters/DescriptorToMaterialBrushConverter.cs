@@ -1,4 +1,5 @@
-﻿using Ccr.MaterialDesign.Infrastructure.Descriptors;
+﻿using System.Windows.Media;
+using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
@@ -7,10 +8,10 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
     : XamlConverter<
         Swatch,
         IMaterialDescriptor, 
-        NullParam, 
-        MaterialBrush>
+        NullParam,
+      SolidColorBrush>
   {
-    public override MaterialBrush Convert(
+    public override SolidColorBrush Convert(
       Swatch swatch, 
       IMaterialDescriptor descriptor,
       NullParam param)

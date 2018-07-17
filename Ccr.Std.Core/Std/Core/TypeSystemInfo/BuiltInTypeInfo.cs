@@ -9,11 +9,11 @@ namespace Ccr.Std.Core.TypeSystemInfo
     [NotNull]
     public Type SystemType { get; }
 
-
     protected BuiltInTypeInfo(
       [NotNull] Type systemType)
     {
       systemType.IsNotNull(nameof(systemType));
+
       SystemType = systemType;
     }
   }

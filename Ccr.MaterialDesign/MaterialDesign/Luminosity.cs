@@ -24,19 +24,19 @@ namespace Ccr.MaterialDesign
     public static readonly Luminosity P700 = Define();
     public static readonly Luminosity P800 = Define();
     public static readonly Luminosity P900 = Define();
+
     public static readonly Luminosity A100 = Define();
     public static readonly Luminosity A200 = Define();
     public static readonly Luminosity A400 = Define();
     public static readonly Luminosity A700 = Define();
-
-
   }
+
   [TypeConverter(typeof(LuminosityConverter))]
   public partial class Luminosity
     : IComparable,
       IComparable<Luminosity>
   {
-    private static readonly IList<int> _normalLuminosities
+    private static readonly IReadOnlyList<int> _normalPrimaryLuminosities
       = new List<int>
       {
         050,
@@ -51,7 +51,7 @@ namespace Ccr.MaterialDesign
         900
       };
 
-    private static readonly IList<int> _normalAccentLuminosities
+    private static readonly IReadOnlyList<int> _normalAccentLuminosities
       = new List<int>
       {
         100,
@@ -60,6 +60,15 @@ namespace Ccr.MaterialDesign
         700
       };
 
+    private static int[] _normalLuminosities;
+    public static IReadOnlyList<int> NormalLuminosities
+    {
+      get => _normalLuminosities
+             ?? (_normalLuminosities = _normalPrimaryLuminosities
+               .Concat(
+                 _normalAccentLuminosities)
+               .ToArray());
+    }
 
 
     public int LuminosityIndex { get; }
@@ -69,22 +78,22 @@ namespace Ccr.MaterialDesign
 
     public bool IsNormalLuminosity
     {
-      get => IsAccent 
-        ? _normalAccentLuminosities.Contains(LuminosityIndex) 
-        : _normalLuminosities.Contains(LuminosityIndex); 
+      get => NormalLuminosities.Contains(LuminosityIndex);
     }
+
 
     internal Luminosity() { }
 
     public Luminosity(
       int luminosityIndex,
-      bool isAccent) : this()
+      bool isAccent)
+        : this()
     {
-      if (luminosityIndex.IsNotWithin((0, 1000)))
+      if (luminosityIndex.IsNotWithin((0, 999)))
         throw new ArgumentOutOfRangeException(
           nameof(luminosityIndex),
           luminosityIndex,
-          $"Luminosity value is not valid. Must be between 0 and 1000, inclusively.");
+          $@"Luminosity value is not valid. Must be between 0 and 1000, inclusively.");
 
       LuminosityIndex = luminosityIndex;
       IsAccent = isAccent;
@@ -117,14 +126,17 @@ namespace Ccr.MaterialDesign
     public int CompareTo(object obj)
     {
       if (obj is Luminosity)
-        return CompareTo(obj.As<Luminosity>());
+        return CompareTo(obj
+          .As<Luminosity>());
 
       throw new ArgumentException();
     }
 
     public int CompareTo(Luminosity other)
     {
-      return LuminosityIndex.CompareTo(other.LuminosityIndex);
+      return LuminosityIndex
+        .CompareTo(
+          other.LuminosityIndex);
     }
 
     public static bool operator ==(
@@ -211,25 +223,3 @@ namespace Ccr.MaterialDesign
     }
   }
 }
-
-//if (!memberName.StartsWith("A"))
-//{
-//  if (!int.TryParse(memberName, out var _index))
-//  {
-//    throw new FormatException(
-//      $"Could not parse \'Luminosity\' object from the text {memberName.Quote()} " +
-//      $"because {memberName.Quote()} cammpt ne parsed into type \'int\'. ");
-//  }
-//  return new Luminosity(_index, false);
-//}
-//else
-//{
-//  var indexStr = memberName.Substring(1);
-//  if (!int.TryParse(indexStr, out var _index))
-//  {
-//    throw new FormatException(
-//      $"Could not parse \'Luminosity\' object from the text {memberName.Quote()} " +
-//      $"because {indexStr.Quote()} cammpt ne parsed into type \'int\'. ");
-//  }
-//  return new Luminosity(_index, true);
-//}

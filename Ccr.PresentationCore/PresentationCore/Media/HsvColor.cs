@@ -84,9 +84,6 @@ namespace Ccr.PresentationCore.Media
 				default:
 					return Color.FromArgb(255, _v, p, q);
 			}
-
-			
-			
 		}
 	}
 }

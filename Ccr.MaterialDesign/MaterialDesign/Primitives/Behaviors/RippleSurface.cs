@@ -6,7 +6,6 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Media3D;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;

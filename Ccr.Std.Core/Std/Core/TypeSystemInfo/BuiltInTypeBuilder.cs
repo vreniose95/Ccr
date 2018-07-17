@@ -25,7 +25,8 @@ namespace Ccr.Std.Core.TypeSystemInfo
         : struct
     {
       return BuildBase(
-        typeof(TSystemType)).As<TTypeInfo>();
+        typeof(TSystemType))
+          .As<TTypeInfo>();
     }
     protected abstract TTypeInfo BuildImpl<TSystemType>();
   }

@@ -1,30 +1,32 @@
-﻿using Ccr.Core.Extensions;
+﻿using System.Windows.Media;
+using Ccr.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
 	public class LiteralMaterialDescriptor
     : AbstractMaterialDescriptor
 	{
-    public MaterialBrush LiteralBrush { get; }
+    public SolidColorBrush LiteralBrush { get; }
 
 
 	  public LiteralMaterialDescriptor(
-	    MaterialBrush brush)
+	    SolidColorBrush brush)
 	  {
 	    LiteralBrush = brush;
 	  }
 
+    //TODO fix withOpacity
     public LiteralMaterialDescriptor(
-	    MaterialBrush brush,
-	    double opacity) : this(
-        brush.WithOpacity(
-          opacity))
+      SolidColorBrush brush,
+      double opacity) : this(
+        brush.Color.WithOpacity(
+          opacity).ToSCB())
     {
       Opacity = opacity;
     }
 
 
-	  public override MaterialBrush GetMaterial(
+    public override SolidColorBrush GetMaterial(
 	    Swatch swatch)
 	  {
 	    return LiteralBrush;

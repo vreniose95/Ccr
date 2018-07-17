@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Media;
 using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.Numerics.Ranges;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
@@ -12,17 +11,17 @@ namespace Ccr.Core.Extensions
       this SolidColorBrush @this,
       double percentage)
     {
-      if (percentage.IsNotWithin(new DoubleRange(0d, 1d)))
+      if (percentage.IsNotWithin((0d, 1d)))
         throw new ArgumentOutOfRangeException(
           nameof(percentage),
           percentage,
           "The percentage parameter must be between 0 and 1, inclusively.");
 
       return @this
-             .Color
-             .Darken(
-               percentage)
-             .ToSCB();
+        .Color
+        .Darken(
+          percentage)
+        .ToSCB();
     }
 
 
@@ -30,17 +29,17 @@ namespace Ccr.Core.Extensions
       this SolidColorBrush @this,
       double percentage)
     {
-      if (percentage.IsNotWithin(new DoubleRange(0d, 1d)))
+      if (percentage.IsNotWithin((0d, 1d)))
         throw new ArgumentOutOfRangeException(
           nameof(percentage),
           percentage,
           "The percentage parameter must be between 0 and 1, inclusively.");
 
       return @this
-             .Color
-             .Lighten(
-               percentage)
-             .ToSCB();
+        .Color
+        .Lighten(
+          percentage)
+        .ToSCB();
     }
 
 
@@ -48,9 +47,9 @@ namespace Ccr.Core.Extensions
       this SolidColorBrush @this)
     {
       return @this
-             .Color
-             .Invert()
-             .ToSCB();
+        .Color
+        .Invert()
+        .ToSCB();
     }
 
 
@@ -59,9 +58,9 @@ namespace Ccr.Core.Extensions
       SolidColorBrush brush)
     {
       return @this
-             .Color
-             .Differential(
-               brush.Color);
+        .Color
+        .Differential(
+          brush.Color);
     }
 
 
@@ -89,17 +88,13 @@ namespace Ccr.Core.Extensions
       foreground.IsNotNull(nameof(foreground));
 
       return @this
-             .Color
-             .Blend(
-               foreground.Color,
-               opacity)
-             .ToSCB();
+        .Color
+        .Blend(
+          foreground.Color,
+          opacity)
+        .ToSCB();
     }
-
-
-
-
-
+    
     /// <summary>
     /// Method to create a <c>SolidColorBrush</c> object from a GreyScale value
     /// </summary>
@@ -127,39 +122,39 @@ namespace Ccr.Core.Extensions
       @this.IsNotNull(nameof(@this));
       brush.IsNotNull(nameof(brush));
 
-      if (percentage.IsNotWithin(new DoubleRange(0d, 1d)))
+      if (percentage.IsNotWithin((0d, 1d)))
         throw new ArgumentOutOfRangeException(
           nameof(percentage),
           percentage,
           "The percentage parameter must be between 0 and 1, inclusively.");
 
       return @this
-             .Color
-             .Interpolate(
-               brush.Color,
-               percentage)
-             .ToSCB();
+        .Color
+        .Interpolate(
+          brush.Color,
+          percentage)
+        .ToSCB();
     }
 
 
-    public static SolidColorBrush WithOpacity(
-      [NotNull] this SolidColorBrush @this,
-      double opacity)
-    {
-      @this.IsNotNull(nameof(@this));
+    //public static SolidColorBrush WithOpacity(
+    //  [NotNull] this SolidColorBrush @this,
+    //  double opacity)
+    //{
+    //  @this.IsNotNull(nameof(@this));
 
-      if (opacity.IsNotWithin(new DoubleRange(0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(opacity),
-          opacity,
-          "The opacity parameter must be between 0 and 1, inclusively.");
+    //  if (opacity.IsNotWithin(new DoubleRange(0d, 1d)))
+    //    throw new ArgumentOutOfRangeException(
+    //      nameof(opacity),
+    //      opacity,
+    //      "The opacity parameter must be between 0 and 1, inclusively.");
 
-      return @this
-             .Color
-             .WithOpacity(
-               opacity)
-             .ToSCB();
-    }
+    //  return @this
+    //         .Color
+    //         .WithOpacity(
+    //           opacity)
+    //         .ToSCB();
+    //}
 
   }
 }
