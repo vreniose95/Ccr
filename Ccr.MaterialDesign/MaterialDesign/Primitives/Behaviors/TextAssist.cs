@@ -41,16 +41,28 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
             textbox.TextInput += onTextInput;
             textbox.TextChanged += onTextChanged;
             break;
-          case Label label:
-            
-            var descriptor = DependencyPropertyDescriptor
-              .FromProperty(
-                Label.ContentProperty,
-                typeof(Label));
+          case Button button:
+            {
+              var descriptor = DependencyPropertyDescriptor
+                .FromProperty(
+                  Button.ContentProperty,
+                  typeof(Button));
 
-            descriptor?.AddValueChanged(
-              label, onLabelContentChanged);
-            break;
+              descriptor?.AddValueChanged(
+                button, onButtonContentChanged);
+              break;
+            }
+          case Label label:
+            {
+              var descriptor = DependencyPropertyDescriptor
+                .FromProperty(
+                  Label.ContentProperty,
+                  typeof(Label));
+
+              descriptor?.AddValueChanged(
+                label, onLabelContentChanged);
+              break;
+            }
         }
       }
       else
@@ -64,8 +76,19 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
             textbox.TextInput -= onTextInput;
             textbox.TextChanged -= onTextChanged;
             break;
-          case Label label:
+          case Button button:
+          {
+            var descriptor = DependencyPropertyDescriptor
+              .FromProperty(
+                Button.ContentProperty,
+                typeof(Button));
 
+            descriptor?.RemoveValueChanged(
+              button, onButtonContentChanged);
+            break;
+          }
+          case Label label:
+          {
             var descriptor = DependencyPropertyDescriptor
               .FromProperty(
                 Label.ContentProperty,
@@ -74,8 +97,32 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
             descriptor?.RemoveValueChanged(
               label, onLabelContentChanged);
             break;
+          }
         }
       }
+    }
+
+    private static void onButtonContentChanged(
+      object sender, EventArgs args)
+    {
+      var button = sender as Button;
+      if (button == null)
+        return;
+
+      var descriptor = DependencyPropertyDescriptor
+        .FromProperty(
+          Button.ContentProperty,
+          typeof(Button));
+
+      descriptor?.RemoveValueChanged(
+        button, onButtonContentChanged);
+     
+      var initialContent = button.Content.ToString();
+      var newContent = initialContent.ToUpper();
+      button.Content = newContent;
+
+      descriptor?.AddValueChanged(
+        button, onButtonContentChanged);
     }
 
     private static void onLabelContentChanged(

@@ -55,7 +55,7 @@
 										</Ellipse.RenderTransform>
 										<Ellipse.Fill>
 											<Binding RelativeSource="{RelativeSource TemplatedParent}" 
-											         Path="(MaterialDesign.VisualFeedback)"/>
+											         Path="(MDH.VisualFeedback)"/>
 										</Ellipse.Fill>
 										<Ellipse.Height>
 											<MultiBinding Converter="{RippleDiameterConverter}" 

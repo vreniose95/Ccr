@@ -202,19 +202,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MaterialDesign\Themes\MDHybrid.Static.Luminosities.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MaterialDesign\Themes\MDHybrid.Static.xaml">
-      <SubType>UserControl</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\MetaResources\MDH.xml">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MaterialDesign\Themes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\.paket\paket.targets" />

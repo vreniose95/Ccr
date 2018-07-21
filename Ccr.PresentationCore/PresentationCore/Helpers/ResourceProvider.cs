@@ -9,8 +9,8 @@ namespace Ccr.PresentationCore.Helpers
 	{
 		private ResourceDictionary _resourceDictionary;
 
-		private readonly SortedDictionary<string, object> _cache
-			= new SortedDictionary<string, object>();
+		private readonly SortedDictionary<object, object> _cache
+			= new SortedDictionary<object, object>();
 
 		public ResourceProvider(string packUri)
 		{
@@ -33,7 +33,7 @@ namespace Ccr.PresentationCore.Helpers
 		}
 
 
-		public object Get(string key)
+		public object Get(object key)
 		{
 			if (_cache.TryGetValue(key, out var _cachedValue))
 				return _cachedValue;
@@ -47,7 +47,7 @@ namespace Ccr.PresentationCore.Helpers
 			return value;
 		}
 
-		public TValue Get<TValue>(string key)
+		public TValue Get<TValue>(object key)
 		{
 			var value = Get(key);
 

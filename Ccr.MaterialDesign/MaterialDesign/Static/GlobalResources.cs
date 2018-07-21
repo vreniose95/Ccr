@@ -37,7 +37,7 @@ namespace Ccr.MaterialDesign.Static
 		{
 			var _palletResourceUri = PackUriBuilder.Build(
 				"Ccr.MDHybrid",
-				"MDHybrid/Themes/MDHybrid.Palette.xaml");
+				"MDHybrid/Themes/Generic.xaml");
 
 			_paletteResourceProvider = new ResourceProvider(
 				_palletResourceUri);

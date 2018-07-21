@@ -10,7 +10,19 @@
     {
       _palette = palette;
     }
-    
+
+    public void Analyze()
+    {
+      foreach (var swatch in _palette.Swatches)
+      {
+        foreach (var primary in swatch.Primaries)
+        {
+          //var color = primary.Color;
+
+        }
+
+      }
+    }
 
   }
 }

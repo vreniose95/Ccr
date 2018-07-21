@@ -16,7 +16,7 @@ namespace Ccr.MaterialDesign.Controls.Icons
     internal abstract void UpdateData();
   }
 
-
+  // ReSharper disable StaticMemberInGenericType
   public abstract class IconBase<TKind>
     : IconBase
   {
@@ -26,28 +26,41 @@ namespace Ccr.MaterialDesign.Controls.Icons
     public static readonly DependencyProperty KindProperty = DP.Register(
       new Meta<IconBase<TKind>, TKind>(KindPropertyChangedCallback));
 
-    protected static readonly DependencyPropertyKey DataPropertyKey = DP.RegisterReadOnly(
+
+    private static readonly DependencyPropertyKey DataPropertyKey = DP.RegisterReadOnly(
       new Meta<IconBase<TKind>, string>(""));
 
-    // ReSharper disable once StaticMemberInGenericType
     public static readonly DependencyProperty DataProperty = DataPropertyKey.DependencyProperty;
+
+
+    private static readonly DependencyPropertyKey GeometryPropertyKey = DP.RegisterReadOnly(
+      new Meta<IconBase<TKind>, Geometry>(Geometry.Empty));
+
+    public static readonly DependencyProperty GeometryProperty = GeometryPropertyKey.DependencyProperty;
 
 
 
     public TKind Kind
     {
-      get => (TKind) GetValue(KindProperty);
+      get => (TKind)GetValue(KindProperty);
       set => SetValue(KindProperty, value);
     }
 
     /// <summary>
     /// Gets the icon path data for the current <see cref="Kind"/>.
     /// </summary>
-    [TypeConverter(typeof(GeometryConverter))]
+
     public string Data
     {
-      get => (string) GetValue(DataProperty);
+      get => (string)GetValue(DataProperty);
       private set => SetValue(DataPropertyKey, value);
+    }
+
+    [TypeConverter(typeof(GeometryConverter))]
+    public Geometry Geometry
+    {
+      get => (Geometry)GetValue(GeometryProperty);
+      protected set => SetValue(GeometryPropertyKey, value);
     }
 
 
@@ -76,9 +89,22 @@ namespace Ccr.MaterialDesign.Controls.Icons
 
     internal override void UpdateData()
     {
-      string data = null;
-      _dataIndex.Value?.TryGetValue(Kind, out data);
-      Data = data;
+      if (!_dataIndex.Value.TryGetValue(Kind, out var data))
+      {
+        Geometry = Geometry.Empty;
+      }
+      else
+      {
+        Data = data;
+
+        if (data == null || data.IsNullOrWhiteSpace())
+          Geometry = Geometry.Empty;
+        else
+        {
+          var parsedGeometry = Geometry.Parse(data);
+          Geometry = parsedGeometry;
+        }
+      }
     }
   }
 }

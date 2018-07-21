@@ -7,51 +7,58 @@
     <ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml"/>
   </ResourceDictionary.MergedDictionaries>
 
-  <TextFieldInputVisualStateService x:Key="MDHybrid.TextInput.HintVisualStateManagerService"/>
+  <TextFieldInputVisualStateService x:Key="MDH.TextInput.HintVisualStateManagerService"/>
   
-  <!--<a:TextFieldInputDataAdapter x:Key="MDHybrid.TextInput.TextFieldInputDataAdapter"/>-->
+  <!--<a:TextFieldInputDataAdapter x:Key="MDH.TextInput.TextFieldInputDataAdapter"/>-->
 
 
-  <SolidColorBrush x:Key="MDHybrid.TextInput.ElementBorderBrush" 
+  <system:Double x:Key="MDH.TextInput.Underline.Unfocused.Height">1</system:Double>
+
+  <system:Double x:Key="MDH.TextInput.Underline.Focused.Height">2</system:Double> 
+
+  <SolidColorBrush x:Key="MDH.TextInput.Underline.Unfocused.Brush" 
                    Color="{StaticResource MDH.Palette.Colors.Grey.600}"/>
+  
+  <SolidColorBrush x:Key="MDH.TextInput.Underline.Focused.Brush" 
+                   Color="{StaticResource MDH.Palette.Colors.DeepPurple.A700}"/>
 
-  <SolidColorBrush x:Key="MDHybrid.TextInput.ElementCaretBrush" 
+  <SolidColorBrush x:Key="MDH.TextInput.ElementCaretBrush" 
                    Color="{StaticResource MDH.Palette.Colors.BlueGrey.800}"/>
 
 
-  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.None" 
-                   Color="{StaticResource MDH.Palette.Colors.Grey.500}"/>
+  <SolidColorBrush x:Key="MDH.TextInput.Validation.None" 
+                   Color="{StaticResource MDH.Palette.Colors.Grey.600}"/>
 
-  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.Failed" 
+  <SolidColorBrush x:Key="MDH.TextInput.Validation.Failed" 
                    Color="{StaticResource MDH.Palette.Colors.Red.A400}"/>
 
-  <SolidColorBrush x:Key="MDHybrid.TextInput.Validation.Valid" 
+  <SolidColorBrush x:Key="MDH.TextInput.Validation.Valid" 
                    Color="{StaticResource MDH.Palette.Colors.Teal.500}"/>
 			
 			
-  <Thickness x:Key="MDHybrid.TextInput.ElementMargin">5 3</Thickness>
+  <Thickness x:Key="MDH.TextInput.ElementMargin">5 3</Thickness>
 
-  <Thickness x:Key="MDHybrid.TextInput.InternalPadding">2 8 2 0</Thickness>
+  <Thickness x:Key="MDH.TextInput.InternalPadding">2 8 2 0</Thickness>
 
-  <system:Double x:Key="MDHybrid.TextInput.Validation.HeightAllocation">20</system:Double>
+  <system:Double x:Key="MDH.TextInput.Validation.HeightAllocation">20</system:Double>
 
-  <system:Double x:Key="MDHybrid.TextInput.Validation.HintTranslation.Y">-20</system:Double>
+  <system:Double x:Key="MDH.TextInput.Validation.HintTranslation.Y">-20</system:Double>
 
 
   <Style TargetType="FrameworkElement" 
          BasedOn="{StaticResource t15pSubhead}" 
          x:Key="HintedFormsElement">
-    <Setter Property="Control.BorderBrush"
-            Value="{StaticResource MDHybrid.TextInput.ElementBorderBrush}"/>
+    <!--<Setter Property="Control.BorderBrush"
+            Value="{StaticResource MDH.TextInput.ElementBorderBrush.Unfocused}"/>-->
     <Setter Property="TextBoxBase.CaretBrush" 
-            Value="{StaticResource MDHybrid.TextInput.ElementCaretBrush}"/>
-    <Setter Property="Control.HorizontalContentAlignment" 
+            Value="{StaticResource MDH.TextInput.ElementCaretBrush}"/>
+    <Setter Property="Control.HorizontalContentAlignment"
             Value="Left"/>
     <Setter Property="Margin"
-            Value="{StaticResource MDHybrid.TextInput.ElementMargin}"/>
+            Value="{StaticResource MDH.TextInput.ElementMargin}"/>
     <!--<Setter Property="HintAssist.InputDataAdapter" 
     Value="{StaticResource MDHybrid.TextInput.TextFieldInputDataAdapter}"/>-->
     <Setter Property="HintAssist.TextFieldInputVisualStateService" 
-            Value="{StaticResource MDHybrid.TextInput.HintVisualStateManagerService}"/>
+            Value="{StaticResource MDH.TextInput.HintVisualStateManagerService}"/>
   </Style>
 </ResourceDictionary>

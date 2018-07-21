@@ -3,15 +3,16 @@
 										xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign">
 	
   <Style TargetType="icons:Icon">
-    <Setter Property="Height" Value="16"/>
-    <Setter Property="Width" Value="16"/>
+    <Setter Property="Height" Value="48"/>
+    <Setter Property="Width" Value="48"/>
     <Setter Property="Padding" Value="0"/>
-    <Setter Property="FlowDirection" Value="LeftToRight"/>
+    <!--<Setter Property="FlowDirection" Value="LeftToRight"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
-    <Setter Property="VerticalAlignment" Value="Top"/>
+    <Setter Property="VerticalAlignment" Value="Top"/>-->
     <Setter Property="IsTabStop" Value="False"/>
     <Setter Property="SnapsToDevicePixels" Value="False"/>
     <Setter Property="UseLayoutRounding" Value="False"/>
+    <Setter Property="Foreground" Value="White"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="icons:Icon">
@@ -22,9 +23,10 @@
                     SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
             <Grid x:Name="PART_InnerGrid"
                   RenderTransformOrigin=".5,.5"
-                  Margin="{TemplateBinding BorderThickness}">
+                  Margin="{TemplateBinding Padding}">
               <Grid.RenderTransform>
                 <TransformGroup>
+									<RotateTransform Angle="{TemplateBinding Rotation}"/>
                   <ScaleTransform x:Name="PART_FlipTransform"
 																	CenterX="0.5"
 																	CenterY="0.5">
@@ -43,6 +45,17 @@
                   </ScaleTransform>
                 </TransformGroup>
               </Grid.RenderTransform>
+              <Viewbox>
+                <Canvas Width="24" Height="24">
+                  <Path Fill="{TemplateBinding Foreground}">
+                    <Path.Data>
+                      <Binding Path="Geometry"
+                               RelativeSource="{RelativeSource TemplatedParent}" 
+                               Mode="OneWay"/>
+                    </Path.Data>
+                  </Path>
+                </Canvas>
+              </Viewbox>
             </Grid>
           </Grid>
         </ControlTemplate>

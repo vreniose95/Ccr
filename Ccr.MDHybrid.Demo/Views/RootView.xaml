@@ -5,19 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:cal="http://www.caliburnproject.org"
              xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
-             xmlns:demo="clr-namespace:Ccr.MDHybrid.Demo"
+             xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
              cal:Bind.AtDesignTime="True"
              Designer.Viewport="HD720"
              Designer.Orientation="Landscape">
   <Grid Background="{StaticResource MDH.Palette.BlueGrey.600}"
-        Height="400"
-        Width="600">
+        Height="700"
+        Width="900">
 
-    <StackPanel Margin="40 20" Orientation="Vertical" HorizontalAlignment="Left">
-      <Button Style="{StaticResource MDH.Controls.Buttons.FlatButton.LightSurface}"
-               Content="Test"></Button>
+    <StackPanel Margin="40 20" 
+                Orientation="Vertical" 
+                HorizontalAlignment="Left"
+                Width="400">
+      <StackPanel Margin="10 5"
+                  Orientation="Horizontal">
+        <Button Style="{StaticResource MDH.Controls.Buttons.FlatButton.DarkSurface}"
+                Command="{Binding ChangeItCommand}">
+          <icons:Icon Kind="ArrowRightDropCircleOutline"/>
+        </Button>
+      </StackPanel>
+      <StackPanel Margin="10 5"
+                  Orientation="Horizontal">
+      <TextBox Style="{StaticResource MDH.HintedFlatTextBox}"
+               HintAssist.Hint="Email Address"
+               HintAssist.HelpText="enter a valid email address"></TextBox>
+        </StackPanel>
     </StackPanel>
     <!--<Border Background="{StaticResource MDH.Palette.Grey.050}"
 		        HorizontalAlignment="Center"

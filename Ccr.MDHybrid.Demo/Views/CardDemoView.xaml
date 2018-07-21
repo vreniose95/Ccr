@@ -18,7 +18,10 @@
     </Card>-->
     <StackPanel Orientation="Vertical"
                 Margin="50 30">
-      <Border Background="#c8c8c8"
+      <TextBox Style="{StaticResource MDH.HintedFlatTextBox}"
+               HintAssist.Hint="Email Address"
+               HintAssist.HelpText="enter a valid email address"></TextBox>
+      <!--<Border Background="#c8c8c8"
               BorderBrush="#6200ee"
               BorderThickness="0 0 0 2"
               Height="56"
@@ -26,24 +29,6 @@
               HorizontalAlignment="Left"
               VerticalAlignment="Top"
               CornerRadius="2">
-
-        <!--<StackPanel Orientation="Vertical"
-                    VerticalAlignment="Center">
-          <Label Content="Label" 
-                 Style="{StaticResource t13pBody1}"
-                 FontSize="8pt"
-                 Foreground="#6200ee"
-                 HorizontalContentAlignment="Left"
-                 Padding="12 0"/>
-
-          <Label Content="Input" 
-                 Style="{StaticResource t13pBody1}"
-                 FontWeight="Normal"
-                 FontSize="14pt"
-                 Foreground="#000000"
-                 HorizontalContentAlignment="Left"
-                 Padding="12 0"/>
-        </StackPanel>-->
         <Grid Margin="12 0">
           <Label x:Name="PART_Hint" 
                  Style="{StaticResource t13pBody1}"
@@ -100,7 +85,7 @@
              HorizontalContentAlignment="Left"
              Padding="12 4 12 2">
 
-      </Label>
+      </Label>-->
     </StackPanel>
 
 

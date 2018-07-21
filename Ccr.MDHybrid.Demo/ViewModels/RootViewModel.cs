@@ -2,6 +2,7 @@
 using System.Windows.Threading;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.MVVM;
+using Ccr.MaterialDesign.Static;
 
 namespace Ccr.MDHybrid.Demo.ViewModels
 {
@@ -82,10 +83,11 @@ namespace Ccr.MDHybrid.Demo.ViewModels
 		//}
 
 		public ICommand ChangeItCommand => new Command(
-			t =>
-			{
+		  t =>
+		  {
+		    MaterialDesignPalette = GlobalResources.Palette;
 
-			});
+		  });
 
 	}
 }

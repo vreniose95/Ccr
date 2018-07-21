@@ -9,11 +9,13 @@
 
   <Style TargetType="TextBox"
 	       BasedOn="{StaticResource HintedFormsElement}" 
-	       x:Key="HintedFlatTextBox">
+	       x:Key="MDH.HintedFlatTextBox">
     <Setter Property="TextWrapping" Value="Wrap"/>
     <Setter Property="FontSize" Value="18pt"/>
+    <Setter Property="Background" Value="{StaticResource MDH.Palette.Grey.100}"/>
     <Setter Property="Foreground" Value="{StaticResource MDH.Palette.Grey.900}"/>
-    <Setter Property="CaretBrush" Value="{StaticResource MDH.Palette.BlueGrey.800}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource MDH.TextInput.Underline.Unfocused.Brush}"/>
+    <Setter Property="BorderThickness" Value="0"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="TextBox">
@@ -70,7 +72,7 @@
 
                     <DoubleAnimation Storyboard.TargetName="PART_HintTranslateTransform" 
 																		  Storyboard.TargetProperty="(TranslateTransform.Y)" 
-																		  To="{StaticResource MDHybrid.TextInput.Validation.HintTranslation.Y}" 
+																		  To="{StaticResource MDH.TextInput.Validation.HintTranslation.Y}" 
 																		  Duration="0:0:0.12" 
 																		  EasingFunction="{EaseOut Quad}"/>
                   </Storyboard>
@@ -92,7 +94,7 @@
 
                     <DoubleAnimation Storyboard.TargetName="PART_ContentHostTranslateTransform" 
 																		  Storyboard.TargetProperty="(TranslateTransform.Y)" 
-																		  To="{StaticResource MDHybrid.TextInput.Validation.HintTranslation.Y}"
+																		  To="{StaticResource MDH.TextInput.Validation.HintTranslation.Y}"
 																		  Duration="0:0:0.06"
 																		  EasingFunction="{EaseIn Quad}"/>
                   </Storyboard>
@@ -103,25 +105,23 @@
                   <Storyboard>
                     <BrushAnimation Storyboard.TargetName="PART_FocusRectangle" 
 																	  Storyboard.TargetProperty="Fill" 
-																	  To="{StaticResource MDHybrid.TextInput.Validation.None}" 
+																	  To="{StaticResource MDH.TextInput.Validation.None}" 
 																	  Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_ValidationMessage" 
+                    <BrushAnimation Storyboard.TargetName="PART_HelperText" 
 																    Storyboard.TargetProperty="Foreground" 
-																    To="{StaticResource MDHybrid.TextInput.Validation.None}" 
+																    To="{StaticResource MDH.TextInput.Validation.None}" 
 																    Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_Icon" 
+                    <!--<BrushAnimation Storyboard.TargetName="PART_Icon" 
 																	  Storyboard.TargetProperty="Fill" 
-																	  To="{StaticResource MDHybrid.TextInput.Validation.None}" 
-																	  Duration="0:0:0.12"/>
+																	  To="{StaticResource MDH.TextInput.Validation.None}" 
+																	  Duration="0:0:0.12"/>-->
 
                     <BrushAnimation Storyboard.TargetName="PART_ContentHost" 
 																		Storyboard.TargetProperty="(TextElement.Foreground)" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.None}" 
+																		To="{StaticResource MDH.TextInput.Validation.None}" 
 																		Duration="0:0:0.12"/>
-
-
 
                   </Storyboard>
                 </VisualState>
@@ -129,22 +129,22 @@
                   <Storyboard>
                     <BrushAnimation Storyboard.TargetName="PART_FocusRectangle" 
 																		Storyboard.TargetProperty="Fill" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.Failed}" 
+																		To="{StaticResource MDH.TextInput.Validation.Failed}" 
 																		Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_ValidationMessage" 
+                    <BrushAnimation Storyboard.TargetName="PART_HelperText" 
 																    Storyboard.TargetProperty="Foreground" 
-																    To="{StaticResource MDHybrid.TextInput.Validation.Failed}" 
+																    To="{StaticResource MDH.TextInput.Validation.Failed}" 
 																    Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_Icon" 
+                    <!--<BrushAnimation Storyboard.TargetName="PART_Icon" 
 																		Storyboard.TargetProperty="Fill" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.Failed}" 
-																		Duration="0:0:0.12"/>
+																		To="{StaticResource MDH.TextInput.Validation.Failed}" 
+																		Duration="0:0:0.12"/>-->
 
                     <BrushAnimation Storyboard.TargetName="PART_ContentHost" 
 														        Storyboard.TargetProperty="(TextElement.Foreground)" 
-														        To="{StaticResource MDHybrid.TextInput.Validation.Failed}" 
+														        To="{StaticResource MDH.TextInput.Validation.Failed}" 
 														        Duration="0:0:0.12"/>
 
                   </Storyboard>
@@ -153,40 +153,34 @@
                   <Storyboard>
                     <BrushAnimation Storyboard.TargetName="PART_FocusRectangle" 
 																		Storyboard.TargetProperty="Fill" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.Valid}" 
+																		To="{StaticResource MDH.TextInput.Validation.Valid}" 
 																		Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_ValidationMessage" 
+                    <BrushAnimation Storyboard.TargetName="PART_HelperText" 
 																		Storyboard.TargetProperty="Foreground" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.Valid}" 
+																		To="{StaticResource MDH.TextInput.Validation.Valid}" 
 																		Duration="0:0:0.12"/>
 
-                    <BrushAnimation Storyboard.TargetName="PART_Icon" 
+                    <!--<BrushAnimation Storyboard.TargetName="PART_Icon" 
 																		Storyboard.TargetProperty="Fill" 
-																		To="{StaticResource MDHybrid.TextInput.Validation.Valid}" 
-																		Duration="0:0:0.12"/>
+																		To="{StaticResource MDH.TextInput.Validation.Valid}" 
+																		Duration="0:0:0.12"/>-->
 
                     <BrushAnimation Storyboard.TargetName="PART_ContentHost" 
 																	  Storyboard.TargetProperty="(TextElement.Foreground)" 
-																	  To="{StaticResource MDHybrid.TextInput.Validation.Valid}" 
+																	  To="{StaticResource MDH.TextInput.Validation.Valid}" 
 																	  Duration="0:0:0.12"/>
                   </Storyboard>
                 </VisualState>
               </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
-            <Grid x:Name="PART_Container" 
-                  Background="#dcdcdc">
-              <StackPanel Orientation="Vertical"
-                          Margin="50 30">
+            <Border x:Name="PART_Container"
+                    Margin="{TemplateBinding Padding}">
+              <StackPanel Orientation="Vertical">
                 <Border x:Name="PART_Border" 
-                        Background="#c8c8c8"
-                        BorderBrush="#6200ee"
-                        BorderThickness="0 0 0 2"
-                        Height="56"
-                        Width="288"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        CornerRadius="2">
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="2"
+                        Shadow.Level="2">
                   <Grid Margin="12 0">
                     <Label x:Name="PART_Hint" 
                            Style="{StaticResource t13pBody1}"
@@ -194,7 +188,7 @@
                            RenderTransformOrigin="0,0" 
                            IsHitTestVisible="False"
                            Padding="0"
-                           Foreground="#000000">
+                           Foreground="{TemplateBinding Foreground}">
                       <Label.Content>
                         <Binding Path="(HintAssist.Hint)" 
                                  FallbackValue="Label"
@@ -215,7 +209,90 @@
                         </TransformGroup>
                       </Label.RenderTransform>
                     </Label>
-                    <Label Content="Input" 
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Padding="0"
+                                  RenderTransformOrigin="0,1"
+                                  TextElement.FontFamily="{TemplateBinding FontFamily}"
+                                  TextElement.FontSize="{TemplateBinding FontSize}"	
+                                  TextElement.FontWeight="{TemplateBinding FontWeight}"
+                                  TextElement.Foreground="{TemplateBinding Foreground}">
+                      <ScrollViewer.RenderTransform>
+                        <TranslateTransform x:Name="PART_ContentHostTranslateTransform"
+                                            X="0" 
+                                            Y="0"/>
+                      </ScrollViewer.RenderTransform>
+                    </ScrollViewer>
+                    <Rectangle VerticalAlignment="Bottom" 
+                               Height="1"
+                               Fill="{StaticResource MDH.Palette.Grey.400}"/>
+                    <Rectangle x:Name="PART_FocusRectangle" 
+                               VerticalAlignment="Bottom" 
+                               Height="2"
+                               RenderTransformOrigin=".5,.5" 
+                               Fill="{StaticResource MDH.Palette.DeepPurple.A700}">
+                      <Rectangle.RenderTransform>
+                        <ScaleTransform ScaleY="1" ScaleX="0"/>
+                      </Rectangle.RenderTransform>
+                    </Rectangle>
+                  </Grid>
+                </Border>
+                <Label x:Name="PART_HelperText" 
+                       Style="{StaticResource t13pBody1}"
+                       FontSize="8pt"
+                       Foreground="#000000"
+                       FontWeight="Medium"
+                       HorizontalContentAlignment="Left"
+                       Padding="12 4 12 2">
+                  <Label.Content>
+                    <Binding Path="(HintAssist.HelpText)" 
+                             FallbackValue="Help Text"
+                             RelativeSource="{RelativeSource TemplatedParent}"/>
+                  </Label.Content>
+                  <Label.Opacity>
+                    <Binding Path="(HintAssist.HintOpacity)" 
+                             RelativeSource="{RelativeSource TemplatedParent}"/>
+                  </Label.Opacity>
+                </Label>
+              </StackPanel>
+            </Border>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <EventTrigger RoutedEvent="GotFocus">
+              <EventTrigger.Actions>
+                <BeginStoryboard>
+                  <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="PART_FocusRectangle" 
+                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="1" 
+                                     Duration="0:0:0.1"/>
+                  </Storyboard>
+                </BeginStoryboard>
+              </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="LostFocus">
+              <EventTrigger.Actions>
+                <BeginStoryboard>
+                  <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="PART_FocusRectangle" 
+                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                     To="0"
+                                     Duration="0:0:0.1"/>
+                  </Storyboard>
+                </BeginStoryboard>
+              </EventTrigger.Actions>
+            </EventTrigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+</ResourceDictionary>            
+            
+                          <!--<Label Content="Input" 
                            Style="{StaticResource t13pBody1}"
                            FontWeight="Normal"
                            Padding="0"
@@ -231,22 +308,7 @@
                                               Y="7"/>
                         </TransformGroup>
                       </Label.RenderTransform>
-                    </Label>
-                  </Grid>
-                </Border>
-                <Label x:Name="PART_HelperText" 
-                       Content="Helper Text" 
-                       Style="{StaticResource t13pBody1}"
-                       FontSize="8pt"
-                       Foreground="#000000"
-                       Opacity=".5"
-                       FontWeight="Medium"
-                       HorizontalContentAlignment="Left"
-                       Padding="12 4 12 2">
-
-                </Label>
-              </StackPanel>
-
+                    </Label>-->
               <!--<StackPanel Orientation="Vertical">
               <Border Background="#c8c8c8"
                       BorderBrush="#6200ee"
@@ -287,7 +349,6 @@
             </StackPanel>-->
 
 
-            </Grid>
 
             <!--<Grid Margin="4 2">
                 <Label x:Name="PART_Hint" 
@@ -372,35 +433,3 @@
                 <ScaleTransform ScaleY="1" ScaleX="0"/>
               </Rectangle.RenderTransform>
             </Rectangle>-->
-          </Grid>
-          <ControlTemplate.Triggers>
-            <EventTrigger RoutedEvent="GotFocus">
-              <EventTrigger.Actions>
-                <BeginStoryboard>
-                  <Storyboard>
-                    <DoubleAnimation Storyboard.TargetName="PART_FocusRectangle" 
-                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="1" 
-                                     Duration="0:0:0.1"/>
-                  </Storyboard>
-                </BeginStoryboard>
-              </EventTrigger.Actions>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="LostFocus">
-              <EventTrigger.Actions>
-                <BeginStoryboard>
-                  <Storyboard>
-                    <DoubleAnimation Storyboard.TargetName="PART_FocusRectangle" 
-                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                     To="0"
-                                     Duration="0:0:0.1"/>
-                  </Storyboard>
-                </BeginStoryboard>
-              </EventTrigger.Actions>
-            </EventTrigger>
-          </ControlTemplate.Triggers>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-</ResourceDictionary>

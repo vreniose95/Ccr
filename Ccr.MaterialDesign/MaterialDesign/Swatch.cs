@@ -15,7 +15,7 @@ using Ccr.Xaml.Collections;
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
 {
-  [DictionaryKeyProperty(nameof(SwatchClassifier))]
+  //[DictionaryKeyProperty(nameof(SwatchClassifier))]
   public class Swatch
     : HostedElement<Palette>,
       IList,
@@ -116,6 +116,8 @@ namespace Ccr.MaterialDesign
     public Swatch()
     {
       _primaries.CollectionChangedGeneric += onPrimariesCollectionChanged;
+      _accents.CollectionChangedGeneric += onAccentsCollectionChanged;
+
       _materials = new List<MaterialBrush>();
     }
 
@@ -271,12 +273,82 @@ namespace Ccr.MaterialDesign
           }
         case NotifyCollectionChangedAction.Reset:
           {
-            args.OldItems.ForEach(
-              t => t.DetachHost());
-
-            _materials.Clear();
+            foreach (var primary in args.OldItems)
+            {
+              primary.DetachHost();
+              _materials.Remove(primary);
+            }
             break;
           }
+        default:
+          throw new InvalidEnumArgumentException();
+      }
+    }
+
+    private void onAccentsCollectionChanged(
+      IReactiveCollection<MaterialBrush> sender,
+      NotifyCollectionChangedEventArgs<MaterialBrush> args)
+    {
+      switch (args.Action)
+      {
+        case NotifyCollectionChangedAction.Add:
+        {
+          args.NewItems.ForEach(
+            t => t.AttachHost(this));
+
+          var newItemsCount = args.NewItems.Count;
+          var targetAccentsCount = Accents.Count;
+          var insertionPosition = targetAccentsCount - newItemsCount;
+
+          _materials.InsertRange(insertionPosition, args.NewItems);
+          break;
+        }
+        case NotifyCollectionChangedAction.Remove:
+        {
+          args.OldItems.ForEach(
+            t => t.DetachHost());
+
+          args.NewItems.ForEach(
+            t => t.AttachHost(this));
+
+          var oldItemsCount = args.OldItems.Count;
+          var targetAccentsCount = Accents.Count;
+
+          _materials.RemoveRange(targetAccentsCount, oldItemsCount);
+          break;
+        }
+        case NotifyCollectionChangedAction.Replace:
+        {
+          args.OldItems.ForEach(
+            t => t.DetachHost());
+
+          args.NewItems.ForEach(
+            t => t.AttachHost(this));
+
+          var newItemsCount = args.NewItems.Count;
+          var oldItemsCount = args.OldItems.Count;
+          var targetAccentsCount = Accents.Count;
+
+          var insertionPosition = targetAccentsCount - newItemsCount;
+
+          _materials.RemoveRange(targetAccentsCount, oldItemsCount);
+          _materials.InsertRange(insertionPosition, args.NewItems);
+
+          break;
+        }
+        case NotifyCollectionChangedAction.Move:
+        {
+          break;
+        }
+        case NotifyCollectionChangedAction.Reset:
+        {
+          foreach (var accent in args.OldItems)
+          {
+            accent.DetachHost();
+            _materials.Remove(accent);
+          }
+          break;
+        }
         default:
           throw new InvalidEnumArgumentException();
       }
@@ -441,7 +513,8 @@ namespace Ccr.MaterialDesign
 
     int IList.IndexOf(object value)
     {
-      return IndexOf(value.As<MaterialBrush>());
+      var materialBrush = buildMaterialBrush(value);
+      return IndexOf(materialBrush);
     }
 
     void IList.Insert(int index, object value)
@@ -471,7 +544,9 @@ namespace Ccr.MaterialDesign
 
     int IList.Add(object value)
     {
-      Add(value.As<MaterialBrush>());
+      var materialBrush = buildMaterialBrush(value);
+      Add(materialBrush);
+
       return Count;
     }
 
@@ -497,6 +572,32 @@ namespace Ccr.MaterialDesign
     }
 
     #endregion
+
+    private MaterialBrush buildMaterialBrush(object value)
+    {
+      switch (value)
+      {
+        case SolidColorBrush solidColorBrush:
+        {
+          if (MaterialBrush.TryCreateFromBrush(solidColorBrush, out var materialBrush))
+            return materialBrush;
+          
+          return new MaterialBrush(
+            solidColorBrush, 
+            new MaterialIdentity(
+              SwatchClassifier,
+              new Luminosity(0, false)));
+        }
+        case MaterialBrush materialBrush:
+        {
+          return materialBrush;
+        }
+        default:
+        {
+          throw new NotSupportedException();
+        }
+      }
+    }
 
 
     public static Swatch Create(

@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="MDHybrid.Global.xaml"/>
+	  <ResourceDictionary Source="MDHybrid.Icon.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Palette.xaml"/>
 		<ResourceDictionary Source="MDHybrid.Text.xaml"/>
 	  <ResourceDictionary Source="MDHybrid.TextInput.xaml"/>

@@ -77,7 +77,7 @@ namespace Ccr.MaterialDesign
 
     public override string ToString()
     {
-      return SwatchClassifier.ToString() + (IsAccent ? "A" : "P")
+      return SwatchClassifier + "." + (IsAccent ? "A" : "P")
         + Luminosity.LuminosityIndex.ToString("000");
     }
 

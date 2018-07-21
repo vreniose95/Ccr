@@ -34,11 +34,48 @@ namespace Ccr.Core.Extensions
     {
       @this.IsNotNull(nameof(@this));
 
-      @this.SetValue(
-        MDH.IdentityProperty,
-        materialIdentity);
+      if ((@this.CanFreeze && @this.IsFrozen) || @this.IsSealed)
+      {
+        //@this.Changed += (s, args) =>
+        //{
 
-      return @this;
+        //};
+        var cloned = @this.Clone();
+
+        cloned.SetValue(
+          MDH.IdentityProperty,
+          materialIdentity);
+
+        cloned.Freeze();
+
+        return cloned;
+      }
+      else
+      {
+        //@this.Changed += (s, args) =>
+        //{
+
+        //};
+
+        var existingIdentity = @this.GetIdentity();
+        if (existingIdentity != null)
+        {
+          if (!existingIdentity.Equals(materialIdentity))
+          {
+
+          }
+        }
+        @this.SetValue(
+          MDH.IdentityProperty,
+          materialIdentity);
+
+        if (@this.CanFreeze)
+        {
+          @this.Freeze();
+        }
+
+        return @this;
+      }
     }
   }
 }

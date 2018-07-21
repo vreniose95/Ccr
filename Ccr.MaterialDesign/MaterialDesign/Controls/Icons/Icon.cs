@@ -29,7 +29,6 @@ namespace Ccr.MaterialDesign.Controls.Icons
     }
 
 
-
     static Icon()
     {
       ControlExtensions.OverrideStyleKey<Icon>();
@@ -53,7 +52,7 @@ namespace Ccr.MaterialDesign.Controls.Icons
       DependencyObject @this,
       DependencyPropertyChangedEventArgs args)
     {
-      throw new NotImplementedException();
+
     }
 
 

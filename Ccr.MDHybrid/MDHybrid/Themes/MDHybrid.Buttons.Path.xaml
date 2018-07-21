@@ -20,9 +20,8 @@
     <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
     <Setter Property="Padding" Value="5 3"/>
     <Setter Property="ClipToBounds" Value="False"/>
-
-    
-
+    <Setter Property="MaxHeight" Value="90"/>
+    <Setter Property="MaxWidth" Value="90"/>
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="Button">

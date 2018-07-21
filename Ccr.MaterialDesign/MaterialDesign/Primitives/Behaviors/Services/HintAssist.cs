@@ -100,8 +100,12 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
     public static readonly DependencyProperty TextFieldInputVisualStateServiceProperty = DP.Attach(
       _type, new MetaBase<TextFieldInputVisualStateService>(null, onTextFieldInputVisualStateServiceChanged));
+    
+    public static readonly DependencyProperty HelpTextProperty = DP.Attach(
+      _type, new MetaBase<string>());
 
 
+    
     public static object GetHint(
       DependencyObject @this)
     {
@@ -139,21 +143,6 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
     {
       @this.Set(ValidatorProperty, value);
     }
-
-
-    private static void onValidatorChanged(
-      DependencyObject @this,
-      DPChangedEventArgs<IStringValidator> args)
-    {
-      var frameworkElement = @this.AsOrDefault<FrameworkElement>();
-      if (frameworkElement == null)
-        throw new ArgumentException(
-          $"The service \'HintAssist.Validator\' can only be used with elements that inherit " +
-          $"from the \'FrameworkElement\' type.");
-
-      var managerService = frameworkElement.GetTextFieldInputVisualStateService();
-      managerService?.EvaluateValidationState(frameworkElement);
-    }
     
     public static bool GetIsRequiredField(
       DependencyObject @this)
@@ -179,7 +168,6 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       @this.Set(InputDataAdapterProperty, value);
     }
 
-    
     public static TextFieldInputVisualStateService GetTextFieldInputVisualStateService(
       DependencyObject @this)
     {
@@ -192,6 +180,29 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       @this.Set(TextFieldInputVisualStateServiceProperty, value);
     }
 
+    public static string GetHelpText(DependencyObject @this)
+    {
+      return @this.Get<string>(HelpTextProperty);
+    }
+    public static void SetHelpText(DependencyObject @this, string value)
+    {
+      @this.Set(HelpTextProperty, value);
+    }
+
+
+    private static void onValidatorChanged(
+      DependencyObject @this,
+      DPChangedEventArgs<IStringValidator> args)
+    {
+      var frameworkElement = @this.AsOrDefault<FrameworkElement>();
+      if (frameworkElement == null)
+        throw new ArgumentException(
+          $"The service \'HintAssist.Validator\' can only be used with elements that inherit " +
+          $"from the \'FrameworkElement\' type.");
+
+      var managerService = frameworkElement.GetTextFieldInputVisualStateService();
+      managerService?.EvaluateValidationState(frameworkElement);
+    }
 
     private static void onTextFieldInputVisualStateServiceChanged(
       DependencyObject @this,
