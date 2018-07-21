@@ -95,159 +95,159 @@ namespace Ccr.MaterialDesign
   }
 }
 
-	///// <summary>
-	///// A wrapper for both the <see cref="System.Windows.Media.Color"/> struct as well as an 
-	///// opaque instance of the <see cref="SolidColorBrush"/> class.
-	///// </summary>
-	//[DictionaryKeyProperty(nameof(Identity))]
- // [TypeConverter(typeof(MaterialBrushConverter))]
- // public class MaterialBrush
-	//	: HostedElement<Swatch>
-	//{
- //   public static readonly DependencyProperty IdentityProperty = DP.Register(
- //     new Meta<MaterialBrush, MaterialIdentity>());
+///// <summary>
+///// A wrapper for both the <see cref="System.Windows.Media.Color"/> struct as well as an 
+///// opaque instance of the <see cref="SolidColorBrush"/> class.
+///// </summary>
+//[DictionaryKeyProperty(nameof(Identity))]
+// [TypeConverter(typeof(MaterialBrushConverter))]
+// public class MaterialBrush
+//	: HostedElement<Swatch>
+//{
+//   public static readonly DependencyProperty IdentityProperty = DP.Register(
+//     new Meta<MaterialBrush, MaterialIdentity>());
 
-	//  public static readonly DependencyProperty ColorProperty = DP.Register(
-	//		new Meta<MaterialBrush, Color>(Colors.Transparent, onColorChanged));
+//  public static readonly DependencyProperty ColorProperty = DP.Register(
+//		new Meta<MaterialBrush, Color>(Colors.Transparent, onColorChanged));
 
-	//  protected static readonly DependencyPropertyKey BrushPropertyKey = DP.RegisterReadOnly(
-	//    new Meta<MaterialBrush, SolidColorBrush>());
-	//  public static readonly DependencyProperty BrushProperty = BrushPropertyKey.DependencyProperty;
+//  protected static readonly DependencyPropertyKey BrushPropertyKey = DP.RegisterReadOnly(
+//    new Meta<MaterialBrush, SolidColorBrush>());
+//  public static readonly DependencyProperty BrushProperty = BrushPropertyKey.DependencyProperty;
 
-    
 
- //   public MaterialIdentity Identity
-	//	{
-	//		get { return (MaterialIdentity)GetValue(IdentityProperty);}
-	//    set { SetValue(IdentityProperty, value); }
-	//	}
-	//	public Color Color
-	//	{
-	//		get { return (Color)GetValue(ColorProperty); }
-	//		set { SetValue(ColorProperty, value); }
-	//	}
-	//  public SolidColorBrush Brush
-	//  {
-	//    get => (SolidColorBrush)GetValue(BrushProperty);
-	//    protected set => SetValue(BrushPropertyKey, value);
-	//  }
 
- //   public string Hex
-	//	{
-	//		get
-	//		{
-	//			return Color.ToString();
-	//		}
-	//		set
-	//		{
-	//			Color = ColorConverter.ConvertFromString(value).As<Color>();
-	//		}
-	//	}
+//   public MaterialIdentity Identity
+//	{
+//		get { return (MaterialIdentity)GetValue(IdentityProperty);}
+//    set { SetValue(IdentityProperty, value); }
+//	}
+//	public Color Color
+//	{
+//		get { return (Color)GetValue(ColorProperty); }
+//		set { SetValue(ColorProperty, value); }
+//	}
+//  public SolidColorBrush Brush
+//  {
+//    get => (SolidColorBrush)GetValue(BrushProperty);
+//    protected set => SetValue(BrushPropertyKey, value);
+//  }
 
- //   private HslColor? _hslColor;
-	//	protected HslColor HslColor
-	//	{
-	//		get
-	//		{
- //       if (_hslColor == null)
-	//				_hslColor = HslColor.FromColor(Color);
+//   public string Hex
+//	{
+//		get
+//		{
+//			return Color.ToString();
+//		}
+//		set
+//		{
+//			Color = ColorConverter.ConvertFromString(value).As<Color>();
+//		}
+//	}
 
-	//			return _hslColor.Value;
-	//		}
-	//	}
+//   private HslColor? _hslColor;
+//	protected HslColor HslColor
+//	{
+//		get
+//		{
+//       if (_hslColor == null)
+//				_hslColor = HslColor.FromColor(Color);
 
-	//	private HsvColor? _hsvColor;
-	//	protected HsvColor HsvColor
-	//	{
-	//		get
-	//		{
-	//			if (_hsvColor == null)
-	//				_hsvColor = HsvColor.FromColor(Color);
+//			return _hslColor.Value;
+//		}
+//	}
 
-	//			return _hsvColor.Value;
-	//		}
-	//	}
-    
-	//  private MaterialBrush _invert;
-	//  protected MaterialBrush Invert
-	//  {
-	//    get
-	//    {
-	//      if (_invert == null)
-	//        _invert = new MaterialBrush
-	//        {
-	//          Color = Color.Invert()
-	//        };
+//	private HsvColor? _hsvColor;
+//	protected HsvColor HsvColor
+//	{
+//		get
+//		{
+//			if (_hsvColor == null)
+//				_hsvColor = HsvColor.FromColor(Color);
 
-	//      return _invert;
-	//    }
-	//  }
+//			return _hsvColor.Value;
+//		}
+//	}
 
-	//  private static void onColorChanged(
-	//    MaterialBrush @this,
-	//    DPChangedEventArgs<Color> args)
-	//  {
-	//    @this.Brush = new SolidColorBrush(args.NewValue);
-	//  }
+//  private MaterialBrush _invert;
+//  protected MaterialBrush Invert
+//  {
+//    get
+//    {
+//      if (_invert == null)
+//        _invert = new MaterialBrush
+//        {
+//          Color = Color.Invert()
+//        };
 
- //   public static implicit operator SolidColorBrush(
- //     MaterialBrush @this)
-	//  {
-	//    return @this.Brush;
-	//  }
-	//  public static implicit operator Brush(
-	//    MaterialBrush @this)
-	//  {
-	//    return @this.Brush;
-	//  }
-	//  public static implicit operator Color(
-	//    MaterialBrush @this)
-	//  {
-	//    return @this.Color;
-	//  }
- //   public static implicit operator HslColor(
-	//    MaterialBrush @this)
-	//  {
-	//    return @this.HslColor;
-	//  }
-	//  public static implicit operator HsvColor(
-	//    MaterialBrush @this)
-	//  {
-	//    return @this.HsvColor;
-	//  }
-    
+//      return _invert;
+//    }
+//  }
 
-	//  public static MaterialBrush Create(
- //     Color color,
-	//    [CallerMemberName] string memberName = "")
-	//  {
-	//    var parts = memberName.Split('_');
+//  private static void onColorChanged(
+//    MaterialBrush @this,
+//    DPChangedEventArgs<Color> args)
+//  {
+//    @this.Brush = new SolidColorBrush(args.NewValue);
+//  }
 
- //     var swatchName = parts[0];
-	//    var luminosityStr = parts[1];
-      
- //     if (!Enum.TryParse<SwatchClassifier>(swatchName, out var _classifier))
-	//      throw new InvalidEnumArgumentException();
+//   public static implicit operator SolidColorBrush(
+//     MaterialBrush @this)
+//  {
+//    return @this.Brush;
+//  }
+//  public static implicit operator Brush(
+//    MaterialBrush @this)
+//  {
+//    return @this.Brush;
+//  }
+//  public static implicit operator Color(
+//    MaterialBrush @this)
+//  {
+//    return @this.Color;
+//  }
+//   public static implicit operator HslColor(
+//    MaterialBrush @this)
+//  {
+//    return @this.HslColor;
+//  }
+//  public static implicit operator HsvColor(
+//    MaterialBrush @this)
+//  {
+//    return @this.HsvColor;
+//  }
 
- //     var luminosity = Luminosity.Parse(luminosityStr);
 
-	//    var identity = new MaterialIdentity(_classifier, luminosity.IsAccent, luminosity);
+//  public static MaterialBrush Create(
+//     Color color,
+//    [CallerMemberName] string memberName = "")
+//  {
+//    var parts = memberName.Split('_');
 
- //     return new MaterialBrush
-	//    {
- //       Identity = identity,
- //       Color = color
-	//    };
-	//  }
+//     var swatchName = parts[0];
+//    var luminosityStr = parts[1];
 
-	//  internal static MaterialBrush Create(
-	//    Color color,
-	//    MaterialIdentity materialIdentity)
-	//  {
-	//    return new MaterialBrush
-	//    {
-	//      Identity = materialIdentity,
-	//      Color = color
-	//    };
-	//  }
- // }
+//     if (!Enum.TryParse<SwatchClassifier>(swatchName, out var _classifier))
+//      throw new InvalidEnumArgumentException();
+
+//     var luminosity = Luminosity.Parse(luminosityStr);
+
+//    var identity = new MaterialIdentity(_classifier, luminosity.IsAccent, luminosity);
+
+//     return new MaterialBrush
+//    {
+//       Identity = identity,
+//       Color = color
+//    };
+//  }
+
+//  internal static MaterialBrush Create(
+//    Color color,
+//    MaterialIdentity materialIdentity)
+//  {
+//    return new MaterialBrush
+//    {
+//      Identity = materialIdentity,
+//      Color = color
+//    };
+//  }
+// }

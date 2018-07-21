@@ -18,7 +18,7 @@ namespace Ccr.MaterialDesign
   public class Palette
     : Freezable,
       IList<Swatch>
-      //IPalette
+  //IPalette
   {
     public static readonly DependencyProperty SwatchesProperty = DP.Register(
       new Meta<Palette, ReactiveCollection<Swatch>>());

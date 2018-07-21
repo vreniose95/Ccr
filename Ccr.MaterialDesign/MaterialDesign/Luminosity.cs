@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
 using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.Numerics;
 using Ccr.MaterialDesign.Markup.TypeConverters;
 using JetBrains.Annotations;
 

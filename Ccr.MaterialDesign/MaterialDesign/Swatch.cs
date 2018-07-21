@@ -292,63 +292,63 @@ namespace Ccr.MaterialDesign
       switch (args.Action)
       {
         case NotifyCollectionChangedAction.Add:
-        {
-          args.NewItems.ForEach(
-            t => t.AttachHost(this));
-
-          var newItemsCount = args.NewItems.Count;
-          var targetAccentsCount = Accents.Count;
-          var insertionPosition = targetAccentsCount - newItemsCount;
-
-          _materials.InsertRange(insertionPosition, args.NewItems);
-          break;
-        }
-        case NotifyCollectionChangedAction.Remove:
-        {
-          args.OldItems.ForEach(
-            t => t.DetachHost());
-
-          args.NewItems.ForEach(
-            t => t.AttachHost(this));
-
-          var oldItemsCount = args.OldItems.Count;
-          var targetAccentsCount = Accents.Count;
-
-          _materials.RemoveRange(targetAccentsCount, oldItemsCount);
-          break;
-        }
-        case NotifyCollectionChangedAction.Replace:
-        {
-          args.OldItems.ForEach(
-            t => t.DetachHost());
-
-          args.NewItems.ForEach(
-            t => t.AttachHost(this));
-
-          var newItemsCount = args.NewItems.Count;
-          var oldItemsCount = args.OldItems.Count;
-          var targetAccentsCount = Accents.Count;
-
-          var insertionPosition = targetAccentsCount - newItemsCount;
-
-          _materials.RemoveRange(targetAccentsCount, oldItemsCount);
-          _materials.InsertRange(insertionPosition, args.NewItems);
-
-          break;
-        }
-        case NotifyCollectionChangedAction.Move:
-        {
-          break;
-        }
-        case NotifyCollectionChangedAction.Reset:
-        {
-          foreach (var accent in args.OldItems)
           {
-            accent.DetachHost();
-            _materials.Remove(accent);
+            args.NewItems.ForEach(
+              t => t.AttachHost(this));
+
+            var newItemsCount = args.NewItems.Count;
+            var targetAccentsCount = Accents.Count;
+            var insertionPosition = targetAccentsCount - newItemsCount;
+
+            _materials.InsertRange(insertionPosition, args.NewItems);
+            break;
           }
-          break;
-        }
+        case NotifyCollectionChangedAction.Remove:
+          {
+            args.OldItems.ForEach(
+              t => t.DetachHost());
+
+            args.NewItems.ForEach(
+              t => t.AttachHost(this));
+
+            var oldItemsCount = args.OldItems.Count;
+            var targetAccentsCount = Accents.Count;
+
+            _materials.RemoveRange(targetAccentsCount, oldItemsCount);
+            break;
+          }
+        case NotifyCollectionChangedAction.Replace:
+          {
+            args.OldItems.ForEach(
+              t => t.DetachHost());
+
+            args.NewItems.ForEach(
+              t => t.AttachHost(this));
+
+            var newItemsCount = args.NewItems.Count;
+            var oldItemsCount = args.OldItems.Count;
+            var targetAccentsCount = Accents.Count;
+
+            var insertionPosition = targetAccentsCount - newItemsCount;
+
+            _materials.RemoveRange(targetAccentsCount, oldItemsCount);
+            _materials.InsertRange(insertionPosition, args.NewItems);
+
+            break;
+          }
+        case NotifyCollectionChangedAction.Move:
+          {
+            break;
+          }
+        case NotifyCollectionChangedAction.Reset:
+          {
+            foreach (var accent in args.OldItems)
+            {
+              accent.DetachHost();
+              _materials.Remove(accent);
+            }
+            break;
+          }
         default:
           throw new InvalidEnumArgumentException();
       }
@@ -552,7 +552,8 @@ namespace Ccr.MaterialDesign
 
     bool IList.Contains(object value)
     {
-      return Contains(value.As<MaterialBrush>());
+      var materialBrush = buildMaterialBrush(value);
+      return Contains(materialBrush);
     }
 
     #endregion
@@ -578,24 +579,24 @@ namespace Ccr.MaterialDesign
       switch (value)
       {
         case SolidColorBrush solidColorBrush:
-        {
-          if (MaterialBrush.TryCreateFromBrush(solidColorBrush, out var materialBrush))
-            return materialBrush;
-          
-          return new MaterialBrush(
-            solidColorBrush, 
-            new MaterialIdentity(
-              SwatchClassifier,
-              new Luminosity(0, false)));
-        }
+          {
+            if (MaterialBrush.TryCreateFromBrush(solidColorBrush, out var materialBrush))
+              return materialBrush;
+
+            return new MaterialBrush(
+              solidColorBrush,
+              new MaterialIdentity(
+                SwatchClassifier,
+                new Luminosity(0, false)));
+          }
         case MaterialBrush materialBrush:
-        {
-          return materialBrush;
-        }
+          {
+            return materialBrush;
+          }
         default:
-        {
-          throw new NotSupportedException();
-        }
+          {
+            throw new NotSupportedException();
+          }
       }
     }
 

@@ -9,8 +9,8 @@
     <StaticResource ResourceKey="MDH.Palette.Red.100"/>
     <StaticResource ResourceKey="MDH.Palette.Red.200"/>
     <StaticResource ResourceKey="MDH.Palette.Red.300"/>
-		<StaticResource ResourceKey="MDH.Palette.Red.400"/>
-		<StaticResource ResourceKey="MDH.Palette.Red.600"/>
+    <StaticResource ResourceKey="MDH.Palette.Red.400"/>
+    <StaticResource ResourceKey="MDH.Palette.Red.600"/>
     <StaticResource ResourceKey="MDH.Palette.Red.700"/>
     <StaticResource ResourceKey="MDH.Palette.Red.800"/>
     <StaticResource ResourceKey="MDH.Palette.Red.900"/>
@@ -53,7 +53,7 @@
     <StaticResource ResourceKey="MDH.Palette.Purple.A400"/>
     <StaticResource ResourceKey="MDH.Palette.Purple.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.DeepPurple" SwatchClassifier="DeepPurple">
     <StaticResource ResourceKey="MDH.Palette.DeepPurple.050"/>
     <StaticResource ResourceKey="MDH.Palette.DeepPurple.100"/>
@@ -70,7 +70,7 @@
     <StaticResource ResourceKey="MDH.Palette.DeepPurple.A400"/>
     <StaticResource ResourceKey="MDH.Palette.DeepPurple.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.Indigo" SwatchClassifier="Indigo">
     <StaticResource ResourceKey="MDH.Palette.Indigo.050"/>
     <StaticResource ResourceKey="MDH.Palette.Indigo.100"/>
@@ -206,7 +206,7 @@
     <StaticResource ResourceKey="MDH.Palette.Lime.A400"/>
     <StaticResource ResourceKey="MDH.Palette.Lime.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.Yellow" SwatchClassifier="Yellow">
     <StaticResource ResourceKey="MDH.Palette.Yellow.050"/>
     <StaticResource ResourceKey="MDH.Palette.Yellow.100"/>
@@ -223,7 +223,7 @@
     <StaticResource ResourceKey="MDH.Palette.Yellow.A400"/>
     <StaticResource ResourceKey="MDH.Palette.Yellow.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.Amber" SwatchClassifier="Amber">
     <StaticResource ResourceKey="MDH.Palette.Amber.050"/>
     <StaticResource ResourceKey="MDH.Palette.Amber.100"/>
@@ -257,7 +257,7 @@
     <StaticResource ResourceKey="MDH.Palette.Orange.A400"/>
     <StaticResource ResourceKey="MDH.Palette.Orange.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.DeepOrange" SwatchClassifier="DeepOrange">
     <StaticResource ResourceKey="MDH.Palette.DeepOrange.050"/>
     <StaticResource ResourceKey="MDH.Palette.DeepOrange.100"/>
@@ -274,7 +274,7 @@
     <StaticResource ResourceKey="MDH.Palette.DeepOrange.A400"/>
     <StaticResource ResourceKey="MDH.Palette.DeepOrange.A700"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.Brown" SwatchClassifier="Brown">
     <StaticResource ResourceKey="MDH.Palette.Brown.050"/>
     <StaticResource ResourceKey="MDH.Palette.Brown.100"/>
@@ -287,7 +287,7 @@
     <StaticResource ResourceKey="MDH.Palette.Brown.800"/>
     <StaticResource ResourceKey="MDH.Palette.Brown.900"/>
   </Swatch>
-  
+
   <Swatch x:Key="MDH.Palette.Grey" SwatchClassifier="Grey">
     <StaticResource ResourceKey="MDH.Palette.Grey.050"/>
     <StaticResource ResourceKey="MDH.Palette.Grey.100"/>
