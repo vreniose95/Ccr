@@ -63,8 +63,6 @@
     <Compile Include="MaterialDesign\Controls\Icons\IconDataFactory.cs" />
     <Compile Include="MaterialDesign\Controls\Icons\IconExtension.cs" />
     <Compile Include="MaterialDesign\Controls\Icons\IconKind.cs" />
-    <Compile Include="MaterialDesign\DesignTime\Infrastructure\IPalette.cs" />
-    <Compile Include="MaterialDesign\DesignTime\PaletteMock.cs" />
     <Compile Include="MaterialDesign\Extensions\AnimationExtensions.cs" />
     <Compile Include="MaterialDesign\Extensions\DateTimeExtensions.cs" />
     <Compile Include="MaterialDesign\Extensions\MediaExtensions.cs" />
@@ -141,10 +139,9 @@
     <Compile Include="MaterialDesign\Static\Descriptors.cs" />
     <Compile Include="MaterialDesign\Static\GlobalResources.cs" />
     <Compile Include="MaterialDesign\Static\Text.cs" />
-    <Compile Include="MaterialDesign\Static\_DesignTimePalette.cs" />
-    <Compile Include="MaterialDesign\Static\_DesignTimeSwatch.cs" />
     <Compile Include="MaterialDesign\Static\_MDH.cs" />
     <Compile Include="MaterialDesign\Swatch.cs" />
+    <Compile Include="MaterialDesign\SwatchAnalytics.cs" />
     <Compile Include="MaterialDesign\SwatchClassifier.cs" />
     <Compile Include="MaterialDesign\Validation\IStringValidator.cs" />
     <Compile Include="MaterialDesign\Validation\ValidatorMode.cs" />

@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Windows.Markup;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
-using Ccr.MaterialDesign.DesignTime;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Markup.Extensions

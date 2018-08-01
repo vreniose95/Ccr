@@ -45,7 +45,7 @@ namespace Ccr.MaterialDesign
       _brush.SetIdentity(_identity);
     }
 
-
+    
     public static bool TryCreateFromBrush(
       [NotNull] SolidColorBrush brush,
       out MaterialBrush materialBrush)

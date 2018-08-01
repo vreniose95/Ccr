@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Ccr.MaterialDesign.DesignTime;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 
 namespace Ccr.MaterialDesign.Static

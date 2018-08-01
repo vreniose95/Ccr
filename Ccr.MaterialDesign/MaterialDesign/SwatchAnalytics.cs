@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ccr.MaterialDesign.Static
+namespace Ccr.MaterialDesign
 {
-  class _DesignTimeSwatch
+  public class SwatchAnalytics
   {
+    public SwatchAnalytics(
+     )
+    {
+
+    }
+
   }
 }

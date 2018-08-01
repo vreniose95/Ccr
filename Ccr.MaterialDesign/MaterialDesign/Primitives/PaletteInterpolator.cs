@@ -1,4 +1,8 @@
-﻿namespace Ccr.MaterialDesign.Primitives
+﻿using System;
+using System.Diagnostics;
+using Ccr.Core.Extensions;
+
+namespace Ccr.MaterialDesign.Primitives
 {
   public class PaletteInterpolator
   {
@@ -15,10 +19,14 @@
     {
       foreach (var swatch in _palette.Swatches)
       {
+        Debug.WriteLine($"SwatchClassifier: {swatch.SwatchClassifier}");
+        Debug.WriteLine("{");
+        Debug.Indent();
         foreach (var primary in swatch.Primaries)
         {
-          //var color = primary.Color;
-
+          var color = primary.Brush.Color;
+          var hsl = color.ToHslColor();
+          
         }
 
       }

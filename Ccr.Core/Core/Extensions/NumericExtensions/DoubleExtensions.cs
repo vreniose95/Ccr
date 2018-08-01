@@ -29,8 +29,8 @@ namespace Ccr.Core.Extensions.NumericExtensions
       Double value)
     {
       return @this < value
-        ? value
-        : @this;
+        ? @this
+        : value;
     }
 
     /// <summary>
@@ -54,8 +54,8 @@ namespace Ccr.Core.Extensions.NumericExtensions
       Double value)
     {
       return @this > value
-        ? value
-        : @this;
+        ? @this
+        : value;
     }
 
     /// <summary>
