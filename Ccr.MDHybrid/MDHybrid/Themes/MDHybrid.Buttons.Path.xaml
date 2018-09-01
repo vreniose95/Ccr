@@ -172,7 +172,7 @@
                                    From="0" 
                                    To=".6"
                                    Duration="0:0:0.75" 
-                                   EasingFunction="{EaseOut Quad}"/>
+                                   EasingFunction="{EaseIn }"/>
 
                   <DoubleAnimation Storyboard.TargetName="PART_Ripple"
                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"

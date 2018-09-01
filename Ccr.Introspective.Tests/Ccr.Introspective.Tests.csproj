@@ -48,10 +48,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
-      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
-      <Name>Ccr.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
       <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
       <Name>Ccr.Introspective</Name>

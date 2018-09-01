@@ -4,20 +4,35 @@ using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
+using Ccr.PresentationCore.Media;
 using JetBrains.Annotations;
+// ReSharper disable ConvertToAutoPropertyWhenPossible
 
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
 {
   public class MaterialBrush
-  : HostedElement<
-    Swatch>
+    : HostedElement<
+      Swatch>
   {
+    #region Fields
     [NotNull]
     private readonly SolidColorBrush _brush;
     [NotNull]
     private readonly MaterialIdentity _identity;
+    [CanBeNull]
+    private HslColor? _hslColor;
+    [CanBeNull]
+    private HsvColor? _hsvColor;
 
+    #endregion
+
+
+    #region Properties
+    public Color Color
+    {
+      get => _brush.Color;
+    }
 
     [NotNull]
     public SolidColorBrush Brush
@@ -31,7 +46,22 @@ namespace Ccr.MaterialDesign
       get => _identity;
     }
 
+    public HslColor HslColor
+    {
+      get => _hslColor ??
+             (_hslColor = Color.ToHslColor()).Value;
+    }
 
+    public HsvColor HsvColor
+    {
+      get => _hsvColor ??
+             (_hsvColor = Color.ToHsvColor()).Value;
+    }
+
+    #endregion
+
+
+    #region Constructors
     internal MaterialBrush(
       [NotNull] SolidColorBrush brush,
       [NotNull] MaterialIdentity identity)
@@ -45,7 +75,9 @@ namespace Ccr.MaterialDesign
       _brush.SetIdentity(_identity);
     }
 
-    
+    #endregion
+
+
     public static bool TryCreateFromBrush(
       [NotNull] SolidColorBrush brush,
       out MaterialBrush materialBrush)

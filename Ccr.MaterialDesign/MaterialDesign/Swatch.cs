@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows.Markup;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.Core.Extensions.NumericExtensions;
@@ -137,7 +136,11 @@ namespace Ccr.MaterialDesign
     public MaterialBrush GetMaterial(
       Luminosity luminosity)
     {
-      //throw new NotImplementedException();
+      if (TryGetValue(luminosity, out var definedMaterialBrush))
+      {
+        return definedMaterialBrush;
+      }
+
       var brushRange = GetRange(luminosity);
 
       var range = new DoubleRange(
@@ -453,12 +456,12 @@ namespace Ccr.MaterialDesign
     }
     public bool ContainsKey(Luminosity key)
     {
-      throw new NotImplementedException();
+      return LuminosityMaterialMap.ContainsKey(key);
     }
 
     public bool TryGetValue(Luminosity key, out MaterialBrush value)
     {
-      throw new NotImplementedException();
+      return LuminosityMaterialMap.TryGetValue(key, out value);
     }
 
     public IEnumerable<Luminosity> Keys
@@ -513,8 +516,18 @@ namespace Ccr.MaterialDesign
 
     int IList.IndexOf(object value)
     {
-      var materialBrush = buildMaterialBrush(value);
-      return IndexOf(materialBrush);
+      switch (value)
+      {
+        case SolidColorBrush scb:
+          if (!MaterialBrush.TryCreateFromBrush(scb, out var mb))
+            throw new NotSupportedException();
+          return IndexOf(mb);
+
+        case MaterialBrush mbr:
+          return IndexOf(mbr);
+
+      }
+      throw new NotSupportedException();
     }
 
     void IList.Insert(int index, object value)
@@ -544,16 +557,25 @@ namespace Ccr.MaterialDesign
 
     int IList.Add(object value)
     {
-      var materialBrush = buildMaterialBrush(value);
-      Add(materialBrush);
+      switch (value)
+      {
+        case SolidColorBrush scb:
+          if (!MaterialBrush.TryCreateFromBrush(scb, out var mb))
+            throw new NotSupportedException();
+          Add(mb);
+          return Count;
 
-      return Count;
+        case MaterialBrush mbr:
+          Add(mbr);
+          return Count;
+
+      }
+      throw new NotSupportedException();
     }
 
     bool IList.Contains(object value)
     {
-      var materialBrush = buildMaterialBrush(value);
-      return Contains(materialBrush);
+      return Contains(value.As<MaterialBrush>());
     }
 
     #endregion
@@ -573,6 +595,7 @@ namespace Ccr.MaterialDesign
     }
 
     #endregion
+
 
     private MaterialBrush buildMaterialBrush(object value)
     {

@@ -88,10 +88,6 @@
       <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
       <Name>Ccr.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
-      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
-      <Name>Ccr.Std.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj">
       <Project>{93b9ac1d-756e-4533-8b8f-5213841c2aef}</Project>
       <Name>Ccr.Std.Introspective</Name>

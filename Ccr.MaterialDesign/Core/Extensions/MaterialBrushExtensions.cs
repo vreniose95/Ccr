@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net.NetworkInformation;
-using System.Windows.Media;
 using Ccr.MaterialDesign;
 using Ccr.Std.Core.Extensions.NumericExtensions;
 

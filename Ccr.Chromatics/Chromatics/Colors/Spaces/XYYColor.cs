@@ -1,6 +1,6 @@
 ﻿namespace Ccr.Chromatics.Colors.Spaces
 {
-  public class XYYColor
+  public struct XYYColor
   {
 
   }

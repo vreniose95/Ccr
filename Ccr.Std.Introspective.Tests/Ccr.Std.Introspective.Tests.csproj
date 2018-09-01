@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
     <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj" />
   </ItemGroup>
 
