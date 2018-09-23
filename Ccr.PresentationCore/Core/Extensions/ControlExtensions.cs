@@ -1,6 +1,7 @@
 ﻿using System.Windows;
-using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
+using Ccr.Std.Extensions;
+using Ccr.Std.Introspective.Extensions;
+using Ccr.Std.Introspective.Infrastructure;
 
 namespace Ccr.Core.Extensions
 {

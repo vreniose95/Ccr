@@ -47,6 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Assurance\Assure.cs" />
+    <Compile Include="Core\Collections\BijectiveHomomorphicMorphism.cs" />
+    <Compile Include="Core\Collections\BijectiveIsomorphicHomomorphicMap.cs" />
+    <Compile Include="Core\Collections\BijectiveIsomorphicMap.cs" />
+    <Compile Include="Core\Collections\BijectiveIsomorphicMorphism.cs" />
+    <Compile Include="Core\Collections\IAssociativeMorphism.cs" />
+    <Compile Include="Core\Collections\IBijectiveHomomorphicMorphism.cs" />
+    <Compile Include="Core\Collections\IBijectiveMorphism.cs" />
+    <Compile Include="Core\Collections\IIsomorphicMorphism.cs" />
+    <Compile Include="Core\Collections\IMorphism.cs" />
+    <Compile Include="Core\Collections\ISymmetricGroup.cs" />
     <Compile Include="Core\Extensions\AssertionExtensions.cs" />
     <Compile Include="Core\Extensions\CharExtensions.cs" />
     <Compile Include="Core\Helpers\ParsingHelpers.cs" />
@@ -118,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Ccr.Core.nuspec" />
     <None Include="paket.references" />
     <None Include="paket.template" />
   </ItemGroup>

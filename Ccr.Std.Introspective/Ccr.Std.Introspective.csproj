@@ -3,9 +3,23 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Eric Vrenios</Authors>
+    <Company>Ccr</Company>
+    <Product>Ccr Framework</Product>
+    <Description>Package for Fluent API Wrapper for clean use of Reflection for .Net Standard libraries.</Description>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vreniose95/Ccr</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>Ccr, Ccr Framework, Ccr.Std.Introspective, Ccr Std Introspective, Ccr Standard Introspective, Ccr .Net Standard Introspective, Fluent API Reflection, Reflection, Reflector</PackageTags>
+    <PackageReleaseNotes>Initial package publish</PackageReleaseNotes>
+    <NeutralLanguage> Ccr.Std.Introspective</NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj" />
+    <PackageReference Include="Ccr.Std.Core" Version="1.0.0" />
   </ItemGroup>
 </Project>

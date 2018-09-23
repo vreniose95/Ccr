@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
-using Ccr.Introspective.Extensions;
-using MemberDescriptor = Ccr.Introspective.Infrastructure.MemberDescriptor;
+using Ccr.Std.Extensions;
+using Ccr.Std.Introspective.Extensions;
+using MemberDescriptor = Ccr.Std.Introspective.Infrastructure.MemberDescriptor;
 
 namespace Ccr.PresentationCore.Markup
 {

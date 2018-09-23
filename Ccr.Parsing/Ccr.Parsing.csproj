@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ccr.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Core.1.0.0\lib\net471\Ccr.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ccr.Std.Introspective, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Std.Introspective.1.0.1\lib\netstandard2.0\Ccr.Std.Introspective.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,16 +71,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
-      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
-      <Name>Ccr.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.PresentationCore\Ccr.PresentationCore.csproj">
       <Project>{d706091c-958d-43cc-96b2-229829ea325b}</Project>
       <Name>Ccr.PresentationCore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="paket.references" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

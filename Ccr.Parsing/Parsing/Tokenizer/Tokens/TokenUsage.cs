@@ -1,8 +1,9 @@
 ﻿using System;
-using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
-using Ccr.Introspective.Infrastructure.Context;
+using Ccr.Std.Introspective.Extensions;
 using Ccr.Parsing.Tokenizer.Tokens.Range;
+using Ccr.Std.Introspective.Infrastructure;
+using Ccr.Std.Introspective.Infrastructure.Context;
+
 // ReSharper disable ConvertToAutoProperty
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.Parsing.Tokenizer.Tokens

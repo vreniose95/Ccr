@@ -1,5 +1,6 @@
 ﻿using Ccr.Chromatics.Colors.Infrastructure;
 using Ccr.Chromatics.Colors.Infrastructure.WorkingSpaces;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Chromatics.Implementation.RGB
 {

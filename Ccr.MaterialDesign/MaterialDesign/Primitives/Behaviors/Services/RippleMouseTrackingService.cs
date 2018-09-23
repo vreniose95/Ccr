@@ -7,6 +7,7 @@ using System.Windows.Markup;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Extensions;
 using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Introspective.Infrastructure;
 using JetBrains.Annotations;

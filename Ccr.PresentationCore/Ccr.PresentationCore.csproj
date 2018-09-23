@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ccr.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Core.1.0.0\lib\net471\Ccr.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ccr.Std.Introspective, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Std.Introspective.1.0.1\lib\netstandard2.0\Ccr.Std.Introspective.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -74,6 +80,11 @@
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPExtOptions.cs" />
     <Compile Include="PresentationCore\Helpers\DependencyHelpers\Meta.cs" />
     <Compile Include="PresentationCore\Helpers\EventHelpers\EM.cs" />
+    <Compile Include="Core\Extensions\NotifyPropertyChangedExtension.cs" />
+    <Compile Include="PresentationCore\Helpers\INotifyPropertyChangedEx.cs" />
+    <Compile Include="PresentationCore\Helpers\IPropertyChangedEventArgs.cs" />
+    <Compile Include="PresentationCore\Helpers\NotifyFluent.cs" />
+    <Compile Include="PresentationCore\Helpers\PropertyChangedEventArgs.cs" />
     <Compile Include="PresentationCore\Helpers\ResourceProvider.cs" />
     <Compile Include="PresentationCore\Layout\LengthDescriptor.cs" />
     <Compile Include="PresentationCore\Layout\LengthMode.cs" />
@@ -97,14 +108,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
-      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
-      <Name>Ccr.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Introspective\Ccr.Introspective.csproj">
-      <Project>{3be32c8c-8064-4ca5-b222-ec67db73aeaa}</Project>
-      <Name>Ccr.Introspective</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj">
       <Project>{e2007a7d-451a-4ac5-874f-638669a45c95}</Project>
       <Name>Ccr.WinCore</Name>

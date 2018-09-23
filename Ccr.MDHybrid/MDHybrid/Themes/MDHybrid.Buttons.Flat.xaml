@@ -10,13 +10,13 @@
 		<Style.Setters>	
 			<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Teal.500}"/>
 			<Setter Property="Background" Value="Transparent"/>
-			<!--<Setter Property="MaterialDesign.VisualFeedback" Value="{StaticResource MDH.Palette.Red.A400}"/>-->
+			<Setter Property="MDH.VisualFeedback" Value="{StaticResource MDH.Palette.Red.A400}"/>
 			<Setter Property="BorderThickness" Value="0"/>
 			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
 			<Setter Property="Padding" Value="16 0"/>
 			<Setter Property="ClipToBounds" Value="True"/>
-			<Setter Property="MinWidth" Value="128"/>
-			<Setter Property="MinHeight" Value="72"/>
+			<Setter Property="MinWidth" Value="92"/>
+			<Setter Property="MinHeight" Value="60"/>
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">

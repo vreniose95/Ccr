@@ -1,11 +1,11 @@
 ﻿using System;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Std.Introspective.Infrastructure.Context
 {
-	public class IntrospectiveStaticContext : 
-		IntrospectiveContext
+	public class IntrospectiveStaticContext 
+	  : IntrospectiveContext
 	{
 		protected internal override Type TargetType { get; }
 
@@ -21,8 +21,8 @@ namespace Ccr.Std.Introspective.Infrastructure.Context
 		}
 	}
 
-	public class IntrospectiveStaticContext<TValue> :
-		IntrospectiveStaticContext
+	public class IntrospectiveStaticContext<TValue> 
+	  : IntrospectiveStaticContext
 	{
 		public IntrospectiveStaticContext() : base(
 			typeof(TValue))

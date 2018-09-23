@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using Ccr.Std.Introspective.Infrastructure.Context;
 using JetBrains.Annotations;
 using MemberDescriptor = Ccr.Std.Introspective.Infrastructure.MemberDescriptor;

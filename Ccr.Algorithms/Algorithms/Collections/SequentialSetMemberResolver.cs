@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
+using Ccr.Std.Extensions;
+using Ccr.Std.Introspective.Extensions;
+using Ccr.Std.Introspective.Infrastructure;
 
 namespace Ccr.Algorithms.Collections
 {

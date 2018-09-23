@@ -1,23 +1,26 @@
 ﻿using System;
 using Ccr.Std.Introspective.Infrastructure.Context;
 
-namespace Ccr.Std.Introspective.Extensions
+namespace Ccr.Std.Extensions
 {
 	public static class IntrospectiveExtensions
 	{
 		public static IntrospectiveContext Reflect(
 			this object @this)
 		{
-			var context = @this as Type;
-			if (context != null)
-				return new IntrospectiveStaticContext(context);
+			if (@this is Type context)
+				return new IntrospectiveStaticContext(
+				    context);
 
-			return new IntrospectiveInstanceContext(@this);
+			return new IntrospectiveInstanceContext(
+			  @this);
 		}
+
 		public static IntrospectiveStaticContext Reflect(
 			this Type @this)
 		{
-				return new IntrospectiveStaticContext(@this);
+				return new IntrospectiveStaticContext(
+				  @this);
 		}
 
 

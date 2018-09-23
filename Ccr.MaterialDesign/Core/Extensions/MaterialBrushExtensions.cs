@@ -1,6 +1,6 @@
 ﻿using System;
+using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign;
-using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Core.Extensions
 {

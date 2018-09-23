@@ -4,9 +4,10 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Markup;
 using Ccr.Core.Extensions;
-using Ccr.Introspective.Extensions;
+using Ccr.Std.Extensions;
+using Ccr.Std.Introspective.Extensions;
 using JetBrains.Annotations;
-using MemberDescriptor = Ccr.Introspective.Infrastructure.MemberDescriptor;
+using MemberDescriptor = Ccr.Std.Introspective.Infrastructure.MemberDescriptor;
 
 namespace Ccr.Xaml.Markup.TypeConverterInjection
 {

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Animation;
-using Ccr.Introspective.Extensions;
-using Ccr.Introspective.Infrastructure;
+using Ccr.Std.Introspective.Extensions;
+using Ccr.Std.Introspective.Infrastructure;
 using Ccr.PresentationCore.Helpers;
+using Ccr.Std.Extensions;
 
 namespace Ccr.PresentationCore.Animation.Timelines
 {

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+    <PackageReference Include="Ccr.Std.Core" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

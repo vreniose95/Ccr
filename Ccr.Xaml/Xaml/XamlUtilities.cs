@@ -3,10 +3,11 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Ccr.Introspective.Extensions;
+using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Core.Extensions;
+using Ccr.Std.Extensions;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
-using MemberDescriptor = Ccr.Introspective.Infrastructure.MemberDescriptor;
+using MemberDescriptor = Ccr.Std.Introspective.Infrastructure.MemberDescriptor;
 using StringExtensions = Ccr.Core.Extensions.StringExtensions;
 using TypeExtensions = Ccr.Core.Extensions.TypeExtensions;
 

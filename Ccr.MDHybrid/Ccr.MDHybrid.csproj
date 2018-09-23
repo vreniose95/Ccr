@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ccr.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Core.1.0.0\lib\net471\Ccr.Core.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -78,6 +81,7 @@
     <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Light.ttf" />
     <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-LightItalic.ttf" />
     <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Regular.ttf" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MDHybrid\Themes\Generic.xaml">
@@ -162,10 +166,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
-      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
-      <Name>Ccr.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.MaterialDesign\Ccr.MaterialDesign.csproj">
       <Project>{0070f92f-e637-40ae-85fa-11aff36da105}</Project>
       <Name>Ccr.MaterialDesign</Name>

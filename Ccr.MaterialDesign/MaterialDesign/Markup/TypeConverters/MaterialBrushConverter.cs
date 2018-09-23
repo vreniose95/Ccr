@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Media;
 using System.Xaml;
-using Ccr.Std.Core.Extensions;
+using Ccr.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {

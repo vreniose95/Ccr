@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ccr.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Core.1.0.0\lib\net471\Ccr.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Ccr.Std.Introspective, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\UST.Spatial\packages\Ccr.Std.Introspective.1.0.1\lib\netstandard2.0\Ccr.Std.Introspective.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -157,10 +163,6 @@
       <Project>{11493846-b8c2-4a7e-b533-a07d469f2da5}</Project>
       <Name>Ccr.Algorithms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ccr.Core\Ccr.Core.csproj">
-      <Project>{4d333afd-4cac-464a-b99e-2f7ed4c4199a}</Project>
-      <Name>Ccr.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Ccr.Parsing\Ccr.Parsing.csproj">
       <Project>{41b1d9b2-10cb-46b5-a861-1ebfd1016a8c}</Project>
       <Name>Ccr.Parsing</Name>
@@ -168,14 +170,6 @@
     <ProjectReference Include="..\Ccr.PresentationCore\Ccr.PresentationCore.csproj">
       <Project>{d706091c-958d-43cc-96b2-229829ea325b}</Project>
       <Name>Ccr.PresentationCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
-      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
-      <Name>Ccr.Std.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj">
-      <Project>{93b9ac1d-756e-4533-8b8f-5213841c2aef}</Project>
-      <Name>Ccr.Std.Introspective</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj">
       <Project>{a61f3ed9-9c1e-4612-ba97-54be78a1a146}</Project>
@@ -186,6 +180,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="paket.references" />
     <None Include="Resources\Static.Resources.xs" />
     <None Include="Resources\Schemas\types.xsd">

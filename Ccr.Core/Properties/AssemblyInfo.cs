@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Ccr.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Ccr.Core package for the base level of the Ccr Framework. Contains constructs used widely across Ccr Frramework-based applications.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ccr")]
 [assembly: AssemblyProduct("Ccr.Core")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -3,6 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Eric Vrenios</Authors>
+    <Company>Ccr</Company>
+    <Product>Ccr Framework</Product>
+    <Description>Ccr.Core package for the base level of the Ccr Framework. Contains constructs used widely across Ccr Frramework-based applications.</Description>
+    <Copyright>Copyright 2018</Copyright>
+    <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vreniose95/Ccr</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>Ccr, Ccr Framework, Ccr.Std.Core, Ccr Std Core, Ccr Standard Core, Ccr .Net Standard Core</PackageTags>
+    <PackageReleaseNotes>Initial package publish</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</PackageLicenseUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
