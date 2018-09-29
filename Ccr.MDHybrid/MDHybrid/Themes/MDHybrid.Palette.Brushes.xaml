@@ -278,5 +278,10 @@
   <SolidColorBrush x:Key="MDH.Palette.BlueGrey.800" MDH.Identity="BlueGrey.800" Color="{StaticResource MDH.Palette.Colors.BlueGrey.800}"/>
   <SolidColorBrush x:Key="MDH.Palette.BlueGrey.900" MDH.Identity="BlueGrey.900" Color="{StaticResource MDH.Palette.Colors.BlueGrey.900}"/>
 
+	
+	
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.750" MDH.Identity="BlueGrey.750" Color="{StaticResource MDH.Palette.Colors.BlueGrey.750}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.850" MDH.Identity="BlueGrey.850" Color="{StaticResource MDH.Palette.Colors.BlueGrey.850}"/>
+	<SolidColorBrush x:Key="MDH.Palette.BlueGrey.950" MDH.Identity="BlueGrey.950" Color="{StaticResource MDH.Palette.Colors.BlueGrey.950}"/>
 
 </ResourceDictionary>

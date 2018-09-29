@@ -17,10 +17,10 @@
     <PackageLicenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</PackageLicenseUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

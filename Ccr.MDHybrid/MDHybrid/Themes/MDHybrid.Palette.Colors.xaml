@@ -273,5 +273,11 @@
   <Color x:Key="MDH.Palette.Colors.BlueGrey.700">#455A64</Color>
   <Color x:Key="MDH.Palette.Colors.BlueGrey.800">#37474F</Color>
   <Color x:Key="MDH.Palette.Colors.BlueGrey.900">#263238</Color>
+	
+	
+	
+	<Color x:Key="MDH.Palette.Colors.BlueGrey.750">#3F4E55</Color>
+	<Color x:Key="MDH.Palette.Colors.BlueGrey.850">#303A40</Color>
+	<Color x:Key="MDH.Palette.Colors.BlueGrey.950">#1E2325</Color>
 
 </ResourceDictionary>

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Ccr.Core.Extensions;
+using Ccr.Core.Helpers;
 using JetBrains.Annotations;
 
 namespace Ccr.PresentationCore.Collections
@@ -157,8 +159,8 @@ namespace Ccr.PresentationCore.Collections
       type.IsNotNull(nameof(type));
       name.IsNotNull(nameof(name));
 
-      var stringComparison = ignoreCase 
-        ? StringComparison.CurrentCulture 
+      var stringComparison = ignoreCase
+        ? StringComparison.CurrentCulture
         : StringComparison.CurrentCultureIgnoreCase;
 
       return ToArrayBase(type)
@@ -313,18 +315,19 @@ namespace Ccr.PresentationCore.Collections
       valueEnumType.IsNotNull(nameof(valueEnumType));
       name.IsNotNull(nameof(name));
 
-      if (!typeof(ValueEnum<>).IsAssignableFrom(valueEnumType))
+      //if (!typeof(ValueEnum<>).IsAssignableFrom(valueEnumType))
+      if (valueEnumType.BaseType == null || !valueEnumType.BaseType.IsGenericOf(typeof(ValueEnum<>)))
         throw new ArgumentException(
           $"The specified {nameof(valueEnumType).SQuote()} parameter is invalid because it " +
           $"is not of the type {typeof(ValueEnum<>).FormatName().SQuote()}.",
           nameof(valueEnumType));
 
-      if (name.IsValidCSharpIdentifier())
-        throw new ArgumentException(
-          $"The specified {nameof(name).SQuote()} parameter is invalid because it does not " +
-          $"consitute a valid identifier by C#'s language specifications on member identifier " +
-          $"naming conventions.",
-          nameof(name));
+      //if (name.IsValidCSharpIdentifier())
+      //  throw new ArgumentException(
+      //    $"The specified {nameof(name).SQuote()} parameter is invalid because it does not " +
+      //    $"consitute a valid identifier by C#'s language specifications on member identifier " +
+      //    $"naming conventions.",
+      //    nameof(name));
 
       var stringComparison = ignoreCase
         ? StringComparison.CurrentCulture
@@ -345,6 +348,94 @@ namespace Ccr.PresentationCore.Collections
           $"Multiple {typeof(ValueEnum<>).FormatName().SQuote()} member declared values were " +
           $"found with the identifier name {name.SQuote()} in the type '{valueEnumType.Name}'.",
           nameof(name));
+
+      return matchingValues[0];
+    }
+
+    /// <summary>
+    ///   Gets the <see cref="ValueEnum"/> member declaration that matches the name specified 
+    ///   by the <paramref name="name"/> argument provided by <see cref="ValueEnum{TValue}"/> 
+    ///   in the inherited container class.
+    /// </summary>
+    /// <param name="propertySelector">
+    ///   The <see cref="Type"/> of the <see cref="ValueEnum{TValue}"/> declaration.
+    /// </param>
+    /// <param name="value">
+    ///   The <see cref="ValueEnum{TValue}"/> member declaration member identifier to parse.
+    /// </param>
+    /// <param name="ignoreCase">
+    ///   An <see cref="bool"/> parameter that if set to <see langword="true"/>, will use a 
+    ///   case-insensitive <see cref="StringComparison"/> as a comparator against the <see 
+    ///   cref="ValueEnum"/> container member identifiers. This is not an optional property.
+    /// </param>
+    /// <returns>
+    ///   The <see cref="ValueEnum"/> member declaration instance associated with the provided 
+    ///   identifier name. 
+    /// </returns>
+    public static TValueEnum ParseSelect<TValueEnum, TProperty>(
+      Expression<Func<TValueEnum, TProperty>> propertySelector,
+      [NotNull] TProperty value,
+      bool ignoreCase = false)
+        where TValueEnum
+          : ValueEnum
+    {
+      var valueEnumType = typeof(TValueEnum);
+      valueEnumType.IsNotNull(nameof(valueEnumType));
+      value.IsNotNull(nameof(value));
+
+      //if (!typeof(ValueEnum<>).IsAssignableFrom(valueEnumType))
+      if (valueEnumType.BaseType == null || !valueEnumType.BaseType.IsGenericOf(typeof(ValueEnum<>)))
+        throw new ArgumentException(
+          $"The specified {nameof(valueEnumType).SQuote()} parameter is invalid because it " +
+          $"is not of the type {typeof(ValueEnum<>).FormatName().SQuote()}.",
+          nameof(valueEnumType));
+
+      //if (name.IsValidCSharpIdentifier())
+      //  throw new ArgumentException(
+      //    $"The specified {nameof(name).SQuote()} parameter is invalid because it does not " +
+      //    $"consitute a valid identifier by C#'s language specifications on member identifier " +
+      //    $"naming conventions.",
+      //    nameof(name));
+
+      TValueEnum[] matchingValues;
+
+      if (typeof(TProperty) == typeof(string))
+      {
+        var stringComparison = ignoreCase
+          ? StringComparison.CurrentCulture
+          : StringComparison.CurrentCultureIgnoreCase;
+
+        var func = propertySelector.Compile();
+
+        matchingValues = ToArrayBase(valueEnumType)
+          .Cast<TValueEnum>()
+          .Where(t => EqualityComparer<string>.Default.Equals(
+            func.Invoke(t).ToString().ToLower(),
+            value.ToString().ToLower()))
+          .ToArray();
+      }
+      else
+      {
+        var func = propertySelector.Compile();
+
+         matchingValues = ToArrayBase(valueEnumType)
+          .Cast<TValueEnum>()
+          .Where(t => func.Invoke(t).Equals(value))
+          .ToArray();
+      }
+      
+
+      if (matchingValues.Length == 0)
+        throw new ArgumentException(
+          $"No {typeof(ValueEnum<>).FormatName().SQuote()} member declaration value could be " +
+          $"found with the identifier value {value.ToString().SQuote()} in the type '{valueEnumType.Name}'.",
+          nameof(value));
+
+      if (matchingValues.Length >= 2)
+        throw new ArgumentException(
+          $"Multiple {typeof(ValueEnum<>).FormatName().SQuote()} member declared values were " +
+          $"found with the identifier name {value.ToString().SQuote()} in the type '{valueEnumType.Name}'.",
+          nameof(value));
 
       return matchingValues[0];
     }
@@ -441,7 +532,7 @@ namespace Ccr.PresentationCore.Collections
       if (EnumerationCache.TryGetValue(type, out var arrayBoxed))
         return arrayBoxed;
 
-      var reflectedEnumeration 
+      var reflectedEnumeration
         = type
           .GetFields(_discoveryFlags)
           .Select(f => f.GetValue(null))
@@ -449,7 +540,7 @@ namespace Ccr.PresentationCore.Collections
           .ToArray();
 
       enumerationCache.Add(
-        type, 
+        type,
         reflectedEnumeration);
 
       return reflectedEnumeration;
@@ -680,7 +771,7 @@ namespace Ccr.PresentationCore.Collections
     }
 
     #endregion
-    
+
     #endregion
 
   }
@@ -694,7 +785,7 @@ namespace Ccr.PresentationCore.Collections
           TValue>>
   {
     [NotNull]
-    public TValue Value => (TValue) ValueBase;
+    public TValue Value => (TValue)ValueBase;
 
     public override Type ValueType => typeof(TValue);
 

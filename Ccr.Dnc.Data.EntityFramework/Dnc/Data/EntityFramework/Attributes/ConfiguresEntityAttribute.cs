@@ -7,7 +7,7 @@ namespace Ccr.Dnc.Data.EntityFramework.Attributes
   public class ConfiguresEntityAttribute
     : Attribute
   {
-    private static readonly Type expectedParameterImpl
+    private static readonly Type expectedParamterImpl
       = typeof(IEntityTypeConfiguration<>);
 
     public Type EntityConfigurationType { get; }
@@ -16,10 +16,12 @@ namespace Ccr.Dnc.Data.EntityFramework.Attributes
     public ConfiguresEntityAttribute(
       Type entityConfigurationType)
     {
-      if (!expectedParameterImpl.IsInstanceOfType(entityConfigurationType))
+      if (!expectedParamterImpl.IsInstanceOfType(entityConfigurationType))
         throw new InvalidOperationException(
-          $"{entityConfigurationType.Name.SQuote()}");
-    }
+          $"{entityConfigurationType.Name.SQuote()} is not valid for use on this type. " +
+          $"Must be instance of type {entityConfigurationType.Name.SQuote()}.");
 
+      EntityConfigurationType = entityConfigurationType;
+    }
   }
 }

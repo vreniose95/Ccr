@@ -18,8 +18,8 @@
     <NeutralLanguage> Ccr.Std.Introspective</NeutralLanguage>
     <Version>1.0.1</Version>
   </PropertyGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <PackageReference Include="Ccr.Std.Core" Version="1.0.0" />
   </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

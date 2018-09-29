@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
+using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.MaterialDesign.Static;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using static System.Windows.FrameworkPropertyMetadataOptions;
@@ -13,14 +15,14 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
   {
     private static readonly Type _type = typeof(MDH);
 
+
     private static readonly Dictionary<MaterialIdentity, SolidColorBrush> _registeredIdentities
       = new Dictionary<MaterialIdentity, SolidColorBrush>();
-
-
+		
     public static readonly DependencyProperty SwatchProperty = DP.Attach(
       _type, new MetaBase<SwatchClassifier>(SwatchClassifier.Blue, onSwatchChanged));
 
-    public static readonly DependencyProperty ThemeProperty = DP.Attach(
+		public static readonly DependencyProperty ThemeProperty = DP.Attach(
       _type, new MetaBase<Swatch>(onThemeChanged, Inherits));
 
     public static readonly DependencyProperty IdentityProperty = DP.Attach(
@@ -29,7 +31,15 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
     public static readonly DependencyProperty VisualFeedbackProperty = DP.Attach(
       _type, new MetaBase<Brush>(Brushes.Black));//.WithOpacity(.3)));
 
+	  public static readonly DependencyProperty VisualFeedbackDescriptorProperty = DP.Attach(
+		  _type, new MetaBase<IMaterialDescriptor>());
 
+
+
+
+
+
+		
     public static SwatchClassifier GetSwatch(DependencyObject @this)
     {
       return @this.Get<SwatchClassifier>(SwatchProperty);
@@ -67,8 +77,19 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
       @this.Set(VisualFeedbackProperty, value);
     }
 
+	  public static IMaterialDescriptor GetVisualFeedbackDescriptor(DependencyObject @this)
+	  {
+		  return @this.Get<IMaterialDescriptor>(VisualFeedbackDescriptorProperty);
+	  }
+	  public static void SetVisualFeedbackDescriptor(DependencyObject @this, IMaterialDescriptor value)
+	  {
+		  @this.Set(VisualFeedbackDescriptorProperty, value);
+	  }
 
-    private static void onThemeChanged(
+
+
+
+		private static void onThemeChanged(
       DependencyObject @this,
       DPChangedEventArgs<Swatch> args)
     {

@@ -2,13 +2,13 @@
 										xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 										xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign">
 	
-  <Style TargetType="icons:Icon">
+  <!--<Style TargetType="icons:Icon">
     <Setter Property="Height" Value="48"/>
     <Setter Property="Width" Value="48"/>
     <Setter Property="Padding" Value="0"/>
-    <!--<Setter Property="FlowDirection" Value="LeftToRight"/>
+    --><!--<Setter Property="FlowDirection" Value="LeftToRight"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
-    <Setter Property="VerticalAlignment" Value="Top"/>-->
+    <Setter Property="VerticalAlignment" Value="Top"/>--><!--
     <Setter Property="IsTabStop" Value="False"/>
     <Setter Property="SnapsToDevicePixels" Value="False"/>
     <Setter Property="UseLayoutRounding" Value="False"/>
@@ -61,5 +61,64 @@
         </ControlTemplate>
       </Setter.Value>
     </Setter>
-  </Style>
+  </Style>-->
+	
+	
+		<Style TargetType="icons:Icon">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Height" Value="48"/>
+		<!--<Setter Property="FlowDirection" Value="LeftToRight"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Top"/>-->
+		<Setter Property="IsTabStop" Value="False"/>
+		<Setter Property="Padding" Value="0"/>
+		<Setter Property="SnapsToDevicePixels" Value="False"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="icons:Icon">
+					<Grid>
+						<Border Background="{TemplateBinding Background}"
+						        BorderBrush="{TemplateBinding BorderBrush}"
+						        BorderThickness="{TemplateBinding BorderThickness}"
+						        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						<Grid x:Name="PART_InnerGrid"
+						      Margin="{TemplateBinding Padding}"
+						      RenderTransformOrigin=".5,.5">
+							<Grid.RenderTransform>
+								<TransformGroup>
+									<RotateTransform Angle="{TemplateBinding Rotation}"/>
+									<ScaleTransform x:Name="PART_FlipTransform"
+									                CenterX="0.5"
+									                CenterY="0.5">
+										<ScaleTransform.ScaleX>
+											<Binding Path="Flip" RelativeSource="{RelativeSource TemplatedParent}"
+											         Converter="{IconFlipToScaleTransform}"
+											         ConverterParameter="X"/>
+										</ScaleTransform.ScaleX>
+										<ScaleTransform.ScaleY>
+											<Binding Path="Flip" RelativeSource="{RelativeSource TemplatedParent}"
+											         Converter="{IconFlipToScaleTransform}"
+											         ConverterParameter="Y"/>
+										</ScaleTransform.ScaleY>
+									</ScaleTransform>
+								</TransformGroup>
+							</Grid.RenderTransform>
+							<Viewbox>
+								<Canvas Width="24" Height="24">
+									<Path Fill="{TemplateBinding Foreground}">
+										<Path.Data>
+											<Binding Path="Geometry" RelativeSource="{RelativeSource TemplatedParent}"
+											         Mode="OneWay"/>
+										</Path.Data>
+									</Path>
+								</Canvas>
+							</Viewbox>
+						</Grid>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="UseLayoutRounding" Value="False"/>
+		<Setter Property="Width" Value="48"/>
+	</Style>
 </ResourceDictionary>

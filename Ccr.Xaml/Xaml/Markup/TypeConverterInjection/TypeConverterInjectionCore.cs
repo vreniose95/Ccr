@@ -38,7 +38,8 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 
 				var converterInstanceBoxed = converterType
 					.Reflect()
-					.CreateInstance(MemberDescriptor.Any);
+					.CreateInstance(
+						MemberDescriptor.Any);
 
 				var converterInstance = converterInstanceBoxed as TypeConverter;
 				if (converterInstance == null)
@@ -51,7 +52,10 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 				{
 					eventArgs.Value
 						.Reflect()
-						.SetFieldValue(MemberDescriptor.Any, "_converter", converterInstance);
+						.SetFieldValue(
+							MemberDescriptor.Any, 
+							"_converter", 
+							converterInstance);
 
 					eventArgs.Handled = true;
 				}
@@ -60,7 +64,9 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 				{
 					unresolvedValue = eventArgs.Value
 						.Reflect()
-						.GetFieldValue(MemberDescriptor.Any, "_value");
+						.GetFieldValue(
+							MemberDescriptor.Any, 
+							"_value");
 				}
 
 				var convertedValue = converterInstance.ConvertFrom(unresolvedValue);

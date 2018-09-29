@@ -31,6 +31,7 @@ namespace Ccr.Std.Introspective.Extensions
 				@this.TargetObject,
 				methodArgs);
 		}
+
 		public static TReturns InvokeMethod<TReturns>(
 			[NotNull] this IntrospectiveContext @this,
 			[NotNull] MemberDescriptor memberDescriptor,
@@ -108,19 +109,17 @@ namespace Ccr.Std.Introspective.Extensions
 				$"Cannot cast raw returned value of type \'{rawReturnValue.GetType().FormatName()}\' " +
 				$"to the expected return type of \'{typeof(TReturns).FormatName()}\'.");
 		}
-
-
-
-
-		//var fieldType = fieldInfo.FieldType;
-		//var valueType = typeof(TValue);
-
-		//var rawValue = fieldInfo.GetValue(@this.TargetObject);
-		//return (TValue)rawValue;
-
-		//if (!fieldType.IsAssignableFrom(valueType))
-		//var adjustedValue = value;
-		//throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");
-
 	}
 }
+
+
+
+//var fieldType = fieldInfo.FieldType;
+//var valueType = typeof(TValue);
+
+//var rawValue = fieldInfo.GetValue(@this.TargetObject);
+//return (TValue)rawValue;
+
+//if (!fieldType.IsAssignableFrom(valueType))
+//var adjustedValue = value;
+//throw new InvalidCastException($"Cannot cast property value \'{returnVal.GetType().Name}\' to {typeof(TResult).Name}");

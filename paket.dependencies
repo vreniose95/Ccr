@@ -1,9 +1,9 @@
 source https://api.nuget.org/v3/index.json
 
-nuget Caliburn.Micro 3.2.0
-nuget EntityFramework 6.1.3
-nuget Newtonsoft.Json 10.0.3
-nuget Microsoft.WindowsAPICodePack.Shell 1.1.0
+nuget Caliburn.Micro
+nuget EntityFramework
+nuget Newtonsoft.Json
+nuget Microsoft.WindowsAPICodePack.Shell
 nuget System.ValueTuple
 
 nuget JetBrains.Annotations
@@ -13,4 +13,7 @@ nuget NUnit3TestAdapter
 nuget Microsoft.Composition
 
 nuget AngleSharp
-nuget System.Numerics.Vectors 4.3.0
+nuget System.Numerics.Vectors
+
+nuget Microsoft.EntityFrameworkCore
+nuget Microsoft.EntityFrameworkCore.SqlServer

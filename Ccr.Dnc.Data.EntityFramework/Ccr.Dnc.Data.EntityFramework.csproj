@@ -1,21 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Eric Vrenios</Authors>
+    <Company>Ccr</Company>
+    <Product>Ccr Framework</Product>
+    <Description>Extension library in the Ccr Framework Suite that provides extensions to the .Net Core 2-based, Microsoft.EntityFrameworkCore (2.0.1) package. This extension package provides robust implementation of the Repository&lt;TEntity, TKey, TContext&gt; contept, an implementation of the UnitOfWork&lt;TContext&gt; pattern, introduces a concept of local statically-defined Entity instances that can be auto-seeded upon build, provides adapter classes for analyzing and deconstructing the structure of Entity types and DBContext implementation types, using helper classes such as EntityPrimaryKeyResolver&lt;TEntity, TKey, TContext&gt;.</Description>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
   </PropertyGroup>
-
   <ItemGroup>
-    <Folder Include="Dnc\Data\EntityFramework\Infrastructure\" />
-    <Folder Include="Dnc\Data\EntityFramework\StaticSeeding\" />
+    <Compile Remove="Dnc\Data\EntityFramework\Infrastructure\**" />
+    <EmbeddedResource Remove="Dnc\Data\EntityFramework\Infrastructure\**" />
+    <None Remove="Dnc\Data\EntityFramework\Infrastructure\**" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj" />
   </ItemGroup>
-
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
