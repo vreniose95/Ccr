@@ -29,12 +29,12 @@ namespace Ccr.Core.Extensions
         .Color
         .WithOpacity(
           opacity);
-
-      var identity = new MaterialIdentity(
+			
+			var identity = new MaterialIdentity(
         @this.Identity.SwatchClassifier,
         @this.Identity.Luminosity,
         opacity);
-
+			
       return new MaterialBrush(color.ToSCB(), identity);
       
       //return MaterialBrush.Create(

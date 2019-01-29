@@ -33,10 +33,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 
 	  public static readonly DependencyProperty VisualFeedbackDescriptorProperty = DP.Attach(
 		  _type, new MetaBase<IMaterialDescriptor>());
-
-
-
-
+		
 
 
 		

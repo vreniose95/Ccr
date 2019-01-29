@@ -6,12 +6,13 @@ using Ccr.Xaml.Markup.Extensions;
 namespace Ccr.Xaml.Markup.Converters.Infrastructure
 {
   public abstract class XamlConverter<
-      T1,
-      T2,
-      TParam, TResult>
-    : MarkupExtensionAbstractSingletonFactory,
-      IMultiValueConverter
-    where TParam
+    T1,
+    T2,
+    TParam, 
+    TResult>
+      : MarkupExtensionAbstractSingletonFactory,
+        IMultiValueConverter
+      where TParam
     : ConverterParam
   {
     object IMultiValueConverter.Convert(
@@ -31,7 +32,7 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
       return Convert(
         arg1,
         arg2,
-        (TParam)param);
+        (TParam) param);
     }
 
     public abstract TResult Convert(

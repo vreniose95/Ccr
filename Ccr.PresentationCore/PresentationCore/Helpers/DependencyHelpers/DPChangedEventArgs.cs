@@ -29,7 +29,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		public TValue NewValue { get; }
 
 		#endregion
-
+    
 
 		#region Constructors
 		/// <summary>
@@ -73,8 +73,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		#endregion
 
 
-
-	  public static implicit operator DependencyPropertyChangedEventArgs(
+    public static implicit operator DependencyPropertyChangedEventArgs(
 	    DPChangedEventArgs<TValue> args)
 	  {
       return new DependencyPropertyChangedEventArgs(

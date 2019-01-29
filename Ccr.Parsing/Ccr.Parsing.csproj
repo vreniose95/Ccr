@@ -56,6 +56,7 @@
     <Compile Include="Parsing\Tokenizer\Tokens\ExclamationMarkToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\IdentifierToken.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\NumberToken.cs" />
+    <Compile Include="Parsing\Tokenizer\Tokens\Qualifiers\Qualifier.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\Range\ITextLiteralPointer.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\Range\ITextRangePointer.cs" />
     <Compile Include="Parsing\Tokenizer\Tokens\Range\TextLiteralPointer.cs" />

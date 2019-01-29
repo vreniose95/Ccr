@@ -68,8 +68,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IsNullOrEmptyToVisibilityConverter.cs" />
+    <Compile Include="Models\EmployeeInfo.cs" />
+    <Compile Include="ViewModels\ButtonViewModel.cs" />
     <Compile Include="ViewModels\CardDemoViewModel.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
+    <Compile Include="Views\ButtonView.xaml.cs">
+      <DependentUpon>ButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CardDemoView.xaml.cs">
       <DependentUpon>CardDemoView.xaml</DependentUpon>
     </Compile>
@@ -129,6 +134,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CardDemoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

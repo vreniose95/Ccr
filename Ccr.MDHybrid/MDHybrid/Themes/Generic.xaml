@@ -1,7 +1,6 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="MDHybrid.xaml"/>
+		<ResourceDictionary Source="MDHybrid.xaml" />
 		<!--<ResourceDictionary Source="pack://application:,,,/Ccr.MDHybrid;component/MDHybrid/Themes/MDHybrid.xaml.xaml"/>-->
 	</ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

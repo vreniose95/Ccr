@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>Ccr.Xaml</id>
+		<version>1.0.0</version>
+		<authors>Eric Vrenios</authors>
+		<owners>Eric Vrenios</owners>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<licenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Xaml</projectUrl>
+		<description>
+			Ccr.Xaml package for custom Xaml collection types, dependency property propogation, 
+			Xaml MarkupExtension Singleton providers, custom Resource Dictionary scoping, Fluent, generic 
+			binding ValueConverters, and Xaml TypeConverter injection.
+		</description>
+		<releaseNotes>Initial package publish</releaseNotes>
+		<copyright>
+			Copyright 2018
+		</copyright>
+		<tags>Ccr, Ccr Framework, Ccr.Xaml, Ccr Xaml, XamlConverter, DependencyProperty, ResourceDictionary, TypeConverter </tags>
+		<repository type="Github" url="https://github.com/vreniose95/Ccr" />
+		<dependencies>
+			<group targetFramework=".NETStandard2.0">
+				<dependency id="JetBrains.Annotations" version="11.0.0" exclude="Build,Analyzers" />
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="C:\Repositories\Ccr\Ccr.Std.Core\bin\Debug\netstandard2.0\Ccr.Std.Core.dll" target="lib\netstandard2.0\Ccr.Std.Core.dll" />
+	</files>
+</package>

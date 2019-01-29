@@ -271,12 +271,12 @@
 		}
 	}
 	[TokenQualifier(@"(`)")]
-	public class BacktickToken
-		: SymbolToken
+	public class BacktickToken : SymbolToken
 	{
 		public BacktickToken() : base(
 			"`")
 		{
 		}
 	}
+
 }

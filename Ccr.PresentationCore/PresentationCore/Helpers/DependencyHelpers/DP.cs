@@ -16,7 +16,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 	/// <list type="table">
 	///		<listheader>
 	///			<term>Framework Type</term>
-	///			<description>The Generic Equivelent</description>
+	///			<description>The Generic Equivalent</description>
 	///		</listheader>
 	///		<item>
 	///			<term>FrameworkPropertyMetadata</term>
@@ -58,6 +58,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 
 			return (TValue)@this.GetValue(dependencyProperty);
 		}
+
 		public static void Set<TValue>(
 			this DependencyObject @this,
 			DependencyProperty dependencyProperty,
@@ -109,7 +110,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			[NotNull] Meta<TOwner, TValue> meta,
 			[CanBeNull] PropertyValidate<TValue> validation = null,
 			[NotNull, CallerMemberName] string autoFieldName = "")
-				where TOwner : DependencyObject
+				where TOwner
+				  : DependencyObject
 		{
 			meta.IsNotNull(nameof(meta));
 			autoFieldName.IsNotNull(nameof(autoFieldName));
@@ -152,7 +154,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			[NotNull] Meta<TOwner, TValue> meta,
 			[CanBeNull] PropertyValidate<TValue> validation = null,
 			[NotNull, CallerMemberName] string autoFieldName = "")
-				where TOwner : DependencyObject
+				where TOwner
+				  : DependencyObject
 		{
 			meta.IsNotNull(nameof(meta));
 			autoFieldName.IsNotNull(nameof(autoFieldName));
@@ -191,7 +194,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// </returns>
 		[NotNull]
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public static DependencyProperty Attach<TValue>(//		public static DependencyProperty<TValue> Attach<TValue>(
+		public static DependencyProperty Attach<TValue>(
 			Type owner,
 			[NotNull] Meta<DependencyObject, TValue> meta,
 			[CanBeNull] PropertyValidate<TValue> validation = null,
@@ -233,7 +236,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		public static DependencyProperty Add<TOwner, TValue>(
 			[NotNull] DependencyProperty property,
 			[NotNull] Meta<TOwner, TValue> meta)
-				where TOwner : DependencyObject
+				where TOwner
+				  : DependencyObject
 		{
 			meta.IsNotNull(nameof(meta));
 			property.IsNotNull(nameof(property));
@@ -261,7 +265,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			if (!fieldName.EndsWith(dependencyPropertyFieldSuffix))
 				throw new ArgumentException(
 					$"The DependencyProperty field name \'{fieldName}\' parameter \'{nameof(fieldName)}\' is not valid. " +
-					$"The value must be in \"{{name}}{dependencyPropertyFieldSuffix}\" naming convension.",
+					$"The value must be in \"{{name}}{dependencyPropertyFieldSuffix}\" naming convention.",
 					nameof(fieldName));
 
 			var propertyNameLength = fieldName.Length - dependencyPropertyFieldSuffix.Length;
@@ -288,7 +292,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			if (!fieldName.EndsWith(dependencyPropertyKeyFieldSuffix))
 				throw new ArgumentException(
 					$"The DependencyPropertyKey field name value \'{fieldName}\' parameter \'{nameof(fieldName)}\' is not valid. " +
-					$"The value must be in \"{{name}}{dependencyPropertyKeyFieldSuffix}\" naming convension.",
+					$"The value must be in \"{{name}}{dependencyPropertyKeyFieldSuffix}\" naming convention.",
 					nameof(fieldName));
 
 			var propertyNameLength = fieldName.Length - dependencyPropertyFieldSuffix.Length;

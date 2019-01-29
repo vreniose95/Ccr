@@ -1,33 +1,33 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml"/>
+		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml" />
 		<!--<ResourceDictionary Source="MDHybrid.Drawables.xaml"/>-->
 	</ResourceDictionary.MergedDictionaries>
 
 	<Style x:Key="MDH.Window.Button.Style" TargetType="Button">
-		<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Grey.300}"/>
-		<Setter Property="Background" Value="Transparent"/>
-		<Setter Property="HorizontalContentAlignment" Value="Center"/>
-		<Setter Property="VerticalContentAlignment" Value="Center"/>
-		<Setter Property="BorderBrush" Value="Transparent"/>
-		<Setter Property="BorderThickness" Value="0"/>
-		
+		<Setter Property="Foreground" Value="{StaticResource MDH.Palette.Grey.300}" />
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="BorderThickness" Value="0" />
+
 		<Setter Property="UserInputNuanceInjector.NuanceProviderService">
 			<Setter.Value>
-				<UserInputNuanceProviderService/>
+				<UserInputNuanceProviderService />
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
-					<Grid x:Name="PART_Root" 
-					      Background="{TemplateBinding Background}"
-					      ClipToBounds="{TemplateBinding ClipToBounds}">
+					<Grid
+						x:Name="PART_Root"
+						Background="{TemplateBinding Background}"
+						ClipToBounds="{TemplateBinding ClipToBounds}">
 						<Ripple.TrackingService>
 							<RippleMouseTrackingService EventName="Click">
 								<RippleMouseTrackingService.SourceObject>
-									<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}"/>
+									<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=Button}" />
 								</RippleMouseTrackingService.SourceObject>
 							</RippleMouseTrackingService>
 						</Ripple.TrackingService>
@@ -36,67 +36,67 @@
 								<TranslateTransform>
 									<Ripple.Placement>
 										<MultiBinding Converter="{RipplePlacementConverter}">
-											<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
-											<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-											<Binding ElementName="PART_Ripple" Path="ActualHeight"/>
-											<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
+											<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}" />
+											<Binding ElementName="PART_Ripple" Path="ActualHeight" />
+											<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)" />
 										</MultiBinding>
 									</Ripple.Placement>
 								</TranslateTransform>
 							</Canvas.RenderTransform>
-							<Ellipse x:Name="PART_Ripple"
-							         RenderTransformOrigin=".5,.5" 
-							         VerticalAlignment="Center" 
-							         HorizontalAlignment="Center"
-							         IsHitTestVisible="False">
+							<Ellipse
+								x:Name="PART_Ripple"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								IsHitTestVisible="False"
+								RenderTransformOrigin=".5,.5">
 								<Ellipse.RenderTransform>
-									<ScaleTransform ScaleX="0" ScaleY="0"/>
+									<ScaleTransform ScaleX="0" ScaleY="0" />
 								</Ellipse.RenderTransform>
 								<Ellipse.Fill>
-									<Binding RelativeSource="{RelativeSource TemplatedParent}"
-													 Path="(MDH.VisualFeedback)"/>
+									<Binding Path="(MDH.VisualFeedback)" RelativeSource="{RelativeSource TemplatedParent}" />
 								</Ellipse.Fill>
 								<Ellipse.Height>
-									<MultiBinding Converter="{RippleDiameterConverter}" 
-									              ConverterParameter="2">
-										<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
-										<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
-										<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)"/>
+									<MultiBinding Converter="{RippleDiameterConverter}" ConverterParameter="2">
+										<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}" />
+										<Binding ElementName="PART_Root" Path="(Ripple.MousePosition)" />
 									</MultiBinding>
 								</Ellipse.Height>
 								<Ellipse.Width>
-									<Binding RelativeSource="{RelativeSource Self}" Path="ActualHeight" />
+									<Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}" />
 								</Ellipse.Width>
 							</Ellipse>
 						</Canvas>
-						<ContentPresenter x:Name="PART_ContentPresenter"
-						                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-						                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
-						                  Margin="{TemplateBinding Padding}"/>
+						<ContentPresenter
+							x:Name="PART_ContentPresenter"
+							Margin="{TemplateBinding Padding}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 					</Grid>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsMouseOver" Value="True">
 							<Trigger.EnterActions>
 								<BeginStoryboard>
 									<Storyboard>
-										<ColorAnimation Storyboard.TargetName="PART_Root"
-																		 Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-										                 Duration="0:0:0.5"
-																		 To="{StaticResource MDH.Palette.Colors.Teal.A700}"
-																		 EasingFunction="{EaseOut Back}">
-										</ColorAnimation>
+										<ColorAnimation
+											EasingFunction="{EaseOut Back}"
+											Storyboard.TargetName="PART_Root"
+											Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+											To="{StaticResource MDH.Palette.Colors.Teal.A700}"
+											Duration="0:0:0.5" />
 									</Storyboard>
 								</BeginStoryboard>
 							</Trigger.EnterActions>
 							<Trigger.ExitActions>
 								<BeginStoryboard>
 									<Storyboard>
-										<ColorAnimation Storyboard.TargetName="PART_Root"
-										                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
-										                Duration="0:0:0.5"
-										                To="{StaticResource MDH.Palette.Colors.Grey.050}"
-										                EasingFunction="{EaseIn Back}">
-										</ColorAnimation>
+										<ColorAnimation
+											EasingFunction="{EaseIn Back}"
+											Storyboard.TargetName="PART_Root"
+											Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+											To="{StaticResource MDH.Palette.Colors.Grey.050}"
+											Duration="0:0:0.5" />
 									</Storyboard>
 								</BeginStoryboard>
 							</Trigger.ExitActions>
@@ -106,28 +106,28 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	
-	
+
+
 	<Style TargetType="Window">
 		<!--<Setter Property="DataContext" Value="{Binding RelativeSource={RelativeSource Self}}"/>-->
 		<Setter Property="ResizeMode" Value="CanResizeWithGrip" />
 		<Setter Property="UseLayoutRounding" Value="True" />
 		<Setter Property="TextOptions.TextFormattingMode" Value="Display" />
-		<Setter Property="MaterialWindowAssist.Attach" Value="True"/>
+		<Setter Property="MaterialWindowAssist.Attach" Value="True" />
 		<Setter Property="WindowChrome.WindowChrome">
 			<Setter.Value>
-				<WindowChrome CornerRadius="0"
-				              GlassFrameThickness="1"
-				              UseAeroCaptionButtons="False" />
+				<WindowChrome
+					CornerRadius="0"
+					GlassFrameThickness="1"
+					UseAeroCaptionButtons="False" />
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Window">
-					<Border x:Name="WindowBorder"
-					        Background="{StaticResource MDH.Palette.BlueGrey.800}">
+					<Border x:Name="WindowBorder" Background="{StaticResource MDH.Palette.BlueGrey.800}">
 						<Border.Margin>
-							<Binding Source="{x:Static SystemParameters.WindowNonClientFrameThickness}"/>
+							<Binding Source="{x:Static SystemParameters.WindowNonClientFrameThickness}" />
 						</Border.Margin>
 						<Grid>
 							<Border BorderThickness="0">
@@ -138,122 +138,127 @@
 											<RowDefinition Height="*" />
 											<RowDefinition Height="15" />
 										</Grid.RowDefinitions>
-										<ContentPresenter Grid.Row="1" 
-										                  Margin="2"/>
-										<Rectangle x:Name="HeaderBackground" 
-										           Height="32" 
-										           Fill="{StaticResource MDH.Palette.BlueGrey.800}"
-										           VerticalAlignment="Top" 
-										           Grid.Row="0"/>
-										<StackPanel Orientation="Horizontal" 
-										            HorizontalAlignment="Left" 
-										            WindowChrome.IsHitTestVisibleInChrome="True"
-										            Grid.Row="0">
+										<ContentPresenter Grid.Row="1" Margin="2" />
+										<Rectangle
+											x:Name="HeaderBackground"
+											Grid.Row="0"
+											Height="32"
+											VerticalAlignment="Top"
+											Fill="{StaticResource MDH.Palette.BlueGrey.800}" />
+										<StackPanel
+											Grid.Row="0"
+											HorizontalAlignment="Left"
+											Orientation="Horizontal"
+											WindowChrome.IsHitTestVisibleInChrome="True">
 											<Viewbox>
-												<Path Data="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" 
-												      Width="24"
-															Height="24"
-															Margin="10 8"
-												      Fill="{StaticResource MDH.Palette.Grey.200}"/>
+												<Path
+													Width="24"
+													Height="24"
+													Margin="10,8"
+													Data="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z"
+													Fill="{StaticResource MDH.Palette.Grey.200}" />
 											</Viewbox>
 										</StackPanel>
-										<StackPanel Orientation="Horizontal" 
-										            HorizontalAlignment="Right" 
-										            VerticalAlignment="Top"
-										            WindowChrome.IsHitTestVisibleInChrome="True" 
-										            Grid.Row="0">
-											<Button ToolTip="minimize"
-											        Style="{StaticResource MDH.Window.Button.Style}">
+										<StackPanel
+											Grid.Row="0"
+											HorizontalAlignment="Right"
+											VerticalAlignment="Top"
+											Orientation="Horizontal"
+											WindowChrome.IsHitTestVisibleInChrome="True">
+											<Button Style="{StaticResource MDH.Window.Button.Style}" ToolTip="minimize">
 												<Button.Command>
 													<Binding Source="{x:Static SystemCommands.MinimizeWindowCommand}" />
 												</Button.Command>
 												<Button.Content>
-													<Grid Width="30" 
-													      Height="28" 
-													      RenderTransform="1,0,0,1,0,1">
-														<Path Data="M0,6 L8,6 Z" 
-														      Width="8"
-														      Height="7" 
-														      VerticalAlignment="Center" 
-														      HorizontalAlignment="Center"
-														      StrokeThickness="2">
+													<Grid
+														Width="30"
+														Height="28"
+														RenderTransform="1,0,0,1,0,1">
+														<Path
+															Width="8"
+															Height="7"
+															HorizontalAlignment="Center"
+															VerticalAlignment="Center"
+															Data="M0,6 L8,6 Z"
+															StrokeThickness="2">
 															<Path.Stroke>
-																<Binding Path="Foreground" 
-																         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
+																<Binding Path="Foreground" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
 															</Path.Stroke>
 														</Path>
 													</Grid>
 												</Button.Content>
 											</Button>
 											<Grid Margin="1,0,1,0">
-												<Button x:Name="Restore"
-												        ToolTip="restore" 
-												        Visibility="Collapsed" 
-												        Style="{StaticResource MDH.Window.Button.Style}">
+												<Button
+													x:Name="Restore"
+													Style="{StaticResource MDH.Window.Button.Style}"
+													ToolTip="restore"
+													Visibility="Collapsed">
 													<Button.Command>
-														<Binding Source="{x:Static SystemCommands.RestoreWindowCommand}"/>
+														<Binding Source="{x:Static SystemCommands.RestoreWindowCommand}" />
 													</Button.Command>
 													<Button.Content>
-														<Grid Width="30" 
-														      Height="28" 
-														      UseLayoutRounding="True" 
-														      RenderTransform="1,0,0,1,.5,.5">
-															<Path Data="M2,0 L8,0 L8,6 M0,3 L6,3 M0,2 L6,2 L6,8 L0,8 Z" 
-															      Width="8" 
-															      Height="8" 
-															      VerticalAlignment="Center" 
-															      HorizontalAlignment="Center"
-															      StrokeThickness="1">
+														<Grid
+															Width="30"
+															Height="28"
+															RenderTransform="1,0,0,1,.5,.5"
+															UseLayoutRounding="True">
+															<Path
+																Width="8"
+																Height="8"
+																HorizontalAlignment="Center"
+																VerticalAlignment="Center"
+																Data="M2,0 L8,0 L8,6 M0,3 L6,3 M0,2 L6,2 L6,8 L0,8 Z"
+																StrokeThickness="1">
 																<Path.Stroke>
-																	<Binding Path="Foreground" 
-																	         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
+																	<Binding Path="Foreground" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
 																</Path.Stroke>
 															</Path>
 														</Grid>
 													</Button.Content>
 												</Button>
-												<Button x:Name="Maximize"
-												        ToolTip="maximize" 
-												        Style="{StaticResource MDH.Window.Button.Style}">
+												<Button
+													x:Name="Maximize"
+													Style="{StaticResource MDH.Window.Button.Style}"
+													ToolTip="maximize">
 													<Button.Command>
 														<Binding Source="{x:Static SystemCommands.MaximizeWindowCommand}" />
 													</Button.Command>
 													<Button.Content>
-														<Grid Width="31" 
-														      Height="28">
-															<Path Data="M0,1 L9,1 L9,8 L0,8 Z"
-															      Width="9" 
-															      Height="8" 
-															      VerticalAlignment="Center" 
-															      HorizontalAlignment="Center"
-															      StrokeThickness="2">
+														<Grid Width="31" Height="28">
+															<Path
+																Width="9"
+																Height="8"
+																HorizontalAlignment="Center"
+																VerticalAlignment="Center"
+																Data="M0,1 L9,1 L9,8 L0,8 Z"
+																StrokeThickness="2">
 																<Path.Stroke>
-																	<Binding Path="Foreground"
-																	         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
+																	<Binding Path="Foreground" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
 																</Path.Stroke>
 															</Path>
 														</Grid>
 													</Button.Content>
 												</Button>
 											</Grid>
-											<Button ToolTip="close" 
-											        Style="{StaticResource MDH.Window.Button.Style}">
+											<Button Style="{StaticResource MDH.Window.Button.Style}" ToolTip="close">
 												<Button.Command>
 													<Binding Source="{x:Static SystemCommands.CloseWindowCommand}" />
 												</Button.Command>
 												<Button.Content>
-													<Grid Width="30" 
-													      Height="28" 
-													      RenderTransform="1,0,0,1,0,1">
-														<Path Data="M0,0 L8,7 M8,0 L0,7 Z" 
-														      Width="8" 
-														      Height="7" 
-														      VerticalAlignment="Center"
-														      HorizontalAlignment="Center"
-														      StrokeThickness="1.5">
+													<Grid
+														Width="30"
+														Height="28"
+														RenderTransform="1,0,0,1,0,1">
+														<Path
+															Width="8"
+															Height="7"
+															HorizontalAlignment="Center"
+															VerticalAlignment="Center"
+															Data="M0,0 L8,7 M8,0 L0,7 Z"
+															StrokeThickness="1.5">
 															<Path.Stroke>
-																<Binding Path="Foreground" 
-																         RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
+																<Binding Path="Foreground" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Button}" />
 															</Path.Stroke>
 														</Path>
 													</Grid>
@@ -261,16 +266,17 @@
 											</Button>
 										</StackPanel>
 										<Grid Grid.Row="2">
-											<Path x:Name="ResizeGrip" 
-											      Visibility="Collapsed" 
-											      Width="12" 
-											      Height="12" 
-											      Margin="1" 
-											      HorizontalAlignment="Right"
-											      Stroke="{StaticResource MDH.Palette.Grey.300}" 
-											      StrokeThickness="1" 
-											      Stretch="None" 
-														Data="F1 M1,10 L3,10 M5,10 L7,10 M9,10 L11,10 M2,9 L2,11 M6,9 L6,11 M10,9 L10,11 M5,6 L7,6 M9,6 L11,6 M6,5 L6,7 M10,5 L10,7 M9,2 L11,2 M10,1 L10,3" />
+											<Path
+												x:Name="ResizeGrip"
+												Width="12"
+												Height="12"
+												Margin="1"
+												HorizontalAlignment="Right"
+												Data="F1 M1,10 L3,10 M5,10 L7,10 M9,10 L11,10 M2,9 L2,11 M6,9 L6,11 M10,9 L10,11 M5,6 L7,6 M9,6 L11,6 M6,5 L6,7 M10,5 L10,7 M9,2 L11,2 M10,1 L10,3"
+												Stretch="None"
+												Stroke="{StaticResource MDH.Palette.Grey.300}"
+												StrokeThickness="1"
+												Visibility="Collapsed" />
 										</Grid>
 									</Grid>
 								</AdornerDecorator>
@@ -279,34 +285,20 @@
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="WindowState" Value="Maximized">
-							<Setter TargetName="Maximize" 
-							        Property="Visibility" 
-							        Value="Collapsed" />
-							<Setter TargetName="Restore" 
-							        Property="Visibility" 
-							        Value="Visible" />
-							<Setter TargetName="LayoutRoot" 
-							        Property="Margin" 
-							        Value="7" />
+							<Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="Restore" Property="Visibility" Value="Visible" />
+							<Setter TargetName="LayoutRoot" Property="Margin" Value="7" />
 						</Trigger>
 						<Trigger Property="WindowState" Value="Normal">
-							<Setter TargetName="Maximize" 
-							        Property="Visibility" 
-							        Value="Visible" />
-							<Setter TargetName="Restore" 
-							        Property="Visibility" 
-							        Value="Collapsed" />
+							<Setter TargetName="Maximize" Property="Visibility" Value="Visible" />
+							<Setter TargetName="Restore" Property="Visibility" Value="Collapsed" />
 						</Trigger>
 						<MultiTrigger>
 							<MultiTrigger.Conditions>
-								<Condition Property="ResizeMode" 
-								           Value="CanResizeWithGrip" />
-								<Condition Property="WindowState" 
-								           Value="Normal" />
+								<Condition Property="ResizeMode" Value="CanResizeWithGrip" />
+								<Condition Property="WindowState" Value="Normal" />
 							</MultiTrigger.Conditions>
-							<Setter TargetName="ResizeGrip" 
-							        Property="Visibility" 
-							        Value="Visible" />
+							<Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
 						</MultiTrigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>

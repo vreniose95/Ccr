@@ -1,27 +1,29 @@
-﻿<UserControl x:Class="Ccr.MDHybrid.Demo.Views.CardDemoView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
-             xmlns:cal="http://www.caliburnproject.org"
-             mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance vm:CardDemoViewModel, IsDesignTimeCreatable=True}"
-             cal:Bind.AtDesignTime="True"
-             Designer.Viewport="HD1080"
-             Designer.Orientation="Landscape"
-             d:DesignWidth="1920"
-             d:DesignHeight="1080">
-  <Grid Background="#dcdcdc">
-    <!--<Card>
+﻿<UserControl
+	x:Class="Ccr.MDHybrid.Demo.Views.CardDemoView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:cal="http://www.caliburnproject.org"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
+	cal:Bind.AtDesignTime="True"
+	d:DataContext="{d:DesignInstance vm:CardDemoViewModel,
+	                                 IsDesignTimeCreatable=True}"
+	d:DesignHeight="1080"
+	d:DesignWidth="1920"
+	Designer.Orientation="Landscape"
+	Designer.Viewport="HD1080"
+	mc:Ignorable="d">
+	<Grid Background="#dcdcdc">
+		<!--<Card>
 
     </Card>-->
-    <StackPanel Orientation="Vertical"
-                Margin="50 30">
-      <TextBox Style="{StaticResource MDH.HintedFlatTextBox}"
-               HintAssist.Hint="Email Address"
-               HintAssist.HelpText="enter a valid email address"></TextBox>
-      <!--<Border Background="#c8c8c8"
+		<StackPanel Margin="50,30" Orientation="Vertical">
+			<TextBox
+				HintAssist.HelpText="enter a valid email address"
+				HintAssist.Hint="Email Address"
+				Style="{StaticResource MDH.HintedFlatTextBox}" />
+			<!--<Border Background="#c8c8c8"
               BorderBrush="#6200ee"
               BorderThickness="0 0 0 2"
               Height="56"
@@ -30,53 +32,53 @@
               VerticalAlignment="Top"
               CornerRadius="2">
         <Grid Margin="12 0">
-          <Label x:Name="PART_Hint" 
+          <Label x:Name="PART_Hint"
                  Style="{StaticResource t13pBody1}"
                  HorizontalContentAlignment="Left"
-                 RenderTransformOrigin="0,0" 
+                 RenderTransformOrigin="0,0"
                  IsHitTestVisible="False"
                  Padding="0"
                  Foreground="#000000">
             <Label.Content>
-              <Binding Path="(HintAssist.Hint)" 
+              <Binding Path="(HintAssist.Hint)"
                        FallbackValue="Label"
                        RelativeSource="{RelativeSource TemplatedParent}"/>
             </Label.Content>
             <Label.Opacity>
-              <Binding Path="(HintAssist.HintOpacity)" 
+              <Binding Path="(HintAssist.HintOpacity)"
                        RelativeSource="{RelativeSource TemplatedParent}"/>
             </Label.Opacity>
             <Label.RenderTransform>
               <TransformGroup>
                 <ScaleTransform x:Name="PART_HintScaleTransform"
-                                ScaleX=".6" 
+                                ScaleX=".6"
                                 ScaleY=".6"/>
-                <TranslateTransform x:Name="PART_HintTranslateTransform" 
-                                    X="0" 
+                <TranslateTransform x:Name="PART_HintTranslateTransform"
+                                    X="0"
                                     Y="0"/>
               </TransformGroup>
             </Label.RenderTransform>
           </Label>
-          <Label Content="Input" 
+          <Label Content="Input"
                  Style="{StaticResource t13pBody1}"
                  FontWeight="Normal"
                  Padding="0"
-                 RenderTransformOrigin="0,1" 
+                 RenderTransformOrigin="0,1"
                  FontSize="14pt"
                  Foreground="#000000"
                  HorizontalContentAlignment="Left">
             <Label.RenderTransform>
               <TransformGroup>
-                <ScaleTransform ScaleX="1" 
+                <ScaleTransform ScaleX="1"
                                 ScaleY="1"/>
-                <TranslateTransform X="0" 
+                <TranslateTransform X="0"
                                     Y="7"/>
               </TransformGroup>
             </Label.RenderTransform>
           </Label>
         </Grid>
       </Border>
-      <Label Content="Helper Text" 
+      <Label Content="Helper Text"
              Style="{StaticResource t13pBody1}"
              FontSize="8pt"
              Foreground="#000000"
@@ -86,8 +88,8 @@
              Padding="12 4 12 2">
 
       </Label>-->
-    </StackPanel>
+		</StackPanel>
 
 
-  </Grid>
+	</Grid>
 </UserControl>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using Ccr.Core.Extensions;
 using Ccr.Core.Helpers;
 using JetBrains.Annotations;
@@ -11,7 +12,7 @@ using JetBrains.Annotations;
 namespace Ccr.PresentationCore.Collections
 {
   //-------------------------------------------------------------------------------------------
-  //TODO BUG MAJOR STACKOVERFLOWEXCEPTION GOING ON WITH CIRCULAR EQUALITY == / EQUALS WITH NULL
+  //TODO BUG MAJOR STACK OVERFLOW EXCEPTION GOING ON WITH CIRCULAR EQUALITY ==/EQUALS WITH NULL
   //-------------------------------------------------------------------------------------------
 
   /// <summary>
@@ -91,9 +92,8 @@ namespace Ccr.PresentationCore.Collections
 
 
     #region Constructors
-
     /// <summary>
-    ///   Creates an instance of a <see cref="ValueEnum"/> member declarion. 
+    ///   Creates an instance of a <see cref="ValueEnum"/> member declaration. 
     /// </summary>
     /// <param name="value">
     ///   The backing value of the member declaration boxed in an <see cref="object"/>
@@ -128,7 +128,6 @@ namespace Ccr.PresentationCore.Collections
 
 
     #region Methods
-
     /// <summary>
     ///   Checks if the provided <paramref name="type"/> is a <see cref="ValueEnum{TValue}"/>
     ///   <see cref="Type"/> contains a defined <see cref="ValueEnum"/> member declaration with
@@ -169,7 +168,7 @@ namespace Ccr.PresentationCore.Collections
 
 
     /// <summary>
-    ///   Checks if the a <see cref="ValueEnum{TValue}"/> container class containes a 
+    ///   Checks if the a <see cref="ValueEnum{TValue}"/> container class contained a 
     ///   <typeparamref name="TEnum"/> declaration contains a defined <see cref="ValueEnum"/> 
     ///   member declaration with the name specified by the <paramref name="name"/> argument.   
     /// </summary>
@@ -193,8 +192,8 @@ namespace Ccr.PresentationCore.Collections
     public static bool IsDefined<TEnum>(
       [NotNull] string name,
       bool ignoreCase = false)
-        where TEnum
-          : ValueEnum
+      where TEnum
+      : ValueEnum
     {
       name.IsNotNull(nameof(name));
 
@@ -237,8 +236,7 @@ namespace Ccr.PresentationCore.Collections
         false,
         out valueEnumInstance);
     }
-
-
+    
     /// <summary>
     ///   Attempts to convert the <see cref="string"/> name of the <see cref="ValueEnum"/> 
     ///   to the instance of the member declaration. The return value indicates whether the 
@@ -322,20 +320,13 @@ namespace Ccr.PresentationCore.Collections
           $"is not of the type {typeof(ValueEnum<>).FormatName().SQuote()}.",
           nameof(valueEnumType));
 
-      //if (name.IsValidCSharpIdentifier())
-      //  throw new ArgumentException(
-      //    $"The specified {nameof(name).SQuote()} parameter is invalid because it does not " +
-      //    $"consitute a valid identifier by C#'s language specifications on member identifier " +
-      //    $"naming conventions.",
-      //    nameof(name));
-
       var stringComparison = ignoreCase
         ? StringComparison.CurrentCulture
         : StringComparison.CurrentCultureIgnoreCase;
 
       var matchingValues = ToArrayBase(valueEnumType)
-                           .Where(t => t.Name.Equals(name, stringComparison))
-                           .ToArray();
+        .Where(t => t.Name.Equals(name, stringComparison))
+        .ToArray();
 
       if (matchingValues.Length == 0)
         throw new ArgumentException(
@@ -352,6 +343,7 @@ namespace Ccr.PresentationCore.Collections
       return matchingValues[0];
     }
 
+    // TODO make sure this is not messed up
     /// <summary>
     ///   Gets the <see cref="ValueEnum"/> member declaration that matches the name specified 
     ///   by the <paramref name="name"/> argument provided by <see cref="ValueEnum{TValue}"/> 
@@ -380,6 +372,7 @@ namespace Ccr.PresentationCore.Collections
           : ValueEnum
     {
       var valueEnumType = typeof(TValueEnum);
+
       valueEnumType.IsNotNull(nameof(valueEnumType));
       value.IsNotNull(nameof(value));
 
@@ -393,7 +386,7 @@ namespace Ccr.PresentationCore.Collections
       //if (name.IsValidCSharpIdentifier())
       //  throw new ArgumentException(
       //    $"The specified {nameof(name).SQuote()} parameter is invalid because it does not " +
-      //    $"consitute a valid identifier by C#'s language specifications on member identifier " +
+      //    $"constitute a valid identifier by C#'s language specifications on member identifier " +
       //    $"naming conventions.",
       //    nameof(name));
 
@@ -409,21 +402,22 @@ namespace Ccr.PresentationCore.Collections
 
         matchingValues = ToArrayBase(valueEnumType)
           .Cast<TValueEnum>()
-          .Where(t => EqualityComparer<string>.Default.Equals(
-            func.Invoke(t).ToString().ToLower(),
-            value.ToString().ToLower()))
+          .Where(
+            t => EqualityComparer<string>.Default
+              .Equals(
+                func.Invoke(t).ToString().ToLower(),
+                value.ToString().ToLower()))
           .ToArray();
       }
       else
       {
         var func = propertySelector.Compile();
 
-         matchingValues = ToArrayBase(valueEnumType)
+        matchingValues = ToArrayBase(valueEnumType)
           .Cast<TValueEnum>()
           .Where(t => func.Invoke(t).Equals(value))
           .ToArray();
       }
-      
 
       if (matchingValues.Length == 0)
         throw new ArgumentException(
@@ -476,11 +470,11 @@ namespace Ccr.PresentationCore.Collections
     /// </returns>
     public static TEnum[] ToArray<TEnum>()
       where TEnum
-        : ValueEnum
+      : ValueEnum
     {
       return ToArrayBase(typeof(TEnum))
-             .Cast<TEnum>()
-             .ToArray();
+        .Cast<TEnum>()
+        .ToArray();
     }
 
 
@@ -492,8 +486,8 @@ namespace Ccr.PresentationCore.Collections
     ///   name="TEnum"/> must implement <see cref="ValueEnum{TEnum}"/>.
     /// </typeparam>
     /// <returns>
-    ///   Returns an <see cref="IList{TEnum}"/> of <see cref="TEnum"/> objects defined 
-    ///   as public static fields in the final implementation of the <see 
+    ///   Returns an <see cref="IList{TEnum}"/> of <see cref="TEnum"/> objects defined as
+    ///   public static fields in the final implementation of the <see
     ///   cref="ValueEnum{TValue}"/> container class.
     /// </returns>
     public static IList<TEnum> ToList<TEnum>()
@@ -511,8 +505,8 @@ namespace Ccr.PresentationCore.Collections
     ///   <paramref name="type"/> parameter.
     /// </summary>
     /// <param name="type">
-    ///   The <see cref="Type"/> in which the value of the superclass's <see 
-    ///   cref="ValueEnum{TValue}"/>'s generic paramter is provided non-generically through the 
+    ///   The <see cref="Type"/> in which the value of the super-class's <see 
+    ///   cref="ValueEnum{TValue}"/>'s generic parameter is provided non-generically through the 
     ///   <paramref name="type"/> through a standard <see cref="Type"/> object.
     /// </param>
     /// <returns>
@@ -563,8 +557,8 @@ namespace Ccr.PresentationCore.Collections
     /// </returns>
     public static TEnum FromValue<TEnum>(
       object value)
-        where TEnum
-          : ValueEnum
+      where TEnum
+        : ValueEnum
     {
       var matchingValues
         = ToArray<TEnum>()
@@ -651,12 +645,12 @@ namespace Ccr.PresentationCore.Collections
     ///   name="TEnum"/> must implement <see cref="ValueEnum{TEnum}"/>.
     /// </typeparam>
     /// <returns>
-    ///   An enumerated arry of the <see cref="string"/> names of the <typeparamref 
+    ///   An enumerated array of the <see cref="string"/> names of the <typeparamref 
     ///   name="TEnum"/> collection class members' string names.
     /// </returns>
     public static string[] GetNames<TEnum>()
       where TEnum
-        : ValueEnum
+      : ValueEnum
     {
       return EnumerateNames<TEnum>()
         .ToArray();
@@ -680,7 +674,7 @@ namespace Ccr.PresentationCore.Collections
     /// </returns>
     public static IEnumerable<TValue> EnumerateValues<TEnum, TValue>()
       where TEnum
-        : ValueEnum<TValue>
+      : ValueEnum<TValue>
     {
       return ToArray<TEnum>()
         .Select(t => t.Value);
@@ -706,7 +700,7 @@ namespace Ccr.PresentationCore.Collections
     /// </returns>
     public static TValue[] GetValues<TEnum, TValue>()
       where TEnum
-        : ValueEnum<TValue>
+      : ValueEnum<TValue>
     {
       return EnumerateValues<TEnum, TValue>()
         .ToArray();
@@ -715,8 +709,8 @@ namespace Ccr.PresentationCore.Collections
 
     // todo bug: there is a problem with the logic with my comparison and equality methods... 
     // todo bug: causing a major bug.
-    #region Problematic
 
+    #region Problematic
     public int CompareTo(object obj)
     {
       return string.Compare(
@@ -773,7 +767,6 @@ namespace Ccr.PresentationCore.Collections
     #endregion
 
     #endregion
-
   }
 
 
@@ -781,22 +774,28 @@ namespace Ccr.PresentationCore.Collections
     : ValueEnum,
       IComparable,
       IComparable<
-        ValueEnum<
-          TValue>>
+        ValueEnum<TValue>>
   {
     [NotNull]
-    public TValue Value => (TValue)ValueBase;
+    public TValue Value
+    {
+      get => (TValue) ValueBase;
+    }
 
-    public override Type ValueType => typeof(TValue);
+    public override Type ValueType
+    {
+      get => typeof(TValue);
+    }
 
 
     protected ValueEnum(
       [NotNull] TValue value,
       [NotNull, UsedImplicitly] string fieldName = "",
-      int line = 0) : base(
-        value,
-        fieldName,
-        line)
+      int line = 0) 
+        : base(
+          value,
+          fieldName,
+          line)
     {
     }
 
@@ -806,8 +805,8 @@ namespace Ccr.PresentationCore.Collections
         : ValueEnum<TValue>
     {
       var matchingValues = ToArray<TEnum>()
-                           .Where(t => t.Value.Equals(value))
-                           .ToArray();
+        .Where(t => t.Value.Equals(value))
+        .ToArray();
 
       if (matchingValues.Length == 0)
         throw new ArgumentException(
@@ -827,7 +826,7 @@ namespace Ccr.PresentationCore.Collections
       string name,
       bool ignoreCase = false)
       where TEnum
-      : ValueEnum
+        : ValueEnum
     {
       return Parse(typeof(TEnum), name, ignoreCase)
         .As<TEnum>();
@@ -835,28 +834,31 @@ namespace Ccr.PresentationCore.Collections
 
     public new static string[] GetNames<TEnum>()
       where TEnum
-      : ValueEnum<TValue>
+        : ValueEnum<TValue>
     {
       return ToArray<TEnum>()
-             .Select(t => t.Name)
-             .ToArray();
+        .Select(t => t.Name)
+        .ToArray();
     }
 
     public static TValue[] GetValues<TEnum>()
       where TEnum
-      : ValueEnum<TValue>
+        : ValueEnum<TValue>
     {
       return ToArray<TEnum>()
-             .Select(t => t.Value)
-             .ToArray();
+        .Select(t => t.Value)
+        .ToArray();
     }
 
 
     public int CompareTo(
       ValueEnum<TValue> obj)
     {
-      return LineNumber.CompareTo(obj.LineNumber);
+      return LineNumber
+        .CompareTo(
+          obj.LineNumber);
     }
+  
 
     public override string ToString()
     {

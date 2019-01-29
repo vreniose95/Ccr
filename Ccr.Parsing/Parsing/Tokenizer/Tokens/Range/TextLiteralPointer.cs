@@ -9,7 +9,6 @@ namespace Ccr.Parsing.Tokenizer.Tokens.Range
 		: ITextLiteralPointer
 	{
 		protected readonly string _literalText;
-
 		private readonly Regex _regexPattern;
 
 
@@ -17,6 +16,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens.Range
 		{
 			get => _literalText;
 		}
+
 		public Regex RegexPattern
 		{
 			get => _regexPattern;

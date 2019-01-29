@@ -50,10 +50,10 @@ namespace Ccr.Xaml.LogicalTree.Propogation
     }
 
     /// <summary>
-    ///   Returns the name of the Scope Acccessor Key as a <see cref="string"/>.
+    ///   Returns the name of the Scope Accessor Key as a <see cref="string"/>.
     /// </summary>
     /// <returns>
-    ///   The name of the Scope Acccessor Key as a <see cref="string"/>.
+    ///   The name of the Scope Accessor Key as a <see cref="string"/>.
     /// </returns>
     public override string ToString()
     {

@@ -169,13 +169,16 @@ namespace Ccr.MaterialDesign
             .Brush,
           progression);
 
-      throw new NotImplementedException();
+      //throw new NotImplementedException();
 
-      //if (!MaterialBrush.TryCreateFromBrush(interpolated, out var materialBrush))
-      //{
-      //	Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
-      //  Color = interpolated
-      //};
+			if (!MaterialBrush.TryCreateFromBrush(interpolated, out var materialBrush))
+			{
+				throw new NotImplementedException();
+				//Identity = new MaterialIdentity(SwatchClassifier, luminosity.IsAccent, luminosity),
+    //    Color = interpolated
+
+			}
+			return materialBrush;
     }
 
 
@@ -449,8 +452,116 @@ namespace Ccr.MaterialDesign
     }
 
 
-    #region IReadOnlyDictionary implementation
-    IEnumerator<KeyValuePair<Luminosity, MaterialBrush>> IEnumerable<KeyValuePair<Luminosity, MaterialBrush>>.GetEnumerator()
+		#region Standard Swatch Luminosities
+		public MaterialBrush P050
+		{
+			get => GetMaterial(Luminosity.P050);
+		}
+
+		public MaterialBrush P100
+		{
+			get => GetMaterial(Luminosity.P100);
+		}
+
+		public MaterialBrush P200
+		{
+			get => GetMaterial(Luminosity.P200);
+		}
+
+		public MaterialBrush P300
+		{
+			get => GetMaterial(Luminosity.P300);
+		}
+
+		public MaterialBrush P400
+		{
+			get => GetMaterial(Luminosity.P400);
+		}
+
+		public MaterialBrush P500
+		{
+			get => GetMaterial(Luminosity.P500);
+		}
+
+		public MaterialBrush P600
+		{
+			get => GetMaterial(Luminosity.P600);
+		}
+
+		public MaterialBrush P700
+		{
+			get => GetMaterial(Luminosity.P700);
+		}
+
+		public MaterialBrush P800
+		{
+			get => GetMaterial(Luminosity.P800);
+		}
+
+		public MaterialBrush P900
+		{
+			get => GetMaterial(Luminosity.P900);
+		}
+
+
+		public MaterialBrush A100
+		{
+			get => GetMaterial(Luminosity.A100);
+		}
+
+		public MaterialBrush A200
+		{
+			get => GetMaterial(Luminosity.A200);
+		}
+
+		public MaterialBrush A400
+		{
+			get => GetMaterial(Luminosity.A400);
+		}
+
+		public MaterialBrush A700
+		{
+			get => GetMaterial(Luminosity.A700);
+		}
+
+
+
+		public MaterialBrush PrimaryHueLight
+		{
+			get => P200;
+		}
+
+		public MaterialBrush PrimaryHueLightForeground
+		{
+			get => P200.ForegroundMaterial;
+		}
+
+		public MaterialBrush PrimaryHueMid
+		{
+			get => P500;
+		}
+
+		public MaterialBrush PrimaryHueMidForeground
+		{
+			get => P500.ForegroundMaterial;
+		}
+
+		public MaterialBrush PrimaryHueDark
+		{
+			get => P700;
+		}
+
+		public MaterialBrush PrimaryHueDarkForeground
+		{
+			get => P700.ForegroundMaterial;
+		}
+
+
+		#endregion
+
+
+		#region IReadOnlyDictionary implementation
+		IEnumerator<KeyValuePair<Luminosity, MaterialBrush>> IEnumerable<KeyValuePair<Luminosity, MaterialBrush>>.GetEnumerator()
     {
       return LuminosityMaterialMap.GetEnumerator();
     }
@@ -595,6 +706,9 @@ namespace Ccr.MaterialDesign
     }
 
     #endregion
+
+
+
 
 
     private MaterialBrush buildMaterialBrush(object value)

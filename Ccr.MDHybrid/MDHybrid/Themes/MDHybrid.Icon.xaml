@@ -1,14 +1,17 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-										xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-										xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign">
-	
-  <!--<Style TargetType="icons:Icon">
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign">
+
+	<!--<Style TargetType="icons:Icon">
     <Setter Property="Height" Value="48"/>
     <Setter Property="Width" Value="48"/>
     <Setter Property="Padding" Value="0"/>
-    --><!--<Setter Property="FlowDirection" Value="LeftToRight"/>
+	-->
+	<!--<Setter Property="FlowDirection" Value="LeftToRight"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
-    <Setter Property="VerticalAlignment" Value="Top"/>--><!--
+    <Setter Property="VerticalAlignment" Value="Top"/>-->
+	<!--
     <Setter Property="IsTabStop" Value="False"/>
     <Setter Property="SnapsToDevicePixels" Value="False"/>
     <Setter Property="UseLayoutRounding" Value="False"/>
@@ -31,14 +34,14 @@
 																	CenterX="0.5"
 																	CenterY="0.5">
 	                  <ScaleTransform.ScaleX>
-		                  <Binding RelativeSource="{RelativeSource TemplatedParent}" 
-															 Path="Flip" 
+		                  <Binding RelativeSource="{RelativeSource TemplatedParent}"
+															 Path="Flip"
 															 Converter="{IconFlipToScaleTransform}"
 															 ConverterParameter="X"/>
 	                  </ScaleTransform.ScaleX>
 	                  <ScaleTransform.ScaleY>
-		                  <Binding RelativeSource="{RelativeSource TemplatedParent}" 
-		                           Path="Flip" 
+		                  <Binding RelativeSource="{RelativeSource TemplatedParent}"
+		                           Path="Flip"
 		                           Converter="{IconFlipToScaleTransform}"
 		                           ConverterParameter="Y"/>
 	                  </ScaleTransform.ScaleY>
@@ -50,7 +53,7 @@
                   <Path Fill="{TemplateBinding Foreground}">
                     <Path.Data>
                       <Binding Path="Geometry"
-                               RelativeSource="{RelativeSource TemplatedParent}" 
+                               RelativeSource="{RelativeSource TemplatedParent}"
                                Mode="OneWay"/>
                     </Path.Data>
                   </Path>
@@ -62,43 +65,50 @@
       </Setter.Value>
     </Setter>
   </Style>-->
-	
-	
-		<Style TargetType="icons:Icon">
-		<Setter Property="Foreground" Value="White"/>
-		<Setter Property="Height" Value="48"/>
+
+
+	<Style TargetType="icons:Icon">
+		<Setter Property="Foreground" Value="White" />
+		<Setter Property="Height" Value="48" />
 		<!--<Setter Property="FlowDirection" Value="LeftToRight"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
     <Setter Property="VerticalAlignment" Value="Top"/>-->
-		<Setter Property="IsTabStop" Value="False"/>
-		<Setter Property="Padding" Value="0"/>
-		<Setter Property="SnapsToDevicePixels" Value="False"/>
+		<Setter Property="IsTabStop" Value="False" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="SnapsToDevicePixels" Value="False" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="icons:Icon">
 					<Grid>
-						<Border Background="{TemplateBinding Background}"
-						        BorderBrush="{TemplateBinding BorderBrush}"
-						        BorderThickness="{TemplateBinding BorderThickness}"
-						        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-						<Grid x:Name="PART_InnerGrid"
-						      Margin="{TemplateBinding Padding}"
-						      RenderTransformOrigin=".5,.5">
+						<Border
+							Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<Grid
+							x:Name="PART_InnerGrid"
+							Margin="{TemplateBinding Padding}"
+							RenderTransformOrigin=".5,.5">
 							<Grid.RenderTransform>
 								<TransformGroup>
-									<RotateTransform Angle="{TemplateBinding Rotation}"/>
-									<ScaleTransform x:Name="PART_FlipTransform"
-									                CenterX="0.5"
-									                CenterY="0.5">
+									<RotateTransform Angle="{TemplateBinding Rotation}" />
+									<ScaleTransform
+										x:Name="PART_FlipTransform"
+										CenterX="0.5"
+										CenterY="0.5">
 										<ScaleTransform.ScaleX>
-											<Binding Path="Flip" RelativeSource="{RelativeSource TemplatedParent}"
-											         Converter="{IconFlipToScaleTransform}"
-											         ConverterParameter="X"/>
+											<Binding
+												Converter="{IconFlipToScaleTransform}"
+												ConverterParameter="X"
+												Path="Flip"
+												RelativeSource="{RelativeSource TemplatedParent}" />
 										</ScaleTransform.ScaleX>
 										<ScaleTransform.ScaleY>
-											<Binding Path="Flip" RelativeSource="{RelativeSource TemplatedParent}"
-											         Converter="{IconFlipToScaleTransform}"
-											         ConverterParameter="Y"/>
+											<Binding
+												Converter="{IconFlipToScaleTransform}"
+												ConverterParameter="Y"
+												Path="Flip"
+												RelativeSource="{RelativeSource TemplatedParent}" />
 										</ScaleTransform.ScaleY>
 									</ScaleTransform>
 								</TransformGroup>
@@ -107,8 +117,10 @@
 								<Canvas Width="24" Height="24">
 									<Path Fill="{TemplateBinding Foreground}">
 										<Path.Data>
-											<Binding Path="Geometry" RelativeSource="{RelativeSource TemplatedParent}"
-											         Mode="OneWay"/>
+											<Binding
+												Mode="OneWay"
+												Path="Geometry"
+												RelativeSource="{RelativeSource TemplatedParent}" />
 										</Path.Data>
 									</Path>
 								</Canvas>
@@ -118,7 +130,7 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-		<Setter Property="UseLayoutRounding" Value="False"/>
-		<Setter Property="Width" Value="48"/>
+		<Setter Property="UseLayoutRounding" Value="False" />
+		<Setter Property="Width" Value="48" />
 	</Style>
 </ResourceDictionary>

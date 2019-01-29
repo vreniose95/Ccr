@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Diagnostics.CodeAnalysis;
 using Ccr.Data.Common.Domain;
 using Ccr.Data.Common.EntityMaps;
 using Ccr.Data.EntityFramework.Functions.Attributes;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ccr.Data.Common.Context
 {

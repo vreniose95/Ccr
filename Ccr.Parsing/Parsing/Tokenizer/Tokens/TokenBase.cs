@@ -41,7 +41,6 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		{
 			TextLiteralPointer = _textLiteralPointer;
 		}
-
 	}
 }
 		//"&");

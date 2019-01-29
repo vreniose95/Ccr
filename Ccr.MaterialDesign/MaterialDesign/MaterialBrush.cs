@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Primitives.Behaviors;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
+using Ccr.MaterialDesign.Static;
 using Ccr.PresentationCore.Media;
 using JetBrains.Annotations;
 // ReSharper disable ConvertToAutoPropertyWhenPossible
-
 // ReSharper disable ArrangeAccessorOwnerBody
+
 namespace Ccr.MaterialDesign
 {
   public class MaterialBrush
@@ -24,6 +27,19 @@ namespace Ccr.MaterialDesign
     private HslColor? _hslColor;
     [CanBeNull]
     private HsvColor? _hsvColor;
+		[CanBeNull]
+    private MaterialBrush _foregroundMaterial;
+
+
+    private static readonly IReadOnlyList<MaterialBrush> _foregroundMaterialBrushCandidates
+			= new List<MaterialBrush>
+			{
+				GlobalResources.Palette.GetSwatch(SwatchClassifier.Grey).P050,
+				GlobalResources.Palette.GetSwatch(SwatchClassifier.Grey).P050.WithOpacity(.86),
+				GlobalResources.Palette.GetSwatch(SwatchClassifier.Grey).P900.WithOpacity(.86),
+				GlobalResources.Palette.GetSwatch(SwatchClassifier.Grey).P900,
+				//new MaterialBrush(Brushes.White, new MaterialIdentity(SwatchClassifier.Grey, Luminosity.P050))
+			};
 
     #endregion
 
@@ -46,7 +62,14 @@ namespace Ccr.MaterialDesign
       get => _identity;
     }
 
-    public HslColor HslColor
+		[NotNull]
+    public MaterialBrush ForegroundMaterial
+    {
+	    get => _foregroundMaterial ??
+		    (_foregroundMaterial = _computeForegroundMaterial());
+		}
+		
+		public HslColor HslColor
     {
       get => _hslColor ??
              (_hslColor = Color.ToHslColor()).Value;
@@ -75,16 +98,47 @@ namespace Ccr.MaterialDesign
       _brush.SetIdentity(_identity);
     }
 
-    #endregion
+		#endregion
 
 
-    public static bool TryCreateFromBrush(
+
+		//public static bool TryCreateFromBrushAndIdentity(
+		//	//[NotNull] SolidColorBrush brush,
+		//	SwatchClassifier classifier,
+		//	Luminosity luminosity,
+		//	out MaterialBrush materialBrush)
+		//{
+		//	//brush.IsNotNull(nameof(brush));
+
+		//	var materialIdentity = new MaterialIdentity(classifier, luminosity);
+
+		//	//var identity = brush.GetValue(MDH.IdentityProperty);
+		//	//var materialIdentity = identity as MaterialIdentity;
+
+		//	if (materialIdentity == null
+		//		|| materialIdentity == DependencyProperty.UnsetValue
+		//		|| materialIdentity == null)
+		//	{
+		//		materialBrush = null;
+		//		return false;
+		//	}
+
+		//	materialBrush = new MaterialBrush(
+		//		brush,
+		//		materialIdentity);
+
+		//	return true;
+		//}
+
+
+
+		public static bool TryCreateFromBrush(
       [NotNull] SolidColorBrush brush,
       out MaterialBrush materialBrush)
     {
       brush.IsNotNull(nameof(brush));
 
-      var identity = brush.GetValue(MDH.IdentityProperty);
+       var identity = brush.GetValue(MDH.IdentityProperty);
       var materialIdentity = identity as MaterialIdentity;
 
       if (identity == null
@@ -102,6 +156,29 @@ namespace Ccr.MaterialDesign
       return true;
     }
 
+
+    private MaterialBrush _computeForegroundMaterial()
+    {
+			var resolvedForeground = _foregroundMaterialBrushCandidates
+		    .Select(
+			    t =>
+			    {
+				    var constrast = Color.ContrastRatio(t.Color);
+				    return (material: t, contrast: constrast);
+			    })
+		    .OrderByDescending(
+			    t => t.contrast)
+		    .First();
+
+			return resolvedForeground.material;
+
+			//  foreach (var foregroundCandidate in _foregroundMaterialBrushCandidates)
+			//  {
+			//   foregroundCandidate.Color
+
+			//}
+
+    }
 
     public static implicit operator MaterialBrush(
       [NotNull] SolidColorBrush @this)

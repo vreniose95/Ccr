@@ -42,7 +42,11 @@ namespace Ccr.PresentationCore.Helpers
 				throw new KeyNotFoundException();
 
 			var value = _resourceDictionary[key];
-			_cache.Add(key, value);
+
+			if (!_cache.ContainsKey(key))
+			{
+				_cache.Add(key, value);
+			}
 
 			return value;
 		}

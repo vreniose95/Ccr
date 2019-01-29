@@ -1,39 +1,46 @@
 ﻿<UserControl x:Class="Ccr.MDHybrid.Demo.Views.RootView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:cal="http://www.caliburnproject.org"
-             xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
-             xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign"
-             mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
-             cal:Bind.AtDesignTime="True"
-             Designer.Viewport="HD720"
-             Designer.Orientation="Landscape">
-  <Grid Background="{StaticResource MDH.Palette.BlueGrey.600}"
-        Height="700"
-        Width="900">
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+						 xmlns:cal="http://www.caliburnproject.org"
+						 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+						 xmlns:icons="clr-namespace:Ccr.MaterialDesign.Controls.Icons;assembly=Ccr.MaterialDesign"
+						 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+						 xmlns:vm="clr-namespace:Ccr.MDHybrid.Demo.ViewModels"
+						 cal:Bind.AtDesignTime="True"
+						 d:DataContext="{d:DesignInstance vm:RootViewModel, IsDesignTimeCreatable=True}"
+						 Designer.Orientation="Landscape"
+						 Designer.Viewport="HD720"
+						 mc:Ignorable="d">
+	<Grid Width="900"
+				Height="700"
+				Background="{StaticResource MDH.Palette.BlueGrey.600}">
 
-    <StackPanel Margin="40 20" 
-                Orientation="Vertical" 
-                HorizontalAlignment="Left"
-                Width="400">
-      <StackPanel Margin="10 5"
-                  Orientation="Horizontal">
-        <Button Style="{StaticResource MDH.Controls.Buttons.FlatButton.DarkSurface}"
-                Command="{Binding ChangeItCommand}">
-          <icons:Icon Kind="ArrowRightDropCircleOutline"/>
-        </Button>
-      </StackPanel>
-      <StackPanel Margin="10 5"
-                  Orientation="Horizontal">
-      <TextBox Style="{StaticResource MDH.HintedFlatTextBox}"
-               HintAssist.Hint="Email Address"
-               HintAssist.HelpText="enter a valid email address"></TextBox>
-        </StackPanel>
-    </StackPanel>
-    <!--<Border Background="{StaticResource MDH.Palette.Grey.050}"
+		<StackPanel Width="400"
+								Margin="40,20"
+								HorizontalAlignment="Left"
+								Orientation="Vertical">
+			<StackPanel Margin="10,5"
+									Orientation="Horizontal">
+				<Button Command="{Binding ChangeItCommand}"
+								Style="{StaticResource MDH.Controls.Buttons.FlatButton}"
+								Content="CANCEL"
+								MDH.Swatch="Red">
+
+				</Button>
+			</StackPanel>
+			<StackPanel Margin="10,5"
+									Orientation="Horizontal">
+				<TextBox HintAssist.HelpText="enter a valid email address"
+								 HintAssist.Hint="Email Address"
+								 Style="{StaticResource MDH.HintedFlatTextBox}"/>
+			</StackPanel>
+			<Button Command="{Binding ChangeItCommand}"
+							Style="{StaticResource MDH.Controls.Buttons.PathButton}"
+							MDH.Swatch="Teal">
+				<icons:Icon Kind="AccessPointNetwork"/>
+			</Button>
+		</StackPanel>
+		<!--<Border Background="{StaticResource MDH.Palette.Grey.050}"
 		        HorizontalAlignment="Center"
 		        VerticalAlignment="Center"
 		        Height="400"
@@ -46,16 +53,18 @@
         <Grid>
 
 
-          --><!--<ContentControl x:Name="CardDemoView"/>-->
+		-->
+		<!--<ContentControl x:Name="CardDemoView"/>-->
 
-          <!--<StackPanel Margin="40 20">
+		<!--<StackPanel Margin="40 20">
             <TextBox Style="{StaticResource HintedFlatTextBox}"
                      HintAssist.Hint="Type Something"></TextBox>
           </StackPanel>-->
-          <!--<Button Style="{StaticResource MaterialDesignRaisedButton}"
+		<!--<Button Style="{StaticResource MaterialDesignRaisedButton}"
                   Content="OKAY">
 
-          </Button>--><!--
+          </Button>-->
+		<!--
           <TextBox Style="{StaticResource HintedFlatTextBox}"
                    VerticalAlignment="Top"
                    HintAssist.Hint="Enter some text"></TextBox>
@@ -63,15 +72,19 @@
         <Grid Row="1">
           <StackPanel Orientation="Horizontal"
 					            HorizontalAlignment="Right">
-            --><!--<Button Style="{StaticResource FlatButton}"
+		-->
+		<!--<Button Style="{StaticResource FlatButton}"
                     Content="OKAY">
-              --><!--<Button.Visibility>
+		-->
+		<!--<Button.Visibility>
     <Binding Converter="{StaticResource inoetvc}"
-              ElementName="PART_tb" 
+              ElementName="PART_tb"
               Path="Text"/>
-  </Button.Visibility>--><!--
+  </Button.Visibility>-->
+		<!--
             </Button>-->
-            <!--<TextBox x:Name="PART_tb"></TextBox>--><!--
+		<!--<TextBox x:Name="PART_tb"></TextBox>-->
+		<!--
             <Button Style="{StaticResource FlatButton}"
 						        Content="CANCEL"
 										Foreground="{StaticResource MDH.Palette.Red.A400}"
@@ -81,7 +94,7 @@
       </Grid>
     </Border>-->
 
-    <!--<Border Width="200" Height="200" Background="Black"/>
+		<!--<Border Width="200" Height="200" Background="Black"/>
 		<Card HorizontalAlignment="Center"
 		      VerticalAlignment="Center"
 					Height="520"
@@ -91,7 +104,7 @@
 					CornerRadius="10"
 		      Background="{StaticResource MDH.Palette2.Blue.500}">
 			-->
-    <!--<Grid>
+		<!--<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="120"/>
 					<RowDefinition />
@@ -101,8 +114,8 @@
 				      Shadow.Level="2"
 				      Panel.ZIndex="1000">
 					
-					<Image Source="/Ccr.MDHybrid.Demo;component/Resources/snowy-forest.jpg" 
-					       Stretch="UniformToFill" 
+					<Image Source="/Ccr.MDHybrid.Demo;component/Resources/snowy-forest.jpg"
+					       Stretch="UniformToFill"
 					       VerticalAlignment="Center">
 						<Image.RenderTransform>
 							<TranslateTransform Y="0"/>
@@ -115,21 +128,21 @@
 								 VerticalContentAlignment="Bottom"
 					       Padding="40 15"/>
 				</Grid>
-				<Grid Grid.Row="1" 
+				<Grid Grid.Row="1"
 				      Panel.ZIndex="0" Height="400">
 
 				</Grid>
 
 			</Grid>-->
-    <!--
+		<!--
 		</Card>-->
 
 
-    <!--<StackPanel Orientation="Vertical ">
+		<!--<StackPanel Orientation="Vertical ">
 			<Label Content="IM TESTING STUFF" FontSize="28pt" Foreground="{MDH Swatch=Indigo}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 			<Label Content="IM TESTING MORE STUFF" FontSize="28pt" Foreground="{MDH Swatch=DeepOrange}" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
 		</StackPanel>-->
-    <!--<ListView Background="Transparent"
+		<!--<ListView Background="Transparent"
 							BorderBrush="Transparent"
 							BorderThickness="0">
 			<ListView.ItemsSource>
@@ -148,13 +161,13 @@
 									 FontSize="24pt"
 									 RenderTransformOrigin=".5,.5">
 							<Label.Foreground>
-								<Binding Converter="{ConditionalTextInverter}" 
+								<Binding Converter="{ConditionalTextInverter}"
 												 ElementName="PART_SwatchExemplar"
 												 Path="Background"/>
 							</Label.Foreground>
 							<Label.LayoutTransform>
 								<RotateTransform Angle="-90"
-																 CenterX=".5" 
+																 CenterX=".5"
 																 CenterY=".5"/>
 							</Label.LayoutTransform>
 						</Label>
@@ -163,7 +176,7 @@
 								<RowDefinition Height="10*"/>
 								<RowDefinition Height="4*"/>
 							</Grid.RowDefinitions>
-							<ItemsControl x:Name="PART_Materials" 
+							<ItemsControl x:Name="PART_Materials"
 							              Visibility="Hidden">
 								<ItemsControl.ItemTemplate>
 
@@ -181,7 +194,7 @@
 											       FontWeight="Light"
 											       FontSize="12pt">
 												<Label.Foreground>
-													<Binding Converter="{ConditionalTextInverter}" 
+													<Binding Converter="{ConditionalTextInverter}"
 													         ElementName="PART_Swatch"
 													         Path="Background"/>
 												</Label.Foreground>
@@ -210,7 +223,7 @@
 									</ItemsPanelTemplate>
 								</ItemsControl.ItemsPanel>
 							</ItemsControl>
-							<ItemsControl x:Name="PART_Accents" 
+							<ItemsControl x:Name="PART_Accents"
 														Grid.Row="1"
 							              Visibility="Hidden">
 								<ItemsControl.ItemTemplate>
@@ -228,7 +241,7 @@
 											       FontWeight="Light"
 											       FontSize="12pt">
 												<Label.Foreground>
-													<Binding Converter="{ConditionalTextInverter}" 
+													<Binding Converter="{ConditionalTextInverter}"
 													         ElementName="PART_Swatch"
 													         Path="Background"/>
 												</Label.Foreground>
@@ -262,7 +275,7 @@
 					<DataTemplate.Triggers>
 						<DataTrigger Value="True">
 							<DataTrigger.Binding>
-								<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=ListViewItem}" 
+								<Binding RelativeSource="{RelativeSource FindAncestor, AncestorType=ListViewItem}"
 												 Path="IsSelected" />
 							</DataTrigger.Binding>
 							<Setter TargetName="PART_Materials"
@@ -292,7 +305,7 @@
 				</ItemsPanelTemplate>
 			</ListView.ItemsPanel>
 		</ListView>-->
-    <!--<Button Content="Hello"
+		<!--<Button Content="Hello"
 						HorizontalAlignment="Center"
 						VerticalAlignment="Center"
 						Height="60"
@@ -300,7 +313,7 @@
 			<Button.Template>
 				<ControlTemplate TargetType="Button">
 					<Border Background="{TemplateBinding Background}">
-						<Grid x:Name="PART_Root" 
+						<Grid x:Name="PART_Root"
 						      ClipToBounds="{TemplateBinding ClipToBounds}">
 							<Ripple.TrackingService>
 								<RippleMouseTracker EventName="Click">
@@ -310,7 +323,7 @@
 								</RippleMouseTracker>
 							</Ripple.TrackingService>
 							<Grid.Background>
-								<SolidColorBrush Opacity="0" 
+								<SolidColorBrush Opacity="0"
 								                 Color="Black"/>
 							</Grid.Background>
 							<Canvas>
@@ -327,8 +340,8 @@
 									</TranslateTransform>
 								</Canvas.RenderTransform>
 								<Ellipse x:Name="PART_Ripple"
-								         RenderTransformOrigin=".5,.5" 
-								         VerticalAlignment="Center" 
+								         RenderTransformOrigin=".5,.5"
+								         VerticalAlignment="Center"
 								         HorizontalAlignment="Center"
 								         IsHitTestVisible="False">
 									<Ellipse.RenderTransform>
@@ -337,11 +350,11 @@
 									<Ellipse.Fill>
 										White
 										-->
-    <!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
-    <!--
+		<!--<Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(primitives:VisualFeedback.Brush)"/>-->
+		<!--
 									</Ellipse.Fill>
 									<Ellipse.Height>
-										<MultiBinding Converter="{RippleDiameterConverter}" 
+										<MultiBinding Converter="{RippleDiameterConverter}"
 										              ConverterParameter="2">
 											<Binding Path="ActualWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
 											<Binding Path="ActualHeight" RelativeSource="{RelativeSource TemplatedParent}"/>
@@ -353,15 +366,15 @@
 									</Ellipse.Width>
 								</Ellipse>
 							</Canvas>
-							<ContentPresenter x:Name="PART_ContentPresenter" 
+							<ContentPresenter x:Name="PART_ContentPresenter"
 							                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
 							                  Margin="{TemplateBinding Padding}"/>
 						</Grid>
 					</Border>
 				</ControlTemplate>
 			</Button.Template>
 		</Button>-->
-  </Grid>
+	</Grid>
 
 </UserControl>

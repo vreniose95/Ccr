@@ -29,14 +29,15 @@ namespace Ccr.MaterialDesign
     public static readonly Luminosity A700 = Define();
   }
 
+
   [TypeConverter(typeof(LuminosityConverter))]
   public partial class Luminosity
     : IComparable,
       IComparable<Luminosity>
   {
-    private static readonly IReadOnlyList<int> _normalPrimaryLuminosities
-      = new List<int>
-      {
+    private static Luminosity[] _normalLuminosities;
+
+    private static readonly int[] _normalPrimaryLuminosities = {
         050,
         100,
         200,
@@ -49,38 +50,43 @@ namespace Ccr.MaterialDesign
         900
       };
 
-    private static readonly IReadOnlyList<int> _normalAccentLuminosities
-      = new List<int>
-      {
+    private static readonly int[] _normalAccentLuminosities = {
         100,
         200,
         400,
         700
       };
+    
 
-    private static int[] _normalLuminosities;
-    public static IReadOnlyList<int> NormalLuminosities
+    public static IReadOnlyList<Luminosity> NormalLuminosities
     {
       get => _normalLuminosities
              ?? (_normalLuminosities = _normalPrimaryLuminosities
+               .Select(t => new Luminosity(t, true))
                .Concat(
-                 _normalAccentLuminosities)
+                 _normalAccentLuminosities
+                   .Select(t => new Luminosity(t, false))
+                   .ToArray())
                .ToArray());
     }
-
+    
 
     public int LuminosityIndex { get; }
 
     public bool IsAccent { get; }
-
-
+    
     public bool IsNormalLuminosity
     {
-      get => NormalLuminosities.Contains(LuminosityIndex);
+      get => NormalLuminosities != null 
+             && NormalLuminosities
+               .Where(
+                 t => t.IsAccent == IsAccent)
+               .Count(
+                 t => t.LuminosityIndex == LuminosityIndex) == 1;
     }
 
 
-    internal Luminosity() { }
+    private Luminosity() { }
 
     public Luminosity(
       int luminosityIndex,
@@ -91,51 +97,12 @@ namespace Ccr.MaterialDesign
         throw new ArgumentOutOfRangeException(
           nameof(luminosityIndex),
           luminosityIndex,
-          $@"Luminosity value is not valid. Must be between 0 and 1000, inclusively.");
+          "Luminosity value is not valid. Must be between 0 and 999, inclusively.");
 
       LuminosityIndex = luminosityIndex;
       IsAccent = isAccent;
     }
 
-
-    public override bool Equals(object obj)
-    {
-      if (!(obj is Luminosity))
-        return false;
-
-      return this == (Luminosity)obj;
-    }
-
-    protected bool Equals(
-      [NotNull] Luminosity other)
-    {
-      return LuminosityIndex == other.LuminosityIndex
-        && IsAccent == other.IsAccent;
-    }
-
-    public override int GetHashCode()
-    {
-      unchecked
-      {
-        return (LuminosityIndex * 397) ^ IsAccent.GetHashCode();
-      }
-    }
-
-    public int CompareTo(object obj)
-    {
-      if (obj is Luminosity)
-        return CompareTo(obj
-          .As<Luminosity>());
-
-      throw new ArgumentException();
-    }
-
-    public int CompareTo(Luminosity other)
-    {
-      return LuminosityIndex
-        .CompareTo(
-          other.LuminosityIndex);
-    }
 
     public static bool operator ==(
       [NotNull] Luminosity a,
@@ -144,7 +111,6 @@ namespace Ccr.MaterialDesign
       return a.LuminosityIndex == b.LuminosityIndex
              && a.IsAccent == b.IsAccent;
     }
-
 
     public static bool operator !=(
       [NotNull] Luminosity a,
@@ -168,7 +134,6 @@ namespace Ccr.MaterialDesign
       return a.LuminosityIndex > b.LuminosityIndex;
     }
 
-
     public static bool operator <=(
       [NotNull] Luminosity a,
       [NotNull] Luminosity b)
@@ -183,12 +148,54 @@ namespace Ccr.MaterialDesign
       return a.LuminosityIndex >= b.LuminosityIndex;
     }
 
+
+    public override bool Equals(
+      object obj)
+    {
+      if (!(obj is Luminosity))
+        return false;
+
+      return this == (Luminosity)obj;
+    }
+
+    protected bool Equals(
+      [NotNull] Luminosity other)
+    {
+      return LuminosityIndex == other.LuminosityIndex
+             && IsAccent == other.IsAccent;
+    }
+
+    public override int GetHashCode()
+    {
+      unchecked
+      {
+        return (LuminosityIndex * 397) ^ IsAccent.GetHashCode();
+      }
+    }
+
+    public int CompareTo(
+      object obj)
+    {
+      if (obj is Luminosity luminosity)
+        return CompareTo(luminosity);
+
+      throw new ArgumentException();
+    }
+
+    public int CompareTo(
+      Luminosity other)
+    {
+      return LuminosityIndex
+        .CompareTo(
+          other.LuminosityIndex);
+    }
+
     public static Luminosity Define(
       [CallerMemberName] string memberName = "")
     {
       return Parse(memberName);
     }
-
+    
     public static Luminosity Parse(
       string luminosityStr = "")
     {
@@ -204,15 +211,13 @@ namespace Ccr.MaterialDesign
         isAccent = false;
         luminosityStr = luminosityStr.Substring(1);
       }
-
-      if (!int.TryParse(luminosityStr, out var _index))
+      if (!int.TryParse(luminosityStr, out var index))
       {
         throw new FormatException(
           $"Could not parse \'Luminosity\' object from the text {originalStr.Quote()} " +
           $"because {luminosityStr.Quote()} cannot ne parsed into type \'int\'. ");
       }
-
-      return new Luminosity(_index, isAccent);
+      return new Luminosity(index, isAccent);
     }
 
     public override string ToString()

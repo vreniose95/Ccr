@@ -28,7 +28,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 
 		  var m1Identity = material1.Identity;
 
-      //TODO should the finalLum's isAccent be m1Identity's or Luminosity1.Isaccent? was m1Identity.
+      //TODO should the final Lum's isAccent be m1Identity's or Luminosity1.Isaccent? was m1Identity.
 		  var finalIdentity = new MaterialIdentity(
 		    m1Identity.SwatchClassifier,
 		    finalLum,

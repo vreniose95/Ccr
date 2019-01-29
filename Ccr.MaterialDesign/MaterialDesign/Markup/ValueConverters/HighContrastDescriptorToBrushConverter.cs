@@ -10,14 +10,15 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class HighContrastDescriptorToBrushConverter : XamlConverter<
-    Swatch,
-    AbstractMaterialDescriptor,
-    bool,
-    SolidColorBrush,
-    double,
-    NullParam,
-    SolidColorBrush>
+  public class HighContrastDescriptorToBrushConverter
+	  : XamlConverter<
+	    Swatch,
+	    AbstractMaterialDescriptor,
+	    bool,
+	    SolidColorBrush,
+	    double,
+	    NullParam,
+	    SolidColorBrush>
   {
     public override SolidColorBrush Convert(
       Swatch materialSet,

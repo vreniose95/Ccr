@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.MaterialDesign.Static;
@@ -18,7 +12,10 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
   public class MaterialDescriptorConverter
     : TypeConverter
   {
-    public Type TargetType => typeof(AbstractMaterialDescriptor);
+	  public Type TargetType
+	  {
+			get => typeof(AbstractMaterialDescriptor);
+		}
 
 
     public override bool CanConvertFrom(

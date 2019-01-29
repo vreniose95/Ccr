@@ -79,8 +79,6 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 
 				eventArgs.Handled = true;
 			}
-
-			//if (eventArgs.MarkupExtension is )
 		}
 
 		public static void HandlePropertySet(
@@ -111,14 +109,14 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 				var constructor = converterType.GetConstructor(new Type[] { });
 				if (constructor == null)
 					throw new NotSupportedException(
-						"Injected type converter constructor must have a parameterless constructor.");
+						"Injected type converter constructor must have a parameter-less constructor.");
 
 				var converterTypeInstance = constructor.Invoke(new object[] { });
 
-				var converter = converterTypeInstance as TypeConverter;
-				if (converter == null)
+			  if (!(converterTypeInstance is TypeConverter converter))
 					throw new Exception(
-						$"Type \'{converterTypeInstance.GetType().Name}\' not valid. Must be of type \'TypeConverter\'.");
+						$"Type {converterTypeInstance.GetType().Name.SQuote()} not valid. Must be of type " +
+						$"{nameof(TypeConverter).SQuote()}.");
 
 				var convertedValue = converter.ConvertFrom(eventArgs.Value);
 				if(convertedValue == null)
@@ -130,8 +128,6 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 				eventArgs.Handled = true;
 			}
 		}
-
-
 	}
 }
 /*

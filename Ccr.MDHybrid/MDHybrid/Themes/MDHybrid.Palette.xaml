@@ -1,31 +1,30 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ResourceDictionary.MergedDictionaries>
-    <ResourceDictionary Source="MDHybrid.Palette.Colors.xaml"/>
-    <ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml"/>
-    <ResourceDictionary Source="MDHybrid.Palette.Swatches.xaml"/>
-  </ResourceDictionary.MergedDictionaries>
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="MDHybrid.Palette.Colors.xaml" />
+		<ResourceDictionary Source="MDHybrid.Palette.Brushes.xaml" />
+		<ResourceDictionary Source="MDHybrid.Palette.Swatches.xaml" />
+	</ResourceDictionary.MergedDictionaries>
 
-  <Palette x:Key="MDH.Palette">
-    <StaticResource ResourceKey="MDH.Palette.Red"/>
-    <StaticResource ResourceKey="MDH.Palette.Pink"/>
-    <StaticResource ResourceKey="MDH.Palette.Purple"/>
-    <StaticResource ResourceKey="MDH.Palette.DeepPurple"/>
-    <StaticResource ResourceKey="MDH.Palette.Indigo"/>
-    <StaticResource ResourceKey="MDH.Palette.Blue"/>
-    <StaticResource ResourceKey="MDH.Palette.LightBlue"/>
-    <StaticResource ResourceKey="MDH.Palette.Cyan"/>
-    <StaticResource ResourceKey="MDH.Palette.Teal"/>
-    <StaticResource ResourceKey="MDH.Palette.Green"/>
-    <StaticResource ResourceKey="MDH.Palette.LightGreen"/>
-    <StaticResource ResourceKey="MDH.Palette.Lime"/>
-    <StaticResource ResourceKey="MDH.Palette.Yellow"/>
-    <StaticResource ResourceKey="MDH.Palette.Amber"/>
-    <StaticResource ResourceKey="MDH.Palette.Orange"/>
-    <StaticResource ResourceKey="MDH.Palette.DeepOrange"/>
-    <StaticResource ResourceKey="MDH.Palette.Brown"/>
-    <StaticResource ResourceKey="MDH.Palette.Grey"/>
-    <StaticResource ResourceKey="MDH.Palette.BlueGrey"/>
-  </Palette>
+	<Palette x:Key="MDH.Palette">
+		<StaticResource ResourceKey="MDH.Palette.Red" />
+		<StaticResource ResourceKey="MDH.Palette.Pink" />
+		<StaticResource ResourceKey="MDH.Palette.Purple" />
+		<StaticResource ResourceKey="MDH.Palette.DeepPurple" />
+		<StaticResource ResourceKey="MDH.Palette.Indigo" />
+		<StaticResource ResourceKey="MDH.Palette.Blue" />
+		<StaticResource ResourceKey="MDH.Palette.LightBlue" />
+		<StaticResource ResourceKey="MDH.Palette.Cyan" />
+		<StaticResource ResourceKey="MDH.Palette.Teal" />
+		<StaticResource ResourceKey="MDH.Palette.Green" />
+		<StaticResource ResourceKey="MDH.Palette.LightGreen" />
+		<StaticResource ResourceKey="MDH.Palette.Lime" />
+		<StaticResource ResourceKey="MDH.Palette.Yellow" />
+		<StaticResource ResourceKey="MDH.Palette.Amber" />
+		<StaticResource ResourceKey="MDH.Palette.Orange" />
+		<StaticResource ResourceKey="MDH.Palette.DeepOrange" />
+		<StaticResource ResourceKey="MDH.Palette.Brown" />
+		<StaticResource ResourceKey="MDH.Palette.Grey" />
+		<StaticResource ResourceKey="MDH.Palette.BlueGrey" />
+	</Palette>
 
 </ResourceDictionary>

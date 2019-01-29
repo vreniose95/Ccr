@@ -3,8 +3,6 @@
 	public interface ITextRangePointer
 		: ITextLiteralPointer
 	{
-		int StartIndex { get; }
-
 		int EndIndex { get; }
 
 		int Length { get; }

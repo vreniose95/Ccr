@@ -17,28 +17,32 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 	/// The backing value type for the dependency property.
 	/// </typeparam>
 	public class Meta<TOwner, TValue>
-		where TOwner : DependencyObject
+		where TOwner 
+		  : DependencyObject
 	{
 		#region Fields
 		/// <summary>
-		/// The equivelent <see cref="FrameworkPropertyMetadata"/> value. 
+		/// The equivalent <see cref="FrameworkPropertyMetadata"/> value. 
 		/// </summary>
-		private FrameworkPropertyMetadata _frameworkPropertyMetdata;
+		private FrameworkPropertyMetadata _frameworkPropertyMetadata;
 
 		/// <summary>
 		/// Backing value holding the default value of the dependency property.
 		/// </summary>
 		private readonly TValue _defaultValue;
+
 		/// <summary>
 		/// Backing value holding a reference to a <see cref="T:System.Windows.PropertyChangedCallback"/> 
 		/// implementation specified in this metadata. 
 		/// </summary>
 		private readonly PropertyChange<TOwner, TValue> _propertyChangedCallback;
+
 		/// <summary>
 		/// Backing value holding a reference to a <see cref="T:System.Windows.CoerceValueCallback"/> 
 		/// implementation specified in this metadata. 
 		/// </summary>
 		private readonly PropertyCoerce<TOwner, TValue> _coerceValueCallback;
+
 		/// <summary>
 		/// Backing value holding the <see cref="FrameworkPropertyMetadataOptions"/> options
 		/// for the dependency property.
@@ -58,6 +62,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 				return _defaultValue;
 			}
 		}
+
 		///<summary>
 		/// Gets a reference to a <see cref="T:System.Windows.PropertyChangedCallback"/> implementation 
 		/// specified in this metadata.
@@ -69,6 +74,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 				return _propertyChangedCallback;
 			}
 		}
+
 		/// <summary>
 		/// Gets a reference to a <see cref="T:System.Windows.CoerceValueCallback"/> 
 		/// implementation specified in this metadata.
@@ -80,6 +86,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 				return _coerceValueCallback;
 			}
 		}
+
 		/// <summary>
 		/// Specifies the types of framework-level property behavior that pertain to a particular 
 		/// dependency property in the Windows Presentation Foundation (WPF) property system.
@@ -182,7 +189,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -207,7 +214,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -219,8 +226,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			_coerceValueCallback = propertyCoerceCallback;
 		}
 
-
-		/// <summary>
+    /// <summary>
 		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with
 		/// a specified default value and <see cref="PropertyChange{TOwner,TValue}"/> callback implementation 
 		/// reference for the dependency property that the resulting produced framework metadata will be applied to.
@@ -233,7 +239,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		/// <param name="optionsFlags">
@@ -255,7 +261,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 
 		#endregion
 
-		#region Operator
+		#region Operators
 		/// <summary>
 		/// Implicit operator to converts this instance of the <see cref="Meta{TOwner,TValue}"/> 
 		/// class to the framework equivalent <see cref="FrameworkPropertyMetadata"/> object
@@ -266,8 +272,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		public static implicit operator FrameworkPropertyMetadata(
 			Meta<TOwner, TValue> @this)
 		{
-			return @this._frameworkPropertyMetdata ??
-						 (@this._frameworkPropertyMetdata = @this.toFrameworkPropertyMetadata());
+			return @this._frameworkPropertyMetadata ??
+						 (@this._frameworkPropertyMetadata = @this.toFrameworkPropertyMetadata());
 		}
 
 		#endregion
@@ -295,7 +301,6 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 	public class MetaBase<TValue>
 		: Meta<DependencyObject, TValue>
 	{
-
 		#region Constructors
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class.
@@ -371,7 +376,6 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 			OptionFlags = optionFlags;
 		}
 		
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with
 		/// a specified default value and <see cref="PropertyChange{TOwner,TValue}"/> callback implementation 
@@ -406,7 +410,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -431,7 +435,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		[MethodImpl(MethodImplOptions.NoInlining)]
@@ -442,7 +446,6 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 				propertyCoerceCallback)
 		{
 		}
-
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Meta{TOwner,TValue}"/> class with
@@ -457,7 +460,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		/// <param name="propertyCoerceCallback">
-		/// Referened to a handler implementation that is to be called by the property system calls
+		/// Reference to a handler implementation that is to be called by the property system calls
 		/// <see cref="DependencyObject.CoerceValue(DependencyProperty)"/> against the property.
 		/// </param>
 		/// <param name="optionsFlags">
