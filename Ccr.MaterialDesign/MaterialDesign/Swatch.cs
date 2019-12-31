@@ -6,15 +6,16 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.Numerics.Ranges;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
+using Ccr.Std.Core.Numerics.Ranges;
 using Ccr.Xaml.Collections;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 namespace Ccr.MaterialDesign
 {
-  //[DictionaryKeyProperty(nameof(SwatchClassifier))]
+	//[DictionaryKeyProperty(nameof(SwatchClassifier))]
   public class Swatch
     : HostedElement<Palette>,
       IList,
@@ -524,6 +525,11 @@ namespace Ccr.MaterialDesign
 			get => GetMaterial(Luminosity.A700);
 		}
 
+
+		public MaterialBrush MaterialPaperDark
+		{
+			get => P050.ForegroundMaterial;
+		}
 
 
 		public MaterialBrush PrimaryHueLight

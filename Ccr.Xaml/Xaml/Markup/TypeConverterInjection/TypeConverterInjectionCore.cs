@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Markup;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using Ccr.Std.Extensions;
 using Ccr.Std.Introspective.Extensions;
 using JetBrains.Annotations;
@@ -152,7 +152,7 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 			if (injectedTypeConverterAttributes.Any())
 			{
 				if (injectedTypeConverterAttributes.Length > 1)
-					throw new NotSupportedException("Multiple \'InjectTypeConverterAttribute\' attributes discovered.");
+					throw new NotISupportsedException("Multiple \'InjectTypeConverterAttribute\' attributes discovered.");
 
 				var injectedTypeConverterAttribute = injectedTypeConverterAttributes.Single();
 
@@ -162,7 +162,7 @@ namespace Ccr.Xaml.Markup.TypeConverterInjection
 
 				var constructor = converterType.GetConstructor(new Type[] { });
 				if (constructor == null)
-					throw new NotSupportedException("Injected type converter constructor must have a parameterless constructor.");
+					throw new NotISupportsedException("Injected type converter constructor must have a parameterless constructor.");
 
 				var converterTypeInstance = constructor.Invoke(new object[] { });
 

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows;
 using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.Helpers;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
+using Ccr.Std.Core.Helpers;
+
 // ReSharper disable ConvertToAutoProperty
 namespace Ccr.PresentationCore.Layout
 {
@@ -73,6 +75,7 @@ namespace Ccr.PresentationCore.Layout
 
 			return new Point(x, y);
 		}
+		
 		/// <summary>
 		///		Creates a <see cref="PolarPoint"/> structure from a cartesian <see cref="Point"/> structure.
 		/// </summary>
@@ -87,7 +90,7 @@ namespace Ccr.PresentationCore.Layout
 		{
 			var angle = point.Atan2();
 			var angleDegrees = MathHelpers.ToDegrees(angle);
-			var radius = (point.X.Squared() + point.Y.Squared()).Root();
+			var radius = (point.X.Squared() + point.Y.Squared()).Sqrt();
 
 			return new PolarPoint(angleDegrees, radius);
 		}

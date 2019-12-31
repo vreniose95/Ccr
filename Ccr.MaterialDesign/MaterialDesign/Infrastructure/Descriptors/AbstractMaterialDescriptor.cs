@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Media;
-using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Markup.TypeConverters;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {

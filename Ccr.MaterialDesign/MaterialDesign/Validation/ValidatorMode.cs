@@ -1,6 +1,6 @@
 ﻿namespace Ccr.MaterialDesign.Validation
 {
-  public enum ValidatorMode
+	public enum ValidatorMode
   {
     Passive,
     Aggressive

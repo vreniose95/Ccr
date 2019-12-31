@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.MaterialDesign.Static;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {

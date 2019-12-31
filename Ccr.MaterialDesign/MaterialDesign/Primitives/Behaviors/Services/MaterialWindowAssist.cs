@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
-  public static class MaterialWindowAssist
+	public static class MaterialWindowAssist
   {
     private static readonly Type _type = typeof(MaterialWindowAssist);
 

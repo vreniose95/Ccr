@@ -5,7 +5,6 @@ using System.Windows.Input;
 using Ccr.Std.Extensions;
 using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Introspective.Infrastructure;
-using MS.Internal;
 
 namespace Ccr.PresentationCore.Helpers.EventHelpers
 {
@@ -20,6 +19,7 @@ namespace Ccr.PresentationCore.Helpers.EventHelpers
 					MemberDescriptor.NonPublic,
 					"RoutedEvent");
 		}
+
 		public static void SetReflectedRoutedEvent(
 			this EventRoute @this,
 			RoutedEvent value)
@@ -41,7 +41,6 @@ namespace Ccr.PresentationCore.Helpers.EventHelpers
 					MemberDescriptor.NonPublic,
 					"Clear");
 		}
-
 	}
 
 	internal static class EventRouteFactory

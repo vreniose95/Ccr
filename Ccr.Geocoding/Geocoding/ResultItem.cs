@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Geocoding

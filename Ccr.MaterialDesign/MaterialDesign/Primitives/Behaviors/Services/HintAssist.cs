@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Adapters;
 using Ccr.MaterialDesign.Validation;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 using static Ccr.MaterialDesign.Primitives.Infrastructure.CcrControl;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
-  public static class HintAssistExtensions
+	public static class HintAssistExtensions
   {
     [NotNull]
     public static TextFieldInputDataAdapter GetInputDataAdapter(
@@ -27,6 +29,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
       return inputDataAdapter;
     }
+
     [CanBeNull]
     public static bool GetIsRequiredField(
       [NotNull] this FrameworkElement @this)
@@ -35,7 +38,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 
       return HintAssist.GetIsRequiredField(@this);
     }
-
+		
     [CanBeNull]
     public static IStringValidator GetValidator(
       [NotNull] this FrameworkElement @this)
@@ -66,12 +69,11 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
     public static TextFieldInputVisualStateService GetTextFieldInputVisualStateService(
       [NotNull] this FrameworkElement @this)
     {
-
       @this.IsNotNull(nameof(@this));
-
       return HintAssist.GetTextFieldInputVisualStateService(@this);
     }
-  }
+	}
+
 
   public static class HintAssist
   {
@@ -89,6 +91,9 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
     public static readonly DependencyProperty HintOpacityProperty = DP.Attach(
       _type, new MetaBase<double>(0.56d, FXR));
 
+    public static readonly DependencyProperty HintForegroundProperty = DP.Attach(
+	    _type, new MetaBase<Brush>(Brushes.White));
+		
     public static readonly DependencyProperty ValidatorProperty = DP.Attach(
       _type, new MetaBase<IStringValidator>(null, onValidatorChanged));
 
@@ -123,15 +128,23 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
     {
       return @this.Get<double>(HintOpacityProperty);
     }
-
     public static void SetHintOpacity(
       DependencyObject @this, 
       double value)
     {
       @this.Set(HintOpacityProperty, value);
     }
-    
-    public static IStringValidator GetValidator(
+
+    public static Brush GetHintForeground(DependencyObject @this)
+    {
+	    return @this.Get<Brush>(HintForegroundProperty);
+    }
+    public static void SetHintForeground(DependencyObject @this, Brush value)
+    {
+	    @this.Set(HintForegroundProperty, value);
+    }
+
+		public static IStringValidator GetValidator(
       DependencyObject @this)
     {
       return @this.Get<IStringValidator>(ValidatorProperty);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Xaml.Collections
@@ -22,6 +22,7 @@ namespace Ccr.Xaml.Collections
 			add => PropertyChanged += value;
 			remove => PropertyChanged -= value;
 		}
+
 		/// <summary>
 		/// Occurs when an item is added, removed, changed, moved, or the entire list is refreshed.
 		/// </summary>
@@ -37,9 +38,7 @@ namespace Ccr.Xaml.Collections
 		/// </summary>
 		protected virtual event PropertyChangedEventHandler PropertyChanged;
 
-
-
-
+		
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.ObservableCollection`1" /> 
 		/// class.
@@ -69,7 +68,6 @@ namespace Ccr.Xaml.Collections
 			CopyFrom(list);
 		}
 
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:System.Collections.ObjectModel.ObservableCollection`1" /> class that contains elements copied from the specified collection.</summary>
 		/// <param name="collection">
@@ -96,6 +94,8 @@ namespace Ccr.Xaml.Collections
 			foreach (var obj in collection)
 				items.Add(obj);
 		}
+
+
 
 		/// <summary>
 		/// Moves the item at the specified index to a new location in the collection.

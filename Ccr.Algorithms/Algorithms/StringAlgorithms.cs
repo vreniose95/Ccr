@@ -1,5 +1,4 @@
 ﻿using System;
-using Ccr.Core.Extensions;
 
 namespace Ccr.Algorithms
 {
@@ -8,11 +7,11 @@ namespace Ccr.Algorithms
     public static int LevenshteinDistance(
       string a, string b)
     {
-      if (a.IsNullOrEmptyEx())
-        return !b.IsNullOrEmptyEx() ? a.Length : 0;
+      if (string.IsNullOrEmpty(a))
+        return !string.IsNullOrEmpty(b) ? a.Length : 0;
 
-      if (b.IsNullOrEmptyEx())
-        return !a.IsNullOrEmptyEx() ? b.Length : 0;
+      if (string.IsNullOrEmpty(b))
+        return !string.IsNullOrEmpty(a) ? b.Length : 0;
 
       var d = new int[a.Length - 1, b.Length - 1];
 

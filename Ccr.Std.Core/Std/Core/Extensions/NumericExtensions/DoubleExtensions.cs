@@ -259,62 +259,97 @@ namespace Ccr.Std.Core.Extensions.NumericExtensions
     }
 
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="this">
-    /// 
-    /// </param>
-    /// <returns>
-    /// 
-    /// </returns>
-    public static double ArcCosine(
-      this double @this)
-    {
-      return Math.Acos(@this);
-    }
-    public static double ArcSine(
-      this double @this)
-    {
-      return Math.Asin(@this);
-    }
-    public static double ArcTangent(
-      this double @this)
-    {
-      return Math.Atan(@this);
-    }
+		//  /// <summary>
+		//  /// 
+		//  /// </summary>
+		//  /// <param name="this">
+		//  /// 
+		//  /// </param>
+		//  /// <returns>
+		//  /// 
+		//  /// </returns>
+		//  public static double ArcCosine(
+		//    this double @this)
+		//  {
+		//    return Math.Acos(@this);
+		//  }
+		//  public static double ArcSine(
+		//    this double @this)
+		//  {
+		//    return Math.Asin(@this);
+		//  }
+		//  public static double ArcTangent(
+		//    this double @this)
+		//  {
+		//    return Math.Atan(@this);
+		//  }
 
-    public static double Squared(
-      this double @this)
-    {
-      return Math.Pow(@this, 2);
-    }
+		public static double Squared(
+			this double @this)
+		{
+			return Math.Pow(@this, 2);
+		}
 
-    public static double Root(
-      this double @this)
-    {
-      return Math.Sqrt(@this);
-    }
+		//  public static double Root(
+		//    this double @this)
+		//  {
+		//    return Math.Sqrt(@this);
+		//  }
 
-    public static double Power(
-      this double @this,
-      double exponent)
-    {
-      return Math.Pow(
-        @this,
-        exponent);
-    }
+		//  //public static double Abs(
+		//  //  this decimal @this)
+		//  //{
+		//  // return Math.Abs(@this);
+		//  //}
 
-    public static double Round(
-      this double @this,
-      int decimals = 0,
-      MidpointRounding midpointRounding = MidpointRounding.ToEven)
-    {
-      return Math.Round(
-        @this,
-        decimals,
-        midpointRounding);
-    }
+		//  public static double Abs(
+		//   this double @this)
+		//  {
+		//   return Math.Abs(@this);
+		//  }
 
-  }
+		//  public static long Abs(
+		//   this long @this)
+		//  {
+		//   return Math.Abs(@this);
+		//  }
+		//  public static long Abs(
+		//   this byte @this)
+		//  {
+		//   return Math.Abs(@this);
+		//  }
+
+		//  public static int Abs(
+		//   this int @this)
+		//  {
+		//   return Math.Abs(@this);
+		//  }
+
+		//  public static long Abs(
+		//   this short @this)
+		//  {
+		//   return Math.Abs(@this);
+		//  }
+
+		//public static double Power(
+		//   this double @this,
+		//   double exponent)
+		//  {
+		//   return Math.Pow(
+		//    @this,
+		//    exponent);
+		//  }
+
+		//public static double Round(
+		//    this double @this,
+		//    int decimals = 0,
+		//    MidpointRounding midpointRounding = MidpointRounding.ToEven)
+		//  {
+		//    return Math.Round(
+		//      @this,
+		//      decimals,
+		//      midpointRounding);
+		//  }
+
+	}
 }

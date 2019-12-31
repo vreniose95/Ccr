@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
@@ -14,12 +10,22 @@ namespace Ccr.MDHybrid.Demo
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
+	    if (value == null)
+		    return Visibility.Hidden;
+	    
+	    if (value is string s)
+	    {
+		    return string.IsNullOrEmpty(s)
+			    ? Visibility.Hidden
+			    : Visibility.Visible;
+			}
+
       var str = value.ToString();
 
       return string.IsNullOrEmpty(str)
-        ? Visibility.Hidden
-        : Visibility.Visible;
-    }
+	      ? Visibility.Hidden
+	      : Visibility.Visible;
+		}
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {

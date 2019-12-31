@@ -1,5 +1,5 @@
 ﻿using System.Xml.XPath;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.Extensions
 {

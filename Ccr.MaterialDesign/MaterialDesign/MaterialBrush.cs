@@ -8,30 +8,32 @@ using Ccr.MaterialDesign.Primitives.Behaviors;
 using Ccr.MaterialDesign.Primitives.Behaviors.Services;
 using Ccr.MaterialDesign.Static;
 using Ccr.PresentationCore.Media;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
+
 // ReSharper disable ConvertToAutoPropertyWhenPossible
 // ReSharper disable ArrangeAccessorOwnerBody
 
 namespace Ccr.MaterialDesign
 {
-  public class MaterialBrush
-    : HostedElement<
-      Swatch>
-  {
-    #region Fields
-    [NotNull]
-    private readonly SolidColorBrush _brush;
-    [NotNull]
-    private readonly MaterialIdentity _identity;
-    [CanBeNull]
-    private HslColor? _hslColor;
-    [CanBeNull]
-    private HsvColor? _hsvColor;
+	public class MaterialBrush
+		: HostedElement<
+			Swatch>
+	{
+		#region Fields
+		[NotNull]
+		private readonly SolidColorBrush _brush;
+		[NotNull]
+		private readonly MaterialIdentity _identity;
 		[CanBeNull]
-    private MaterialBrush _foregroundMaterial;
+		private HslColor? _hslColor;
+		[CanBeNull]
+		private HsvColor? _hsvColor;
+		[CanBeNull]
+		private MaterialBrush _foregroundMaterial;
 
 
-    private static readonly IReadOnlyList<MaterialBrush> _foregroundMaterialBrushCandidates
+		private static readonly IReadOnlyList<MaterialBrush> _foregroundMaterialBrushCandidates
 			= new List<MaterialBrush>
 			{
 				GlobalResources.Palette.GetSwatch(SwatchClassifier.Grey).P050,
@@ -41,62 +43,62 @@ namespace Ccr.MaterialDesign
 				//new MaterialBrush(Brushes.White, new MaterialIdentity(SwatchClassifier.Grey, Luminosity.P050))
 			};
 
-    #endregion
+		#endregion
 
 
-    #region Properties
-    public Color Color
-    {
-      get => _brush.Color;
-    }
-
-    [NotNull]
-    public SolidColorBrush Brush
-    {
-      get => _brush;
-    }
-
-    [NotNull]
-    public MaterialIdentity Identity
-    {
-      get => _identity;
-    }
+		#region Properties
+		public Color Color
+		{
+			get => _brush.Color;
+		}
 
 		[NotNull]
-    public MaterialBrush ForegroundMaterial
-    {
-	    get => _foregroundMaterial ??
-		    (_foregroundMaterial = _computeForegroundMaterial());
+		public SolidColorBrush Brush
+		{
+			get => _brush;
 		}
-		
+
+		[NotNull]
+		public MaterialIdentity Identity
+		{
+			get => _identity;
+		}
+
+		[NotNull]
+		public MaterialBrush ForegroundMaterial
+		{
+			get => _foregroundMaterial ??
+				(_foregroundMaterial = _computeForegroundMaterial());
+		}
+
 		public HslColor HslColor
-    {
-      get => _hslColor ??
-             (_hslColor = Color.ToHslColor()).Value;
-    }
+		{
+			get => _hslColor ??
+						 (_hslColor = Color.ToHslColor()).Value;
+		}
 
-    public HsvColor HsvColor
-    {
-      get => _hsvColor ??
-             (_hsvColor = Color.ToHsvColor()).Value;
-    }
+		public HsvColor HsvColor
+		{
+			get => _hsvColor ??
+						 (_hsvColor = Color.ToHsvColor()).Value;
+		}
 
-    #endregion
+		#endregion
 
 
-    #region Constructors
-    internal MaterialBrush(
-      [NotNull] SolidColorBrush brush,
-      [NotNull] MaterialIdentity identity)
-    {
-      brush.IsNotNull(nameof(brush));
-      identity.IsNotNull(nameof(identity));
+		#region Constructors
+		internal MaterialBrush(
+			[NotNull] SolidColorBrush brush,
+			[NotNull] MaterialIdentity identity)
+		{
+			brush.IsNotNull(nameof(brush));
+			identity.IsNotNull(nameof(identity));
 
-      _brush = brush;
-      _identity = identity;
+			_brush = brush;
+			_identity = identity;
 
-      _brush.SetIdentity(_identity);
-    }
+			_brush.SetIdentity(_identity);
+		}
 
 		#endregion
 
@@ -133,42 +135,42 @@ namespace Ccr.MaterialDesign
 
 
 		public static bool TryCreateFromBrush(
-      [NotNull] SolidColorBrush brush,
-      out MaterialBrush materialBrush)
-    {
-      brush.IsNotNull(nameof(brush));
+			[NotNull] SolidColorBrush brush,
+			out MaterialBrush materialBrush)
+		{
+			brush.IsNotNull(nameof(brush));
 
-       var identity = brush.GetValue(MDH.IdentityProperty);
-      var materialIdentity = identity as MaterialIdentity;
+			var identity = brush.GetValue(MDH.IdentityProperty);
+			var materialIdentity = identity as MaterialIdentity;
 
-      if (identity == null
-          || identity == DependencyProperty.UnsetValue
-          || materialIdentity == null)
-      {
-        materialBrush = null;
-        return false;
-      }
+			if (identity == null
+					|| identity == DependencyProperty.UnsetValue
+					|| materialIdentity == null)
+			{
+				materialBrush = null;
+				return false;
+			}
 
-      materialBrush = new MaterialBrush(
-        brush,
-        materialIdentity);
+			materialBrush = new MaterialBrush(
+				brush,
+				materialIdentity);
 
-      return true;
-    }
+			return true;
+		}
 
 
-    private MaterialBrush _computeForegroundMaterial()
-    {
+		private MaterialBrush _computeForegroundMaterial()
+		{
 			var resolvedForeground = _foregroundMaterialBrushCandidates
-		    .Select(
-			    t =>
-			    {
-				    var constrast = Color.ContrastRatio(t.Color);
-				    return (material: t, contrast: constrast);
-			    })
-		    .OrderByDescending(
-			    t => t.contrast)
-		    .First();
+				.Select(
+					t =>
+					{
+						var constrast = Color.ContrastRatio(t.Color);
+						return (material: t, contrast: constrast);
+					})
+				.OrderByDescending(
+					t => t.contrast)
+				.First();
 
 			return resolvedForeground.material;
 
@@ -178,30 +180,30 @@ namespace Ccr.MaterialDesign
 
 			//}
 
-    }
+		}
 
-    public static implicit operator MaterialBrush(
-      [NotNull] SolidColorBrush @this)
-    {
-      @this.IsNotNull(nameof(@this));
+		public static implicit operator MaterialBrush(
+			[NotNull] SolidColorBrush @this)
+		{
+			@this.IsNotNull(nameof(@this));
 
-      if (!TryCreateFromBrush(@this, out var _materialBrush))
-        throw new InvalidOperationException(
-          $"Cannot create a {nameof(MaterialBrush).Quote()} from the provided {nameof(@this).SQuote()}" +
-          $"argument {nameof(SolidColorBrush).Quote()} because the attached dependency property " +
-          $"\'MDH.IdentityProperty\' has not been set on the {nameof(SolidColorBrush).Quote()}.");
+			if (!TryCreateFromBrush(@this, out var _materialBrush))
+				throw new InvalidOperationException(
+					$"Cannot create a {nameof(MaterialBrush).Quote()} from the provided {nameof(@this).SQuote()}" +
+					$"argument {nameof(SolidColorBrush).Quote()} because the attached dependency property " +
+					$"\'MDH.IdentityProperty\' has not been set on the {nameof(SolidColorBrush).Quote()}.");
 
-      return _materialBrush;
-    }
+			return _materialBrush;
+		}
 
-    public static implicit operator SolidColorBrush(
-      [NotNull] MaterialBrush @this)
-    {
-      @this.IsNotNull(nameof(@this));
+		public static implicit operator SolidColorBrush(
+			[NotNull] MaterialBrush @this)
+		{
+			@this.IsNotNull(nameof(@this));
 
-      return @this.Brush;
-    }
-  }
+			return @this.Brush;
+		}
+	}
 }
 
 ///// <summary>

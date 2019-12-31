@@ -4,7 +4,7 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class ConditionalTextInverter
+	public class ConditionalTextInverter
     : XamlConverter<
       SolidColorBrush,
       NullParam,
@@ -14,15 +14,9 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
       SolidColorBrush background, 
       NullParam param)
     {
-      var blackDifference = background
-                            .Color
-                            .Differential(
-                              Colors.Black);
+      var blackDifference = background.Color.Differential(Colors.Black);
 
-      var whiteDifference = background
-                            .Color
-                            .Differential(
-                              Colors.White);
+      var whiteDifference = background.Color.Differential(Colors.White);
 
       if (blackDifference > whiteDifference)
         return Brushes.Black;

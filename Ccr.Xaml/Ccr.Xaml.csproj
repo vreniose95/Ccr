@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
     <AssemblyName>Ccr.Xaml</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -34,6 +34,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,234 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Html\Attributes\ButtonType.cs" />
+    <Compile Include="Html\Attributes\Charset.cs" />
+    <Compile Include="Html\Attributes\Crossorigin.cs" />
+    <Compile Include="Html\Attributes\Dir.cs" />
+    <Compile Include="Html\Attributes\EncType.cs" />
+    <Compile Include="Html\Attributes\Execution.cs" />
+    <Compile Include="Html\Attributes\Extensions\EnumExtensions.cs" />
+    <Compile Include="Html\Attributes\Extensions\GlobalAttributesExtensions.cs" />
+    <Compile Include="Html\Attributes\HttpEquiv.cs" />
+    <Compile Include="Html\Attributes\InputType.cs" />
+    <Compile Include="Html\Attributes\Kind.cs" />
+    <Compile Include="Html\Attributes\LinkRel.cs" />
+    <Compile Include="Html\Attributes\Method.cs" />
+    <Compile Include="Html\Attributes\Name.cs" />
+    <Compile Include="Html\Attributes\Preload.cs" />
+    <Compile Include="Html\Attributes\Rel.cs" />
+    <Compile Include="Html\Attributes\Sandbox.cs" />
+    <Compile Include="Html\Attributes\Scope.cs" />
+    <Compile Include="Html\Attributes\Shape.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\AltAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\AutocompleteAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\AutofocusAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\AutoplayAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\CharsetAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\CiteAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\ColspanValueAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\ControlsAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\DatetimeAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\DisabledAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\HeightAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsAltAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsAutocompleteAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsAutofocusAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsAutoplayAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsCharsetAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsCiteAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsColspanAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsControlsAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsDatetimeAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsDisabledAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsDownloadAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsForAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsFormAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\DownloadAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\ForAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\FormAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsHeadersAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\HeadersAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsHeightAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsLoopAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsMaxLengthAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsMIMETypeAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsMultipleAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsMutedAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsNameAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsPreloadAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsRelAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsRequiredAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsRowspanAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsSizeAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsSpanAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsSrcAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsSrcsetAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsStringValueAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsTargetAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsUsemapAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsWidthAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\LabelAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\MediaQueryAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsLabelAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\LoopAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\MaxLengthAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsMediaQueryAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\MIMETypeAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\MultipleAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\MutedAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\NameAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\NumberValueAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\PlaceholderAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\ReadonlyAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsNumberValueAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsPlaceholderAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\PreloadAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Interfaces\ISupportsReadonlyAttribute.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\RelAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\RequiredAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\RowspanValueAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\SizeAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\SpanAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\SrcAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\SrcsetAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\StringValueAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\TargetAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\UsemapAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Traits\Extensions\WidthAttributeExtensions.cs" />
+    <Compile Include="Html\Attributes\Target.cs" />
+    <Compile Include="Html\Attributes\Wrap.cs" />
+    <Compile Include="Html\Builders\HtmlBuilder.cs" />
+    <Compile Include="Html\Builders\HtmlBuilderTagExtensions.cs" />
+    <Compile Include="Html\Builders\HtmlBuilderUtilities.cs" />
+    <Compile Include="Html\Encoders\AttributeEncoder.cs" />
+    <Compile Include="Html\Encoders\ContentEncoder.cs" />
+    <Compile Include="Html\Encoders\IStringEncoder.cs" />
+    <Compile Include="Html\Encoders\PassThroughEncoder.cs" />
+    <Compile Include="Html\Extensions\ExceptionMessages.cs" />
+    <Compile Include="Html\Extensions\InvalidAttributeException.cs" />
+    <Compile Include="Html\Tags\A.cs" />
+    <Compile Include="Html\Tags\Abbr.cs" />
+    <Compile Include="Html\Tags\Address.cs" />
+    <Compile Include="Html\Tags\Area.cs" />
+    <Compile Include="Html\Tags\Article.cs" />
+    <Compile Include="Html\Tags\Aside.cs" />
+    <Compile Include="Html\Tags\Audio.cs" />
+    <Compile Include="Html\Tags\B.cs" />
+    <Compile Include="Html\Tags\Base.cs" />
+    <Compile Include="Html\Tags\Bdi.cs" />
+    <Compile Include="Html\Tags\Bdo.cs" />
+    <Compile Include="Html\Tags\Blockquote.cs" />
+    <Compile Include="Html\Tags\Body.cs" />
+    <Compile Include="Html\Tags\Br.cs" />
+    <Compile Include="Html\Tags\Button.cs" />
+    <Compile Include="Html\Tags\Canvas.cs" />
+    <Compile Include="Html\Tags\Caption.cs" />
+    <Compile Include="Html\Tags\Cite.cs" />
+    <Compile Include="Html\Tags\Code.cs" />
+    <Compile Include="Html\Tags\Col.cs" />
+    <Compile Include="Html\Tags\Colgroup.cs" />
+    <Compile Include="Html\Tags\Data.cs" />
+    <Compile Include="Html\Tags\Datalist.cs" />
+    <Compile Include="Html\Tags\Dd.cs" />
+    <Compile Include="Html\Tags\Del.cs" />
+    <Compile Include="Html\Tags\Details.cs" />
+    <Compile Include="Html\Tags\Dfn.cs" />
+    <Compile Include="Html\Tags\Div.cs" />
+    <Compile Include="Html\Tags\divold.cs" />
+    <Compile Include="Html\Tags\Dl.cs" />
+    <Compile Include="Html\Tags\Dt.cs" />
+    <Compile Include="Html\Tags\Em.cs" />
+    <Compile Include="Html\Tags\Embed.cs" />
+    <Compile Include="Html\Tags\ExternalScript.cs" />
+    <Compile Include="Html\Tags\Fieldset.cs" />
+    <Compile Include="Html\Tags\Figcaption.cs" />
+    <Compile Include="Html\Tags\Figure.cs" />
+    <Compile Include="Html\Tags\Footer.cs" />
+    <Compile Include="Html\Tags\Form.cs" />
+    <Compile Include="Html\Tags\H1.cs" />
+    <Compile Include="Html\Tags\H2.cs" />
+    <Compile Include="Html\Tags\H3.cs" />
+    <Compile Include="Html\Tags\H4.cs" />
+    <Compile Include="Html\Tags\H5.cs" />
+    <Compile Include="Html\Tags\H6.cs" />
+    <Compile Include="Html\Tags\Head.cs" />
+    <Compile Include="Html\Tags\Header.cs" />
+    <Compile Include="Html\Tags\Hr.cs" />
+    <Compile Include="Html\Tags\Html.cs" />
+    <Compile Include="Html\Tags\I.cs" />
+    <Compile Include="Html\Tags\Iframe.cs" />
+    <Compile Include="Html\Tags\Img.cs" />
+    <Compile Include="Html\Tags\InlineScript.cs" />
+    <Compile Include="Html\Tags\Input.cs" />
+    <Compile Include="Html\Tags\Ins.cs" />
+    <Compile Include="Html\Tags\Kbd.cs" />
+    <Compile Include="Html\Tags\Label.cs" />
+    <Compile Include="Html\Tags\Legend.cs" />
+    <Compile Include="Html\Tags\Li.cs" />
+    <Compile Include="Html\Tags\Link.cs" />
+    <Compile Include="Html\Tags\Main.cs" />
+    <Compile Include="Html\Tags\Map.cs" />
+    <Compile Include="Html\Tags\Mark.cs" />
+    <Compile Include="Html\Tags\Meta.cs" />
+    <Compile Include="Html\Tags\Infrastructure\IInnerHtml.cs" />
+    <Compile Include="Html\Tags\Infrastructure\ITag.cs" />
+    <Compile Include="Html\Tags\Meter.cs" />
+    <Compile Include="Html\Tags\Nav.cs" />
+    <Compile Include="Html\Tags\Noscript.cs" />
+    <Compile Include="Html\Tags\Object.cs" />
+    <Compile Include="Html\Tags\Ol.cs" />
+    <Compile Include="Html\Tags\Optgroup.cs" />
+    <Compile Include="Html\Tags\Option.cs" />
+    <Compile Include="Html\Tags\Output.cs" />
+    <Compile Include="Html\Tags\P.cs" />
+    <Compile Include="Html\Tags\Param.cs" />
+    <Compile Include="Html\Tags\Picture.cs" />
+    <Compile Include="Html\Tags\Pre.cs" />
+    <Compile Include="Html\Tags\Progress.cs" />
+    <Compile Include="Html\Tags\Q.cs" />
+    <Compile Include="Html\Tags\Rp.cs" />
+    <Compile Include="Html\Tags\Rt.cs" />
+    <Compile Include="Html\Tags\Ruby.cs" />
+    <Compile Include="Html\Tags\S.cs" />
+    <Compile Include="Html\Tags\Samp.cs" />
+    <Compile Include="Html\Tags\Script.cs" />
+    <Compile Include="Html\Tags\Section.cs" />
+    <Compile Include="Html\Tags\Select.cs" />
+    <Compile Include="Html\Tags\Small.cs" />
+    <Compile Include="Html\Tags\Source.cs" />
+    <Compile Include="Html\Tags\Span.cs" />
+    <Compile Include="Html\Tags\Strong.cs" />
+    <Compile Include="Html\Tags\Style.cs" />
+    <Compile Include="Html\Tags\Sub.cs" />
+    <Compile Include="Html\Tags\Summary.cs" />
+    <Compile Include="Html\Tags\Sup.cs" />
+    <Compile Include="Html\Tags\Table.cs" />
+    <Compile Include="Html\Tags\Infrastructure\Tag.cs" />
+    <Compile Include="Html\Tags\Infrastructure\TagRenderMode.cs" />
+    <Compile Include="Html\Tags\Tbody.cs" />
+    <Compile Include="Html\Tags\Td.cs" />
+    <Compile Include="Html\Tags\Template.cs" />
+    <Compile Include="Html\Tags\Text.cs" />
+    <Compile Include="Html\Tags\Textarea.cs" />
+    <Compile Include="Html\Tags\Tfoot.cs" />
+    <Compile Include="Html\Tags\Th.cs" />
+    <Compile Include="Html\Tags\Thead.cs" />
+    <Compile Include="Html\Tags\Time.cs" />
+    <Compile Include="Html\Tags\Title.cs" />
+    <Compile Include="Html\Tags\Tr.cs" />
+    <Compile Include="Html\Tags\Track.cs" />
+    <Compile Include="Html\Tags\U.cs" />
+    <Compile Include="Html\Tags\Ul.cs" />
+    <Compile Include="Html\Tags\Var.cs" />
+    <Compile Include="Html\Tags\Video.cs" />
+    <Compile Include="Html\Tags\Wbr.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubeComment.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubeCommentThread.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubeExpander.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubeFormattedString.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubeImageShadow.cs" />
+    <Compile Include="Html\Tags\YouTube\YouTubePaperButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xaml\Collections\INotifyCollectionChanged.cs" />
     <Compile Include="Xaml\Collections\IReactiveCollection.cs" />
@@ -90,21 +319,28 @@
     <Folder Include="Xaml\Markup\TypeConverters\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="paket.references" />
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
+      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
+      <Name>Ccr.Std.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj">
+      <Project>{93b9ac1d-756e-4533-8b8f-5213841c2aef}</Project>
+      <Name>Ccr.Std.Introspective</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj">
+      <Project>{e2007a7d-451a-4ac5-874f-638669a45c95}</Project>
+      <Name>Ccr.WinCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Ccr.Core">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Ccr.Std.Core">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Ccr.Std.Introspective">
-      <Version>1.0.1</Version>
+    <PackageReference Include="JetBrains.Annotations">
+      <Version>2019.1.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="package.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\.paket\paket.targets" />
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.0.3' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3' Or $(TargetFrameworkVersion) == 'v4.7' Or $(TargetFrameworkVersion) == 'v4.7.2')">
       <ItemGroup>

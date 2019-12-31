@@ -5,10 +5,8 @@ using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions.Templates
 {
-
   public static class SourceTemplates
   {
-
     [SourceTemplate]
     public static void forEachM<T>(this IEnumerable<T> @this)
     {

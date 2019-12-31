@@ -1,6 +1,6 @@
 namespace Ccr.Algorithms.Collections
 {
-  public sealed class SequentialQuad<TValue>
+	public sealed class SequentialQuad<TValue>
     : SequentialSet<TValue>
   {
     [SequentialSetValue(0)]

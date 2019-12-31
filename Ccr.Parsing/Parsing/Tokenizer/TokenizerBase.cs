@@ -5,6 +5,7 @@ using System.Text;
 using Ccr.Parsing.Tokenizer.Tokens;
 // ReSharper disable ConvertToAutoPropertyWithPrivateSetter
 // ReSharper disable ArrangeAccessorOwnerBody
+
 namespace Ccr.Parsing.Tokenizer
 {
 	public class TokenizerBase

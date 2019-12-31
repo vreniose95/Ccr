@@ -2,7 +2,7 @@
 
 namespace Ccr.Parsing.Tokenizer.Tokens.OLD
 {
-  public abstract class TokenBase
+	public abstract class TokenBase
   {
     public string LiteralValue { get; }
 

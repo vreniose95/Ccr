@@ -25,9 +25,10 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
 
 		public ConverterParam(
 			TValue value,
-			CultureInfo cultureInfo) : base(
-			value,
-			cultureInfo)
+			CultureInfo cultureInfo) 
+				: base(
+					value,
+					cultureInfo)
 		{
 			Value = value;
 		}

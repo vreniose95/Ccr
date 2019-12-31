@@ -1,5 +1,4 @@
-﻿
-namespace Ccr.Geocoding
+﻿namespace Ccr.Geocoding
 {
 	public class ComponentFilter
 	{

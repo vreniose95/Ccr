@@ -7,8 +7,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
-using Ccr.Core.Extensions;
 using Ccr.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Geocoding

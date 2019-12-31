@@ -18,9 +18,10 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
     //TODO fix withOpacity
     public LiteralMaterialDescriptor(
       SolidColorBrush brush,
-      double opacity) : this(
-        brush.Color.WithOpacity(
-          opacity).ToSCB())
+      double opacity)
+				: this(
+					brush.Color.WithOpacity(
+			    opacity).ToSCB())
     {
       Opacity = opacity;
     }

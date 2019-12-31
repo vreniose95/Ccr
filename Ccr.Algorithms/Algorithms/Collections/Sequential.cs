@@ -7,8 +7,6 @@ namespace Ccr.Algorithms.Collections
 {
   public static class Sequential
   {
-
-
     public static SequentialPair<TResult> Select<TSource, TResult>(
       this SequentialPair<TSource> source,
       Func<TSource, TResult> selector)

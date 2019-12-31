@@ -5,14 +5,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.Core.Numerics.Ranges;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Controls.Icons
 {
-  public class Icon
+	public class Icon
 	  : Control
 	{
 		private static Lazy<IDictionary<IconKind, string>> _dataIndex;
@@ -136,7 +136,7 @@ namespace Ccr.MaterialDesign.Controls.Icons
       Icon @this,
       double baseValue)
     {
-      return baseValue.Constrain(new DoubleRange(0d, 360d));
+      return baseValue.Constrain((0d, 360d));
       //TODO
       /*eturn baseValue.Constrain((0d, 360d));*/
     }

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,21 +6,24 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Eric Vrenios</Authors>
     <Company>Ccr</Company>
-    <Product>Ccr Framework</Product>
-    <Description>Ccr.Core package for the base level of the Ccr Framework. Contains constructs used widely across Ccr Frramework-based applications.</Description>
-    <Copyright>Copyright 2018</Copyright>
-    <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Core</PackageProjectUrl>
+    <Product>Ccr.Std.Core</Product>
+    <Description>Ccr.Std.Core package for the base level of the Ccr Framework. Contains constructs used widely across Ccr Frramework-based applications.</Description>
+    <Copyright>Copyright 2019</Copyright>
+    <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Std.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/vreniose95/Ccr</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Ccr, Ccr Framework, Ccr.Std.Core, Ccr Std Core, Ccr Standard Core, Ccr .Net Standard Core</PackageTags>
-    <PackageReleaseNotes>Initial package publish</PackageReleaseNotes>
+    <PackageReleaseNotes>Added extended extension methods, assertion methods, converted from Paket to standard Nuget, .Net Standard 2.1 support</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</PackageLicenseUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <Version>2.0.0</Version>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Microsoft.CSharp">
-      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.1\Microsoft.CSharp.dll</HintPath>
+      <HintPath>..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

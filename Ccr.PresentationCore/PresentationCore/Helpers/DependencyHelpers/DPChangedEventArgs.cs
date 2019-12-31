@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 {

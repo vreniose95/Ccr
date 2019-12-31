@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.PresentationCore.Helpers.EventHelpers

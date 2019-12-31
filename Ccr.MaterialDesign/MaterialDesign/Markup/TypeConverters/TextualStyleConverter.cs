@@ -12,7 +12,8 @@ using Ccr.MaterialDesign.Primitives.Textual;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-  public sealed class TextualStyleConverter : TypeConverter
+	public sealed class TextualStyleConverter
+		: TypeConverter
   {
     public override bool CanConvertFrom(ITypeDescriptorContext typeDescriptorContext, Type sourceType)
     {
@@ -46,12 +47,15 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
     {
       if (value == null)
         throw new ArgumentNullException(nameof(value));
+
       if (null == destinationType)
         throw new ArgumentNullException(nameof(destinationType));
+
       if (!(value is TextualStyle))
       {
         throw new ArgumentException(@"Unexpected parameter type. Must be CornerRadiusScale", nameof(value));
       }
+
       var textualStyle = (TextualStyle)value;
       if (destinationType == typeof(string))
         return textualStyle.ToString();

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
     <AssemblyName>Ccr.MDHybrid</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,6 +45,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MDHybrid\Themes\MDHybrid.Buttons.Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MDHybrid\Themes\MDHybrid.Card.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,16 +178,22 @@
       <Project>{d706091c-958d-43cc-96b2-229829ea325b}</Project>
       <Name>Ccr.PresentationCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
+      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
+      <Name>Ccr.Std.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj">
       <Project>{a61f3ed9-9c1e-4612-ba97-54be78a1a146}</Project>
       <Name>Ccr.Xaml</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Ccr.Std.Core">
-      <Version>1.0.0</Version>
+    <PackageReference Include="JetBrains.Annotations">
+      <Version>2019.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.WindowsAPICodePack.Shell">
+      <Version>1.1.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\.paket\paket.targets" />
 </Project>

@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Algorithms.Collections
 {

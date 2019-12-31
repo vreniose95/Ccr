@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Adapters;
 using Ccr.MaterialDesign.Validation;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
@@ -20,6 +21,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       public const string Small = prefix + nameof(Small);
       public const string Invisible = prefix + nameof(Invisible);
     }
+
 
     protected static class ValidationVisualStates
     {
@@ -44,6 +46,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       HintAssist.SetInputDataAdapter(frameworkElement, new TextFieldInputDataAdapter(element));
 
       frameworkElement.Loaded += OnLoaded;
+
       element.GotKeyboardFocus += OnGotKeyboardFocus;
       element.LostKeyboardFocus += OnLostKeyboardFocus;
       element.PreviewTextInput += OnPreviewTextInput;
@@ -57,6 +60,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
       HintAssist.SetInputDataAdapter(frameworkElement, null);
 
       frameworkElement.Loaded -= OnLoaded;
+
       element.GotKeyboardFocus -= OnGotKeyboardFocus;
       element.LostKeyboardFocus -= OnLostKeyboardFocus;
       element.PreviewTextInput -= OnPreviewTextInput;

@@ -3,7 +3,7 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 { 
-public class TextBoxHintVisibilityConverter 
+	public class TextBoxHintVisibilityConverter 
     : XamlConverter<
       string, 
       bool, 

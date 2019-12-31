@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Chromatics\Colors\Difference\" />
     <Folder Include="Chromatics\Colors\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
   </ItemGroup>
 
   <ItemGroup>

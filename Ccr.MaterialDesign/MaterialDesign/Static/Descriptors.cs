@@ -2,7 +2,7 @@
 
 namespace Ccr.MaterialDesign.Static
 {
-  public static class Descriptors
+	public static class Descriptors
   {
     public static LuminosityMaterialDescriptor P050Descriptor = new LuminosityMaterialDescriptor(Luminosity.P050);
     public static LuminosityMaterialDescriptor P100Descriptor = new LuminosityMaterialDescriptor(Luminosity.P100);

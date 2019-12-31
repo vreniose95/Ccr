@@ -2,11 +2,12 @@
 using System.Windows.Media;
 using Ccr.MaterialDesign;
 using Ccr.MaterialDesign.Primitives.Behaviors;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
 {
-  public static class SolidColorBrushExtensions
+	public static class SolidColorBrushExtensions
   {
     [CanBeNull]
     public static MaterialIdentity GetIdentity(

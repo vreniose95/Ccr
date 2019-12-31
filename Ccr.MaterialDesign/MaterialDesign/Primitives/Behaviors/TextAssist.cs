@@ -1,181 +1,177 @@
-﻿using System;
+﻿using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Ccr.PresentationCore.Helpers.DependencyHelpers;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
-  public static class TextAssist
-  {
-    private static readonly Type _type = typeof(TextAssist);
+	public static class TextAssist
+	{
+		private static readonly Type _type = typeof(TextAssist);
 
 
-    public static readonly DependencyProperty ForceCapitalizeTextProperty = DP.Attach(
-      _type, new MetaBase<bool>(false, onForceCapitalizeTextChanged));
+		public static readonly DependencyProperty ForceCapitalizeTextProperty = DP.Attach(
+			_type, new MetaBase<bool>(false, onForceCapitalizeTextChanged));
 
 
-    public static bool GetForceCapitalizeText(DependencyObject @this)
-    {
-      return @this.Get<bool>(ForceCapitalizeTextProperty);
-    }
-    public static void SetForceCapitalizeText(DependencyObject @this, bool value)
-    {
-      @this.Set(ForceCapitalizeTextProperty, value);
-    }
+		public static bool GetForceCapitalizeText(DependencyObject @this)
+		{
+			return @this.Get<bool>(ForceCapitalizeTextProperty);
+		}
+		public static void SetForceCapitalizeText(DependencyObject @this, bool value)
+		{
+			@this.Set(ForceCapitalizeTextProperty, value);
+		}
 
 
-    private static void onForceCapitalizeTextChanged(
-      DependencyObject @this,
-      DPChangedEventArgs<bool> args)
-    {
-      if (args.NewValue)
-      {
-        switch (@this)
-        {
-          case TextBlock textBlock:
-            textBlock.TextInput += onTextInput;
-            break;
-          case TextBox textbox:
-            textbox.TextInput += onTextInput;
-            textbox.TextChanged += onTextChanged;
-            break;
-          case Button button:
-            {
-              var descriptor = DependencyPropertyDescriptor
-                .FromProperty(
-                  Button.ContentProperty,
-                  typeof(Button));
+		private static void onForceCapitalizeTextChanged(
+			DependencyObject @this,
+			DPChangedEventArgs<bool> args)
+		{
+			if (args.NewValue)
+			{
+				switch (@this)
+				{
+					case TextBlock textBlock:
+						textBlock.TextInput += onTextInput;
+						break;
 
-              descriptor?.AddValueChanged(
-                button, onButtonContentChanged);
-              break;
-            }
-          case Label label:
-            {
-              var descriptor = DependencyPropertyDescriptor
-                .FromProperty(
-                  Label.ContentProperty,
-                  typeof(Label));
+					case TextBox textbox:
+						textbox.TextInput += onTextInput;
+						textbox.TextChanged += onTextChanged;
+						break;
 
-              descriptor?.AddValueChanged(
-                label, onLabelContentChanged);
-              break;
-            }
-        }
-      }
-      else
-      {
-        switch (@this)
-        {
-          case TextBlock textBlock:
-            textBlock.TextInput -= onTextInput;
-            break;
-          case TextBox textbox:
-            textbox.TextInput -= onTextInput;
-            textbox.TextChanged -= onTextChanged;
-            break;
-          case Button button:
-          {
-            var descriptor = DependencyPropertyDescriptor
-              .FromProperty(
-                Button.ContentProperty,
-                typeof(Button));
+					case Button button:
+					{
+						var descriptor = DependencyPropertyDescriptor
+							.FromProperty(
+								ContentControl.ContentProperty,
+								typeof(Button));
 
-            descriptor?.RemoveValueChanged(
-              button, onButtonContentChanged);
-            break;
-          }
-          case Label label:
-          {
-            var descriptor = DependencyPropertyDescriptor
-              .FromProperty(
-                Label.ContentProperty,
-                typeof(Label));
+						descriptor?.AddValueChanged(
+							button, onButtonContentChanged);
+						break;
+					}
+					case Label label:
+					{
+						var descriptor = DependencyPropertyDescriptor
+							.FromProperty(
+								ContentControl.ContentProperty,
+								typeof(Label));
 
-            descriptor?.RemoveValueChanged(
-              label, onLabelContentChanged);
-            break;
-          }
-        }
-      }
-    }
+						descriptor?.AddValueChanged(label, onLabelContentChanged);
+						break;
+					}
+				}
+			}
+			else
+			{
+				switch (@this)
+				{
+					case TextBlock textBlock:
+						textBlock.TextInput -= onTextInput;
+						break;
 
-    private static void onButtonContentChanged(
-      object sender, EventArgs args)
-    {
-      var button = sender as Button;
-      if (button == null)
-        return;
+					case TextBox textbox:
+						textbox.TextInput -= onTextInput;
+						textbox.TextChanged -= onTextChanged;
+						break;
 
-      var descriptor = DependencyPropertyDescriptor
-        .FromProperty(
-          Button.ContentProperty,
-          typeof(Button));
+					case Button button:
+					{
+						var descriptor = DependencyPropertyDescriptor
+							.FromProperty(
+								ContentControl.ContentProperty,
+								typeof(Button));
 
-      descriptor?.RemoveValueChanged(
-        button, onButtonContentChanged);
-     
-      var initialContent = button.Content.ToString();
-      var newContent = initialContent.ToUpper();
-      button.Content = newContent;
+						descriptor?.RemoveValueChanged(
+							button, onButtonContentChanged);
+						break;
+					}
+					case Label label:
+					{
+						var descriptor = DependencyPropertyDescriptor
+							.FromProperty(
+								ContentControl.ContentProperty,
+								typeof(Label));
 
-      descriptor?.AddValueChanged(
-        button, onButtonContentChanged);
-    }
+						descriptor?.RemoveValueChanged(
+							label, onLabelContentChanged);
+						break;
+					}
+				}
+			}
+		}
 
-    private static void onLabelContentChanged(
-      object sender, EventArgs args)
-    {
-      var label = sender as Label;
-      if (label == null)
-        return;
+		private static void onButtonContentChanged(
+			object sender, EventArgs args)
+		{
+			if (!(sender is Button button))
+				return;
 
-      var descriptor = DependencyPropertyDescriptor
-        .FromProperty(
-          Label.ContentProperty,
-          typeof(Label));
+			var descriptor = DependencyPropertyDescriptor
+				.FromProperty(ContentControl.ContentProperty, typeof(Button));
 
-      descriptor?.RemoveValueChanged(
-        label, onLabelContentChanged);
+			descriptor?.RemoveValueChanged(button, onButtonContentChanged);
 
+			var initialContent = button.Content.ToString();
+			var newContent = initialContent.ToUpper();
+			button.Content = newContent;
 
-      var initialContent = label.Content.ToString();
-      var newContent = initialContent.ToUpper();
-      label.Content = newContent;
+			descriptor?.AddValueChanged(
+				button, onButtonContentChanged);
+		}
 
-      descriptor?.AddValueChanged(
-        label, onLabelContentChanged);
-    }
+		private static void onLabelContentChanged(
+			object sender, EventArgs args)
+		{
+			if (!(sender is Label label))
+				return;
 
-    private static void onTextInput(
-      object sender,
-      TextCompositionEventArgs args)
-    {
-      var text = args.Text.ToUpper();
+			var descriptor = DependencyPropertyDescriptor
+				.FromProperty(ContentControl.ContentProperty,
+					typeof(Label));
 
-      switch (args.Source)
-      {
-        case TextBlock textBlock:
-          textBlock.TextInput -= onTextInput;
-          textBlock.Text = text;
-          textBlock.TextInput += onTextInput;
-          break;
-        case TextBox textbox:
-          textbox.TextInput -= onTextInput;
-          textbox.TextChanged -= onTextChanged;
-          textbox.Text = text;
-          textbox.TextInput += onTextInput;
-          textbox.TextChanged += onTextChanged;
-          break;
-      }
-    }
+			descriptor?.RemoveValueChanged(label, onLabelContentChanged);
 
-    private static void onTextChanged(
-      object sender,
-      TextChangedEventArgs args)
-    {
-    }
-  }
+			var initialContent = label.Content.ToString();
+			var newContent = initialContent.ToUpper();
+			label.Content = newContent;
+
+			descriptor?.AddValueChanged(
+				label, onLabelContentChanged);
+		}
+
+		private static void onTextInput(
+			object sender,
+			TextCompositionEventArgs args)
+		{
+			var text = args.Text.ToUpper();
+
+			switch (args.Source)
+			{
+				case TextBlock textBlock:
+					textBlock.TextInput -= onTextInput;
+					textBlock.Text = text;
+					textBlock.TextInput += onTextInput;
+					break;
+
+				case TextBox textbox:
+					textbox.TextInput -= onTextInput;
+					textbox.TextChanged -= onTextChanged;
+					textbox.Text = text;
+					textbox.TextInput += onTextInput;
+					textbox.TextChanged += onTextChanged;
+					break;
+			}
+		}
+
+		private static void onTextChanged(
+			object sender,
+			TextChangedEventArgs args)
+		{
+		}
+	}
 }

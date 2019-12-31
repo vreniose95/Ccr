@@ -4,9 +4,9 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Markup;
-using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 using Ccr.Std.Extensions;
 using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Introspective.Infrastructure;
@@ -14,7 +14,7 @@ using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
-  [XamlSetMarkupExtension("XamlSetMarkupExtensiom")]
+	[XamlSetMarkupExtension("XamlSetMarkupExtensiom")]
   public class RippleMouseTrackingService
     : HostedElement<FrameworkElement>
   {

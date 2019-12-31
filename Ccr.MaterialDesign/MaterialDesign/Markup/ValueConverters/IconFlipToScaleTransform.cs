@@ -4,7 +4,7 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class IconFlipToScaleTransform
+	public class IconFlipToScaleTransform
     : XamlConverter<
       IconFlip, 
       ConverterParam<string>,

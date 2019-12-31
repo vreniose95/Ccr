@@ -28,9 +28,7 @@ namespace Ccr.MaterialDesign.Static
 	  public static Palette Palette
 		{
 			get => _palette
-        ?? (_palette = 
-			       _paletteResourceProvider
-              .Get<Palette>("MDH.Palette"));
+        ?? (_palette = _paletteResourceProvider.Get<Palette>("MDH.Palette"));
 		}
 
 		static GlobalResources()
@@ -39,8 +37,7 @@ namespace Ccr.MaterialDesign.Static
 				"Ccr.MDHybrid",
 				"MDHybrid/Themes/Generic.xaml");
 
-			_paletteResourceProvider = new ResourceProvider(
-				_palletResourceUri);
+			_paletteResourceProvider = new ResourceProvider(_palletResourceUri);
     }
   }
 }

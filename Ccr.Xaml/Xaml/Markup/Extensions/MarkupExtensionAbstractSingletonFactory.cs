@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Markup;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using Ccr.Xaml.Infrastructure;
 
 namespace Ccr.Xaml.Markup.Extensions
@@ -14,6 +14,7 @@ namespace Ccr.Xaml.Markup.Extensions
 			get => _factoryService ?? (
 				_factoryService = AbstractSingletonFactory<MarkupExtension>.I);
 		}
+
 
 		public override object ProvideValue(
 			IServiceProvider serviceProvider)

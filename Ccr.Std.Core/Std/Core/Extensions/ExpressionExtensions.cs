@@ -80,5 +80,35 @@ namespace Ccr.Std.Core.Extensions
             $"{nameof(MemberExpression).SQuote()} to be used with this method.");
       }
     }
-  }
+		
+		public static Expression<Action<TOwner, TProperty>> ToSetterExpression<TOwner, TProperty>(
+	    [NotNull] this Expression<Func<TOwner, TProperty>> @this)
+    {
+	    if (!(@this.Body is MemberExpression memberExpression))
+		    throw new NotSupportedException(
+			    $"The parameter {nameof(@this).SQuote()}'s {nameof(LambdaExpression.Body).SQuote()} " +
+			    $"property value is of type {@this.Body.Type.Name.SQuote()}, and is not supported . " +
+			    $"The embodied expression type should be a {nameof(MemberExpression).SQuote()}");
+
+	    var propertyPrameterExpression = Expression.Parameter(
+		    typeof(TProperty));
+
+	    var ownerParameterExpression = Expression.Parameter(
+		    typeof(TOwner));
+
+	    var propertyGetterExpression = Expression.Property(
+		    ownerParameterExpression, memberExpression.Member.Name);
+
+	    var assignmentExpression = Expression.Assign(
+		    propertyGetterExpression,
+		    propertyPrameterExpression);
+
+	    var setterExpression = Expression.Lambda<Action<TOwner, TProperty>>(
+		    assignmentExpression,
+		    ownerParameterExpression,
+		    propertyPrameterExpression);
+
+	    return setterExpression;
+    }
+	}
 }

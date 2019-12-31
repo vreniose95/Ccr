@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Markup.TypeConverters;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.MaterialDesign
 {
-  [TypeConverter(typeof(MaterialIdentityConverter))]
+	[TypeConverter(typeof(MaterialIdentityConverter))]
   public class MaterialIdentity
       : Freezable
   {

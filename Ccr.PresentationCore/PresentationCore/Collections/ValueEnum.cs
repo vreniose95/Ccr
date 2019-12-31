@@ -4,9 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using Ccr.Core.Extensions;
-using Ccr.Core.Helpers;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.PresentationCore.Collections

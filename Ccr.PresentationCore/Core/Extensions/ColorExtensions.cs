@@ -1,279 +1,280 @@
-﻿using Ccr.Core.Extensions.NumericExtensions;
-using Ccr.PresentationCore.Media;
+﻿using Ccr.PresentationCore.Media;
 using System;
 using System.Windows.Media;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Core.Extensions
 {
-  public static class ColorExtensions
-  {
-    public static SolidColorBrush ToSCB(
-      this Color @this)
-    {
-      return new SolidColorBrush(
-        @this);
-    }
+	public static class ColorExtensions
+	{
+		public static SolidColorBrush ToSCB(
+			this Color @this)
+		{
+			return new SolidColorBrush(
+				@this);
+		}
 
 
-    public static Color Darken(
-      this Color @this,
-      double percentage)
-    {
-      if (percentage.IsNotWithin((0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(percentage),
-          percentage,
-          "The percentage parameter must be between 0 and 1, inclusively.");
+		public static Color Darken(
+			this Color @this,
+			double percentage)
+		{
+			if (percentage.IsNotWithin((0d, 1d)))
+				throw new ArgumentOutOfRangeException(
+					nameof(percentage),
+					percentage,
+					"The percentage parameter must be between 0 and 1, inclusively.");
 
-      var r = @this.R.ScaleDown(percentage);
-      var g = @this.G.ScaleDown(percentage);
-      var b = @this.B.ScaleDown(percentage);
+			var r = @this.R.ScaleDown(percentage);
+			var g = @this.G.ScaleDown(percentage);
+			var b = @this.B.ScaleDown(percentage);
 
-      return Color.FromRgb(r, g, b);
-    }
-
-
-    public static Color Lighten(
-      this Color @this,
-      double percentage)
-    {
-      if (percentage.IsNotWithin((0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(percentage),
-          percentage,
-          "The percentage parameter must be between 0 and 1, inclusively.");
-
-      var r = @this.R.ScaleDown(percentage);
-      var g = @this.G.ScaleDown(percentage);
-      var b = @this.B.ScaleDown(percentage);
-
-      return Color.FromRgb(r, g, b);
-    }
+			return Color.FromRgb(r, g, b);
+		}
 
 
-    public static int GetHue(
-      this Color @this)
-    {
-      var min = Math.Min(
-        Math.Min(
-          @this.R,
-          @this.G),
-        @this.B);
+		public static Color Lighten(
+			this Color @this,
+			double percentage)
+		{
+			if (percentage.IsNotWithin((0d, 1d)))
+				throw new ArgumentOutOfRangeException(
+					nameof(percentage),
+					percentage,
+					"The percentage parameter must be between 0 and 1, inclusively.");
 
-      var max = Math.Max(
-        Math.Max(
-          @this.R,
-          @this.G),
-        @this.B);
+			var r = @this.R.ScaleDown(percentage);
+			var g = @this.G.ScaleDown(percentage);
+			var b = @this.B.ScaleDown(percentage);
 
-
-      float hue;
-      if (max == @this.R)
-        hue = (@this.G - @this.B).To<float>() / (max - min).To<float>();
-
-      else if (max == @this.G)
-        hue = 2f + (@this.B - @this.R).To<float>() / (max - min).To<float>();
-
-      else
-        hue = 4f + (@this.R - @this.G).To<float>() / (max - min).To<float>();
-
-      hue *= 60f;
-
-      if (hue < 0)
-        hue += 360f;
-
-      return (int)Math.Round(hue);
-    }
+			return Color.FromRgb(r, g, b);
+		}
 
 
-    /// <summary>
-    ///   Converts the Equivalent <see cref="HslColor"/> Hsl color
-    ///   model.
-    /// </summary>
-    /// <param name="this">
-    ///   The color to convert.
-    /// </param>
-    /// <returns>
-    ///   The Equivalent <see cref="HslColor"/> Hsl color model.
-    /// </returns>
-    public static HslColor ToHslColor(
-      this Color @this)
-    {
-      return HslColor.FromColor(
-        @this);
-    }
+		public static int GetHue(
+			this Color @this)
+		{
+			var min = Math.Min(
+				Math.Min(
+					@this.R,
+					@this.G),
+				@this.B);
+
+			var max = Math.Max(
+				Math.Max(
+					@this.R,
+					@this.G),
+				@this.B);
 
 
-    /// <summary>
-    ///   Converts the Equivalent <see cref="HsvColor"/> Hsv color
-    ///   model.
-    /// </summary>
-    /// <param name="this">
-    ///   The color to convert.
-    /// </param>
-    /// <returns>
-    ///   The Equivalent <see cref="HsvColor"/> Hsv color model.
-    /// </returns>
-    public static HsvColor ToHsvColor(
-      this Color @this)
-    {
-      return HsvColor.FromColor(
-        @this);
-    }
+			float hue;
+			if (max == @this.R)
+				hue = (@this.G - @this.B).To<float>() / (max - min).To<float>();
+
+			else if (max == @this.G)
+				hue = 2f + (@this.B - @this.R).To<float>() / (max - min).To<float>();
+
+			else
+				hue = 4f + (@this.R - @this.G).To<float>() / (max - min).To<float>();
+
+			hue *= 60f;
+
+			if (hue < 0)
+				hue += 360f;
+
+			return (int)Math.Round(hue);
+		}
 
 
-    /// <summary>
-    ///   Calculates the inverted negative of the provided <see cref="@this"/>
-    ///   parameter. 
-    /// </summary>
-    /// <param name="this">
-    ///   The color to convert.
-    /// </param>
-    /// <returns>
-    ///   The inverted negative of the provided <see cref="@this"/> color.
-    /// </returns>
-    public static Color Invert(
-      this Color @this)
-    {
-      return new Color
-      {
-        ScR = 1f - @this.ScR,
-        ScB = 1f - @this.ScB,
-        ScG = 1f - @this.ScG,
-        ScA = 1f
-      };
-    }
+		/// <summary>
+		///   Converts the Equivalent <see cref="HslColor"/> Hsl color
+		///   model.
+		/// </summary>
+		/// <param name="this">
+		///   The color to convert.
+		/// </param>
+		/// <returns>
+		///   The Equivalent <see cref="HslColor"/> Hsl color model.
+		/// </returns>
+		public static HslColor ToHslColor(
+			this Color @this)
+		{
+			return HslColor.FromColor(
+				@this);
+		}
 
 
-  /// <summary>
-  ///   Calculates the constrast luminance between the subject <paramref name="background"/> Color
-  ///   and the <see cref="foreground"/> Color.
-  /// </summary>
-  /// <param name="background">
-  ///   The background <see cref="Color"/> that the <paramref name="foreground"/> parameter is to
-  ///   be compared against.
-  /// </param>
-  /// <param name="foreground">
-  ///   The foreground <see cref="Color"/> that the <paramref name="background"/> parameter is to
-  ///   be compared against.
-  /// </param>
-  /// <returns>
-  ///   Returns a <see cref="double"/> value representing the constrast ratio between the two
-  ///   provided Color instances, which range from 1 to 21, inclusively.
-  /// </returns>
-  public static double ContrastRatio(
-    this Color background,
-    Color foreground)
-  {
-    var backgroundLum = background.RelativeLuminance();
-    var foregroundLum = foreground.RelativeLuminance();
+		/// <summary>
+		///   Converts the Equivalent <see cref="HsvColor"/> Hsv color
+		///   model.
+		/// </summary>
+		/// <param name="this">
+		///   The color to convert.
+		/// </param>
+		/// <returns>
+		///   The Equivalent <see cref="HsvColor"/> Hsv color model.
+		/// </returns>
+		public static HsvColor ToHsvColor(
+			this Color @this)
+		{
+			return HsvColor.FromColor(
+				@this);
+		}
 
-    return foregroundLum > backgroundLum
-      ? (foregroundLum + 0.05) / (backgroundLum + 0.05)
-      : (backgroundLum + 0.05) / (foregroundLum + 0.05);
-  }
 
-  /// <summary>
-  ///   Calculates the color relative luminance of the sRGB channels of a <see cref="Color"/> instance.
-  /// </summary>
-  /// <param name="this">
-  ///   The subject color.
-  /// </param>
-  /// <returns>
-  ///   The <paramref name="@this"/> Color's relative luminance.
-  /// </returns>
-  public static double RelativeLuminance(
-    this Color @this)
-  {
-    var r = @this.RelativeChannelLuminance(t => ((double)t.R / 255));
-    var g = @this.RelativeChannelLuminance(t => ((double)t.G / 255));
-    var b = @this.RelativeChannelLuminance(t => ((double)t.B / 255));
+		/// <summary>
+		///   Calculates the inverted negative of the provided <see cref="@this"/>
+		///   parameter. 
+		/// </summary>
+		/// <param name="this">
+		///   The color to convert.
+		/// </param>
+		/// <returns>
+		///   The inverted negative of the provided <see cref="@this"/> color.
+		/// </returns>
+		public static Color Invert(
+			this Color @this)
+		{
+			return new Color
+			{
+				ScR = 1f - @this.ScR,
+				ScB = 1f - @this.ScB,
+				ScG = 1f - @this.ScG,
+				ScA = 1f
+			};
+		}
+
+
+		/// <summary>
+		///   Calculates the constrast luminance between the subject <paramref name="background"/> Color
+		///   and the <see cref="foreground"/> Color.
+		/// </summary>
+		/// <param name="background">
+		///   The background <see cref="Color"/> that the <paramref name="foreground"/> parameter is to
+		///   be compared against.
+		/// </param>
+		/// <param name="foreground">
+		///   The foreground <see cref="Color"/> that the <paramref name="background"/> parameter is to
+		///   be compared against.
+		/// </param>
+		/// <returns>
+		///   Returns a <see cref="double"/> value representing the constrast ratio between the two
+		///   provided Color instances, which range from 1 to 21, inclusively.
+		/// </returns>
+		public static double ContrastRatio(
+			this Color background,
+			Color foreground)
+		{
+			var backgroundLum = background.RelativeLuminance();
+			var foregroundLum = foreground.RelativeLuminance();
+
+			return foregroundLum > backgroundLum
+				? (foregroundLum + 0.05) / (backgroundLum + 0.05)
+				: (backgroundLum + 0.05) / (foregroundLum + 0.05);
+		}
+
+		/// <summary>
+		///   Calculates the color relative luminance of the sRGB channels of a <see cref="Color"/> instance.
+		/// </summary>
+		/// <param name="this">
+		///   The subject color.
+		/// </param>
+		/// <returns>
+		///   The <paramref name="@this"/> Color's relative luminance.
+		/// </returns>
+		public static double RelativeLuminance(
+			this Color @this)
+		{
+			var r = @this.RelativeChannelLuminance(t => ((double)t.R / 255));
+			var g = @this.RelativeChannelLuminance(t => ((double)t.G / 255));
+			var b = @this.RelativeChannelLuminance(t => ((double)t.B / 255));
 
 			return 0.2126 * r
-      + 0.7152 * g
-      + 0.0722 * b;
-  }
+			+ 0.7152 * g
+			+ 0.0722 * b;
+		}
 
-  /// <summary>
-  ///   Calculates the relative luminance of one sRGB channel of a <see cref="Color"/> instance.
-  /// </summary>
-  /// <param name="this">
-  ///   The subject color.
-  /// </param>
-  /// <param name="channelFunc">
-  ///   A <see cref="Func{Color, Float}"/> identifying the channel of which to calculate the
-  ///   relative luminance upon.
-  /// </param>
-  /// <returns>
-  ///   Returns a <see cref="double"/> value indicating the relative luminance of the selected
-  ///   channel provided by the <paramref name="channelFunc"/> parameter Func. 
-  /// </returns>
-  private static double RelativeChannelLuminance(
-    this Color @this,
-    Func<Color, double> channelFunc)
-  {
-    var sc = channelFunc(@this);
-    return sc <= 0.03928
-      ? sc / 12.92
-      : ((sc + 0.055) / 1.055).Power(2.4);
-  }
-    
-
-    /// <summary>
-    ///    Calculates the color differential between two colors.
-    /// </summary>
-    /// <param name="this">
-    ///   The subject color.
-    /// </param>
-    /// <param name="color">
-    ///   The color to calculate the differential against.
-    /// </param>
-    /// <returns>
-    ///   The color differential between the two colors.
-    /// </returns>
-    public static int Differential(
-      this Color @this,
-      Color color)
-    {
-      var r = (@this.R - color.R).Abs();
-      var g = (@this.G - color.G).Abs();
-      var b = (@this.B - color.B).Abs();
-
-      return r + g + b;
-    }
+		/// <summary>
+		///   Calculates the relative luminance of one sRGB channel of a <see cref="Color"/> instance.
+		/// </summary>
+		/// <param name="this">
+		///   The subject color.
+		/// </param>
+		/// <param name="channelFunc">
+		///   A <see cref="Func{Color, Float}"/> identifying the channel of which to calculate the
+		///   relative luminance upon.
+		/// </param>
+		/// <returns>
+		///   Returns a <see cref="double"/> value indicating the relative luminance of the selected
+		///   channel provided by the <paramref name="channelFunc"/> parameter Func. 
+		/// </returns>
+		private static double RelativeChannelLuminance(
+			this Color @this,
+			Func<Color, double> channelFunc)
+		{
+			var sc = channelFunc(@this);
+			return sc <= 0.03928
+				? sc / 12.92
+				: ((sc + 0.055) / 1.055).Power(2.4);
+		}
 
 
+		/// <summary>
+		///    Calculates the color differential between two colors.
+		/// </summary>
+		/// <param name="this">
+		///   The subject color.
+		/// </param>
+		/// <param name="color">
+		///   The color to calculate the differential against.
+		/// </param>
+		/// <returns>
+		///   The color differential between the two colors.
+		/// </returns>
+		public static int Differential(
+			this Color @this,
+			Color color)
+		{
+			var r = Math.Abs(@this.R - color.R);
+			var g = Math.Abs(@this.G - color.G);
+			var b = Math.Abs(@this.B - color.B);
 
-    public static double LuminosityContrast(this Color foreground, Color background)
-    {
-	    var foregroundLuminosity = RelativeLuminance(foreground.R, foreground.G, foreground.B);
-	    var backgroundLuminosity = RelativeLuminance(background.R, background.G, background.B);
+			return r + g + b;
+		}
 
-	    if (foregroundLuminosity > backgroundLuminosity)
-	    {
-		    return (foregroundLuminosity + 0.05) / (backgroundLuminosity + 0.05);
-	    }
-	    else
-	    {
-		    return (backgroundLuminosity + 0.05) / (foregroundLuminosity + 0.05);
-	    }
-    }
+
+
+		public static double LuminosityContrast(this Color foreground, Color background)
+		{
+			var foregroundLuminosity = RelativeLuminance(foreground.R, foreground.G, foreground.B);
+			var backgroundLuminosity = RelativeLuminance(background.R, background.G, background.B);
+
+			if (foregroundLuminosity > backgroundLuminosity)
+			{
+				return (foregroundLuminosity + 0.05) / (backgroundLuminosity + 0.05);
+			}
+			else
+			{
+				return (backgroundLuminosity + 0.05) / (foregroundLuminosity + 0.05);
+			}
+		}
 
 		private static double RelativeLuminance(byte r, byte g, byte b)
-    {
-	    double rs = ((double)r / 255);
-	    double gs = ((double)g / 255);
-	    double bs = ((double)b / 255);
-	    double R = 0;
-	    double G = 0;
-	    double B = 0;
+		{
+			double rs = ((double)r / 255);
+			double gs = ((double)g / 255);
+			double bs = ((double)b / 255);
+			double R = 0;
+			double G = 0;
+			double B = 0;
 
-	    R = (rs <= 0.03928) ? (double)(rs / 12.92) : Math.Pow(((rs + 0.055) / 1.055), 2.4);
-	    G = (gs <= 0.03928) ? (double)(gs / 12.92) : Math.Pow(((gs + 0.055) / 1.055), 2.4);
-	    B = (bs <= 0.03928) ? (double)(bs / 12.92) : Math.Pow(((bs + 0.055) / 1.055), 2.4);
+			R = (rs <= 0.03928) ? (double)(rs / 12.92) : Math.Pow(((rs + 0.055) / 1.055), 2.4);
+			G = (gs <= 0.03928) ? (double)(gs / 12.92) : Math.Pow(((gs + 0.055) / 1.055), 2.4);
+			B = (bs <= 0.03928) ? (double)(bs / 12.92) : Math.Pow(((bs + 0.055) / 1.055), 2.4);
 
-	    return ((double)(0.2126 * R)) + ((double)(0.7152 * G)) + ((double)(0.0722 * B));
-    }
+			return ((double)(0.2126 * R)) + ((double)(0.7152 * G)) + ((double)(0.0722 * B));
+		}
 
 
 		/// <summary>
@@ -292,74 +293,74 @@ namespace Ccr.Core.Extensions
 		///   The mixed <see cref="Color"/> object.
 		/// </returns>
 		public static Color Blend(
-      this Color @this,
-      Color foreground,
-      double percentage)
-    {
-      if (percentage.IsNotWithin((0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(percentage),
-          percentage,
-          "The percentage parameter must be between 0 and 1, inclusively.");
+			this Color @this,
+			Color foreground,
+			double percentage)
+		{
+			if (percentage.IsNotWithin((0d, 1d)))
+				throw new ArgumentOutOfRangeException(
+					nameof(percentage),
+					percentage,
+					"The percentage parameter must be between 0 and 1, inclusively.");
 
-      var difference = Color.Subtract(foreground, @this);
-      var opacityFlt = Convert.ToSingle(percentage);
-      var delta = Color.Multiply(difference, opacityFlt);
-      var result = Color.Add(@this, delta);
+			var difference = Color.Subtract(foreground, @this);
+			var opacityFlt = Convert.ToSingle(percentage);
+			var delta = Color.Multiply(difference, opacityFlt);
+			var result = Color.Add(@this, delta);
 
-      return result;
-    }
+			return result;
+		}
 
 
-    public static Color Interpolate(
-      this Color @this,
-      Color color,
-      double percentage)
-    {
-      if (percentage.IsNotWithin((0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(percentage),
-          percentage,
-          "The percentage parameter must be between 0 and 1, inclusively.");
+		public static Color Interpolate(
+			this Color @this,
+			Color color,
+			double percentage)
+		{
+			if (percentage.IsNotWithin((0d, 1d)))
+				throw new ArgumentOutOfRangeException(
+					nameof(percentage),
+					percentage,
+					"The percentage parameter must be between 0 and 1, inclusively.");
 
-      var nR = (color.R - @this.R) * percentage;
-      var nG = (color.G - @this.G) * percentage;
-      var nB = (color.B - @this.B) * percentage;
+			var nR = (color.R - @this.R) * percentage;
+			var nG = (color.G - @this.G) * percentage;
+			var nB = (color.B - @this.B) * percentage;
 
-      var eR = Convert.ToByte(@this.R + nR);
-      var eG = Convert.ToByte(@this.G + nG);
-      var eB = Convert.ToByte(@this.B + nB);
+			var eR = Convert.ToByte(@this.R + nR);
+			var eG = Convert.ToByte(@this.G + nG);
+			var eB = Convert.ToByte(@this.B + nB);
 
-      return Color.FromRgb(eR, eG, eB);
-    }
+			return Color.FromRgb(eR, eG, eB);
+		}
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="this"></param>
-    /// <param name="opacity"></param>
-    /// <returns></returns>
-    public static Color WithOpacity(
-      this Color @this,
-      double opacity)
-    {
-      @this.IsNotNull(nameof(@this));
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="this"></param>
+		/// <param name="opacity"></param>
+		/// <returns></returns>
+		public static Color WithOpacity(
+			this Color @this,
+			double opacity)
+		{
+			@this.IsNotNull(nameof(@this));
 
-      if (opacity.IsNotWithin((0d, 1d)))
-        throw new ArgumentOutOfRangeException(
-          nameof(opacity),
-          opacity,
-          "The opacity parameter must be between 0 and 1, inclusively.");
+			if (opacity.IsNotWithin((0d, 1d)))
+				throw new ArgumentOutOfRangeException(
+					nameof(opacity),
+					opacity,
+					"The opacity parameter must be between 0 and 1, inclusively.");
 
-      var fOpacity = Convert.ToSingle(opacity);
+			var fOpacity = Convert.ToSingle(opacity);
 
-      return Color.FromScRgb(
-        fOpacity,
-        @this.ScR,
-        @this.ScG,
-        @this.ScB);
-    }
-  }
+			return Color.FromScRgb(
+				fOpacity,
+				@this.ScR,
+				@this.ScG,
+				@this.ScB);
+		}
+	}
 }
 
 

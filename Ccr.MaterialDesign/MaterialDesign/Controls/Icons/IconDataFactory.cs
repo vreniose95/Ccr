@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ccr.MaterialDesign.Controls.Icons
 {
-  internal static class IconDataFactory
+	internal static class IconDataFactory
   {
     internal static IDictionary<IconKind, string> Create
     {

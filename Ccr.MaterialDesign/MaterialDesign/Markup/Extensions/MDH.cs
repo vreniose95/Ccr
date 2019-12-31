@@ -9,7 +9,7 @@ using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Markup.Extensions
 {
-  //[MarkupExtensionReturnType(typeof(SolidColorBrush))]
+	//[MarkupExtensionReturnType(typeof(SolidColorBrush))]
   //public partial class MDH
   //  : MarkupExtension,
   //    INotifyPropertyChanged

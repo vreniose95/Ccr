@@ -5,11 +5,12 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Xaml;
 using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-  public class MaterialIdentityConverter
-  : TypeConverter
+	public class MaterialIdentityConverter
+		: TypeConverter
   {
     private static readonly Regex _parserRegex = new Regex(
       @"\A[\s]*(?<swatchName>[A-z]*).(?<isAccent>[A])?(?<luminosity>[0-9]{3})");
@@ -50,7 +51,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 
       var swatchName = match.Groups["swatchName"].Value;
       var luminosityStr = match.Groups["luminosity"].Value;
-      var isAccent = match.Groups["isAccent"].Value.IsNotNullOrEmptyEx();
+      var isAccent = match.Groups["isAccent"].Value.IsNotNullOrEmpty();
 
       var luminosityVal = int.Parse(luminosityStr);
 

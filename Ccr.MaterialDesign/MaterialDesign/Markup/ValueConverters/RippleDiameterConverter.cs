@@ -1,5 +1,6 @@
 ﻿using System.Windows;
-using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
@@ -31,7 +32,7 @@ namespace Ccr.MaterialDesign.Markup.ValueConverters
 			var radius =
 				(effectiveRippleCoverWidth.Squared() 
 					+ effectiveRippleCoverHeight.Squared())
-						.Root();
+						.Sqrt();
 
 			return radius * scaleParameter.Value;
 

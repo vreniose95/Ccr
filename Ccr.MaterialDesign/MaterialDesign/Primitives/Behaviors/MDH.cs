@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using Ccr.Core.Extensions;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.MaterialDesign.Static;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 using static System.Windows.FrameworkPropertyMetadataOptions;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors

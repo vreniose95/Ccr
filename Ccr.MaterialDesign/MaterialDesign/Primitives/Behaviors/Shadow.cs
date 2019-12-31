@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
-using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {

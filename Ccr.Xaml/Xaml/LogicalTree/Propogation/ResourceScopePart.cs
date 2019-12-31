@@ -1,5 +1,5 @@
 using System;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Xaml.LogicalTree.Propogation

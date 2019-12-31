@@ -2,7 +2,7 @@
 using System.Numerics;
 using Ccr.Algorithms.Collections;
 using Ccr.Algorithms.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Algorithms
 {

@@ -1,10 +1,11 @@
 ﻿using System;
-using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 
 namespace Ccr.Core.Extensions
 {
-  public static class MaterialBrushExtensions
+	public static class MaterialBrushExtensions
   {
     /// <summary>
     /// 

@@ -1,8 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
+
 {
 	public class UserInputNuanceProviderService
 		: HostedElement<FrameworkElement>

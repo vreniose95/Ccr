@@ -1,6 +1,6 @@
 ﻿namespace Ccr.MaterialDesign.Controls.Icons
 {
-  public enum IconFlip
+	public enum IconFlip
   {
     None,
     Horizontal,

@@ -7,12 +7,14 @@ namespace Ccr.Extensions
 {
 	public static class JsonExtensions
 	{
-		public static bool IsNullOrEmpty<T>(this ICollection<T> col)
+		public static bool IsNullOrEmpty<T>(
+			this ICollection<T> col)
 		{
 			return col == null || col.Count == 0;
 		}
 
-		public static void ForEach<T>(this IEnumerable<T> self, Action<T> actor)
+		public static void ForEach<T>(
+			this IEnumerable<T> self, Action<T> actor)
 		{
 			if (actor == null)
 				throw new ArgumentNullException(nameof(actor));

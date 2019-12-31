@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using Caliburn.Micro;
 using Ccr.MDHybrid.Demo.ViewModels;
 using System.Collections.Generic;
 using System.Windows;

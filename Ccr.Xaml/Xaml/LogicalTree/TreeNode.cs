@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.Xaml.LogicalTree
 {
 	// ReSharper disable ConvertToAutoProperty
 	// ReSharper disable ConvertPropertyToExpressionBody
-
 	public delegate void ParentChangedHandler<TElement>(
 		ITreeNode<TElement> instance,
 		ITreeNodeBase parent)

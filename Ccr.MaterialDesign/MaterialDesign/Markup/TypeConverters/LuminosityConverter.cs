@@ -5,7 +5,6 @@ using System.Globalization;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-
   public class LuminosityConverter
     : TypeConverter
   {

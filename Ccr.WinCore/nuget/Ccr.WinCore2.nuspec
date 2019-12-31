@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Ccr.WinCore</id>
+    <version>1.1.0</version>
+    <title>Ccr.WinCore</title>
+    <authors>Eric Vrenios</authors>
+    <owners>Eric Vrenios</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.WinCore</projectUrl>
+    <description>Ccr.WinCore package for Windows Core-level helpers, PInvoke, Shell32, and User32 libraries. Contains constructs used to interact directly with the WinAPI.</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Ccr, Ccr Framework, Ccr.WinCore, Ccr WinCore, Ccr Win Core, Ccr Windows Core, Ccr Windows API, Ccr WinAPI, WinAPI, PInvoke, Shell32, User32</tags>
+    
+    <dependencies>
+      <group targetFramework="net48">
+      </group>
+    </dependencies>
+
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System.Data" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net48"/>
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="net48"/>
+    </frameworkAssemblies>
+  </metadata>
+</package>

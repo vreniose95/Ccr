@@ -5,11 +5,12 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Ccr.Core.Extensions;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign.Adapters
 {
-  /// <summary>
+	/// <summary>
   ///   Establishes a unifying adapter for the common properties and events for basic text 
   ///   input and processing controls in WPF. This data adapter supports usage with controls 
   ///   that implement the <see cref="IFrameworkInputElement"/> interface. These controls 
@@ -33,6 +34,7 @@ namespace Ccr.MaterialDesign.Adapters
         RoutedEvent = routedEvent;
       }
     }
+
     
     internal class InputElementMonitor<TElement>
       : InputElementMonitor
@@ -79,7 +81,7 @@ namespace Ccr.MaterialDesign.Adapters
 
 
     /// <summary>
-    ///   This protected, get-only property of type <see cref="IFrameworkInputElement"/> holds 
+    ///   This public, get-only property of type <see cref="IFrameworkInputElement"/> holds 
     ///   a reference to the target <see cref="Control"/> in which the adapter is attached to.
     /// </summary>
 	  public static readonly DependencyProperty FrameworkInputElementProperty = DP.Register(

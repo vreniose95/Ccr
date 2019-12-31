@@ -12,6 +12,7 @@ namespace Ccr.MaterialDesign.Static
     public static class Fonts
     {
       private static readonly FontFamilyConverter ffc = new FontFamilyConverter();
+
       internal static FontFamily TimesNewRoman => (FontFamily) ffc.ConvertFromString("Times New Roman");
       public static FontFamily Roboto => (FontFamily) ffc.ConvertFromString("Roboto");
     }

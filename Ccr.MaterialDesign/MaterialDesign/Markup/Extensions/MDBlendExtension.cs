@@ -3,10 +3,9 @@ using System.Windows.Markup;
 
 namespace Ccr.MaterialDesign.Markup.Extensions
 {
-  public class MDBlendExtension
+	public class MDBlendExtension
     : MarkupExtension
   {
-    
     [ConstructorArgument("initialSwatchClassifier")]
     public SwatchClassifier InitialSwatchClassifier { get; }
 

@@ -1,8 +1,29 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Ccr</RootNamespace>
+    <Version>2.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Eric Vrenios</Authors>
+    <Company>Ccr</Company>
+    <Product>Ccr Framework</Product>
+    <Description>.Net Standard 2.0 based class library for writing Tokenizers, Parsers, Lexers, and Syntax Analyzers.</Description>
+    <Copyright>Copyright 2019</Copyright>
+    <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Std.Parsing</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vreniose95/Ccr</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>Ccr, Ccr Framework, Ccr.Std.Parsing, Ccr Std Parsing, Ccr Parsing, Ccr.Parsing, Ccr .Net Standard Parsing,Tokenizers, Parsers, Lexers, Syntax Analyzers</PackageTags>
+    <PackageReleaseNotes>Initial Release, .Net Standard 2.0 Support</PackageReleaseNotes>
+    <NeutralLanguage>Ccr.Std.Parsing</NeutralLanguage>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+  </ItemGroup>
 
 </Project>

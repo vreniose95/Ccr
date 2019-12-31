@@ -9,7 +9,7 @@ using JetBrains.Annotations;
 
 namespace Ccr.Data.Common.Repositories
 {
-	public class CityRepository
+ public class CityRepository
 		: Repository<City, int, CommonContext>
 	{
 		public override Expression<Func<City, int>> PrimaryKeyExpression

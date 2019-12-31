@@ -1,5 +1,5 @@
 ﻿using System;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.Xaml.LogicalTree
 {
@@ -49,6 +49,7 @@ namespace Ccr.Xaml.LogicalTree
 		}
 
 		private event ParentChangedBaseHandler _parentChangedBaseImpl;
+
 		/// <summary>
 		///		Explicit implementation of <see cref="ITreeNodeBase.ParentChangedBase"/> event.
 		/// </summary>

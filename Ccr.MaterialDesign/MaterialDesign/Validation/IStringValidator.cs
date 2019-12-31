@@ -1,6 +1,6 @@
 ﻿namespace Ccr.MaterialDesign.Validation
 {
-  public interface IStringValidator
+	public interface IStringValidator
   {
     ValidatorMode ValidatorMode { get; }
 

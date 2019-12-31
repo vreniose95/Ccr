@@ -2,7 +2,7 @@
 
 namespace Ccr.Algorithms.Collections
 {
-  public sealed class SequentialPair<TValue>
+	public sealed class SequentialPair<TValue>
     : SequentialSet<TValue>
   {
     [SequentialSetValue(0)]

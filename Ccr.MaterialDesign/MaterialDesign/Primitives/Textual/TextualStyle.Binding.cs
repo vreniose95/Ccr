@@ -10,11 +10,10 @@ using Ccr.MaterialDesign.Markup.ValueConverters;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using Ccr.Xaml.Infrastructure;
 using Ccr.Xaml.Markup.Extensions;
-using HighContrastDescriptorToBrushConverter = Ccr.MaterialDesign.Markup.ValueConverters.HighContrastDescriptorToBrushConverter;
 
 namespace Ccr.MaterialDesign.Primitives.Textual
 {
-  //TODO could this recievemarkupextension/typeconverter to extract BindingRelativeSource by default on bind?
+	//TODO could this recievemarkupextension/typeconverter to extract BindingRelativeSource by default on bind?
   //TODO something is not right with how Padding is handled. Should all bound FE's padding be set to 0?
   //TODO Horiz/Vert Content Alignment control capability! How to handle this with non-control frameworkelements like TextBlock?
   public partial class TextualStyle

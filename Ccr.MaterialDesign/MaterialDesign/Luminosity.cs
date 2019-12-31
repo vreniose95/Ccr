@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Ccr.Core.Extensions;
-using Ccr.Core.Extensions.NumericExtensions;
 using Ccr.MaterialDesign.Markup.TypeConverters;
+using Ccr.Std.Core.Extensions;
+using Ccr.Std.Core.Extensions.NumericExtensions;
 using JetBrains.Annotations;
 
 namespace Ccr.MaterialDesign
 {
-  public partial class Luminosity
+	public partial class Luminosity
   {
     public static readonly Luminosity P050 = Define();
     public static readonly Luminosity P100 = Define();

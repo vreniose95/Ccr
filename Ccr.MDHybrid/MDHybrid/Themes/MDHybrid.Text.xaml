@@ -1,106 +1,96 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+										xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<FontFamily x:Key="DefaultFont">pack://application:,,,/MDHybrid;component/Resources/Roboto/#Roboto, Roboto</FontFamily>
 
 	<Style TargetType="FrameworkElement">
-		<Setter Property="Control.Foreground" Value="White" />
-		<Setter Property="Control.HorizontalContentAlignment" Value="Center" />
-		<Setter Property="Control.VerticalContentAlignment" Value="Center" />
-		<Setter Property="Control.FontFamily" Value="{StaticResource DefaultFont}" />
-		<Setter Property="Control.FontSize" Value="14pt" />
-		<Setter Property="TextOptions.TextFormattingMode" Value="Ideal" />
+		<Setter Property="Control.Foreground" Value="White"/>
+		<Setter Property="Control.HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Control.VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Control.FontFamily" Value="{StaticResource DefaultFont}"/>
+		<Setter Property="Control.FontSize" Value="14pt"/>
+		<Setter Property="TextOptions.TextFormattingMode" Value="Ideal"/>
 	</Style>
 
-	<Style BasedOn="{StaticResource {x:Type FrameworkElement}}" TargetType="Label" />
+	<Style BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="Label"/>
 
-	<Style
-		x:Key="t14pButton"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontWeight" Value="Medium" />
-		<Setter Property="TextAssist.ForceCapitalizeText" Value="True" />
+	<Style x:Key="t14pButton"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontWeight" Value="Medium"/>
+		<!--<Setter Property="TextAssist.ForceCapitalizeText" Value="True"/>-->
 	</Style>
 
-	<Style
-		x:Key="t12pCaption"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="12pt" />
+	<Style x:Key="t12pCaption"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="12pt"/>
 	</Style>
 
-	<Style
-		x:Key="t13pBody1"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="13pt" />
-		<Setter Property="Control.FontWeight" Value="Regular" />
+	<Style x:Key="t13pBody1"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="13pt"/>
+		<Setter Property="Control.FontWeight" Value="Regular"/>
 	</Style>
 
-	<Style
-		x:Key="t13pBody2"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="13pt" />
-		<Setter Property="Control.FontWeight" Value="Medium" />
+	<Style x:Key="t13pBody2"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="13pt"/>
+		<Setter Property="Control.FontWeight" Value="Medium"/>
 	</Style>
 
-	<Style
-		x:Key="t15pSubhead"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="15pt" />
+	<Style x:Key="t15pSubhead"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="15pt"/>
 	</Style>
 
-	<Style
-		x:Key="t20pTitle"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="20pt" />
-		<Setter Property="Control.FontWeight" Value="Medium" />
+	<Style x:Key="t20pTitle"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="20pt"/>
+		<Setter Property="Control.FontWeight" Value="Medium"/>
 	</Style>
 
-	<Style
-		x:Key="t24pHeadline"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="24pt" />
+	<Style x:Key="t24pHeadline"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="24pt"/>
 	</Style>
 
-	<Style
-		x:Key="t34pDisplay1"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="34pt" />
+	<Style x:Key="t34pDisplay1"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="34pt"/>
 	</Style>
 
-	<Style
-		x:Key="t45pDisplay2"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="45pt" />
+	<Style x:Key="t45pDisplay2"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="45pt"/>
 	</Style>
 
-	<Style
-		x:Key="_t16pSubheadMed"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="16pt" />
-		<Setter Property="Control.FontWeight" Value="Medium" />
+	<Style x:Key="_t16pSubheadMed"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="16pt"/>
+		<Setter Property="Control.FontWeight" Value="Medium"/>
 	</Style>
 
-	<Style
-		x:Key="_t18pLSubheadMed"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="18pt" />
-		<Setter Property="Control.FontWeight" Value="Medium" />
+	<Style x:Key="_t18pLSubheadMed"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="18pt"/>
+		<Setter Property="Control.FontWeight" Value="Medium"/>
 	</Style>
 
-	<Style
-		x:Key="_t10pSubCaption"
-		BasedOn="{StaticResource {x:Type FrameworkElement}}"
-		TargetType="FrameworkElement">
-		<Setter Property="Control.FontSize" Value="10pt" />
+	<Style x:Key="_t10pSubCaption"
+				 BasedOn="{StaticResource {x:Type FrameworkElement}}"
+				 TargetType="FrameworkElement">
+		<Setter Property="Control.FontSize" Value="10pt"/>
 	</Style>
 
 </ResourceDictionary>

@@ -3,7 +3,7 @@
 namespace Ccr.MaterialDesign.Controls.Icons
 {
 	/// <summary>
-	///		List of available icons for use with <see cref="Icon"/>.
+	/// List of available icons for use with <see cref="Icon"/>.
 	/// </summary>
 	/// <remarks>
 	///		All icons sourced from Material Design Icons Font v1.6.50

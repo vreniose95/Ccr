@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 
@@ -16,14 +11,17 @@ namespace Ccr.Core.Extensions
       var defaultPadding = new Thickness(5);
       return EstimateTextRenderSize(fontFamily, fontSize, defaultPadding, content);
     }
+
     public static Size EstimateLabelRenderSize(FontFamily fontFamily, double fontSize, Thickness padding, string content = "Fq")
     {
       return EstimateTextRenderSize(fontFamily, fontSize, padding, content);
     }
+
     public static Size EstimateTextRenderSize(FontFamily fontFamily, double fontSize, string content = "Fq")
     {
       return EstimateTextRenderSize(fontFamily, fontSize, new Thickness(0), content);
     }
+
     public static Size EstimateTextRenderSize(FontFamily fontFamily, double fontSize, Thickness padding, string content = "Fq")
     {
       var formattedText = new FormattedText(content, CultureInfo.GetCultureInfo("en-us"),

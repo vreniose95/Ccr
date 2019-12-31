@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ccr.MaterialDesign
 {
-  public class SwatchAnalytics
+	public class SwatchAnalytics
   {
     public SwatchAnalytics(
      )

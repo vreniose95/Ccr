@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 using Microsoft.WindowsAPICodePack.Shell;
 

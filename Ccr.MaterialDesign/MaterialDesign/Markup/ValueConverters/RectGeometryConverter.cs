@@ -5,7 +5,7 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class RectGeometryConverter
+	public class RectGeometryConverter
     : XamlConverter<
       double,
       double,

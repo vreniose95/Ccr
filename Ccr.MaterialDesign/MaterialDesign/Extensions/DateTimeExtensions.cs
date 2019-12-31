@@ -7,9 +7,11 @@ namespace Ccr.MaterialDesign.Extensions
 	public static class DateTimeExtensions
 	{
 		//from the material design toolkit by butchersboy
-		internal static DateTimeFormatInfo GetDateFormat(this CultureInfo culture)
+		internal static DateTimeFormatInfo GetDateFormat(
+			this CultureInfo culture)
 		{
-			if (culture == null) throw new ArgumentNullException("culture");
+			if (culture == null) 
+				throw new ArgumentNullException(nameof(culture));
 
 			if (culture.Calendar is GregorianCalendar)
 			{
@@ -18,6 +20,7 @@ namespace Ccr.MaterialDesign.Extensions
 
 			GregorianCalendar foundCal = null;
 			DateTimeFormatInfo dtfi = null;
+
 			foreach (var cal in culture.OptionalCalendars.OfType<GregorianCalendar>())
 			{
 				// Return the first Gregorian calendar with CalendarType == Localized 

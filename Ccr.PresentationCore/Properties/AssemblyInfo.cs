@@ -7,7 +7,7 @@ using System.Windows.Markup;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Ccr.PresentationCore")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,12 +21,23 @@ using System.Windows.Markup;
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
 	"Ccr.PresentationCore.Controls")]
+
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
 	"Ccr.PresentationCore.Markup.Extensions.Animation")]
+
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
 	"Ccr.PresentationCore.Markup.TypeConverters")]
+
 [assembly: XmlnsDefinition(
-  @"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
-  "Ccr.PresentationCore.Animation.Timelines")]
+	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
+	"Ccr.PresentationCore.Animation")]
+
+[assembly: XmlnsDefinition(
+	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
+	"Ccr.PresentationCore.Animation.Templating")]
+
+[assembly: XmlnsDefinition(
+	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",
+	"Ccr.PresentationCore.Animation.Timelines")]

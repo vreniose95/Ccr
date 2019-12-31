@@ -1,7 +1,5 @@
-﻿
-using System;
-using System.ComponentModel.Design;
-using System.Windows.Markup;
+﻿using System;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 
 namespace Ccr.Core.Extensions
@@ -37,9 +35,7 @@ namespace Ccr.Core.Extensions
     {
       @this.IsNotNull(nameof(@this));
 
-      var service = @this.GetService(
-        typeof(TService)) 
-          as TService;
+      var service = @this.GetService(typeof(TService)) as TService;
       
       if(service != null)
         return service.As<TService>();

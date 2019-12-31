@@ -6,10 +6,8 @@ using System.Windows;
 using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Core.Extensions;
 using Ccr.Std.Extensions;
+using Ccr.Std.Introspective.Infrastructure;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
-using MemberDescriptor = Ccr.Std.Introspective.Infrastructure.MemberDescriptor;
-using StringExtensions = Ccr.Core.Extensions.StringExtensions;
-using TypeExtensions = Ccr.Core.Extensions.TypeExtensions;
 
 namespace Ccr.Xaml
 {
@@ -30,7 +28,7 @@ namespace Ccr.Xaml
 					value,
 					cultureInfo);
 			}
-			if (TypeExtensions.IsGenericOf(parameterType, typeof(ConverterParam<>)))
+			if (parameterType.IsGenericOf(typeof(ConverterParam<>)))
 			{
 				var valueType = parameterType
 					.GetGenericArguments()
@@ -50,8 +48,10 @@ namespace Ccr.Xaml
 
 				return (TParam)wrapped;
 			}
+
 			throw new NotSupportedException();
-		}
+		}                  
+
 
 		public static TValue Convert<TValue>(
 			object value,
@@ -66,6 +66,7 @@ namespace Ccr.Xaml
 			return (TValue)converted;
 		}
 
+
 		public static object ConvertImpl(
 			object value,
 			Type destinationValueType,
@@ -76,7 +77,7 @@ namespace Ccr.Xaml
 		  {
 
 		  }
-			if (TypeExtensions.IsGenericOf(destinationValueType, typeof(Nullable<>)))
+			if (destinationValueType.IsGenericOf(typeof(Nullable<>)))
 			{
         if (value == DependencyProperty.UnsetValue ||
 				    value == null)
@@ -100,8 +101,8 @@ namespace Ccr.Xaml
 					throw new InvalidCastException(
 						$"{callingClass.GetType().Name}." +
 						$"{callerMemberName} : Invalid cast from " +
-						$"{StringExtensions.SQuote(value.GetType().FormatName())} " +
-						$"to {StringExtensions.SQuote(destinationValueType.FormatName())}.");
+						$"{value.GetType().FormatName().SQuote()} " +
+						$"to {destinationValueType.FormatName().SQuote()}.");
 				}
 			}
 			if (value == DependencyProperty.UnsetValue ||
@@ -111,7 +112,7 @@ namespace Ccr.Xaml
 				{
 				  return destinationValueType.CreateDefaultValue();
 
-				  //throw new NotSupportedException();
+				  //throw new NotISupportsedException();
 				}
 
 				return null;

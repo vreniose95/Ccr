@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using Ccr.Std.Introspective.Extensions;
 using Ccr.Std.Introspective.Infrastructure;
 using Ccr.Std.Introspective.Infrastructure.Context;
@@ -21,13 +21,16 @@ namespace Ccr.Xaml.Infrastructure
 			: AbstractSingletonFactoryBase
 		{
 		}
+
 		#endregion
+
 
 		#region Fields
 		protected static readonly Dictionary<Type, object> _instanceCache =
 			new Dictionary<Type, object>();
 
 		#endregion
+
 
 		#region Methods
 		object IAbstractSingletonFactoryBase.GetInstanceBase(
@@ -56,8 +59,10 @@ namespace Ccr.Xaml.Infrastructure
 		private static AbstractSingletonFactory<TValue> _instance;
 		public new static AbstractSingletonFactory<TValue> I
 		{
-			get => _instance ?? (_instance = new AbstractSingletonFactoryImpl());
+			get => _instance ?? 
+				(_instance = new AbstractSingletonFactoryImpl());
 		}
+
 
 		private class AbstractSingletonFactoryImpl
 			: AbstractSingletonFactory<TValue>
@@ -68,6 +73,7 @@ namespace Ccr.Xaml.Infrastructure
 		}
 
 		#endregion
+
 
 		#region Methods
 		TResult IAbstractSingletonFactory<TValue>.GetInstance<TResult>(

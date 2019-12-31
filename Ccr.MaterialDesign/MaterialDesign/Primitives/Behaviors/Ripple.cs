@@ -27,6 +27,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 		{
 			return @this.Get<RippleMouseTrackingService>(TrackingServiceProperty);
 		}
+
 		public static void SetTrackingService(
 			DependencyObject @this,
 			RippleMouseTrackingService value)
@@ -34,11 +35,13 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			@this.Set(TrackingServiceProperty, value);
 		}
 		
+
 		public static Point GetMousePosition(
 			DependencyObject @this)
 		{
 			return @this.Get<Point>(MousePositionProperty);
 		}
+
 		public static void SetMousePosition(
 			DependencyObject @this,
 			Point value)
@@ -46,18 +49,20 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			@this.Set(MousePositionProperty, value);
 		}
 
+
 		public static Point GetPlacement(
 			DependencyObject @this)
 		{
 			return @this.Get<Point>(PlacementProperty);
 		}
+
 		public static void SetPlacement(
 			DependencyObject @this,
 			Point value)
 		{
 			@this.Set(PlacementProperty, value);
 		}
-
+		
 
 	  private static void onTrackingServiceChanged(
 			DependencyObject @this,

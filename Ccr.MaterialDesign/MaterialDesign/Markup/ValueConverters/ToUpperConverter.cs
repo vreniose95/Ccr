@@ -2,7 +2,7 @@
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class ToUpperConverter
+	public class ToUpperConverter
     : XamlConverter<
       object,
       NullParam,

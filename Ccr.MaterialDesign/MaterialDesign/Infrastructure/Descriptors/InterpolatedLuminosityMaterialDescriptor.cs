@@ -1,5 +1,6 @@
 ﻿using System.Windows.Media;
 using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
@@ -34,10 +35,8 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 		    finalLum,
 		    Opacity);
 
-		  var finalMaterial = new SolidColorBrush(
-		      finalColor)
-		    .SetIdentity(
-		      finalIdentity);
+		  var finalMaterial = new SolidColorBrush(finalColor)
+			  .SetIdentity(finalIdentity);
 
 		  return finalMaterial;
 		}

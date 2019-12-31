@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Markup;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.Xaml.Markup.Core
 {
@@ -15,27 +15,28 @@ namespace Ccr.Xaml.Markup.Core
     : MarkupExtension,
       INotifyPropertyChanged
   {
-    /// <summary>Notifies subscribers of the property change.</summary>
-    /// <param name="propertyName">Name of the property.</param>
+    /// <summary>
+    /// Notifies subscribers of the property change.
+    /// </summary>
+    /// <param name="propertyName">
+    /// Name of the property.
+    /// </param>
     public virtual void NotifyOfPropertyChange(
       string propertyName = null)
     {
      OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
     }
 
-    public void NotifyOfPropertyChange<TProperty>(Expression<Func<TProperty>> property)
+    public void NotifyOfPropertyChange<TProperty>(
+	    Expression<Func<TProperty>> property)
     {
       NotifyOfPropertyChange(property.GetMemberInfo().Name);
     }
 
     [EditorBrowsable(EditorBrowsableState.Never)]
-    protected void OnPropertyChanged(PropertyChangedEventArgs e)
-    {
-      // ISSUE: reference to a compiler-generated field
-      PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-      if (propertyChanged == null)
-        return;
-      propertyChanged((object)this, e);
+    protected void OnPropertyChanged(PropertyChangedEventArgs args)
+    { 
+      PropertyChanged?.Invoke(this, args);
     }
 
     public override object ProvideValue(IServiceProvider serviceProvider)

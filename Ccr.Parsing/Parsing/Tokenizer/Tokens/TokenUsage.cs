@@ -12,9 +12,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		: ITextRangePointer
 	{
 		protected readonly int _startIndex;
-
 		protected readonly string _text;
-
 		private readonly TokenBase _token;
 
 
@@ -22,22 +20,27 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 		{
 			get => _startIndex;
 		}
+
 		public int EndIndex
 		{
 			get => StartIndex + Length;
 		}
+
 		public int Length
 		{
 			get => _text.Length;
 		}
+
 		public string Text
 		{
 			get => _text;
 		}
+
 		public TokenBase TokenBase
 		{
 			get => _token;
 		}
+
 		public virtual Type TokenType
 		{
 			get => _token.GetType();
@@ -54,17 +57,21 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 			_token = token;
 		}
 	}
+
+
 	public class TokenUsage<TToken>
 		: TokenUsage
-		where TToken
-			: TokenBase
+			where TToken
+				: TokenBase
 	{
 		protected readonly TToken _token;
+
 
 		public TToken Token
 		{
 			get => _token;
 		}
+
 		public override Type TokenType
 		{
 			get => typeof(TToken);
@@ -80,6 +87,7 @@ namespace Ccr.Parsing.Tokenizer.Tokens
 					.CreateInstance(MemberDescriptor.Public))
 		{
 		}
+
 		protected TokenUsage(
 			int startIndex,
 			string text,

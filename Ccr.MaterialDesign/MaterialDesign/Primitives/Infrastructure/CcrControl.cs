@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 using JetBrains.Annotations;
 using FPMO = System.Windows.FrameworkPropertyMetadataOptions;
 

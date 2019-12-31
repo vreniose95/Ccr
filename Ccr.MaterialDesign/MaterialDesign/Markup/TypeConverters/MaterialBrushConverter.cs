@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Media;
 using System.Xaml;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign.Markup.TypeConverters
 {
-  //[TypeConverter(typeof(MaterialBrush))]
+	//[TypeConverter(typeof(MaterialBrush))]
   public class MaterialBrushConverter
     : TypeConverter
   {

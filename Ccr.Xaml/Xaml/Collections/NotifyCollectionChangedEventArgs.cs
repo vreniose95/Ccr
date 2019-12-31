@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
-using Ccr.Core.Extensions;
+using Ccr.Std.Core.Extensions;
 // ReSharper disable ConvertToAutoPropertyWithPrivateSetter
 // ReSharper disable ArrangeAccessorOwnerBody
 

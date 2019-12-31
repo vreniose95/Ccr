@@ -10,7 +10,7 @@ using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Markup.ValueConverters
 {
-  public class HighContrastDescriptorToBrushConverter
+	public class HighContrastDescriptorToBrushConverter
 	  : XamlConverter<
 	    Swatch,
 	    AbstractMaterialDescriptor,

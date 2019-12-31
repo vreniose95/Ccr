@@ -1,5 +1,4 @@
-﻿using Ccr.Core.Extensions;
-using Ccr.PresentationCore.Helpers.DependencyHelpers;
+﻿using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using Ccr.Xaml.Collections;
 using System;
 using System.Collections;
@@ -10,6 +9,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 using Ccr.PresentationCore.Layout;
+using Ccr.Std.Core.Extensions;
 
 namespace Ccr.MaterialDesign
 {
