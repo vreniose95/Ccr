@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
+using Ccr.PresentationCore.Markup.TypeConverters;
 
 namespace Ccr.PresentationCore.Layout
 {
+	[TypeConverter(typeof(PercentageConverter))]
 	public class Percentage //: 
 		//IComparable, 
 		//IFormattable, 

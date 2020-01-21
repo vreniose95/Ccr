@@ -1,49 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F36B17B-AB47-4F6A-80BE-E8BAE72AC774}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
-    <AssemblyName>Ccr.MDHybrid</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>net48</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
+
+	<PropertyGroup>
+		<Version>2.0.0</Version>
+		<Authors>Eric Vrenios</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>Ccr.MDHybrid package for a WPF stylistic implementation of Material Design Hybrid.</Description>
+		<PackageProjectUrl>https://github.com/vreniose95/Ccr/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.MDHybrid</RepositoryUrl>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageTags>Ccr, Ccr Framework, Ccr.MDHybrid, Ccr MDHybrid, MDHybrid, Material Design, Material Design Hybrid, MDH</PackageTags>
+		<PackageReleaseNotes>
+			Initial package publish.
+		</PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
+
   <ItemGroup>
     <Page Include="MDHybrid\Themes\MDHybrid.Buttons.Common.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -61,28 +51,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Black.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-BlackItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Bold.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-BoldItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Italic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Light.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-LightItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Medium.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-MediumItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Regular.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-Thin.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\Roboto-ThinItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Bold.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-BoldItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Italic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Light.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-LightItalic.ttf" />
-    <None Include="MDHybrid\Resources\Roboto\RobotoCondensed-Regular.ttf" />
-  </ItemGroup>
+
   <ItemGroup>
     <Page Include="MDHybrid\Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -169,24 +139,14 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\Ccr.MaterialDesign\Ccr.MaterialDesign.csproj">
-      <Project>{0070f92f-e637-40ae-85fa-11aff36da105}</Project>
-      <Name>Ccr.MaterialDesign</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.PresentationCore\Ccr.PresentationCore.csproj">
-      <Project>{d706091c-958d-43cc-96b2-229829ea325b}</Project>
-      <Name>Ccr.PresentationCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
-      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
-      <Name>Ccr.Std.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj">
-      <Project>{a61f3ed9-9c1e-4612-ba97-54be78a1a146}</Project>
-      <Name>Ccr.Xaml</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Ccr.MaterialDesign\Ccr.MaterialDesign.csproj" />
+    <ProjectReference Include="..\Ccr.PresentationCore\Ccr.PresentationCore.csproj" />
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+    <ProjectReference Include="..\Ccr.Xaml\Ccr.Xaml.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations">
       <Version>2019.1.3</Version>
@@ -195,5 +155,4 @@
       <Version>1.1.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

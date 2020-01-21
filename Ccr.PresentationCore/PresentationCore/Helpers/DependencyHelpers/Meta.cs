@@ -94,7 +94,7 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		public FrameworkPropertyMetadataOptions OptionFlags
 		{
 			get => _optionFlags;
-			protected set => _optionFlags = value;
+			set => _optionFlags = value;
 		}
 
 		#endregion
@@ -150,7 +150,8 @@ namespace Ccr.PresentationCore.Helpers.DependencyHelpers
 		/// the effective value of the dependency property changes.
 		/// </param>
 		[MethodImpl(MethodImplOptions.NoInlining)]
-		public Meta(PropertyChange<TOwner, TValue> propertyChangedCallback)
+		public Meta(
+			PropertyChange<TOwner, TValue> propertyChangedCallback)
 		{
 			_propertyChangedCallback = propertyChangedCallback;
 		}

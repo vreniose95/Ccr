@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Media;
-using Ccr.Core.Extensions;
+﻿using System.Windows.Media;
 using Ccr.Xaml.Markup.Converters.Infrastructure;
 
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
@@ -24,6 +22,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 			return descriptor.GetMaterial(materialSet);
 		}
 	}
+
 
 	//public class HighContrastDescriptorToBrushConverter
 	//	: XamlConverter<

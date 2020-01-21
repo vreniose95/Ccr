@@ -11,16 +11,26 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
 				where TParam 
 					: ConverterParam
 	{
+		protected virtual T1 ConvertArg1(object arg)
+		{
+			return XamlUtilities.Convert<T1>(arg, this);
+		}
+
+		protected virtual ConverterParam ConvertParam(object param, CultureInfo cultureInfo)
+		{
+			return XamlUtilities.ConvertParam<TParam>(param, cultureInfo, this);
+		}
+
+
 		object IValueConverter.Convert(
 			object value, 
 			Type targetType, 
 			object parameter, 
 			CultureInfo cultureInfo)
 		{
-			var arg1 = XamlUtilities.Convert<T1>(value, this);
+			var arg1 = ConvertArg1(value);
 
-			var param = XamlUtilities.ConvertParam<TParam>(
-				parameter, cultureInfo, this);
+			var param = ConvertParam(parameter, cultureInfo);
 
 			return Convert(arg1, (TParam)param);
 		}

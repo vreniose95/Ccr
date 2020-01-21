@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
+using Ccr.PresentationCore.Markup.TypeConverters;
 
 namespace Ccr.PresentationCore.Layout
 {
-  public class LengthDescriptor
+	[TypeConverter(typeof(LengthDescriptorConverter))]
+	public class LengthDescriptor
 	{
 	  private double _value;
 	  public double Value

@@ -14,7 +14,12 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
       T6, 
       T7, 
       T8, 
-      T9, 
+      T9,
+      T10,
+      T11,
+      T12,
+      T13,
+      T14,
       TParam, TResult>
     : MarkupExtensionAbstractSingletonFactory,
       IMultiValueConverter
@@ -61,11 +66,36 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
 		  return XamlUtilities.Convert<T8>(arg, this);
 	  }
 
-	  protected virtual T9 ConvertArg9(object arg)
+    protected virtual T9 ConvertArg9(object arg)
 	  {
 		  return XamlUtilities.Convert<T9>(arg, this);
 	  }
 
+    protected virtual T10 ConvertArg10(object arg)
+    {
+	    return XamlUtilities.Convert<T10>(arg, this);
+    }
+
+    protected virtual T11 ConvertArg11(object arg)
+    {
+	    return XamlUtilities.Convert<T11>(arg, this);
+    }
+
+    protected virtual T12 ConvertArg12(object arg)
+    {
+	    return XamlUtilities.Convert<T12>(arg, this);
+    }
+
+    protected virtual T13 ConvertArg13(object arg)
+    {
+	    return XamlUtilities.Convert<T13>(arg, this);
+    }
+
+    protected virtual T14 ConvertArg14(object arg)
+    {
+	    return XamlUtilities.Convert<T14>(arg, this);
+    }
+    
     protected virtual ConverterParam ConvertParam(object param, CultureInfo cultureInfo)
 	  {
 		  return XamlUtilities.ConvertParam<TParam>(param, cultureInfo, this);
@@ -87,6 +117,11 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
 	    var arg7 = ConvertArg7(values[6]);
 	    var arg8 = ConvertArg8(values[7]);
 	    var arg9 = ConvertArg9(values[8]);
+	    var arg10 = ConvertArg10(values[9]);
+	    var arg11 = ConvertArg11(values[10]);
+	    var arg12 = ConvertArg12(values[11]);
+	    var arg13 = ConvertArg13(values[12]);
+	    var arg14 = ConvertArg14(values[13]);
 
       var param = ConvertParam(parameter, cultureInfo);
 
@@ -100,6 +135,11 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
         arg7,
         arg8,
         arg9,
+        arg10,
+        arg11,
+        arg12,
+        arg13,
+        arg14,
         (TParam)param);
     }
 
@@ -113,6 +153,11 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
       T7 arg7,
       T8 arg8,
       T9 arg9,
+      T10 arg10,
+      T11 arg11,
+      T12 arg12,
+      T13 arg13,
+      T14 arg14,
       TParam param);
 
     public object[] ConvertBack(

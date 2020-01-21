@@ -6,28 +6,40 @@ using Ccr.Xaml.Markup.Extensions;
 namespace Ccr.Xaml.Markup.Converters.Infrastructure
 {
   public abstract class XamlConverter<
-    T1,
-    T2,
-    TParam, 
-    TResult>
-      : MarkupExtensionAbstractSingletonFactory,
+    T1, T2, 
+    TParam, TResult>
+			: MarkupExtensionAbstractSingletonFactory,
         IMultiValueConverter
       where TParam
-    : ConverterParam
+				: ConverterParam
   {
+	  protected virtual T1 ConvertArg1(object arg)
+	  {
+		  return XamlUtilities.Convert<T1>(arg, this);
+	  }
+
+	  protected virtual T2 ConvertArg2(object arg)
+	  {
+		  return XamlUtilities.Convert<T2>(arg, this);
+	  }
+
+	  protected virtual ConverterParam ConvertParam(object param, CultureInfo cultureInfo)
+	  {
+		  return XamlUtilities.ConvertParam<TParam>(param, cultureInfo, this);
+	  }
+
+
+
     object IMultiValueConverter.Convert(
       object[] values,
       Type targetType,
       object parameter,
       CultureInfo cultureInfo)
     {
-      var arg1 = XamlUtilities.Convert<T1>(values[0], this);
+	    var arg1 = ConvertArg1(values[0]);
+	    var arg2 = ConvertArg2(values[1]);
 
-      var arg2 = XamlUtilities.Convert<T2>(values[1], this);
-
-
-      var param = XamlUtilities.ConvertParam<TParam>(
-        parameter, cultureInfo, this);
+      var param = ConvertParam(parameter, cultureInfo);
 
       return Convert(
         arg1,

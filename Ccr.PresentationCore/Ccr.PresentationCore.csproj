@@ -1,135 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D706091C-958D-43CC-96B2-229829EA325B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ccr</RootNamespace>
-    <AssemblyName>Ccr.PresentationCore</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>net48</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+	<PropertyGroup>
+		<Version>2.4.0</Version>
+		<Authors>Eric Vrenios</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>Ccr.PresentationCore package for PresentationCore-level extensions, helpers, markup, and utilities. Contains constructs used widely across WPF Ccr Framework-based applications.</Description>
+		<PackageProjectUrl>https://github.com/vreniose95/Ccr/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.PresentationCore</RepositoryUrl>
+		<NeutralLanguage>en</NeutralLanguage>
+		<PackageTags>Ccr, Ccr Framework, Ccr.PresentationCore, Ccr PresentationCore, WPF, MVVM, XAML, Helpers, Extensions, Markup, Utilities</PackageTags>
+		<PackageReleaseNotes>Added Percentage TypeConverter</PackageReleaseNotes>
+	</PropertyGroup>
+
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Core\Extensions\BrushExtensions.cs" />
-    <Compile Include="Core\Extensions\ColorExtensions.cs" />
-    <Compile Include="Core\Extensions\ControlExtensions.cs" />
-    <Compile Include="Core\Extensions\DependencyExtensions.cs" />
-    <Compile Include="Core\Extensions\InvocationExtensions.cs" />
-    <Compile Include="Core\Extensions\PointExtensions.cs" />
-    <Compile Include="Core\Extensions\Templates\SourceTemplates.cs" />
-    <Compile Include="Core\Extensions\TimeExtensions.cs" />
-    <Compile Include="PresentationCore\Animation\AnimationHelpers.cs" />
-    <Compile Include="PresentationCore\Animation\AnimationMode.cs" />
-    <Compile Include="PresentationCore\Animation\ScopedStoryboard.cs" />
-    <Compile Include="PresentationCore\Animation\Templating\ContractElementStoryboardTemplate.cs" />
-    <Compile Include="PresentationCore\Animation\Templating\ExpandElementStoryboardTemplate.cs" />
-    <Compile Include="PresentationCore\Animation\Templating\SimpleContractElementStoryboardTemplate.cs" />
-    <Compile Include="PresentationCore\Animation\Templating\StoryboardTemplate.cs" />
-    <Compile Include="PresentationCore\Animation\Timelines\BrushAnimation.cs" />
-    <Compile Include="PresentationCore\Animation\Timelines\CornerAnimation.cs" />
-    <Compile Include="PresentationCore\Animation\Timelines\CornerAnimationBase.cs" />
-    <Compile Include="PresentationCore\Animation\Timelines\SetterObjectAnimation.cs" />
-    <Compile Include="PresentationCore\Collections\ValueEnum.cs" />
-    <Compile Include="PresentationCore\Controls\Designer.cs" />
-    <Compile Include="PresentationCore\Controls\MobileViewport.cs" />
-    <Compile Include="PresentationCore\Controls\ObservableObject.cs" />
-    <Compile Include="PresentationCore\Controls\PageOrientation.cs" />
-    <Compile Include="PresentationCore\Controls\Viewport.cs" />
-    <Compile Include="PresentationCore\Helpers\BoolBoxes.cs" />
-    <Compile Include="PresentationCore\Helpers\CcrVisualTreeHelpers.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\Callbacks.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DependencyProperty.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DP.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPChangedEventArgs.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPExtensions.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\DPExtOptions.cs" />
-    <Compile Include="PresentationCore\Helpers\DependencyHelpers\Meta.cs" />
-    <Compile Include="PresentationCore\Helpers\EventHelpers\EM.cs" />
-    <Compile Include="Core\Extensions\NotifyPropertyChangedExtension.cs" />
-    <Compile Include="PresentationCore\Helpers\EventHelpers\RoutedEventManager.cs" />
-    <Compile Include="PresentationCore\Helpers\INotifyPropertyChangedEx.cs" />
-    <Compile Include="PresentationCore\Helpers\IPropertyChangedEventArgs.cs" />
-    <Compile Include="PresentationCore\Helpers\NotifyFluent.cs" />
-    <Compile Include="PresentationCore\Helpers\PropertyChangedEventArgs.cs" />
-    <Compile Include="PresentationCore\Helpers\ResourceProvider.cs" />
-    <Compile Include="PresentationCore\Layout\LengthDescriptor.cs" />
-    <Compile Include="PresentationCore\Layout\LengthMode.cs" />
-    <Compile Include="PresentationCore\Layout\Percentage.cs" />
-    <Compile Include="PresentationCore\Layout\PolarPoint.cs" />
-    <Compile Include="PresentationCore\Markup\DesignTimeResourceDictionary.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseExtensionBase.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInExtension.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseInOutExtension.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EaseOutExtension.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingFunctionFactory.cs" />
-    <Compile Include="PresentationCore\Markup\Extensions\Animation\EasingType.cs" />
-    <Compile Include="PresentationCore\Markup\SharedResourceDictionary.cs" />
-    <Compile Include="PresentationCore\Markup\TypeConverters\PercentageConverter.cs" />
-    <Compile Include="PresentationCore\Media\Metadata\AudioFileMetadata.cs" />
-    <Compile Include="PresentationCore\Media\HslColor.cs" />
-    <Compile Include="PresentationCore\Media\HsvColor.cs" />
-    <Compile Include="PresentationCore\Media\Metadata\ShellPropertyReference.cs" />
-    <Compile Include="PresentationCore\Media\Metadata\ShellRefObject.cs" />
-    <Compile Include="PresentationCore\Media\Metadata\VideoShellObject.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj" />
+    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj" />
+    <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ccr.Std.Core\Ccr.Std.Core.csproj">
-      <Project>{40c58f5d-a319-432b-82de-144ce4994043}</Project>
-      <Name>Ccr.Std.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.Std.Introspective\Ccr.Std.Introspective.csproj">
-      <Project>{93b9ac1d-756e-4533-8b8f-5213841c2aef}</Project>
-      <Name>Ccr.Std.Introspective</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Ccr.WinCore\Ccr.WinCore.csproj">
-      <Project>{e2007a7d-451a-4ac5-874f-638669a45c95}</Project>
-      <Name>Ccr.WinCore</Name>
-    </ProjectReference>
-  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations">
       <Version>2019.1.3</Version>
     </PackageReference>
+
     <PackageReference Include="Microsoft.WindowsAPICodePack.Shell">
       <Version>1.1.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,6 +18,7 @@ namespace Ccr.MaterialDesign.Primitives.Textual
   // [130%|1.3em] [t|l|n|m|b|h] [n|o|i]
   //TODO attached property for FrameworkElements, <Label TextualAssist.Stlye={Binding xxx}/>
   //TODO auto inherit textual styles to presenters?
+
   [TypeConverter(typeof(TextualStyleConverter))]
   public partial class TextualStyle
     : Freezable
@@ -25,65 +26,81 @@ namespace Ccr.MaterialDesign.Primitives.Textual
     public static readonly DependencyProperty ForegroundDescriptorProperty = DP.Register(
       new Meta<TextualStyle, AbstractMaterialDescriptor>(Static.Descriptors.A100Descriptor));//WhiteDescriptor));
 
-    public static readonly DependencyProperty FontFamilyProperty = TextElement.FontFamilyProperty.Add(new Meta<TextualStyle, FontFamily>(Static.Text.Fonts.Roboto));
+    public static readonly DependencyProperty FontFamilyProperty = TextElement.FontFamilyProperty
+	    .Add(new Meta<TextualStyle, FontFamily>(Static.Text.Fonts.Roboto));
 
-    public static readonly DependencyProperty FontWeightProperty = TextElement.FontWeightProperty.Add(new Meta<TextualStyle, FontWeight>());
+    public static readonly DependencyProperty FontWeightProperty = TextElement.FontWeightProperty
+	    .Add(new Meta<TextualStyle, FontWeight>());
 
-    public static readonly DependencyProperty FontStretchProperty = TextElement.FontStretchProperty.Add(new Meta<TextualStyle, FontStretch>());
+    public static readonly DependencyProperty FontStretchProperty = TextElement.FontStretchProperty
+	    .Add(new Meta<TextualStyle, FontStretch>());
 
-    public static readonly DependencyProperty RelativeFontSizeProperty = DP.Register(new Meta<TextualStyle, double>(1d));
+    public static readonly DependencyProperty RelativeFontSizeProperty = DP.Register(
+	    new Meta<TextualStyle, double>(1d));
 
-    public static readonly DependencyProperty FontStyleProperty = TextElement.FontStyleProperty.Add(new Meta<TextualStyle, FontStyle>());
+    public static readonly DependencyProperty FontStyleProperty = TextElement.FontStyleProperty
+	    .Add(new Meta<TextualStyle, FontStyle>());
 
-    public static readonly DependencyProperty PaddingProperty = DP.Register(new Meta<TextualStyle, Thickness>(new Thickness(5)));
+    public static readonly DependencyProperty PaddingProperty = DP.Register(
+	    new Meta<TextualStyle, Thickness>(new Thickness(5)));
 
-    public static readonly DependencyProperty TextRotationProperty = DP.Register(new Meta<TextualStyle, TextRotation>(TextRotation.None, CcrControl.FXR));
+    public static readonly DependencyProperty TextRotationProperty = DP.Register(
+	    new Meta<TextualStyle, TextRotation>(TextRotation.None, CcrControl.FXR));
+
 
 
     public AbstractMaterialDescriptor ForegroundDescriptor
     {
-      get { return (AbstractMaterialDescriptor)GetValue(ForegroundDescriptorProperty); }
-      set { SetValue(ForegroundDescriptorProperty, value); }
+      get => (AbstractMaterialDescriptor)GetValue(ForegroundDescriptorProperty);
+      set => SetValue(ForegroundDescriptorProperty, value);
     }
+
     public FontFamily FontFamily
     {
-      get { return (FontFamily)GetValue(FontFamilyProperty); }
-      set { SetValue(FontFamilyProperty, value); }
+      get => (FontFamily)GetValue(FontFamilyProperty);
+      set => SetValue(FontFamilyProperty, value);
     }
+
     public FontWeight FontWeight
     {
-      get { return (FontWeight)GetValue(FontWeightProperty); }
-      set { SetValue(FontWeightProperty, value); }
+      get => (FontWeight)GetValue(FontWeightProperty);
+      set => SetValue(FontWeightProperty, value);
     }
+
     public FontStretch FontStretch
     {
-      get { return (FontStretch)GetValue(FontStretchProperty); }
-      set { SetValue(FontStretchProperty, value); }
+      get => (FontStretch)GetValue(FontStretchProperty);
+      set => SetValue(FontStretchProperty, value);
     }
+
     public double RelativeFontSize
     {
-      get { return (double)GetValue(RelativeFontSizeProperty); }
-      set { SetValue(RelativeFontSizeProperty, value); }
+      get => (double)GetValue(RelativeFontSizeProperty);
+      set => SetValue(RelativeFontSizeProperty, value);
     }
+
     public FontStyle FontStyle
     {
-      get { return (FontStyle)GetValue(FontStyleProperty); }
-      set { SetValue(FontStyleProperty, value); }
+      get => (FontStyle)GetValue(FontStyleProperty);
+      set => SetValue(FontStyleProperty, value);
     }
+
     public Thickness Padding
     {
-      get { return (Thickness)GetValue(PaddingProperty); }
-      set { SetValue(PaddingProperty, value); }
+      get => (Thickness)GetValue(PaddingProperty);
+      set => SetValue(PaddingProperty, value);
     }
+
     public TextRotation TextRotation
     {
-      get { return (TextRotation)GetValue(TextRotationProperty); }
-      set { SetValue(TextRotationProperty, value); }
+      get => (TextRotation)GetValue(TextRotationProperty);
+      set => SetValue(TextRotationProperty, value);
     }
 
 
-
-    public TextualStyle() { }
+    public TextualStyle()
+    {
+    }
 
     public TextualStyle(double relativeFontSize)
     {

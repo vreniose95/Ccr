@@ -7,7 +7,7 @@ using System.Windows.Markup;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Ccr.PresentationCore")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -15,8 +15,9 @@ using System.Windows.Markup;
 
 [assembly: Guid("d706091c-958d-43cc-96b2-229829ea325b")]
 
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.4.0.0")]
+[assembly: AssemblyFileVersion("2.4.0.0")]
+
 
 [assembly: XmlnsDefinition(
 	@"http://schemas.microsoft.com/winfx/2006/xaml/presentation",

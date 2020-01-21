@@ -1,6 +1,6 @@
 ﻿namespace Ccr.MaterialDesign.Infrastructure.Providers
 {
-  public interface IMaterialProvider
+	public interface IMaterialProvider
   {
     Swatch ProvideNext(ProviderContext context);
 

@@ -19,17 +19,17 @@ namespace Ccr.MaterialDesign.Static
 					$"{packPrefix}{_assemblyName}{component}/{_componentPath}",
 					UriKind.RelativeOrAbsolute);
 			}
-
 		}
+
 		private static readonly ResourceProvider _paletteResourceProvider;
-
-
+		
 	  private static Palette _palette;
 	  public static Palette Palette
 		{
 			get => _palette
-        ?? (_palette = _paletteResourceProvider.Get<Palette>("MDH.Palette"));
+				?? (_palette = _paletteResourceProvider.Get<Palette>("MDH.Palette"));
 		}
+
 
 		static GlobalResources()
 		{

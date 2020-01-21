@@ -8,15 +8,17 @@
     <Company>Ccr</Company>
     <Product>Ccr.Std.Core</Product>
     <Description>Ccr.Std.Core package for the base level of the Ccr Framework. Contains constructs used widely across Ccr Frramework-based applications.</Description>
-    <Copyright>Copyright 2019</Copyright>
+    <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://github.com/vreniose95/Ccr/tree/master/Ccr.Std.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/vreniose95/Ccr</RepositoryUrl>
     <RepositoryType>Github</RepositoryType>
     <PackageTags>Ccr, Ccr Framework, Ccr.Std.Core, Ccr Std Core, Ccr Standard Core, Ccr .Net Standard Core</PackageTags>
-    <PackageReleaseNotes>Added extended extension methods, assertion methods, converted from Paket to standard Nuget, .Net Standard 2.1 support</PackageReleaseNotes>
+    <PackageReleaseNotes>Added TimeStamp extensions</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/vreniose95/Ccr/blob/master/LICENSE</PackageLicenseUrl>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.1.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />

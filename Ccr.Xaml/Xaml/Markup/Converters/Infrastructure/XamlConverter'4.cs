@@ -16,23 +16,44 @@ namespace Ccr.Xaml.Markup.Converters.Infrastructure
     where TParam
     : ConverterParam
   {
+	  protected virtual T1 ConvertArg1(object arg)
+	  {
+		  return XamlUtilities.Convert<T1>(arg, this);
+	  }
+
+	  protected virtual T2 ConvertArg2(object arg)
+	  {
+		  return XamlUtilities.Convert<T2>(arg, this);
+	  }
+
+	  protected virtual T3 ConvertArg3(object arg)
+	  {
+		  return XamlUtilities.Convert<T3>(arg, this);
+	  }
+
+    protected virtual T4 ConvertArg4(object arg)
+	  {
+		  return XamlUtilities.Convert<T4>(arg, this);
+	  }
+
+    protected virtual ConverterParam ConvertParam(object param, CultureInfo cultureInfo)
+	  {
+		  return XamlUtilities.ConvertParam<TParam>(param, cultureInfo, this);
+	  }
+
+
     object IMultiValueConverter.Convert(
       object[] values,
       Type targetType,
       object parameter,
       CultureInfo cultureInfo)
     {
-      var arg1 = XamlUtilities.Convert<T1>(values[0], this);
+      var arg1 = ConvertArg1(values[0]);
+	    var arg2 = ConvertArg2(values[1]);
+	    var arg3 = ConvertArg3(values[2]);
+	    var arg4 = ConvertArg4(values[3]);
 
-      var arg2 = XamlUtilities.Convert<T2>(values[1], this);
-
-      var arg3 = XamlUtilities.Convert<T3>(values[2], this);
-
-      var arg4 = XamlUtilities.Convert<T4>(values[3], this);
-
-
-      var param = XamlUtilities.ConvertParam<TParam>(
-        parameter, cultureInfo, this);
+	    var param = ConvertParam(parameter, cultureInfo);
 
       return Convert(
         arg1,
