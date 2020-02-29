@@ -17,27 +17,30 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 		private readonly TIntegralType _minimum;
 		private readonly TIntegralType _maximum;
 
+
 		long IIntegralRange.Minimum
 		{
 			get => _minimumAsLong ??
-					(_minimumAsLong = Convert
-						.ChangeType(_minimum, typeof(long))
-						.As<long>())
-					.Value;
+				(_minimumAsLong = Convert
+					.ChangeType(_minimum, typeof(long))
+					.As<long>())
+				.Value;
 		}
+
 		ulong IIntegralRange.Maximum
 		{
 			get => _maximumAsUlong ??
-						 (_maximumAsUlong = Convert
-							 .ChangeType(_minimum, typeof(ulong))
-							 .As<ulong>())
-						 .Value;
+				(_maximumAsUlong = Convert
+					.ChangeType(_minimum, typeof(ulong))
+					.As<ulong>())
+				.Value;
 		}
 
 		object INumericRange.MinimumBase
 		{
 			get => Minimum;
 		}
+
 		object INumericRange.MaximumBase
 		{
 			get => Maximum;
@@ -48,10 +51,12 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 		{
 			get => _minimum;
 		}
+
 		public TIntegralType Maximum
 		{
 			get => _maximum;
 		}
+
 
 		protected IntegralRangeBase(
 			TIntegralType minimum,
@@ -141,13 +146,12 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 		}
 
 		private static bool checkConstraint(
-				TIntegralType left,
-				TIntegralType right,
-				EndpointExclusivity exclusivity,
-				RangeComparisonDirection direction)
+			TIntegralType left,
+			TIntegralType right,
+			EndpointExclusivity exclusivity,
+			RangeComparisonDirection direction)
 		{
-			var compare =
-				(ComparableResult)left.CompareTo(right);
+			var compare = (ComparableResult)left.CompareTo(right);
 
 			if (direction == RangeComparisonDirection.LessThan)
 			{
@@ -155,7 +159,7 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 				{
 					case EndpointExclusivity.Inclusive:
 						return compare == ComparableResult.LessThan
-									 || compare == ComparableResult.EqualTo;
+							|| compare == ComparableResult.EqualTo;
 
 					case EndpointExclusivity.Exclusive:
 						return compare == ComparableResult.LessThan;
@@ -170,7 +174,7 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 				{
 					case EndpointExclusivity.Inclusive:
 						return compare == ComparableResult.GreaterThan
-									 || compare == ComparableResult.EqualTo;
+							|| compare == ComparableResult.EqualTo;
 
 					case EndpointExclusivity.Exclusive:
 						return compare == ComparableResult.GreaterThan;

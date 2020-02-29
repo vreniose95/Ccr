@@ -31,7 +31,7 @@ namespace Ccr.MaterialDesign.Validation
 		}
 
 
-		protected class EmptyStringValidator 
+		protected class EmptyStringValidator
 			: StringValidator
 		{
 			public override bool Validate(

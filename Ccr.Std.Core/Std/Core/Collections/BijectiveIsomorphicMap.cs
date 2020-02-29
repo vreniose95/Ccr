@@ -8,30 +8,31 @@ using JetBrains.Annotations;
 namespace Ccr.Std.Core.Collections
 {
 	public class BijectiveIsomorphicMap<TA, TB>
-		: IDictionary<TA, TB>,
-			IReadOnlyDictionary<TA, TB>,
-			IDictionary
+		: IDictionary<TA, TB>, IReadOnlyDictionary<TA, TB>, IDictionary
 	{
 		private readonly IDictionary<TA, TB> _isomorphicMapAB;
 		[NonSerialized]
 		private readonly IDictionary<TB, TA> _isomorphicMapBA;
 		[NonSerialized]
 		private readonly InverseBijectiveIsomorphicMap _inverseIsomorphicMap;
-    
-    
+
+
 		public BijectiveIsomorphicMap()
 			: this(null, null)
-		{ }
+		{
+		}
 
 		public BijectiveIsomorphicMap(
 			IEqualityComparer<TA> aComparer)
-			: this(aComparer, null)
-		{ }
+				: this(aComparer, null)
+		{
+		}
 
 		public BijectiveIsomorphicMap(
 			IEqualityComparer<TB> bComparer)
-			: this(null, bComparer)
-		{ }
+				: this(null, bComparer)
+		{
+		}
 
 		public BijectiveIsomorphicMap(
 			[CanBeNull] IEqualityComparer<TA> aComparer,
@@ -72,7 +73,7 @@ namespace Ccr.Std.Core.Collections
 		public bool IsReadOnly
 		{
 			get => _isomorphicMapAB.IsReadOnly
-			       || _isomorphicMapBA.IsReadOnly;
+				|| _isomorphicMapBA.IsReadOnly;
 		}
 
     
@@ -177,13 +178,11 @@ namespace Ccr.Std.Core.Collections
 			return _isomorphicMapAB.Contains(item);
 		}
 
-
 		public bool TryGetValue(TA a, out TB b)
 		{
 			return _isomorphicMapAB.TryGetValue(a, out b);
 		}
-
-
+		
 		public bool Remove(TA a)
 		{
 			if (!_isomorphicMapAB.TryGetValue(a, out var b))
@@ -213,13 +212,11 @@ namespace Ccr.Std.Core.Collections
 		{
 			return _isomorphicMapAB.Remove(item);
 		}
-
-
+		
 		bool IDictionary.Contains(object key)
 		{
 			return ((IDictionary)_isomorphicMapAB).Contains(key);
 		}
-
 
 		public void Clear()
 		{
@@ -227,7 +224,6 @@ namespace Ccr.Std.Core.Collections
 			_isomorphicMapBA.Clear();
 		}
     
-
 		void ICollection<KeyValuePair<TA, TB>>.CopyTo(
 			KeyValuePair<TA, TB>[] array,
 			int arrayIndex)
@@ -241,7 +237,6 @@ namespace Ccr.Std.Core.Collections
 		{
 			((IDictionary)_isomorphicMapAB).CopyTo(array, index);
 		}
-
 
 		[OnDeserialized]
 		internal void OnDeserialized(
@@ -266,7 +261,6 @@ namespace Ccr.Std.Core.Collections
 				[NotNull] BijectiveIsomorphicMap<TA, TB> owner)
 			{
 				owner.IsNotNull(nameof(owner));
-        
 				_owner = owner;
 			}
 
@@ -294,7 +288,7 @@ namespace Ccr.Std.Core.Collections
 			public bool IsReadOnly
 			{
 				get => _owner._isomorphicMapAB.IsReadOnly 
-				       || _owner._isomorphicMapBA.IsReadOnly;
+					|| _owner._isomorphicMapBA.IsReadOnly;
 			}
 
 			public TA this[TB b]

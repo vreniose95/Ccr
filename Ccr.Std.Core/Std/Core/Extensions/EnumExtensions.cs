@@ -23,11 +23,11 @@ namespace Ccr.Std.Core.Extensions
 
 		public static IEnumerable<TEnum> GetValues<TEnum>()
 		{
-		  var type = typeof(TEnum);
-      if (!type.IsEnum)
-        throw new NotSupportedException(
-          $"The type {typeof(TEnum).Name.SQuote()} provided by the generic type parameter " +
-          $"{nameof(TEnum).SQuote()} is not supported for this method as it is not an enum.");
+			var type = typeof(TEnum);
+			if (!type.IsEnum)
+				throw new NotSupportedException(
+					$"The type {typeof(TEnum).Name.SQuote()} provided by the generic type parameter " +
+					$"{nameof(TEnum).SQuote()} is not supported for this method as it is not an enum.");
 
 			return Enum.GetValues(type).Cast<TEnum>();
 		}
@@ -37,8 +37,8 @@ namespace Ccr.Std.Core.Extensions
 			TUnderlyingType newItem)
 		{
 			var _type = @this.GetType();
-			
-			var runtimeTypeManipulator = 
+
+			var runtimeTypeManipulator =
 				new EnumRuntimeTypeManipulator(
 					_type,
 					typeof(TUnderlyingType));
@@ -65,7 +65,8 @@ namespace Ccr.Std.Core.Extensions
 			[NotNull]
 			internal Type EnumType
 			{
-				[NotNull] get => _enumType;
+				[NotNull]
+				get => _enumType;
 				[NotNull]
 				set
 				{
@@ -84,7 +85,8 @@ namespace Ccr.Std.Core.Extensions
 
 			internal Type UnderlyingType
 			{
-				[NotNull] get => _underlyingType;
+				[NotNull]
+				get => _underlyingType;
 				[NotNull]
 				set
 				{
@@ -105,8 +107,8 @@ namespace Ccr.Std.Core.Extensions
 				[NotNull] Type enumType,
 				[NotNull] Type underlyingType)
 			{
-        enumType.IsNotNull(nameof(enumType));
-        underlyingType.IsNotNull(nameof(enumType));
+				enumType.IsNotNull(nameof(enumType));
+				underlyingType.IsNotNull(nameof(enumType));
 
 				EnumType = enumType;
 				UnderlyingType = underlyingType;
@@ -115,7 +117,7 @@ namespace Ccr.Std.Core.Extensions
 
 		internal class EnumRuntimeTypeManipulator<TEnumType>
 			: EnumRuntimeTypeManipulator
-		{ 
+		{
 			public EnumRuntimeTypeManipulator() : base(
 				typeof(TEnumType),
 				Enum.GetUnderlyingType(typeof(TEnumType)))

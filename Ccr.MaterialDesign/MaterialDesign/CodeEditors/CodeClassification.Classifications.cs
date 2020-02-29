@@ -378,7 +378,7 @@
 			.ClassifiesLanguage(ClassificationLanguage.XMLDocComment)
 			.IsInClassificationScope(ClassificationScope.VisualStudio);
 
-		public static readonly CodeClassification XMLDocCommentProcessingTnstruction = Builder
+		public static readonly CodeClassification XMLDocCommentProcessingInstruction = Builder
 			.WithForeground("#C4D900")
 			.WithBackground("#02000000")
 			.IsBold()

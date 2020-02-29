@@ -9,9 +9,7 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 {
 	public class NonIntegralRangeBase<TNonIntegralType>
 		: INonIntegralRange
-			where TNonIntegralType
-				: struct,
-					IComparable
+			where TNonIntegralType : struct, IComparable
 	{
 		private decimal? _minimumAsDecimal;
 		private decimal? _maximumAsDecimal;
@@ -28,6 +26,7 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 				       .As<decimal>())
 			       .Value;
 		}
+
 		decimal INonIntegralRange.Maximum
 		{
 			get => _maximumAsDecimal ??
@@ -37,10 +36,12 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 			       .Value;
 		}
 
+
 		object INumericRange.MinimumBase
 		{
 			get => Minimum;
 		}
+
 		object INumericRange.MaximumBase
 		{
 			get => Maximum;
@@ -51,6 +52,7 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 		{
 			get => _minimum;
 		}
+
 		public TNonIntegralType Maximum
 		{
 			get => _maximum;
@@ -64,7 +66,6 @@ namespace Ccr.Std.Core.Numerics.Infrastructure
 			_minimum = minimum;
 			_maximum = maximum;
 		}
-
 
 
 

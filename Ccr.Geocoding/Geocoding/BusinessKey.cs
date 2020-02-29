@@ -12,21 +12,21 @@ namespace Ccr.Geocoding
 	/// </remarks>
 	public class BusinessKey
 	{
-		public string ClientId { get; set; }
-
-		public string SigningKey { get; set; }
-
-
 		/// <summary>
 		/// More details about channel
 		/// https://developers.google.com/maps/documentation/directions/get-api-key
 		/// https://developers.google.com/maps/premium/reports/usage-reports#channels
 		/// </summary>
-		private string channel;
+		private string _channel;
+
+
+		public string ClientId { get; set; }
+
+		public string SigningKey { get; set; }
 
 		public string Channel
 		{
-			get => channel;
+			get => _channel;
 			set
 			{
 				if (string.IsNullOrWhiteSpace(value))
@@ -34,19 +34,18 @@ namespace Ccr.Geocoding
 				
 				var formattedChannel = value.Trim().ToLower();
 				if (Regex.IsMatch(formattedChannel, @"^[a-z_0-9.-]+$"))
-					channel = formattedChannel;
-				
+					_channel = formattedChannel;
 				else
 					throw new ArgumentException(
-						$"\"{channel}\" is not a valid ASCII alphanumeric string. Can include a " +
+						$"\"{_channel}\" is not a valid ASCII alphanumeric string. Can include a " +
 						$"period, underscore, and hyphen character.", 
-						nameof(channel));
+						nameof(_channel));
 			}
 		}
 
 		public bool HasChannel
 		{
-			get => !channel.IsNullOrEmptyEx();
+			get => !_channel.IsNullOrEmptyEx();
 		}
 
 		public BusinessKey(
@@ -118,10 +117,3 @@ namespace Ccr.Geocoding
 		}
 	}
 }
-
-
-// converting key to bytes will throw an exception, need to replace '-' and '_' characters first.
-// compute the hash
-// convert the bytes to string and make url-safe by replacing '+' and '/' characters
-// Add the signature to the existing URI.
-//return uri.Scheme + "://" + uri.Host + uri.LocalPath + uri.Query + "&signature=" + signature;

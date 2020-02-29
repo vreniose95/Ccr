@@ -14,6 +14,7 @@ namespace Ccr.MaterialDesign.Markup.TypeConverters
 		{
 			
 		}
+
 		internal class ColorLiteral
 		{
 			

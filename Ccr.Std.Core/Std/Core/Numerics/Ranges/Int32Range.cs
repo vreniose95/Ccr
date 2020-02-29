@@ -5,15 +5,14 @@ using Ccr.Std.Core.Numerics.Infrastructure;
 namespace Ccr.Std.Core.Numerics.Ranges
 {
   public class Int32Range
-		: IntegralRangeBase<Int32>
+	  : IntegralRangeBase<Int32>
 	{
 		public Int32Range(
 			Int32 minimum,
-			Int32 maximum) : base(
-				minimum, 
-				maximum)
+			Int32 maximum) : base(minimum, maximum)
 		{
 		}
+
 
 		public static implicit operator Int32Range(
 			Tuple<Int32, Int32> value)

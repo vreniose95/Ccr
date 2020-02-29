@@ -1,7 +1,7 @@
 ﻿namespace Ccr.Chromatics.Colors.Spaces
 {
-  public struct UVWColor
-  {
+	public struct UVWColor
+	{
 
-  }
+	}
 }

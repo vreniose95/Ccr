@@ -20,7 +20,6 @@
 		DeepOrange,
 		Brown,
 		Grey,
-		BlueGrey,
-		Transparent
+		BlueGrey
 	}
 }

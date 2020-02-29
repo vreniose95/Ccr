@@ -13,7 +13,7 @@ using Ccr.PresentationCore.Helpers.EventHelpers;
 
 namespace Ccr.MaterialDesign.Primitives.Behaviors
 {
-	public partial class RippleSurface
+	public class RippleSurface
 		: ContentControl
 	{
 		public enum CommonStates
@@ -33,18 +33,21 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 		public static readonly DependencyProperty RecognizesAccessKeyProperty = DP.Register(
 			new Meta<RippleSurface, bool>());
 		
-		private static readonly DependencyPropertyKey RippleSizePropertyKey = DP
-			.RegisterReadOnly(new Meta<RippleSurface, double>());
+		private static readonly DependencyPropertyKey RippleSizePropertyKey = DP.RegisterReadOnly(
+			new Meta<RippleSurface, double>());
+
 		public static readonly DependencyProperty RippleSizeProperty
 			= RippleSizePropertyKey.DependencyProperty;
 
-		private static readonly DependencyPropertyKey RippleXPropertyKey = DP
-			.RegisterReadOnly(new Meta<RippleSurface, double>());
+		private static readonly DependencyPropertyKey RippleXPropertyKey = DP.RegisterReadOnly(
+			new Meta<RippleSurface, double>());
+
 		public static readonly DependencyProperty RippleXProperty
 			= RippleXPropertyKey.DependencyProperty;
 
-		private static readonly DependencyPropertyKey RippleYPropertyKey = DP
-			.RegisterReadOnly(new Meta<RippleSurface, double>());
+		private static readonly DependencyPropertyKey RippleYPropertyKey = DP.RegisterReadOnly(
+			new Meta<RippleSurface, double>());
+
 		public static readonly DependencyProperty RippleYProperty
 			= RippleYPropertyKey.DependencyProperty;
 
@@ -55,21 +58,25 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			get => (double) GetValue(RippleSizeProperty);
 			protected set => SetValue(RippleSizePropertyKey, value);
 		}
+
 		public double RippleX
 		{
 			get => (double) GetValue(RippleXProperty);
 			protected set => SetValue(RippleXPropertyKey, value);
 		}
+		
 		public double RippleY
 		{
 			get => (double) GetValue(RippleYProperty);
 			protected set => SetValue(RippleYPropertyKey, value);
 		}
+		
 		public MaterialBrush Feedback
 		{
 			get => (MaterialBrush) GetValue(FeedbackProperty);
 			set => SetValue(FeedbackProperty, value);
 		}
+		
 		public bool RecognizesAccessKey
 		{
 			get => (bool) GetValue(RecognizesAccessKeyProperty);
@@ -110,26 +117,26 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 				var scaleTrans = ripple
 					.Template
 					.FindName("ScaleTransform", ripple) as ScaleTransform;
+
 				if (scaleTrans != null)
 				{
 					var currentScale = scaleTrans.ScaleX;
+
 					var newTime = TimeSpan.FromMilliseconds(
 						300 * (1d - currentScale));
 
 					var scaleXKeyFrame = ripple
-							.Template
-							.FindName("MousePressedToNormalScaleXKeyFrame", ripple)
-						as EasingDoubleKeyFrame;
+						.Template
+						.FindName("MousePressedToNormalScaleXKeyFrame", ripple) as EasingDoubleKeyFrame;
 
 					if (scaleXKeyFrame != null)
 					{
 						scaleXKeyFrame.KeyTime = KeyTime.FromTimeSpan(newTime);
 					}
 
-					var scaleYKeyFrame = ripple
-							.Template
-							.FindName("MousePressedToNormalScaleYKeyFrame", ripple)
-						as EasingDoubleKeyFrame;
+					var scaleYKeyFrame = ripple 
+						.Template
+						.FindName("MousePressedToNormalScaleYKeyFrame", ripple) as EasingDoubleKeyFrame;
 
 					if (scaleYKeyFrame != null)
 					{
@@ -144,15 +151,13 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			_activeInstanceCache.Clear();
 		}
 
-		private static void MouseMoveEventHandler(
-			object sender,
-			MouseEventArgs args)
+		private static void MouseMoveEventHandler(object sender, MouseEventArgs args)
 		{
 			foreach (var ripple in _activeInstanceCache)
 			{
 				var relativePosition = Mouse.GetPosition(ripple);
 				if (relativePosition.X < 0
-				    || relativePosition.Y < 0
+					|| relativePosition.Y < 0
 				    || relativePosition.X >= ripple.ActualWidth
 				    || relativePosition.Y >= ripple.ActualHeight)
 				{
@@ -166,8 +171,7 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 			}
 		}
 
-		protected override void OnPreviewMouseLeftButtonDown(
-			MouseButtonEventArgs args)
+		protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs args)
 		{
 			var point = args.GetPosition(this);
 
@@ -209,12 +213,14 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 
 				_activeInstanceCache.Add(this);
 			}
+
 			base.OnPreviewMouseLeftButtonDown(args);
 		}
 
 		public override void OnApplyTemplate()
 		{
 			base.OnApplyTemplate();
+
 			VisualStateManager.GoToState(
 				this,
 				CommonStates.TemplateStateNormal.ToString(),

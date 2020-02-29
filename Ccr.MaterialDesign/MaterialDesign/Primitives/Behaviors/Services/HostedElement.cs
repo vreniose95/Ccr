@@ -3,29 +3,29 @@ using System.Windows;
 using Ccr.PresentationCore.Helpers.DependencyHelpers;
 using JetBrains.Annotations;
 // ReSharper disable ArrangeAccessorOwnerBody
+
 namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 {
-	public class HostedElement<TElement> 
+	public class HostedElement<TElement>
 		: DependencyObject
-			where TElement 
-			  : DependencyObject
+			where TElement : DependencyObject
 	{
 		protected TElement _hostElement;
+
+		public static readonly DependencyProperty InheritanceContextModeProperty = DP.Register(
+			new Meta<HostedElement<TElement>, bool>());
+		
 
 		public TElement HostElement
 		{
 			get => _hostElement;
 		}
-
-
-	  public static readonly DependencyProperty InheritanceContextModeProperty = DP.Register(
-	    new Meta<HostedElement<TElement>, bool>());
-
-	  public bool InheritanceContextMode
-	  {
-	    get => (bool) GetValue(InheritanceContextModeProperty);
-	    set => SetValue(InheritanceContextModeProperty, value);
-	  }
+		
+		public bool InheritanceContextMode
+		{
+			get => (bool)GetValue(InheritanceContextModeProperty);
+			set => SetValue(InheritanceContextModeProperty, value);
+		}
 
 		public bool IsHosted
 		{
@@ -50,21 +50,17 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 				Debug.WriteLine("no hosted element to detach.");
 				return;
 			}
-
 			OnHostDetaching(_hostElement);
 			_hostElement = null;
 		}
 
 
-		protected virtual void OnHostAttached(
-		  DependencyObject host)
+		protected virtual void OnHostAttached(DependencyObject host)
 		{
 		}
 
-		protected virtual void OnHostDetaching(
-		  DependencyObject host)
+		protected virtual void OnHostDetaching(DependencyObject host)
 		{
 		}
-
 	}
 }

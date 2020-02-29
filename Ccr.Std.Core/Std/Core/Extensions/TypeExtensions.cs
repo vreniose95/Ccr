@@ -11,36 +11,35 @@ namespace Ccr.Std.Core.Extensions
   public static class TypeExtensions
   {
     /// <summary>
-    ///   Extension method to cast an object to the specified type though the 
-    ///   type parameter <typeparamref name="TValue"/>. This method is merely 
-    ///   a differing syntax preference for object type casts.
+    /// Extension method to cast an object to the specified type though the 
+    /// type parameter <typeparamref name="TValue"/>. This method is merely 
+    /// a differing syntax preference for object type casts.
     /// </summary>
     /// <typeparam name="TValue">
-    ///   The destination type to cast the object <paramref name="this"/> to.
+    /// The destination type to cast the object <paramref name="this"/> to.
     /// </typeparam>
     /// <param name="this">
-    ///   The object being casted to type <typeparamref name="TValue"/>.
+    /// The object being casted to type <typeparamref name="TValue"/>.
     /// </param>
     /// <returns>
-    ///   An object that has been cast to type <typeparamref name="TValue"/>.
+    /// An object that has been cast to type <typeparamref name="TValue"/>.
     /// </returns>
     private static TValue Cast<TValue>(
       this object @this)
     {
-      if (typeof(TValue).IsGenericType)
-      {
-        if (typeof(TValue).IsGenericOf(typeof(Nullable<>)))
-        {
-
-        }
-      }
-
-      if (@this is TValue)
-        return (TValue)@this;
-
-      throw new InvalidCastException(
-        $"Cannot cast object of type \'{@this.GetType().Name}\' " +
-        $"to the type \'{typeof(TValue).Name}\'");
+	    if (typeof(TValue).IsGenericType)
+	    {
+		    if (typeof(TValue).IsGenericOf(typeof(Nullable<>)))
+		    {
+		    }
+	    }
+        
+	    if (@this is TValue)
+		    return (TValue)@this;
+        
+	    throw new InvalidCastException(
+		    $"Cannot cast object of type \'{@this.GetType().Name}\' " +
+		    $"to the type \'{typeof(TValue).Name}\'");
     }
 
 
@@ -51,12 +50,12 @@ namespace Ccr.Std.Core.Extensions
     /// <param name="this"></param>
     /// <returns></returns>
     public static TValue As<TValue>(
-      this object @this)
+	    this object @this)
     {
-      if (@this == null)
-        return default(TValue);
-
-      return @this.Cast<TValue>();
+	    if (@this == null)
+		    return default;
+        
+	    return @this.Cast<TValue>();
     }
 
 
@@ -67,12 +66,12 @@ namespace Ccr.Std.Core.Extensions
     /// <param name="this"></param>
     /// <returns></returns>
     public static TValue AsOrDefault<TValue>(
-      this object @this)
+	    this object @this)
     {
-      if (@this == null)
-        return default(TValue);
-
-      return @this.As<TValue>();
+	    if (@this == null)
+		    return default;
+        
+	    return @this.As<TValue>();
     }
 
     /// <summary>
@@ -81,10 +80,11 @@ namespace Ccr.Std.Core.Extensions
     /// <typeparam name="T"></typeparam>
     /// <param name="this"></param>
     /// <returns></returns>
-    public static T To<T>(this object @this)
-    {
-      var convertedValue = Convert.ChangeType(@this, typeof(T));
-      return convertedValue.As<T>();
+    public static T To<T>(
+	    this object @this)
+    { 
+	    var convertedValue = Convert.ChangeType(@this, typeof(T));
+	    return convertedValue.As<T>();
     }
 
     /// <summary>
@@ -110,13 +110,13 @@ namespace Ccr.Std.Core.Extensions
     /// 
     /// </returns>
     public static bool IsGenericOf(
-      this Type @this,
-      Type genericType)
+	    this Type @this,
+	    Type genericType)
     {
-      if (!@this.IsGenericType)
-        return false;
-
-      return @this.GetGenericTypeDefinition() == genericType;
+	    if (!@this.IsGenericType)
+		    return false;
+        
+	    return @this.GetGenericTypeDefinition() == genericType;
     }
 
     /// <summary>
@@ -125,12 +125,12 @@ namespace Ccr.Std.Core.Extensions
     /// <param name="this"></param>
     /// <param name="args"></param>
     /// <returns></returns>
-	  public static bool HasGenericArgs(
-      this Type @this,
-      params Type[] args)
+    public static bool HasGenericArgs(
+	    this Type @this,
+	    params Type[] args)
     {
       if (!@this.IsGenericType)
-        return false;
+	      return false;
 
       var genericArgs = @this.GenericTypeArguments;
       return genericArgs.SequenceEqual(args);
@@ -160,10 +160,10 @@ namespace Ccr.Std.Core.Extensions
     /// </param>
     /// <returns></returns>
     public static bool IsPropertyTypeGenericOf(
-      this PropertyInfo @this,
-      Type genericType)
+	    this PropertyInfo @this,
+	    Type genericType)
     {
-      return @this.PropertyType.IsGenericOf(genericType);
+	    return @this.PropertyType.IsGenericOf(genericType);
     }
 
     /// <summary>
@@ -174,24 +174,24 @@ namespace Ccr.Std.Core.Extensions
     /// </param>
     /// <returns></returns>
     public static object GetDefaultValue(
-      [NotNull] this Type @this)
+	    [NotNull] this Type @this)
     {
-      @this.IsNotNull(nameof(@this));
-
-      if (!@this.IsValueType)
-        return null;
-
-      //var nullableWrapper = typeof(Nullable<>).MakeGenericType(@this);
-      var instance = Activator.CreateInstance(@this);
-
-      return instance;
+	    @this.IsNotNull(nameof(@this));
+        
+	    if (!@this.IsValueType)
+		    return null;
+        
+	    //var nullableWrapper = typeof(Nullable<>).MakeGenericType(@this);
+	    var instance = Activator.CreateInstance(@this);
+	    
+	    return instance;
     }
 
     //TODO IMPLEMENT
     public static bool IsIntegralType(
-      this Type @this)
+	    this Type @this)
     {
-      return IntegralTypeReference.IsIntegralType(@this);
+	    return IntegralTypeReference.IsIntegralType(@this);
     }
 
 
@@ -199,24 +199,25 @@ namespace Ccr.Std.Core.Extensions
     /// a mapping of the account C#'s built in type table defined at 
     /// https://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
     /// </summary>
-    private static readonly Dictionary<Type, string> _specialFormats = new Dictionary<Type, string>
-    {
-      [typeof(bool)] = "bool",
-      [typeof(byte)] = "byte",
-      [typeof(sbyte)] = "sbyte",
-      [typeof(char)] = "char",
-      [typeof(decimal)] = "decimal",
-      [typeof(double)] = "double",
-      [typeof(float)] = "float",
-      [typeof(int)] = "int",
-      [typeof(uint)] = "uint",
-      [typeof(long)] = "long",
-      [typeof(ulong)] = "ulong",
-      [typeof(object)] = "object",
-      [typeof(short)] = "short",
-      [typeof(ushort)] = "ushort",
-      [typeof(string)] = "string"
-    };
+    private static readonly Dictionary<Type, string> _specialFormats
+	    = new Dictionary<Type, string>
+	    {
+		    [typeof(bool)] = "bool",
+		    [typeof(byte)] = "byte",
+		    [typeof(sbyte)] = "sbyte",
+		    [typeof(char)] = "char",
+		    [typeof(decimal)] = "decimal",
+		    [typeof(double)] = "double",
+		    [typeof(float)] = "float",
+		    [typeof(int)] = "int",
+		    [typeof(uint)] = "uint",
+		    [typeof(long)] = "long",
+		    [typeof(ulong)] = "ulong",
+		    [typeof(object)] = "object",
+		    [typeof(short)] = "short",
+		    [typeof(ushort)] = "ushort",
+		    [typeof(string)] = "string"
+	    };
 
     /// <summary>
     /// Gets the formatted Name of the type taking into account C#'s built in type
@@ -230,69 +231,64 @@ namespace Ccr.Std.Core.Extensions
     /// defined at https://msdn.microsoft.com/en-us/library/ya5y69ds.aspx
     /// </returns>
     public static string FormatName(
-      this Type @this)
+	    this Type @this)
     {
-      return _specialFormats.TryGetValue(@this, out var specialFormat)
-        ? specialFormat
-        : @this.Name;
+	    return _specialFormats.TryGetValue(@this, out var specialFormat)
+		    ? specialFormat
+		    : @this.Name;
     }
 
     public static void DebuggerReflectLog<TValue>(
-      this TValue @this)
+	    this TValue @this)
     {
-      Debug.WriteLine(
-        $"<{typeof(TValue).Name}>");
+      Debug.WriteLine($"<{typeof(TValue).Name}>");
 
-      var properties =
-        typeof(TValue).GetProperties(
-          BindingFlags.Instance | BindingFlags.Public);
+      var properties = typeof(TValue)
+	      .GetProperties(BindingFlags.Instance | BindingFlags.Public);
 
       foreach (var property in properties)
       {
-        var value = property.GetValue(@this);
-
-        Debug.WriteLine($"  ({property.PropertyType.FormatName()}) " +
-                        $"\t\t\t \"{value ?? "<null>"}\"");
+	      var value = property.GetValue(@this);
+          
+	      Debug.WriteLine($"  ({property.PropertyType.FormatName()}) " +
+		      $"\t\t\t \"{value ?? "<null>"}\"");
       }
+
       Debug.WriteLine($"</{typeof(TValue).Name}>");
     }
-
-
-
+    
     public static bool Implements<TInterface>(
-      this Type @this)
+	    this Type @this)
     {
       return @this
-        .GetTypeInfo()
-        .ImplementsInterface(
-          typeof(TInterface));
+	      .GetTypeInfo()
+	      .ImplementsInterface(
+		      typeof(TInterface));
     }
 
     public static bool Implements<TInterface>(
-      this TypeInfo @this)
+	    this TypeInfo @this)
     {
       return @this
-        .ImplementsInterface(
-          typeof(TInterface));
+	      .ImplementsInterface(
+		      typeof(TInterface));
     }
 
     public static bool ImplementsInterface(
-      this Type thisType,
-      Type interfaceType)
+	    this Type thisType,
+	    Type interfaceType)
     {
       if (!interfaceType.IsInterface)
-        throw new InvalidOperationException(
-          $"Parameter interfaceType {interfaceType.Name.SQuote()} " +
-          $"is not valid because it is not an Interface type.");
-
+	      throw new InvalidOperationException(
+		      $"Parameter interfaceType {interfaceType.Name.SQuote()} " +
+		      $"is not valid because it is not an Interface type.");
+      
       return thisType
-        .GetTypeInfo()
-        .ImplementedInterfaces
-        .Contains(
-          interfaceType);
-
+	      .GetTypeInfo()
+	      .ImplementedInterfaces
+	      .Contains(
+		      interfaceType);
     }
-
   }
 }
 

@@ -6,34 +6,34 @@ using Ccr.MDHybrid.Demo.Models;
 
 namespace Ccr.MDHybrid.Demo.ViewModels
 {
-  public class RootViewModel
-    : ViewModelBase
-  {
-    private ObservableCollection<ExpanderItemSelection> _categoriesExpanderItems;
-    public ObservableCollection<ExpanderItemSelection> CategoriesExpanderItems
-    {
-      get => _categoriesExpanderItems;
-      set
-      {
-        _categoriesExpanderItems = value;
-        NotifyOfPropertyChange(() => CategoriesExpanderItems);
-      }
-    }
+	public class RootViewModel
+		: ViewModelBase
+	{
+		private ObservableCollection<ExpanderItemSelection> _categoriesExpanderItems;
+		public ObservableCollection<ExpanderItemSelection> CategoriesExpanderItems
+		{
+			get => _categoriesExpanderItems;
+			set
+			{
+				_categoriesExpanderItems = value;
+				NotifyOfPropertyChange(() => CategoriesExpanderItems);
+			}
+		}
 
 
-    public RootViewModel()
-    {
-      CategoriesExpanderItems = new BindableCollection<ExpanderItemSelection>
-      {
-        new ExpanderItemSelection(IconKind.Shovel, "Action"),
-        new ExpanderItemSelection(IconKind.Netflix, "Adventure"),
-        new ExpanderItemSelection(IconKind.Coffee, "Casual"),
-        new ExpanderItemSelection(IconKind.ShieldOutline, "Strategy"),
-        new ExpanderItemSelection(IconKind.LibraryBooks, "Intellectual"),
-        new ExpanderItemSelection(IconKind.Football, "Sport"),
-      };
-    }
-  }
+		public RootViewModel()
+		{
+			CategoriesExpanderItems = new BindableCollection<ExpanderItemSelection>
+			{
+				new ExpanderItemSelection(IconKind.Shovel, "Action"),
+				new ExpanderItemSelection(IconKind.Netflix, "Adventure"),
+				new ExpanderItemSelection(IconKind.Coffee, "Casual"),
+				new ExpanderItemSelection(IconKind.ShieldOutline, "Strategy"),
+				new ExpanderItemSelection(IconKind.LibraryBooks, "Intellectual"),
+				new ExpanderItemSelection(IconKind.Football, "Sport"),
+			};
+		}
+	}
 }
 
 

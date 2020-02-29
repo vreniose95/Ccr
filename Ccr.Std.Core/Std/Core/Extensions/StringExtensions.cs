@@ -9,147 +9,146 @@ namespace Ccr.Std.Core.Extensions
 {
 	public static class StringExtensions
 	{
-    /// <inheritdoc cref="string.IsNullOrWhiteSpace"/>
-    public static bool IsNullOrWhiteSpace(
-	    this string @this)
+		/// <inheritdoc cref="string.IsNullOrWhiteSpace"/>
+		public static bool IsNullOrWhiteSpace(
+			this string @this)
 	  {
-	    return string.IsNullOrWhiteSpace(
-	      @this);
+		  return string.IsNullOrWhiteSpace(
+			  @this);
 	  }
-
-    /// <inheritdoc cref="string.IsNullOrEmpty"/>
+		
+		/// <inheritdoc cref="string.IsNullOrEmpty"/>
 		public static bool IsNullOrEmptyEx(
 			[AssertionCondition(IS_NULL)] this string @this)
 		{
 			return string.IsNullOrEmpty(
-			  @this);
+				@this);
 		}
 
-    /// <summary>
-    ///   Extension method for the logical inverse of the <see cref="string.IsNullOrEmpty"/> 
-    ///   method. This is syntactic sugar for !string.IsNullOrEmpty(string)
-    /// </summary>
-    /// <param name="this">
-    /// The object in which to ensure non-nullability upon
-    /// </param>
-    [ContractAnnotation("this:null => false"), AssertionMethod]
+	    /// <summary>
+	    /// Extension method for the logical inverse of the <see cref="string.IsNullOrEmpty"/> 
+	    /// method. This is syntactic sugar for !string.IsNullOrEmpty(string)
+	    /// </summary>
+	    /// <param name="this">
+	    /// The object in which to ensure non-nullability upon
+	    /// </param>
+	    [ContractAnnotation("this:null => false"), AssertionMethod]
 		public static bool IsNotNullOrEmpty(
 			[AssertionCondition(IS_NOT_NULL)] this string @this)
 		{
 			return !string.IsNullOrEmpty(
-			  @this);
+				@this);
 		}
 
 		//IsNotNullOrEmptyEx
 		public static string Surround(
-	    this string @this,
-	    char c)
-	  {
-	   return $"{c}{@this}{c}";
-    }
-
-    public static string SQuote(
-      this char @this)
-	  {
-	    return @this.ToString().Surround('\''); 
-	  }
-
-	  public static string Quote(
-	    this char @this)
-	  {
-      return @this.ToString().Surround('\"');
-    }
-
-	  public static string SQuote(
-	    this string @this)
-	  {
-	    return @this.Surround('\'');
-	  }
-
-	  public static string Quote(
-	    this string @this)
-	  {
-	    return @this.Surround('\"');
-	  }
-
-
-
-    public static string Limit(
-      this string @this, 
-      int length)
+			this string @this,
+			char c)
 		{
-		  return @this.Length > length 
-        ? @this.Substring(0, length) 
-        : @this;
+			return $"{c}{@this}{c}";
+		}
+		
+		public static string SQuote(
+			this char @this)
+		{
+			return @this.ToString().Surround('\'');
+		}
+		
+		public static string Quote(
+			this char @this)
+		{
+			return @this.ToString().Surround('\"');
+		}
+		
+		public static string SQuote(
+			this string @this)
+		{
+			return @this.Surround('\'');
+		}
+		
+		public static string Quote(
+			this string @this)
+		{
+			return @this.Surround('\"');
 		}
 
-	  private static TextInfo _textInfo;
-	  internal static TextInfo TextInfo
-	  {
-	    get => _textInfo
-	           ?? (_textInfo = new CultureInfo("en-US", false).TextInfo);
-	  }
+		
+		public static string Limit(
+			this string @this, 
+			int length)
+		{
+			return @this.Length > length 
+				? @this.Substring(0, length) 
+				: @this;
+		}
+		
+		private static TextInfo _textInfo;
+		internal static TextInfo TextInfo
+		{
+			get => _textInfo
+				?? (_textInfo = new CultureInfo("en-US", false).TextInfo);
+		}
 
-	  public static string ToTitleCase(
-      this string @this)
-	  {
-	    return TextInfo.ToTitleCase(@this);
-
-	  }
-
+		public static string ToTitleCase(
+			this string @this)
+		{
+			return TextInfo.ToTitleCase(@this);
+		}
+		
 		public static bool ContainsCaseInsensitive(
-      this string @this, 
-      string toCheck)
+			this string @this, 
+			string toCheck)
 		{
 			return @this
-        .IndexOf(toCheck, StringComparison.OrdinalIgnoreCase) >= 0;
+				.IndexOf(toCheck, StringComparison.OrdinalIgnoreCase) >= 0;
 		}
 
 		public static bool IsExclusivelyHex(
-      this string source)
+			this string source)
 		{
 			return Regex.IsMatch(
-        source, 
-        @"\A\b[0-9a-fA-F]+\b\Z");
+				source, 
+				@"\A\b[0-9a-fA-F]+\b\Z");
 		}
+
 		public static bool IsCStyleCompilerHexLiteral(
-      this string source)
+			this string source)
 		{
 			return Regex.IsMatch(
-        source, 
-        @"\A\b(0[xX])?[0-9a-fA-F]+\b\Z");
-		}//                                  
+				source, 
+				@"\A\b(0[xX])?[0-9a-fA-F]+\b\Z");
+		}                      
 
 		// definition of a valid C# identifier: http://msdn.microsoft.com/en-us/library/aa664670(v=vs.71).aspx
 		/// <summary>
-		/// Information on the standards of how the language specificiation 
-		/// consitutes a valid C# member identifier.
+		/// Information on the standards of how the language specification 
+		/// constitutes a valid C# member identifier.
 		/// </summary>
 		// ReSharper disable once RedundantArrayCreationExpression
 		private static readonly List<string> _csharpLanguageKeywords 
-      = new List<string>
-		{
-			"abstract",  "event",      "new",        "struct",
-			"as",        "explicit",   "null",       "switch",
-			"base",      "extern",     "object",     "this",
-			"bool",      "false",      "operator",   "throw",
-			"breal",     "finally",    "out",        "true",
-			"byte",      "fixed",      "override",   "try",
-			"case",      "float",      "params",     "typeof",
-			"catch",     "for",        "private",    "uint",
-			"char",      "foreach",    "protected",  "ulong",
-			"checked",   "goto",       "public",     "unchekeced",
-			"class",     "if",         "readonly",   "unsafe",
-			"const",     "implicit",   "ref",        "ushort",
-			"continue",  "in",         "return",     "using",
-			"decimal",   "int",        "sbyte",      "virtual",
-			"default",   "interface",  "sealed",     "volatile",
-			"delegate",  "internal",   "short",      "void",
-			"do",        "is",         "sizeof",     "while",
-			"double",    "lock",       "stackalloc",
-			"else",      "long",       "static",
-			"enum",      "namespace",  "string"
-		};
+			= new List<string>
+			{
+				"abstract",  "event",      "new",        "struct",
+				"as",        "explicit",   "null",       "switch",
+				"base",      "extern",     "object",     "this",
+				"bool",      "false",      "operator",   "throw",
+				"break",     "finally",    "out",        "true",
+				"byte",      "fixed",      "override",   "try",
+				"case",      "float",      "params",     "typeof",
+				"catch",     "for",        "private",    "uint",
+				"char",      "foreach",    "protected",  "ulong",
+				"checked",   "goto",       "public",     "unchecked",
+				"class",     "if",         "readonly",   "unsafe",
+				"const",     "implicit",   "ref",        "ushort",
+				"continue",  "in",         "return",     "using",
+				"decimal",   "int",        "sbyte",      "virtual",
+				"default",   "interface",  "sealed",     "volatile",
+				"delegate",  "internal",   "short",      "void",
+				"do",        "is",         "sizeof",     "while",
+				"double",    "lock",       "stackalloc",
+				"else",      "long",       "static",
+				"enum",      "namespace",  "string"
+			};
 
 
 		private const string formattingCharacter = @"\p{Cf}";
@@ -215,13 +214,13 @@ namespace Ccr.Std.Core.Extensions
 		//}
 
 		/// <summary>
-		///		Converts the specified input string to Pascal Case.
+		/// Converts the specified input string to Pascal Case.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="string"/> in which to convert.
+		///	The subject <see cref="string"/> in which to convert.
 		/// </param> c
 		/// <returns>
-		///		The value of the provided <paramref name="this"/> converted to Pascal Case.
+		///	The value of the provided <paramref name="this"/> converted to Pascal Case.
 		/// </returns>
 		public static string ToPascalCase(
 			[NotNull] this string @this)
@@ -238,13 +237,13 @@ namespace Ccr.Std.Core.Extensions
 		}
 
 		/// <summary>
-		///		Converts the specified input string to Camel Case.
+		///	Converts the specified input string to Camel Case.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="string"/> in which to convert.
+		///	The subject <see cref="string"/> in which to convert.
 		/// </param>
 		/// <returns>
-		/// 	The value of the provided <paramref name="this"/> converted to Camel Case.
+		/// The value of the provided <paramref name="this"/> converted to Camel Case.
 		/// </returns>
 		public static string ToCamelCase(
 			[NotNull] this string @this)
@@ -257,20 +256,20 @@ namespace Ccr.Std.Core.Extensions
 		}
 
 		/// <summary>
-		///		Separates the input words with underscore.
+		///	Separates the input words with underscore.
 		/// </summary>
 		/// <param name="this">
-		///		The subject <see cref="string"/> in which to convert.
+		///	The subject <see cref="string"/> in which to convert.
 		/// </param>
 		/// <returns>
-		/// 	The provided <paramref name="this"/> with the words separated by underscores.
+		/// The provided <paramref name="this"/> with the words separated by underscores.
 		/// </returns>
 		public static string Underscore(
 			[NotNull] this string @this)
 		{
 			@this.IsNotNull(nameof(@this));
 
-			return
+			return 
 				Regex.Replace(
 					Regex.Replace(
 						Regex.Replace(

@@ -4,33 +4,32 @@ using Ccr.Core.Extensions;
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
 	public class LiteralMaterialDescriptor
-    : AbstractMaterialDescriptor
+		: AbstractMaterialDescriptor
 	{
-    public SolidColorBrush LiteralBrush { get; }
+		public SolidColorBrush LiteralBrush { get; }
 
 
-	  public LiteralMaterialDescriptor(
-	    SolidColorBrush brush)
-	  {
-	    LiteralBrush = brush;
-	  }
+		public LiteralMaterialDescriptor(
+			SolidColorBrush brush)
+		{
+			LiteralBrush = brush;
+		}
 
-    //TODO fix withOpacity
-    public LiteralMaterialDescriptor(
-      SolidColorBrush brush,
-      double opacity)
+		public LiteralMaterialDescriptor(
+			SolidColorBrush brush,
+			double opacity)
 				: this(
 					brush.Color.WithOpacity(
-			    opacity).ToSCB())
-    {
-      Opacity = opacity;
-    }
+					opacity).ToSCB())
+		{
+			Opacity = opacity;
+		}
 
-
-    public override SolidColorBrush GetMaterial(
-	    Swatch swatch)
-	  {
-	    return LiteralBrush;
-	  }
-  }
+		
+		public override SolidColorBrush GetMaterial(
+			Swatch swatch)
+		{
+			return LiteralBrush;
+		}
+	}
 }

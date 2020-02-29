@@ -4,41 +4,320 @@
      xsi:schemaLocation="
      http://ccr.org/types 
      ../Schemas/types.xsd">
-
   <Palette>
-    <Swatch SwatchIdentifier="Cyan">
-      <Brush Luminosity="P050" Color="#E0F7FA"/>
-      <Brush Luminosity="P100" Color="#B2EBF2"/>
-      <Brush Luminosity="P200" Color="#80DEEA"/>
-      <Brush Luminosity="P300" Color="#4DD0E1"/>
-      <Brush Luminosity="P400" Color="#26C6DA"/>
-      <Brush Luminosity="P500" Color="#00BCD4"/>
-      <Brush Luminosity="P600" Color="#00ACC1"/>
-      <Brush Luminosity="P700" Color="#0097A7"/>
-      <Brush Luminosity="P800" Color="#00838F"/>
-      <Brush Luminosity="P900" Color="#006064"/>
-      <Brush Luminosity="A100" Color="#84FFFF"/>
-      <Brush Luminosity="A200" Color="#18FFFF"/>
-      <Brush Luminosity="A400" Color="#00E5FF"/>
-      <Brush Luminosity="A700" Color="#00B8D4"/>
-    </Swatch>
-    <Swatch SwatchIdentifier="Blue">
-      <Brush Luminosity="P050" Color="#E0F7FA"/>
-      <Brush Luminosity="P100" Color="#B2EBF2"/>
-      <Brush Luminosity="P200" Color="#80DEEA"/>
-      <Brush Luminosity="P300" Color="#4DD0E1"/>
-      <Brush Luminosity="P400" Color="#26C6DA"/>
-      <Brush Luminosity="P500" Color="#00BCD4"/>
-      <Brush Luminosity="P600" Color="#00ACC1"/>
-      <Brush Luminosity="P700" Color="#0097A7"/>
-      <Brush Luminosity="P800" Color="#00838F"/>
-      <Brush Luminosity="P900" Color="#006064"/>
-      <Brush Luminosity="A100" Color="#84FFFF"/>
-      <Brush Luminosity="A200" Color="#18FFFF"/>
-      <Brush Luminosity="A400" Color="#00E5FF"/>
-      <Brush Luminosity="A700" Color="#00B8D4"/>
-    </Swatch>
+		<Swatch SwatchIdentifier="Red">
+			<Brush Luminosity="P050" Color="#FFEBEE"/>
+			<Brush Luminosity="P100" Color="#FFCDD2"/>
+			<Brush Luminosity="P200" Color="#EF9A9A"/>
+			<Brush Luminosity="P300" Color="#E57373"/>
+			<Brush Luminosity="P400" Color="#EF5350"/>
+			<Brush Luminosity="P500" Color="#F44336"/>
+			<Brush Luminosity="P600" Color="#E53935"/>
+			<Brush Luminosity="P700" Color="#D32F2F"/>
+			<Brush Luminosity="P800" Color="#C62828"/>
+			<Brush Luminosity="P900" Color="#B71C1C"/>
+			<Brush Luminosity="A100" Color="#FF8A80"/>
+			<Brush Luminosity="A200" Color="#FF5252"/>
+			<Brush Luminosity="A400" Color="#FF1744"/>
+			<Brush Luminosity="A700" Color="#D50000"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Pink">
+			<Brush Luminosity="P050" Color="#FCE4EC"/>
+			<Brush Luminosity="P100" Color="#F8BBD0"/>
+			<Brush Luminosity="P200" Color="#F48FB1"/>
+			<Brush Luminosity="P300" Color="#F06292"/>
+			<Brush Luminosity="P400" Color="#EC407A"/>
+			<Brush Luminosity="P500" Color="#E91E63"/>
+			<Brush Luminosity="P600" Color="#D81B60"/>
+			<Brush Luminosity="P700" Color="#C2185B"/>
+			<Brush Luminosity="P800" Color="#AD1457"/>
+			<Brush Luminosity="P900" Color="#880E4F"/>
+			<Brush Luminosity="A100" Color="#FF80AB"/>
+			<Brush Luminosity="A200" Color="#FF4081"/>
+			<Brush Luminosity="A400" Color="#F50057"/>
+			<Brush Luminosity="A700" Color="#C51162"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Purple">
+			<Brush Luminosity="P050" Color="#F3E5F5"/>
+			<Brush Luminosity="P100" Color="#E1BEE7"/>
+			<Brush Luminosity="P200" Color="#CE93D8"/>
+			<Brush Luminosity="P300" Color="#BA68C8"/>
+			<Brush Luminosity="P400" Color="#AB47BC"/>
+			<Brush Luminosity="P500" Color="#9C27B0"/>
+			<Brush Luminosity="P600" Color="#8E24AA"/>
+			<Brush Luminosity="P700" Color="#7B1FA2"/>
+			<Brush Luminosity="P800" Color="#6A1B9A"/>
+			<Brush Luminosity="P900" Color="#4A148C"/>
+			<Brush Luminosity="A100" Color="#EA80FC"/>
+			<Brush Luminosity="A200" Color="#E040FB"/>
+			<Brush Luminosity="A400" Color="#D500F9"/>
+			<Brush Luminosity="A700" Color="#AA00FF"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="DeepPurple">
+			<Brush Luminosity="P050" Color="#EDE7F6"/>
+			<Brush Luminosity="P100" Color="#D1C4E9"/>
+			<Brush Luminosity="P200" Color="#B39DDB"/>
+			<Brush Luminosity="P300" Color="#9575CD"/>
+			<Brush Luminosity="P400" Color="#7E57C2"/>
+			<Brush Luminosity="P500" Color="#673AB7"/>
+			<Brush Luminosity="P600" Color="#5E35B1"/>
+			<Brush Luminosity="P700" Color="#512DA8"/>
+			<Brush Luminosity="P800" Color="#4527A0"/>
+			<Brush Luminosity="P900" Color="#311B92"/>
+			<Brush Luminosity="A100" Color="#B388FF"/>
+			<Brush Luminosity="A200" Color="#7C4DFF"/>
+			<Brush Luminosity="A400" Color="#651FFF"/>
+			<Brush Luminosity="A700" Color="#6200EA"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Indigo">
+			<Brush Luminosity="P050" Color="#E8EAF6"/>
+			<Brush Luminosity="P100" Color="#C5CAE9"/>
+			<Brush Luminosity="P200" Color="#9FA8DA"/>
+			<Brush Luminosity="P300" Color="#7986CB"/>
+			<Brush Luminosity="P400" Color="#5C6BC0"/>
+			<Brush Luminosity="P500" Color="#3F51B5"/>
+			<Brush Luminosity="P600" Color="#3949AB"/>
+			<Brush Luminosity="P700" Color="#303F9F"/>
+			<Brush Luminosity="P800" Color="#283593"/>
+			<Brush Luminosity="P900" Color="#1A237E"/>
+			<Brush Luminosity="A100" Color="#8C9EFF"/>
+			<Brush Luminosity="A200" Color="#536DFE"/>
+			<Brush Luminosity="A400" Color="#3D5AFE"/>
+			<Brush Luminosity="A700" Color="#304FFE"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Blue">
+			<Brush Luminosity="P050" Color="#E3F2FD"/>
+			<Brush Luminosity="P100" Color="#BBDEFB"/>
+			<Brush Luminosity="P200" Color="#90CAF9"/>
+			<Brush Luminosity="P300" Color="#64B5F6"/>
+			<Brush Luminosity="P400" Color="#42A5F5"/>
+			<Brush Luminosity="P500" Color="#2196F3"/>
+			<Brush Luminosity="P600" Color="#1E88E5"/>
+			<Brush Luminosity="P700" Color="#1976D2"/>
+			<Brush Luminosity="P800" Color="#1565C0"/>
+			<Brush Luminosity="P900" Color="#0D47A1"/>
+			<Brush Luminosity="A100" Color="#82B1FF"/>
+			<Brush Luminosity="A200" Color="#448AFF"/>
+			<Brush Luminosity="A400" Color="#2979FF"/>
+			<Brush Luminosity="A700" Color="#2962FF"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="LightBlue">
+			<Brush Luminosity="P050" Color="#E1F5FE"/>
+			<Brush Luminosity="P100" Color="#B3E5FC"/>
+			<Brush Luminosity="P200" Color="#81D4FA"/>
+			<Brush Luminosity="P300" Color="#4FC3F7"/>
+			<Brush Luminosity="P400" Color="#29B6F6"/>
+			<Brush Luminosity="P500" Color="#03A9F4"/>
+			<Brush Luminosity="P600" Color="#039BE5"/>
+			<Brush Luminosity="P700" Color="#0288D1"/>
+			<Brush Luminosity="P800" Color="#0277BD"/>
+			<Brush Luminosity="P900" Color="#01579B"/>
+			<Brush Luminosity="A100" Color="#80D8FF"/>
+			<Brush Luminosity="A200" Color="#40C4FF"/>
+			<Brush Luminosity="A400" Color="#00B0FF"/>
+			<Brush Luminosity="A700" Color="#0091EA"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Cyan">
+			<Brush Luminosity="P050" Color="#E0F7FA"/>
+			<Brush Luminosity="P100" Color="#B2EBF2"/>
+			<Brush Luminosity="P200" Color="#80DEEA"/>
+			<Brush Luminosity="P300" Color="#4DD0E1"/>
+			<Brush Luminosity="P400" Color="#26C6DA"/>
+			<Brush Luminosity="P500" Color="#00BCD4"/>
+			<Brush Luminosity="P600" Color="#00ACC1"/>
+			<Brush Luminosity="P700" Color="#0097A7"/>
+			<Brush Luminosity="P800" Color="#00838F"/>
+			<Brush Luminosity="P900" Color="#006064"/>
+			<Brush Luminosity="A100" Color="#84FFFF"/>
+			<Brush Luminosity="A200" Color="#18FFFF"/>
+			<Brush Luminosity="A400" Color="#00E5FF"/>
+			<Brush Luminosity="A700" Color="#00B8D4"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Teal">
+			<Brush Luminosity="P050" Color="#E0F2F1"/>
+			<Brush Luminosity="P100" Color="#B2DFDB"/>
+			<Brush Luminosity="P200" Color="#80CBC4"/>
+			<Brush Luminosity="P300" Color="#4DB6AC"/>
+			<Brush Luminosity="P400" Color="#26A69A"/>
+			<Brush Luminosity="P500" Color="#009688"/>
+			<Brush Luminosity="P600" Color="#00897B"/>
+			<Brush Luminosity="P700" Color="#00796B"/>
+			<Brush Luminosity="P800" Color="#00695C"/>
+			<Brush Luminosity="P900" Color="#004D40"/>
+			<Brush Luminosity="A100" Color="#A7FFEB"/>
+			<Brush Luminosity="A200" Color="#64FFDA"/>
+			<Brush Luminosity="A400" Color="#1DE9B6"/>
+			<Brush Luminosity="A700" Color="#00BFA5"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Green">
+			<Brush Luminosity="P050" Color="#E8F5E9"/>
+			<Brush Luminosity="P100" Color="#C8E6C9"/>
+			<Brush Luminosity="P200" Color="#A5D6A7"/>
+			<Brush Luminosity="P300" Color="#81C784"/>
+			<Brush Luminosity="P400" Color="#66BB6A"/>
+			<Brush Luminosity="P500" Color="#4CAF50"/>
+			<Brush Luminosity="P600" Color="#43A047"/>
+			<Brush Luminosity="P700" Color="#388E3C"/>
+			<Brush Luminosity="P800" Color="#2E7D32"/>
+			<Brush Luminosity="P900" Color="#1B5E20"/>
+			<Brush Luminosity="A100" Color="#B9F6CA"/>
+			<Brush Luminosity="A200" Color="#69F0AE"/>
+			<Brush Luminosity="A400" Color="#00E676"/>
+			<Brush Luminosity="A700" Color="#00C853"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="LightGreen">
+			<Brush Luminosity="P050" Color="#F1F8E9"/>
+			<Brush Luminosity="P100" Color="#DCEDC8"/>
+			<Brush Luminosity="P200" Color="#C5E1A5"/>
+			<Brush Luminosity="P300" Color="#AED581"/>
+			<Brush Luminosity="P400" Color="#9CCC65"/>
+			<Brush Luminosity="P500" Color="#8BC34A"/>
+			<Brush Luminosity="P600" Color="#7CB342"/>
+			<Brush Luminosity="P700" Color="#689F38"/>
+			<Brush Luminosity="P800" Color="#558B2F"/>
+			<Brush Luminosity="P900" Color="#33691E"/>
+			<Brush Luminosity="A100" Color="#CCFF90"/>
+			<Brush Luminosity="A200" Color="#B2FF59"/>
+			<Brush Luminosity="A400" Color="#76FF03"/>
+			<Brush Luminosity="A700" Color="#64DD17"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Lime">
+			<Brush Luminosity="P050" Color="#F9FBE7"/>
+			<Brush Luminosity="P100" Color="#F0F4C3"/>
+			<Brush Luminosity="P200" Color="#E6EE9C"/>
+			<Brush Luminosity="P300" Color="#DCE775"/>
+			<Brush Luminosity="P400" Color="#D4E157"/>
+			<Brush Luminosity="P500" Color="#CDDC39"/>
+			<Brush Luminosity="P600" Color="#C0CA33"/>
+			<Brush Luminosity="P700" Color="#AFB42B"/>
+			<Brush Luminosity="P800" Color="#9E9D24"/>
+			<Brush Luminosity="P900" Color="#827717"/>
+			<Brush Luminosity="A100" Color="#F4FF81"/>
+			<Brush Luminosity="A200" Color="#EEFF41"/>
+			<Brush Luminosity="A400" Color="#C6FF00"/>
+			<Brush Luminosity="A700" Color="#AEEA00"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Yellow">
+			<Brush Luminosity="P050" Color="#FFF8E1"/>
+			<Brush Luminosity="P100" Color="#FFECB3"/>
+			<Brush Luminosity="P200" Color="#FFE082"/>
+			<Brush Luminosity="P300" Color="#FFD54F"/>
+			<Brush Luminosity="P400" Color="#FFCA28"/>
+			<Brush Luminosity="P500" Color="#FFC107"/>
+			<Brush Luminosity="P600" Color="#FFB300"/>
+			<Brush Luminosity="P700" Color="#FFA000"/>
+			<Brush Luminosity="P800" Color="#FF8F00"/>
+			<Brush Luminosity="P900" Color="#FF6F00"/>
+			<Brush Luminosity="A100" Color="#FFE57F"/>
+			<Brush Luminosity="A200" Color="#FFD740"/>
+			<Brush Luminosity="A400" Color="#FFC400"/>
+			<Brush Luminosity="A700" Color="#FFAB00"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Amber">
+			<Brush Luminosity="P050" Color="#FFF8E1"/>
+			<Brush Luminosity="P100" Color="#FFECB3"/>
+			<Brush Luminosity="P200" Color="#FFE082"/>
+			<Brush Luminosity="P300" Color="#FFD54F"/>
+			<Brush Luminosity="P400" Color="#FFCA28"/>
+			<Brush Luminosity="P500" Color="#FFC107"/>
+			<Brush Luminosity="P600" Color="#FFB300"/>
+			<Brush Luminosity="P700" Color="#FFA000"/>
+			<Brush Luminosity="P800" Color="#FF8F00"/>
+			<Brush Luminosity="P900" Color="#FF6F00"/>
+			<Brush Luminosity="A100" Color="#FFE57F"/>
+			<Brush Luminosity="A200" Color="#FFD740"/>
+			<Brush Luminosity="A400" Color="#FFC400"/>
+			<Brush Luminosity="A700" Color="#FFAB00"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Orange">
+			<Brush Luminosity="P050" Color="#FFF3E0"/>
+			<Brush Luminosity="P100" Color="#FFE0B2"/>
+			<Brush Luminosity="P200" Color="#FFCC80"/>
+			<Brush Luminosity="P300" Color="#FFB74D"/>
+			<Brush Luminosity="P400" Color="#FFA726"/>
+			<Brush Luminosity="P500" Color="#FF9800"/>
+			<Brush Luminosity="P600" Color="#FB8C00"/>
+			<Brush Luminosity="P700" Color="#F57C00"/>
+			<Brush Luminosity="P800" Color="#EF6C00"/>
+			<Brush Luminosity="P900" Color="#E65100"/>
+			<Brush Luminosity="A100" Color="#FFD180"/>
+			<Brush Luminosity="A200" Color="#FFAB40"/>
+			<Brush Luminosity="A400" Color="#FF9100"/>
+			<Brush Luminosity="A700" Color="#FF6D00"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="DeepOrange">
+			<Brush Luminosity="P050" Color="#FBE9E7"/>
+			<Brush Luminosity="P100" Color="#FFCCBC"/>
+			<Brush Luminosity="P200" Color="#FFAB91"/>
+			<Brush Luminosity="P300" Color="#FF8A65"/>
+			<Brush Luminosity="P400" Color="#FF7043"/>
+			<Brush Luminosity="P500" Color="#FF5722"/>
+			<Brush Luminosity="P600" Color="#F4511E"/>
+			<Brush Luminosity="P700" Color="#E64A19"/>
+			<Brush Luminosity="P800" Color="#D84315"/>
+			<Brush Luminosity="P900" Color="#BF360C"/>
+			<Brush Luminosity="A100" Color="#FF9E80"/>
+			<Brush Luminosity="A200" Color="#FF6E40"/>
+			<Brush Luminosity="A400" Color="#FF3D00"/>
+			<Brush Luminosity="A700" Color="#DD2C00"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Brown">
+			<Brush Luminosity="P050" Color="#EFEBE9"/>
+			<Brush Luminosity="P100" Color="#D7CCC8"/>
+			<Brush Luminosity="P200" Color="#BCAAA4"/>
+			<Brush Luminosity="P300" Color="#A1887F"/>
+			<Brush Luminosity="P400" Color="#8D6E63"/>
+			<Brush Luminosity="P500" Color="#795548"/>
+			<Brush Luminosity="P600" Color="#6D4C41"/>
+			<Brush Luminosity="P700" Color="#5D4037"/>
+			<Brush Luminosity="P800" Color="#4E342E"/>
+			<Brush Luminosity="P900" Color="#3E2723"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="Grey">
+			<Brush Luminosity="P050" Color="#FAFAFA"/>
+			<Brush Luminosity="P100" Color="#F5F5F5"/>
+			<Brush Luminosity="P200" Color="#EEEEEE"/>
+			<Brush Luminosity="P300" Color="#E0E0E0"/>
+			<Brush Luminosity="P400" Color="#BDBDBD"/>
+			<Brush Luminosity="P500" Color="#9E9E9E"/>
+			<Brush Luminosity="P600" Color="#757575"/>
+			<Brush Luminosity="P700" Color="#616161"/>
+			<Brush Luminosity="P800" Color="#424242"/>
+			<Brush Luminosity="P900" Color="#212121"/>
+		</Swatch>
+
+		<Swatch SwatchIdentifier="BlueGrey">
+			<Brush Luminosity="P050" Color="#ECEFF1"/>
+			<Brush Luminosity="P100" Color="#CFD8DC"/>
+			<Brush Luminosity="P200" Color="#B0BEC5"/>
+			<Brush Luminosity="P300" Color="#90A4AE"/>
+			<Brush Luminosity="P400" Color="#78909C"/>
+			<Brush Luminosity="P500" Color="#607D8B"/>
+			<Brush Luminosity="P600" Color="#546E7A"/>
+			<Brush Luminosity="P700" Color="#455A64"/>
+			<Brush Luminosity="P800" Color="#37474F"/>
+			<Brush Luminosity="P900" Color="#263238"/>
+		</Swatch>
+
+		<!--<Brush Luminosity="750" Color="#3F4E55"/>
+		<Brush Luminosity="850" Color="#303A40"/>
+		<Brush Luminosity="950" Color="#1E2325"/>-->
   </Palette>
-
-
 </MDH>

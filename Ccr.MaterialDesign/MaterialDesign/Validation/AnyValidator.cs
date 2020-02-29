@@ -11,7 +11,10 @@ namespace Ccr.MaterialDesign.Validation
 		private List<IStringValidator> _validators = new List<IStringValidator>();
 
 
-		public override ValidatorMode ValidatorMode => ValidatorMode.Passive;
+		public override ValidatorMode ValidatorMode
+		{
+			get => ValidatorMode.Passive;
+		}
 
 		public List<IStringValidator> Validators
 		{

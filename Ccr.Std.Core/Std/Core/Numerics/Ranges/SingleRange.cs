@@ -9,11 +9,10 @@ namespace Ccr.Std.Core.Numerics.Ranges
 	{
 		public SingleRange(
 			Single minimum,
-			Single maximum) : base(
-				minimum,
-				maximum)
+			Single maximum) : base(minimum, maximum)
 		{
 		}
+
 
 		public static implicit operator SingleRange(
 			Tuple<Single, Single> value)
@@ -22,6 +21,7 @@ namespace Ccr.Std.Core.Numerics.Ranges
 				value.Item1,
 				value.Item2);
 		}
+
 		public static implicit operator SingleRange(
 			(Single, Single) value)
 		{

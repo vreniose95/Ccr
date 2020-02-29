@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Ccr.MaterialDesign.Infrastructure.Descriptors;
 using Ccr.MaterialDesign.Markup.TypeConverters;
 using Ccr.MaterialDesign.Primitives.Textual;
 using Ccr.Parsing.Tokenizer;
 using Ccr.Parsing.Tokenizer.Tokens.OLD;
-using Ccr.Parsing.Tokenizer.Tokens.Range;
 
 namespace Ccr.MaterialDesign.Parsers
 {
@@ -17,19 +12,24 @@ namespace Ccr.MaterialDesign.Parsers
 	public class TextualStyleParser
 	{
 		private TokenizerOld _tokenizer;
-		private string _expression;
+		private readonly string _expression;
+
 
 		public TextualStyleParser(string expression)
 		{
 			_expression = expression;
 		}
+
+
 		public TextualStyle Parse()
 		{
 			var textualStyle = new TextualStyle
 			{
 				//ForegroundDescriptor = new LiteralMaterialDescriptor(Palette.Blue.P600)
 			};
+
 			var selectorExpressionParts = _expression.Split(' ');
+
 			foreach (var selectorExpressionPart in selectorExpressionParts)
 			{
 				_tokenizer = new TokenizerOld(selectorExpressionPart);
@@ -40,7 +40,8 @@ namespace Ccr.MaterialDesign.Parsers
 
 				char c;
 				if (!_tokenizer.TryRead(out c))
-					throw new FormatException("Could not read from tokenizer.");
+					throw new FormatException(
+						$"Could not read from tokenizer.");
 
 				var cl = char.ToLower(c);
 				if (cl == 't')
@@ -49,7 +50,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'t\' fontweight flag");
+							$"Unexpected character(s) after \'t\' fontWeight flag");
 
 					textualStyle.SetValue(TextualStyle.FontWeightProperty, FontWeights.Thin);
 				}
@@ -59,7 +60,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'l\' fontweight flag");
+							$"Unexpected character(s) after \'l\' fontWeight flag");
 
 					textualStyle.SetValue(TextualStyle.FontWeightProperty, FontWeights.Light);
 				}
@@ -69,7 +70,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'m\' fontweight flag");
+							$"Unexpected character(s) after \'m\' fontWeight flag");
 
 					textualStyle.SetValue(TextualStyle.FontWeightProperty, FontWeights.Medium);
 				}
@@ -79,7 +80,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'b\' fontweight flag");
+							$"Unexpected character(s) after \'b\' fontWeight flag");
 
 					textualStyle.SetValue(TextualStyle.FontWeightProperty, FontWeights.Bold);
 				}
@@ -89,7 +90,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'h\' fontweight flag");
+							$"Unexpected character(s) after \'h\' fontWeight flag");
 
 					textualStyle.SetValue(TextualStyle.FontWeightProperty, FontWeights.Heavy);
 				}
@@ -99,7 +100,7 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'o\' fontstyle flag");
+							$"Unexpected character(s) after \'o\' fontStyle flag");
 
 					textualStyle.SetValue(TextualStyle.FontStyleProperty, FontStyles.Oblique);
 				}
@@ -109,13 +110,13 @@ namespace Ccr.MaterialDesign.Parsers
 					if (_tokenizer.HasMore())
 						throw new FormatException(
 							_tokenizer.GetExceptionRangeText(frame) +
-							$"Unexpected character(s) after \'i\' fontstyle flag");
+							$"Unexpected character(s) after \'i\' fontStyle flag");
 
 					textualStyle.SetValue(TextualStyle.FontStyleProperty, FontStyles.Italic);
 				}
 				else if (c == '-' || cl == 'p' || cl == 'a')
 				{
-					//TODO use new method .GetInsance for all code behind uses of Singleton xamlconverters
+					//TODO use new method .GetInstance for all code behind uses of Singleton xamlconverters
 					var descriptorConverter = new MaterialDescriptorConverter();
 					_tokenizer.Step(-1);
 					var frame = _tokenizer.GetFrame();
@@ -255,7 +256,7 @@ namespace Ccr.MaterialDesign.Parsers
 				{
 					throw new FormatException(
 						_tokenizer.GetExceptionRangeText(beginFrame) +
-						$"Invalid character(s) in textualstyle expression.");
+						$"Invalid character(s) in textualStyle expression.");
 				}
 			}
 			return textualStyle;
@@ -273,7 +274,9 @@ namespace Ccr.MaterialDesign.Parsers
 				if (c == '.')
 				{
 					if (hasDecimal)
-						throw new FormatException("Numeric literal cannot contain two decimals.");
+						throw new FormatException(
+							$"Numeric literal cannot contain two decimals.");
+
 					hasDecimal = true;
 					text += c;
 				}

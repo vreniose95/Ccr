@@ -2,9 +2,9 @@
 
 namespace Ccr.MDHybrid.Demo.ViewModels
 {
-  public class CardDemoViewModel
-    : ViewModelBase
-  {
-    
-  }
+	public class CardDemoViewModel
+		: ViewModelBase
+	{
+
+	}
 }

@@ -9,6 +9,7 @@ namespace Ccr.Std.Core.Helpers
 	{
 		private readonly StringComparison _caseSensitiveComparison;
 		private readonly StringComparison _caseInsensitiveComparison;
+		private static IReadOnlyDictionary<ComparisonType, StringComparisonSet> _comparisonSets;
 
 
 		public ComparisonType ComparisonType { get; }
@@ -22,11 +23,7 @@ namespace Ccr.Std.Core.Helpers
 		{
 			get => _caseInsensitiveComparison;
 		}
-
-
-
-		private static IReadOnlyDictionary<ComparisonType, StringComparisonSet> _comparisonSets;
-
+		
 		public static IReadOnlyDictionary<ComparisonType, StringComparisonSet> ComparisonSets
 		{
 			get
@@ -64,8 +61,7 @@ namespace Ccr.Std.Core.Helpers
 				: _caseInsensitiveComparison;
 		}
 
-
-
+		
 		private static void getStringComparisonsForType(
 			ComparisonType comparisonType,
 			out StringComparison caseSensitiveComparison,
@@ -76,9 +72,5 @@ namespace Ccr.Std.Core.Helpers
 			caseSensitiveComparison = (StringComparison)comparisonIndex;
 			caseInsensitiveComparison = (StringComparison)comparisonIndex + 1;
 		}
-
-
-
-
 	}
 }

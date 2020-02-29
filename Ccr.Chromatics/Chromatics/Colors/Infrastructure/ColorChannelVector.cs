@@ -4,38 +4,38 @@ using System.Collections.Generic;
 
 namespace Ccr.Chromatics.Colors.Infrastructure
 {
-  public class ColorChannelVector
-    : IReadOnlyList<double>
-  {
-    private readonly double[] _channelValues;
+	public class ColorChannelVector
+		: IReadOnlyList<double>
+	{
+		private readonly double[] _channelValues;
 
 
-    public int Count
-    {
-      get => _channelValues.Length;
-    }
+		public int Count
+		{
+			get => _channelValues.Length;
+		}
 
-    public double this[int index]
-    {
-      get => _channelValues[index];
-    }
-    
-
-    public ColorChannelVector(
-      params double[] channelValues)
-    {
-      _channelValues = channelValues;
-    }
+		public double this[int index]
+		{
+			get => _channelValues[index];
+		}
 
 
-    public IEnumerator<double> GetEnumerator()
-    {
-      return (IEnumerator<double>)_channelValues.GetEnumerator();
-    }
+		public ColorChannelVector(
+			params double[] channelValues)
+		{
+			_channelValues = channelValues;
+		}
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-      return GetEnumerator();
-    }
-  }
+
+		public IEnumerator<double> GetEnumerator()
+		{
+			return (IEnumerator<double>)_channelValues.GetEnumerator();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
+		}
+	}
 }

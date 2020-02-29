@@ -20,7 +20,8 @@ namespace Ccr.MaterialDesign.Infrastructure.Providers
 			GradientStepData = new List<GradientMaterialStop>();
 		}
 
-		public DataAwareGradientMaterialProvider(List<GradientMaterialStop> gradientStepData)
+		public DataAwareGradientMaterialProvider(
+			List<GradientMaterialStop> gradientStepData)
 		{
 			GradientStepData = gradientStepData;
 		}
@@ -34,30 +35,31 @@ namespace Ccr.MaterialDesign.Infrastructure.Providers
 		{
 		}
 
-
 		public Swatch ProvideNext(ProviderContext context)
 		{
 			throw new NotSupportedException(
-				"ProvideNext cannot be used on a IDataAwareMaterialProvider. Use ProvideNextDataAware.");
+				$"ProvideNext cannot be used on a IDataAwareMaterialProvider. Use ProvideNextDataAware.");
 		}
 
 		public IMaterialProvider Slice(double offsetPercentage, double lengthPercentage)
 		{
 			throw new NotSupportedException(
-				"Slice cannot be used on a IDataAwareMaterialProvider.");
+				$"Slice cannot be used on a IDataAwareMaterialProvider.");
 		}
 
 		public IMaterialProvider SliceSimple(int index, SimpleSliceMode sliceMode)
 		{
 			throw new NotSupportedException(
-				"SliceSimple cannot be used on a IDataAwareMaterialProvider.");
+				$"SliceSimple cannot be used on a IDataAwareMaterialProvider.");
 		}
 
 		public Swatch ProvideNextDataAware(DataAwareProviderContext context, double dataPoint)
 		{
-			var progression = dataPoint.LinearMap((context.DataMin, context.DataMax), (0d, 1d));
-			var swatch = GetSwatchAtProgression(progression);
+			var progression = dataPoint.LinearMap(
+				(context.DataMin, context.DataMax), 
+				(0d, 1d));
 
+			var swatch = GetSwatchAtProgression(progression);
 			return swatch;
 		}
 
@@ -85,10 +87,16 @@ namespace Ccr.MaterialDesign.Infrastructure.Providers
 
 				if (progression >= currentOffset && progression < stepEndOffset)
 				{
-					var progressionThroughStep = progression.LinearMap((currentOffset, stepEndOffset), (0d, 1d));
-					var Swatch = MediaExtensions.Interpolate(startGradientStep.Swatch,
-						endGradientStep.Swatch, progressionThroughStep);
-					return Swatch;
+					var progressionThroughStep = progression.LinearMap(
+						(currentOffset, stepEndOffset), 
+						(0d, 1d));
+
+					var swatch = MediaExtensions.Interpolate(
+						startGradientStep.Swatch,
+						endGradientStep.Swatch, 
+						progressionThroughStep);
+
+					return swatch;
 				}
 				currentOffset = stepEndOffset;
 			}
@@ -144,7 +152,7 @@ namespace Ccr.MaterialDesign.Infrastructure.Providers
 				new GradientMaterialStop(PaletteResources.Teal, 0),
 			});
 		
-		public static DataAwareGradientMaterialProvider MateriaLbLg => new DataAwareGradientMaterialProvider(
+		public static DataAwareGradientMaterialProvider MaterialLbLg => new DataAwareGradientMaterialProvider(
 			new List<GradientMaterialStop>
 			{
 				new GradientMaterialStop(PaletteResources.LightBlue),

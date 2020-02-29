@@ -19,7 +19,9 @@ namespace Ccr.MaterialDesign.MVVM
 			{
 				if (_isInDesignMode.HasValue)
 					return _isInDesignMode.Value;
+
 				var prop = DesignerProperties.IsInDesignModeProperty;
+				
 				_isInDesignMode
 					= (bool)DependencyPropertyDescriptor
 						.FromProperty(prop, typeof(FrameworkElement))

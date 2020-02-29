@@ -6,9 +6,9 @@ namespace Ccr.MaterialDesign.Controls.Icons
 	/// List of available icons for use with <see cref="Icon"/>.
 	/// </summary>
 	/// <remarks>
-	///		All icons sourced from Material Design Icons Font v1.6.50
-	///		<see cref="https://materialdesignicons.com"/> in accordance with Material Design standards
-	///		<see cref="https://github.com/Templarian/MaterialDesign/blob/master/license.txt"/>.
+	///	All icons sourced from Material Design Icons Font v1.6.50
+	///	<see cref="https://materialdesignicons.com"/> in accordance with Material Design standards
+	///	<see cref="https://github.com/Templarian/MaterialDesign/blob/master/license.txt"/>.
 	/// </remarks>
 	public enum IconKind
 	{

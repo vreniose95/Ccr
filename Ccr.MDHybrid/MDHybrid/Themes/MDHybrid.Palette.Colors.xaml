@@ -1,5 +1,5 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+										xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	<Color x:Key="MDH.Palette.Colors.Red.050">#FFEBEE</Color>
 	<Color x:Key="MDH.Palette.Colors.Red.100">#FFCDD2</Color>
 	<Color x:Key="MDH.Palette.Colors.Red.200">#EF9A9A</Color>

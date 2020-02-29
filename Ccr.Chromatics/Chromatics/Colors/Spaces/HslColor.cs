@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccr.Chromatics.Colors.Spaces
+﻿namespace Ccr.Chromatics.Colors.Spaces
 {
 	/// <summary>
 	/// Describes a color in terms of hue, saturation, and lightness channels.
@@ -26,6 +24,7 @@ namespace Ccr.Chromatics.Colors.Spaces
 			S = s;
 			L = l;
 		}
+
 
 		//public static implicit operator Color(
 		//	HslColor @this)

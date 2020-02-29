@@ -4,8 +4,7 @@ namespace Ccr.Std.Core.Collections
 {
 	public interface ISymmetricGroup<TA, TB, TMorphism>
 		: ICollection<TMorphism>
-		where TMorphism
-		: IMorphism<TA, TB>
+			where TMorphism : IMorphism<TA, TB>
 	{
 		TMorphism Morphism { get; }
 

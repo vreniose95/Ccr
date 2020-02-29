@@ -12,59 +12,45 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 
 
 		public static readonly DependencyProperty TrackingServiceProperty = DP.Attach(
-		  _type, new MetaBase<RippleMouseTrackingService>(onTrackingServiceChanged));
+			_type, new MetaBase<RippleMouseTrackingService>(onTrackingServiceChanged));
 
 		public static readonly DependencyProperty MousePositionProperty = DP.Attach(
-		  _type, new MetaBase<Point>(new Point(0, 0)));
+			_type, new MetaBase<Point>(new Point(0, 0)));
 
 		public static readonly DependencyProperty PlacementProperty = DP.Attach(
-		  _type, new MetaBase<Point>(new Point(0, 0), onPlacementChanged));
+			_type, new MetaBase<Point>(new Point(0, 0), onPlacementChanged));
 
 
 
-		public static RippleMouseTrackingService GetTrackingService(
-			DependencyObject @this)
+		public static RippleMouseTrackingService GetTrackingService(DependencyObject @this)
 		{
 			return @this.Get<RippleMouseTrackingService>(TrackingServiceProperty);
 		}
-
-		public static void SetTrackingService(
-			DependencyObject @this,
-			RippleMouseTrackingService value)
+		public static void SetTrackingService(DependencyObject @this, RippleMouseTrackingService value)
 		{
 			@this.Set(TrackingServiceProperty, value);
 		}
 		
-
-		public static Point GetMousePosition(
-			DependencyObject @this)
+		public static Point GetMousePosition(DependencyObject @this)
 		{
 			return @this.Get<Point>(MousePositionProperty);
 		}
-
-		public static void SetMousePosition(
-			DependencyObject @this,
-			Point value)
+		public static void SetMousePosition(DependencyObject @this, Point value)
 		{
 			@this.Set(MousePositionProperty, value);
 		}
 
-
-		public static Point GetPlacement(
-			DependencyObject @this)
+		public static Point GetPlacement(DependencyObject @this)
 		{
 			return @this.Get<Point>(PlacementProperty);
 		}
-
-		public static void SetPlacement(
-			DependencyObject @this,
-			Point value)
+		public static void SetPlacement(DependencyObject @this, Point value)
 		{
 			@this.Set(PlacementProperty, value);
 		}
 		
-
-	  private static void onTrackingServiceChanged(
+		
+		private static void onTrackingServiceChanged(
 			DependencyObject @this,
 			DPChangedEventArgs<RippleMouseTrackingService> args)
 		{

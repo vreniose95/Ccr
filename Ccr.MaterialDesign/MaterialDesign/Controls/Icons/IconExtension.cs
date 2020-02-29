@@ -26,9 +26,7 @@ namespace Ccr.MaterialDesign.Controls.Icons
 
 		public IconExtension(
 			IconKind kind,
-			double size)
-				: this(
-					kind)
+			double size) : this(kind)
 		{
 			Size = size;
 		}

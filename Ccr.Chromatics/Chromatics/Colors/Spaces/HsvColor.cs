@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ccr.Chromatics.Colors.Spaces
+﻿namespace Ccr.Chromatics.Colors.Spaces
 {
 	public struct HsvColor
 	{

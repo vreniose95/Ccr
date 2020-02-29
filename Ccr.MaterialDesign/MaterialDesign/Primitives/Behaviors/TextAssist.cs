@@ -38,9 +38,9 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 						textBlock.TextInput += onTextInput;
 						break;
 
-					case TextBox textbox:
-						textbox.TextInput += onTextInput;
-						textbox.TextChanged += onTextChanged;
+					case TextBox textBox:
+						textBox.TextInput += onTextInput;
+						textBox.TextChanged += onTextChanged;
 						break;
 
 					case Button button:
@@ -74,9 +74,9 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 						textBlock.TextInput -= onTextInput;
 						break;
 
-					case TextBox textbox:
-						textbox.TextInput -= onTextInput;
-						textbox.TextChanged -= onTextChanged;
+					case TextBox textBox:
+						textBox.TextInput -= onTextInput;
+						textBox.TextChanged -= onTextChanged;
 						break;
 
 					case Button button:
@@ -158,12 +158,12 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors
 					textBlock.TextInput += onTextInput;
 					break;
 
-				case TextBox textbox:
-					textbox.TextInput -= onTextInput;
-					textbox.TextChanged -= onTextChanged;
-					textbox.Text = text;
-					textbox.TextInput += onTextInput;
-					textbox.TextChanged += onTextChanged;
+				case TextBox textBox:
+					textBox.TextInput -= onTextInput;
+					textBox.TextChanged -= onTextChanged;
+					textBox.Text = text;
+					textBox.TextInput += onTextInput;
+					textBox.TextChanged += onTextChanged;
 					break;
 			}
 		}

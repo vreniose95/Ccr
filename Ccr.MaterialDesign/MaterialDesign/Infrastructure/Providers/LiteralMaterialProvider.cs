@@ -2,12 +2,15 @@
 
 namespace Ccr.MaterialDesign.Infrastructure.Providers
 {
-	public class LiteralMaterialProvider : IMaterialProvider
+	public class LiteralMaterialProvider
+		: IMaterialProvider
 	{
 		public Swatch MaterialSet { get; set; } = PaletteResources.Blue;
 
 
-		public LiteralMaterialProvider() { }
+		public LiteralMaterialProvider()
+		{
+		}
 
 		public LiteralMaterialProvider(Swatch materialSet)
 		{
@@ -23,10 +26,12 @@ namespace Ccr.MaterialDesign.Infrastructure.Providers
 		public void Reset(ProviderContext context)
 		{
 		}
+
 		public IMaterialProvider Slice(double offsetPercentage, double lengthPercentage)
 		{
 			return this;
 		}
+
 		public IMaterialProvider SliceSimple(int index, SimpleSliceMode sliceMode)
 		{
 			return this;

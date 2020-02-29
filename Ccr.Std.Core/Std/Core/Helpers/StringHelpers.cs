@@ -40,24 +40,5 @@ namespace Ccr.Std.Core.Helpers
 				ignoreCase,
 				comparisonType);
 		}
-
-		//public static StringComparer GetStringComparer(
-		//	bool ignoreCase = false,
-		//	ComparisonType comparisonType = ComparisonType.Invariant)
-		//{
-
-		//	return ignoreCase ?
-		//		StringComparison.CurrentCultureIgnoreCase :
-		//		StringComparison.CurrentCulture;
-		//}
 	}
 }
-/*
- 
-		internal static IEnumerable<(int index, TKey key, TValue value)> ToIndexAwareDictionary<TKey, TValue>(
-			this IDictionary<TKey, TValue> @this)
-		{
-			foreach (var item in @this)
-				yield return
-					(index: 1, key: item.Key, value: item.Value);
-		}*/

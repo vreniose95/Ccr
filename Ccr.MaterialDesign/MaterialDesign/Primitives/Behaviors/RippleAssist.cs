@@ -13,8 +13,15 @@ namespace Ccr.MaterialDesign.Primitives.Behaviors.Services
 		public static readonly DependencyProperty ClipToBoundsProperty = DP.Attach(
 			_type, new MetaBase<bool>(true, FrameworkPropertyMetadataOptions.Inherits));
 
-		public static bool GetClipToBounds(DependencyObject i) => i.Get<bool>(ClipToBoundsProperty);
-		public static void SetClipToBounds(DependencyObject i, bool v) => i.Set(ClipToBoundsProperty, v);
+
+		public static bool GetClipToBounds(DependencyObject @this)
+		{
+			return @this.Get<bool>(ClipToBoundsProperty);
+		}
+		public static void SetClipToBounds(DependencyObject @this, bool value)
+		{
+			@this.Set(ClipToBoundsProperty, value);
+		}
 
 
 		//public static readonly DependencyProperty ClipToBoundsProperty = DependencyProperty.RegisterAttached(

@@ -1,8 +1,8 @@
 ﻿namespace Ccr.Std.Core.Numerics.Infrastructure
 {
-  public enum EndpointExclusivity
-  {
-    Inclusive,
-    Exclusive
-  }
+	public enum EndpointExclusivity
+	{
+		Inclusive,
+		Exclusive
+	}
 }

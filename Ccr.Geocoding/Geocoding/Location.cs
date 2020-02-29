@@ -9,14 +9,14 @@ namespace Ccr.Geocoding
 	[DebuggerDisplay("{Latitude}° N, {Longitude}° W}")]
 	public class Location
 	{
-		private double latitude;
-		private double longitude;
+		private double _latitude;
+		private double _longitude;
 
 
 		[JsonProperty("lat")]
 		public double Latitude
 		{
-			get => latitude;
+			get => _latitude;
 			set
 			{
 				if (value < -90 || value > 90)
@@ -30,14 +30,14 @@ namespace Ccr.Geocoding
 						"Latitude must be a valid number.",
 						nameof(Latitude));
 
-				latitude = value;
+				_latitude = value;
 			}
 		}
 
 		[JsonProperty("lng")]
 		public double Longitude
 		{
-			get => longitude;
+			get => _longitude;
 			set
 			{
 				if (value < -180 || value > 180)
@@ -51,7 +51,7 @@ namespace Ccr.Geocoding
 						"Longitude must be a valid number.",
 						nameof(Longitude));
 
-				longitude = value;
+				_longitude = value;
 			}
 		}
 
@@ -74,8 +74,7 @@ namespace Ccr.Geocoding
 		{
 			return Math.PI / 180.0 * val;
 		}
-
-
+		
 		public Distance DistanceBetween(
 			[NotNull] Location location)
 		{
@@ -105,17 +104,13 @@ namespace Ccr.Geocoding
 				Math.Pow(
 					Math.Sin(longRadian / 2.0), 2);
 
-			var c = 2.0 *
-				Math.Asin(
-					Math.Min(
-						1,
-						Math.Sqrt(a)));
+			var c = 2.0 * Math.Asin(Math.Min(1, Math.Sqrt(a)));
 
 			var distance = earthRadius * c;
+
 			return new Distance(
 				distance,
 				units);
-
 		}
 
 

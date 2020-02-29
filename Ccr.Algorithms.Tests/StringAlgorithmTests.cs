@@ -13,11 +13,11 @@ namespace Ccr.Algorithms.Tests
 		[TestCase("abcd efgh", "bcde fghi", 4)]
 		[TestCase("swapped characters", "sawpped chraacters", 4)]
 		public void LevenshteinDistanceTests(
-			string string1, 
-			string string2, 
+			string string1,
+			string string2,
 			int expected)
 		{
-			var distance = 
+			var distance =
 				StringAlgorithms.LevenshteinDistance(
 					string1, string2);
 
@@ -62,6 +62,5 @@ namespace Ccr.Algorithms.Tests
 
 			Assert.AreEqual(distance, expected);
 		}
-
 	}
 }

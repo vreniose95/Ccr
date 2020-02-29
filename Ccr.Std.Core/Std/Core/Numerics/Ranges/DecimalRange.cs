@@ -9,11 +9,10 @@ namespace Ccr.Std.Core.Numerics.Ranges
 	{
 		public DecimalRange(
 			Decimal minimum,
-			Decimal maximum) : base(
-				minimum,
-				maximum)
+			Decimal maximum) : base(minimum, maximum)
 		{
 		}
+
 
 		public static implicit operator DecimalRange(
 			Tuple<Decimal, Decimal> value)
@@ -22,6 +21,7 @@ namespace Ccr.Std.Core.Numerics.Ranges
 				value.Item1,
 				value.Item2);
 		}
+		
 		public static implicit operator DecimalRange(
 			(Decimal, Decimal) value)
 		{

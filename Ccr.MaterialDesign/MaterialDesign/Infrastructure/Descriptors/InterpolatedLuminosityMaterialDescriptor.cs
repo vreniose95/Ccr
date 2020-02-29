@@ -5,7 +5,7 @@ using Ccr.Std.Core.Extensions;
 namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
 	public class InterpolatedLuminosityMaterialDescriptor
-	  : AbstractMaterialDescriptor
+		: AbstractMaterialDescriptor
 	{
 		public Luminosity Luminosity1 { get; }
 
@@ -15,36 +15,38 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 
 
 		public override SolidColorBrush GetMaterial(
-		  Swatch materialSet)
+			Swatch materialSet)
 		{
-			var material1 = materialSet.GetMaterial(Luminosity1); 
+			var material1 = materialSet.GetMaterial(Luminosity1);
 			var material2 = materialSet.GetMaterial(Luminosity2);
 
-		  var avgLumIndex = (Luminosity1.LuminosityIndex + Luminosity2.LuminosityIndex) / 2d;
-		  var finalLum = new Luminosity((int) avgLumIndex.Round(), Luminosity1.IsAccent);
+			var avgLumIndex = (Luminosity1.LuminosityIndex + Luminosity2.LuminosityIndex) / 2d;
+			var finalLum = new Luminosity((int)avgLumIndex.Round(), Luminosity1.IsAccent);
 
-			var interpolatedMaterial = material1.Brush.Color.Blend(material2.Brush.Color, Progression);
+			var interpolatedMaterial = material1.Brush.Color.Blend(
+				material2.Brush.Color, 
+				Progression);
 
-		  var finalColor = interpolatedMaterial.WithOpacity(Opacity);
+			var finalColor = interpolatedMaterial.WithOpacity(Opacity);
 
-		  var m1Identity = material1.Identity;
+			var m1Identity = material1.Identity;
 
-      //TODO should the final Lum's isAccent be m1Identity's or Luminosity1.Isaccent? was m1Identity.
-		  var finalIdentity = new MaterialIdentity(
-		    m1Identity.SwatchClassifier,
-		    finalLum,
-		    Opacity);
+			//TODO should the final Lum's isAccent be m1Identity's or Luminosity1.Isaccent? was m1Identity.
+			var finalIdentity = new MaterialIdentity(
+				m1Identity.SwatchClassifier,
+				finalLum,
+				Opacity);
 
-		  var finalMaterial = new SolidColorBrush(finalColor)
-			  .SetIdentity(finalIdentity);
+			var finalMaterial = new SolidColorBrush(finalColor)
+				.SetIdentity(finalIdentity);
 
-		  return finalMaterial;
+			return finalMaterial;
 		}
 
 		public InterpolatedLuminosityMaterialDescriptor(
-			Luminosity luminosity1, 
+			Luminosity luminosity1,
 			Luminosity luminosity2,
-			double progression, 
+			double progression,
 			double opacity = 1.0)
 		{
 			Luminosity1 = luminosity1;

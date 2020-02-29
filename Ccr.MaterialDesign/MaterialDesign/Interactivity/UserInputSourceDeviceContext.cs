@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ccr.MaterialDesign.Interactivity
+﻿namespace Ccr.MaterialDesign.Interactivity
 {
 	public enum SourceDeviceKind
 	{
@@ -14,6 +8,8 @@ namespace Ccr.MaterialDesign.Interactivity
 		PhysicalKeyboard,
 		OnScreenKeyboard
 	}
+
+
 	public class UserInputSourceDeviceContext
 	{
 		private SourceDeviceKind? _sourceDeviceKind;
@@ -21,13 +17,13 @@ namespace Ccr.MaterialDesign.Interactivity
 		public SourceDeviceKind SourceDeviceKind
 		{
 			get => _sourceDeviceKind ??
-			       (_sourceDeviceKind = _determineDeviceKind()).Value;
+				(_sourceDeviceKind = _determineDeviceKind()).Value;
 		}
+
 
 		private SourceDeviceKind _determineDeviceKind()
 		{
 			return SourceDeviceKind.MouseClick;
 		}
-
 	}
 }

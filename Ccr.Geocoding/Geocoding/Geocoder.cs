@@ -17,49 +17,41 @@ namespace Ccr.Geocoding
 	/// http://code.google.com/apis/maps/documentation/geocoding/
 	/// </remarks>
 	public class Geocoder
-		: IGeocoder,
-			IGeocoderAsync
+		: IGeocoder, IGeocoderAsync
 	{
-		#region Fields
-		private string apiKey;
-		private BusinessKey businessKey;
-
-		#endregion
-
-		#region Constants
-		private const string keyMessage =
+		private string _apiKey;
+		private BusinessKey _businessKey;
+		private const string _keyMessage =
 			"Only one of BusinessKey or ApiKey should be set on the GoogleGeocoder.";
 
-		#endregion
 
-		#region Properties
 		public string ApiKey
 		{
-			get { return apiKey; }
+			get => _apiKey;
 			[NotNull]
 			set
 			{
-				if (businessKey != null)
-					throw new InvalidOperationException(keyMessage);
+				if (_businessKey != null)
+					throw new InvalidOperationException(_keyMessage);
 
 				value.IsNotNullOrWhiteSpace(nameof(value));
 
-				apiKey = value;
+				_apiKey = value;
 			}
 		}
 
 		public BusinessKey BusinessKey
 		{
-			get { return businessKey; }
+			get => _businessKey;
 			[NotNull]
 			set
 			{
-				if (!string.IsNullOrEmpty(apiKey))
-					throw new InvalidOperationException(keyMessage);
+				if (!string.IsNullOrEmpty(_apiKey))
+					throw new InvalidOperationException(_keyMessage);
 
 				value.IsNotNull(nameof(value));
 
-				businessKey = value;
+				_businessKey = value;
 			}
 		}
 
@@ -88,31 +80,27 @@ namespace Ccr.Geocoding
 					builder.Append("&language=");
 					builder.Append(WebUtility.UrlEncode(Language));
 				}
-
 				if (!string.IsNullOrEmpty(RegionBias))
 				{
 					builder.Append("&region=");
 					builder.Append(WebUtility.UrlEncode(RegionBias));
 				}
-
 				if (!string.IsNullOrEmpty(ApiKey))
 				{
 					builder.Append("&key=");
 					builder.Append(WebUtility.UrlEncode(ApiKey));
 				}
-
 				if (BusinessKey != null)
 				{
 					builder.Append("&client=");
 					builder.Append(WebUtility.UrlEncode(BusinessKey.ClientId));
+
 					if (BusinessKey.HasChannel)
 					{
 						builder.Append("&channel=");
 						builder.Append(WebUtility.UrlEncode(BusinessKey.Channel));
 					}
-          
 				}
-
 				if (BoundsBias != null)
 				{
 					builder.Append("&bounds=");
@@ -143,7 +131,6 @@ namespace Ccr.Geocoding
 						.Longitude
 						.ToString(CultureInfo.InvariantCulture));
 				}
-
 				if (ComponentFilters != null)
 				{
 					builder.Append("&components=");
@@ -151,14 +138,11 @@ namespace Ccr.Geocoding
 						string.Join("|",
 							ComponentFilters.Select(x => x.Filter)));
 				}
-
 				return builder.ToString();
 			}
 		}
 
-		#endregion
 
-		#region Constructors
 		private Geocoder()
 		{
 		}
@@ -175,16 +159,13 @@ namespace Ccr.Geocoding
 			ApiKey = apiKey;
 		}
 
-		#endregion
 
-		#region Methods
-
-		#region Methods - Synchronous
 		IEnumerable<Address> IGeocoder.Geocode(
 			string address)
 		{
 			return Geocode(address);
 		}
+
 		IEnumerable<Address> IGeocoder.Geocode(
 			string street,
 			string city,
@@ -201,12 +182,10 @@ namespace Ccr.Geocoding
 					country));
 		}
 
-
 		IEnumerable<Address> IGeocoder.ReverseGeocode(
 			[NotNull] Location location)
 		{
-      location.IsNotNull(nameof(location));
-
+			location.IsNotNull(nameof(location));
 			return ReverseGeocode(location);
 		}
 
@@ -216,7 +195,6 @@ namespace Ccr.Geocoding
 		{
 			return ReverseGeocode(latitude, longitude);
 		}
-
 
 		public IEnumerable<Address> Geocode(
 			[NotNull] string address)
@@ -254,14 +232,14 @@ namespace Ccr.Geocoding
 		private IEnumerable<Address> ProcessRequest(
 			[NotNull] HttpRequestMessage request)
 		{
-      request.IsNotNull(nameof(request));
+			request.IsNotNull(nameof(request));
+
 			try
 			{
 				using (var client = buildClient())
 				{
 					var result = client.SendAsync(request).Result;
-					return ProcessWebResponse(
-						result);
+					return ProcessWebResponse(result);
 				}
 			}
 			catch (GeocodingException)
@@ -278,16 +256,15 @@ namespace Ccr.Geocoding
 		private IEnumerable<Address> ProcessWebResponse(
 			[NotNull] HttpResponseMessage response)
 		{
-      response.IsNotNull(nameof(response));
+			response.IsNotNull(nameof(response));
 
 			var xmlDoc = LoadXmlResponse(response);
-      var nav = xmlDoc.CreateNavigator();
+			var nav = xmlDoc.CreateNavigator();
 
 			var status = evaluateStatus(
 				nav.Extract<string>("string(/GeocodeResponse/status)"));
 
-			if (status != GeocodingStatus.Ok
-			    && status != GeocodingStatus.ZeroResults)
+			if (status != GeocodingStatus.Ok && status != GeocodingStatus.ZeroResults)
 				throw new GeocodingException(status);
 
 			if (status == GeocodingStatus.Ok)
@@ -301,7 +278,7 @@ namespace Ccr.Geocoding
 		private static XPathDocument LoadXmlResponse(
 			[NotNull] HttpResponseMessage response)
 		{
-      response.IsNotNull(nameof(response));
+			response.IsNotNull(nameof(response));
 
 			using (var stream = response.Content.ReadAsStreamAsync().Result)
 			{
@@ -310,17 +287,15 @@ namespace Ccr.Geocoding
 			}
 		}
 
-		#endregion
-
-		#region Methods - Async
 		async Task<IEnumerable<Address>> IGeocoderAsync.GeocodeAsync(
 			[NotNull] string address)
 		{
-      address.IsNotNull(nameof(address));
+			address.IsNotNull(nameof(address));
 
 			return await GeocodeAsync(address)
 				.ConfigureAwait(false);
 		}
+
 		async Task<IEnumerable<Address>> IGeocoderAsync.GeocodeAsync(
 			string street,
 			string city,
@@ -342,9 +317,9 @@ namespace Ccr.Geocoding
 		async Task<IEnumerable<Address>> IGeocoderAsync.ReverseGeocodeAsync(
 		  [NotNull] Location location)
 		{
-		  location.IsNotNull(nameof(location));
+			location.IsNotNull(nameof(location));
 
-      return await ReverseGeocodeAsync(location)
+			return await ReverseGeocodeAsync(location)
 				.ConfigureAwait(false);
 		}
 
@@ -355,8 +330,6 @@ namespace Ccr.Geocoding
 			return await ReverseGeocodeAsync(latitude, longitude)
 				.ConfigureAwait(false);
 		}
-
-
 
 		public async Task<IEnumerable<Address>> GeocodeAsync(
 			[NotNull] string address)
@@ -397,7 +370,7 @@ namespace Ccr.Geocoding
 		private async Task<IEnumerable<Address>> ProcessRequestAsync(
 			[NotNull] HttpRequestMessage request)
 		{
-      request.IsNotNull(nameof(request));
+			request.IsNotNull(nameof(request));
 
 			try
 			{
@@ -419,21 +392,20 @@ namespace Ccr.Geocoding
 			}
 		}
 
-
 		private async Task<IEnumerable<Address>> ProcessWebResponseAsync(
 			[NotNull] HttpResponseMessage response)
 		{
-		  response.IsNotNull(nameof(response));
+			response.IsNotNull(nameof(response));
 
-      var xmlDoc = await LoadXmlResponseAsync(response)
+			var xmlDoc = await LoadXmlResponseAsync(response)
 				.ConfigureAwait(false);
-      var nav = xmlDoc.CreateNavigator();
+
+			var nav = xmlDoc.CreateNavigator();
 
 			var status = evaluateStatus(
 				nav.Extract<string>("string(/GeocodeResponse/status)"));
 
-			if (status != GeocodingStatus.Ok
-			    && status != GeocodingStatus.ZeroResults)
+			if (status != GeocodingStatus.Ok && status != GeocodingStatus.ZeroResults)
 				throw new GeocodingException(status);
 
 			if (status == GeocodingStatus.Ok)
@@ -447,7 +419,7 @@ namespace Ccr.Geocoding
 		private static async Task<XPathDocument> LoadXmlResponseAsync(
 			[NotNull] HttpResponseMessage response)
 		{
-      response.IsNotNull(nameof(response));
+			response.IsNotNull(nameof(response));
 
 			using (var stream = await response.Content.ReadAsStreamAsync()
 				.ConfigureAwait(false))
@@ -457,9 +429,6 @@ namespace Ccr.Geocoding
 			}
 		}
 
-		#endregion
-
-		#region Private Methods
 		private static string buildAddress(
 			string street,
 			string city,
@@ -507,7 +476,7 @@ namespace Ccr.Geocoding
 		private static IEnumerable<Address> ParseAddresses(
 			[NotNull] XPathNodeIterator nodes)
 		{
-      nodes.IsNotNull(nameof(nodes));
+			nodes.IsNotNull(nameof(nodes));
 
 			while (nodes.MoveNext())
 			{
@@ -651,8 +620,6 @@ namespace Ccr.Geocoding
 					nodes.Current.InnerXml);
 		}
 
-
-
 		/// <remarks>
 		/// http://code.google.com/apis/maps/documentation/geocoding/#StatusCodes
 		/// </remarks>
@@ -771,8 +738,5 @@ namespace Ccr.Geocoding
 					return LocationType.Unknown;
 			}
 		}
-		#endregion
-
-		#endregion
 	}
 }

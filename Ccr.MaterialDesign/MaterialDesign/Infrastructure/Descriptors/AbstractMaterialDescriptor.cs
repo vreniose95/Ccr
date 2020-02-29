@@ -9,25 +9,26 @@ namespace Ccr.MaterialDesign.Infrastructure.Descriptors
 {
 	[TypeConverter(typeof(MaterialDescriptorConverter))]
 	public abstract class AbstractMaterialDescriptor
-    : IMaterialDescriptor
-  {
-    private double opacity = 1.0;
-    public double Opacity
-    {
-      get => opacity;
-      set
-      {
-        if (value.IsNotWithin((0d, 1d)))
-          throw new ArgumentOutOfRangeException(
-            nameof(value),
-            value,
-            $"The {nameof(value).SQuote()} parameter must be between 0 and 1, inclusively.");
+		: IMaterialDescriptor
+	{
+		private double _opacity = 1.0;
 
-        opacity = value;
-      }
-    }
+		public double Opacity
+		{
+			get => _opacity;
+			set
+			{
+				if (value.IsNotWithin((0d, 1d)))
+					throw new ArgumentOutOfRangeException(
+						nameof(value),
+						value,
+						$"The {nameof(value).SQuote()} parameter must be between 0 and 1, inclusively.");
+
+				_opacity = value;
+			}
+		}
 
 		public abstract SolidColorBrush GetMaterial(
-		  Swatch swatch);
+			Swatch swatch);
 	}
 }

@@ -19,15 +19,5 @@ namespace Ccr.MaterialDesign.Extensions
 
 			return @this;
 		}
-
-		//public static TElement SetAttachedPath<TElement>(this TElement @this,
-		//	DependencyProperty property, object value)
-		//	where TElement : DependencyObject
-		//{
-		//	var converter = new PropertyPathConverter();
-		//	var convertedValue = converter.ConvertFrom(value);
-		//	@this.SetValue(property, convertedValue);
-		//	return @this;
-		//}
 	}
 }

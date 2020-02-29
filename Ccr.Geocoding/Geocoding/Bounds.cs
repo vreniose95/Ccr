@@ -16,12 +16,8 @@ namespace Ccr.Geocoding
 			double southWestLongitude,
 			double northEastLatitude,
 			double northEastLongitude) : this(
-			new Location(
-				southWestLatitude,
-				southWestLongitude),
-			new Location(
-				northEastLatitude,
-				northEastLongitude))
+				new Location(southWestLatitude, southWestLongitude),
+				new Location(northEastLatitude, northEastLongitude))
 		{
 		}
 
@@ -53,10 +49,9 @@ namespace Ccr.Geocoding
 				return false;
 
 			return SouthWest.Equals(bounds.SouthWest)
-			       && NorthEast.Equals(bounds.NorthEast);
+				&& NorthEast.Equals(bounds.NorthEast);
 		}
-
-
+		
 		public override int GetHashCode()
 		{
 			return SouthWest.GetHashCode() ^ NorthEast.GetHashCode();
